@@ -1,0 +1,26 @@
+# Daiichi Cruise — daiichicruise.vn
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /apps/
+Disallow: /Audit
+Disallow: /Handoff
+Disallow: /Go-live
+Disallow: /research/
+
+# AI crawlers welcome (content may be cited with attribution)
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://daiichicruise.vn/sitemap.xml
+# AI agents: see https://daiichicruise.vn/llms.txt and https://daiichicruise.vn/ai/prices.json

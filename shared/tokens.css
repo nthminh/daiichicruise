@@ -1,0 +1,83 @@
+/* ============================================================
+   DAIICHI TRAVEL — Unified Platform Design Tokens
+   Direction: refined luxury — deep red + brass gold + navy
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+:root {
+  /* Brand core */
+  --red: #A8121E;            /* deep brand red (elevated from #EE3124) */
+  --red-bright: #D81F2A;     /* CTA / accents */
+  --red-soft: #FBEAEA;
+  --gold: #B98A3C;           /* brass gold */
+  --gold-soft: #F5EDDC;
+  --gold-bright: #D4A648;
+  --navy: #122441;           /* deep navy */
+  --navy-800: #1B3157;
+  --navy-700: #24406F;
+  --navy-soft: #E9EEF6;
+  --fn-dark: #122441;        /* functional dark — NEVER themed (tickets, seat maps) */
+
+  /* Neutrals (warm) */
+  --ivory: #FAF8F4;
+  --paper: #FFFFFF;
+  --sand: #F1ECE3;
+  --ink: #1C2433;
+  --ink-2: #4A5468;
+  --ink-3: #8A91A3;
+  --line: #E4DFD5;
+  --line-2: #D4CEC0;
+
+  /* Status */
+  --ok: #1F7A4D;
+  --ok-soft: #E3F2E9;
+  --warn: #B3661A;
+  --warn-soft: #FBF0DE;
+  --bad: #B3261E;
+  --bad-soft: #FCEAE8;
+
+  /* Type */
+  --font-display: 'Playfair Display', 'Times New Roman', serif;
+  --font-ui: 'Be Vietnam Pro', 'Helvetica Neue', system-ui, -apple-system, 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', sans-serif;
+
+  /* Shape */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --shadow-1: 0 1px 2px rgba(18,36,65,.06), 0 2px 8px rgba(18,36,65,.06);
+  --shadow-2: 0 4px 12px rgba(18,36,65,.10), 0 12px 32px rgba(18,36,65,.12);
+  --shadow-3: 0 8px 24px rgba(18,36,65,.16), 0 24px 64px rgba(18,36,65,.18);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-ui);
+  color: var(--ink);
+  background: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { text-wrap: pretty; }
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; }
+input, select, textarea { font-family: inherit; }
+a { color: inherit; }
+
+::selection { background: var(--gold-soft); }
+
+/* cultural accent bar under headers (set per language theme) */
+.dt-header::after, .on-header::after { content: ''; display: block; height: 3px; background: var(--accent-bar, linear-gradient(90deg, var(--gold), var(--gold-bright))); }
+
+/* per-culture typographic touches */
+html[data-theme="ja"] .dt-kicker, html[data-theme="ja"] .on-kicker, html[data-theme="ja"] .on-sec-head .k { letter-spacing: .3em; }
+html[data-theme="ja"] .dt-hero h1, html[data-theme="ja"] .on-hero h1 { font-weight: 500; letter-spacing: .06em; }
+html[data-theme="ko"] .dt-btn, html[data-theme="ko"] .on-btn, html[data-theme="ko"] .on-cta, html[data-theme="ko"] .dt-search-btn { border-radius: 24px; }
+html[data-theme="zh"] .dt-logo-name em, html[data-theme="zh"] .on-logo b em { color: var(--gold-bright); }
+html[data-theme="en"] .dt-hero h1, html[data-theme="en"] .on-hero h1 { font-weight: 800; letter-spacing: -.01em; }
+
+/* Scrollbar (webkit) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 8px; border: 2px solid var(--ivory); }
+::-webkit-scrollbar-track { background: transparent; }

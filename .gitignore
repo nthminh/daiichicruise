@@ -1,0 +1,16 @@
+# Secrets & Passwords - DO NOT COMMIT
+MAT-KHAU-BO-MOI-*.md
+*.env*
+.env
+.env.local
+
+# Large zip archives
+*.zip
+
+# Python caches
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db

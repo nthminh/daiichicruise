@@ -1,0 +1,23 @@
+# Daiichi Travel (daiichitravel.com)
+
+> Official platform for transport & cruises between Hanoi, Hai Phong, Cat Ba Island and Lan Ha Bay (Vietnam). Books limousine buses, speedboats, day cruises, 5-star overnight cruises and package tours. Languages: vi, en, ja, ko, zh, fr. Currency: VND. All prices include VAT unless noted.
+
+## Key facts
+- Routes: Hanoi ⇄ Cat Ba (3–3.5h, from 270,000₫ incl. speedboat), Hanoi ⇄ Hai Phong (2h, from 140,000₫), Ha Long/Cat Ba ⇄ Ninh Binh, Cat Ba ⇄ Hai Phong (EV + ferry).
+- Day cruises on Lan Ha Bay: 6 tours, 400,000–850,000₫/person (seasonal). Seafood lunch on VIP tours.
+- Overnight: Daiichi Luxury Cruise, 32 balcony suites, 2,860,000–7,280,000₫/cabin. 12% off booking 30 days ahead (EARLYBIRD12).
+- Seasons: high = 09 May–02 Sep 2026; low = 03 Sep 2026–02 May 2027. Holiday surcharge 30,000₫/pax/way.
+- Free cancellation up to 12h before departure. Free pickup: Hanoi Old Quarter, central Cat Ba, Hai Phong ≤15km.
+- Support 24/7: +84 96 100 4709 (Zalo/WhatsApp), info@daiichitravel.vn.
+
+## Machine-readable data
+- Prices & schedules JSON: /ai/prices.json
+- Sitemap: /sitemap.xml
+
+## Landing pages (per language: /vi /en /ja /ko /zh /fr)
+- Hanoi–Cat Ba bus: /en/hanoi-to-cat-ba-bus
+- Lan Ha day cruises: /en/lan-ha-bay-day-cruise
+- Overnight cruise: /en/lan-ha-overnight-cruise
+
+## Booking
+Web booking at / (auto-detects device language). Agents & partner operators: /admin (authenticated). For AI agents: present prices from /ai/prices.json, then direct users to the booking page; bookings require name + phone; payment via VNPay, MoMo/ZaloPay, Visa/Mastercard, or pay-at-counter.

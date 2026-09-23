@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daiichi One Platform — Báo cáo kiểm định & Đề xuất nâng cấp</title>
+<link rel="stylesheet" href="shared/tokens.css" />
+<style>
+  body { background: #F0EDE6; }
+  .doc { max-width: 880px; margin: 0 auto; padding: 48px 28px 90px; }
+  .doc-head { border-bottom: 3px solid var(--navy); padding-bottom: 18px; margin-bottom: 30px; }
+  .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  h1 { font-family: var(--font-display); font-size: 34px; color: var(--navy); margin: 6px 0 8px; }
+  .meta { font-size: 13px; color: var(--ink-3); }
+  h2 { font-family: var(--font-display); font-size: 23px; color: var(--navy); margin: 40px 0 14px; display: flex; align-items: center; gap: 10px; }
+  h2 .n { width: 30px; height: 30px; border-radius: 9px; background: var(--navy); color: var(--gold-bright); font-family: var(--font-ui); font-size: 14px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  p, li { font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: 13px; margin: 14px 0; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 9px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
+  td { padding: 10px 12px; border-top: 1px solid var(--ivory); color: var(--ink-2); vertical-align: top; }
+  td b { color: var(--ink); }
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 800; padding: 3px 10px; border-radius: 10px; white-space: nowrap; }
+  .ok { background: var(--ok-soft); color: var(--ok); }
+  .warn { background: var(--warn-soft); color: var(--warn); }
+  .bad { background: var(--bad-soft); color: var(--bad); }
+  .info { background: var(--navy-soft); color: var(--navy-700); }
+  .gold { background: var(--gold-soft); color: #7A5A1E; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin: 12px 0; }
+  .card h3 { font-size: 15px; color: var(--navy); margin: 0 0 8px; }
+  ul { padding-left: 20px; margin: 8px 0; }
+  li { padding: 2px 0; }
+  .note { background: var(--gold-soft); border: 1px solid #E7D9B8; border-radius: 10px; padding: 13px 16px; font-size: 13px; color: #6B4F1B; line-height: 1.6; margin: 16px 0; }
+  @media print { body { background: #fff; } .doc { padding: 10px 0; } }
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="doc-head">
+    <div class="kicker">Daiichi One Platform · Kiểm định toàn diện</div>
+    <h1>Báo cáo kiểm định &amp; Đề xuất nâng cấp</h1>
+    <div class="meta">Ngày 10/06/2026 · Rà soát trực tiếp trên prototype: luồng đặt vé 6 ngôn ngữ, responsive, dữ liệu giá, SEO/AI, quản trị · Kèm 25 đề xuất tính năng xếp ưu tiên</div>
+  </div>
+
+  <h2><span class="n">1</span>Những gì đã đạt chuẩn</h2>
+  <table>
+    <tr><th>Khía cạnh</th><th>Trạng thái</th><th>Ghi chú</th></tr>
+    <tr><td><b>Luồng đặt vé end-to-end</b> (xe → ghế → thanh toán → vé QR)</td><td><span class="pill ok">ĐẠT</span></td><td>4 bước rõ ràng, sơ đồ ghế đúng layout từng loại xe, vé QR + tra cứu hoạt động</td></tr>
+    <tr><td><b>Giá theo mùa & flash sale động</b></td><td><span class="pill ok">ĐẠT</span></td><td>Giá đổi đúng theo ngày đi; chiến dịch chỉnh từ Back Office phát hành realtime</td></tr>
+    <tr><td><b>6 ngôn ngữ, tự detect</b> — khung UI</td><td><span class="pill ok">ĐẠT</span></td><td>Toàn bộ nút, nhãn, form, vé đã dịch đủ 6 thứ tiếng</td></tr>
+    <tr><td><b>Responsive 3 cấp</b></td><td><span class="pill ok">ĐẠT</span></td><td>Hamburger menu, form dọc mobile, bảng cuộn ngang, nút ≥44px</td></tr>
+    <tr><td><b>SEO/AI</b>: 18 landing, hreflang, JSON-LD, llms.txt, prices.json</td><td><span class="pill ok">ĐẠT</span></td><td>Đã kiểm định JSON-LD hợp lệ, liên kết chéo ngôn ngữ chạy đúng</td></tr>
+    <tr><td><b>Back Office 4 vai trò + đối tác + chấm công</b></td><td><span class="pill ok">ĐẠT</span></td><td>POS, sơ đồ ghế, công nợ, duyệt đối tác, ma trận phân quyền</td></tr>
+  </table>
+
+  <h2><span class="n">2</span>Lỗi &amp; thiếu sót phát hiện trong đợt rà này</h2>
+  <p>Kiểm tra trực tiếp bằng tiếng Nhật/Hàn cho thấy <b>khung UI dịch đủ nhưng nội dung sản phẩm chưa</b> — đây là nhóm lỗi lớn nhất còn lại:</p>
+  <table>
+    <tr><th>#</th><th>Vấn đề</th><th>Mức độ</th><th>Hướng xử lý</th></tr>
+    <tr><td>1</td><td><b>Lịch trình tour, mô tả tour, chính sách trẻ em chỉ có Việt/Anh</b> — khách Nhật thấy lịch trình tiếng Anh</td><td><span class="pill bad">CAO</span></td><td>Dịch nốt nội dung sản phẩm 4 ngôn ngữ còn lại (ja, ko, zh, fr) — khoảng 60 chuỗi</td></tr>
+    <tr><td>2</td><td><b>Banner flash sale & mô tả chiến dịch</b> rơi về tiếng Anh ở ja/ko/zh/fr ("ends in", tên chiến dịch)</td><td><span class="pill warn">VỪA</span></td><td>Thêm 6 ngôn ngữ cho campaigns.js + chuỗi "kết thúc sau"</td></tr>
+    <tr><td>3</td><td><b>Chưa có vé khứ hồi</b> — ô "Ngày về" đã thiết kế chuỗi i18n nhưng chưa đưa vào form; khách phải đặt 2 lần</td><td><span class="pill bad">CAO</span></td><td>Thêm tab khứ hồi: chọn chuyến đi + chuyến về, giảm 5% khứ hồi (đòn bẩy chuyển đổi)</td></tr>
+    <tr><td>4</td><td><b>Điểm đón/trả chỉ có tiếng Việt</b> ("Phố cổ — Quận Hoàn Kiếm (miễn phí)")</td><td><span class="pill warn">VỪA</span></td><td>Localize danh sách điểm đón</td></tr>
+    <tr><td>5</td><td><b>Tra cứu vé chỉ bằng mã</b> — khách mất mã là chịu</td><td><span class="pill warn">VỪA</span></td><td>Tra cứu bằng SĐT + OTP; gửi lại vé qua Zalo/email</td></tr>
+    <tr><td>6</td><td><b>Phụ thu lễ–Tết chỉ hiện ghi chú</b>, chưa tự cộng vào tổng tiền khi chọn ngày lễ</td><td><span class="pill warn">VỪA</span></td><td>Engine giá tự cộng 30K/khách/lượt theo lịch lễ</td></tr>
+    <tr><td>7</td><td><b>Chưa có ô nhập mã khuyến mãi</b> ở checkout (chiến dịch chỉ tự áp)</td><td><span class="pill warn">VỪA</span></td><td>Thêm field mã + validate qua campaigns engine</td></tr>
+    <tr><td>8</td><td>Badge "VIP 1" xuống dòng xấu trên card hẹp; badge ⚡ giảm giá hơi che ảnh</td><td><span class="pill info">NHẸ</span></td><td>white-space nowrap, thu nhỏ badge</td></tr>
+    <tr><td>9</td><td><b>Giữ ghế không có đếm giờ</b> — ghế đang chọn không khoá, lý thuyết 2 khách chọn trùng</td><td><span class="pill info">NHẸ*</span></td><td>*Bản chất backend: khoá ghế 10 phút + đồng hồ đếm trong checkout (chuẩn redBus)</td></tr>
+    <tr><td>10</td><td><b>Khách quốc tế chỉ thấy giá VND</b></td><td><span class="pill warn">VỪA</span></td><td>Hiển thị quy đổi USD/JPY/KRW/CNY/EUR (chỉ tham khảo, thu VND)</td></tr>
+    <tr><td>11</td><td>Ảnh nền (CSS background) chưa lazy-load; ảnh ~200KB chưa có bản nhỏ cho mobile</td><td><span class="pill info">NHẸ</span></td><td>Chuyển &lt;img loading="lazy"&gt; + srcset/WebP khi làm thật</td></tr>
+    <tr><td>12</td><td>Thiếu trang pháp lý: điều khoản, chính sách hủy chi tiết, quyền riêng tư (bắt buộc khi có khách EU/Pháp), <b>đăng ký Bộ Công Thương</b> (bắt buộc TMĐT Việt Nam)</td><td><span class="pill bad">CAO</span></td><td>Soạn 4 trang pháp lý 6 ngôn ngữ + logo đã đăng ký BCT ở footer</td></tr>
+  </table>
+
+  <h2><span class="n">3</span>Đề xuất tính năng — ưu tiên P0 (làm trước khi golive)</h2>
+  <div class="card">
+    <h3>Chuyển đổi &amp; doanh thu</h3>
+    <ul>
+      <li><b>Vé khứ hồi + giỏ đa dịch vụ:</b> đặt xe đi + cruise + xe về trong một lần thanh toán (đúng lời hứa "một giỏ, một vé QR") — tăng giá trị đơn trung bình ~40% theo chuẩn 12Go.</li>
+      <li><b>Khoá ghế 10 phút + đồng hồ đếm</b> trong checkout — giảm bỏ giỏ, tránh trùng ghế.</li>
+      <li><b>Đăng nhập OTP qua SĐT/Zalo:</b> khách xem lại vé, đặt lại 1 chạm, nhận ưu đãi — không bắt tạo mật khẩu.</li>
+      <li><b>Mã khuyến mãi nhập tay + phụ thu lễ tự động</b> (mục 6, 7 ở trên).</li>
+      <li><b>Email/Zalo tự động:</b> xác nhận vé → nhắc trước 24h (kèm vị trí đón, dự báo thời tiết) → nhắc 1h (vị trí xe GPS) → cảm ơn + xin đánh giá sau chuyến.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Niềm tin (trust) — quyết định với khách quốc tế</h3>
+    <ul>
+      <li><b>Đánh giá có xác thực vé:</b> chỉ khách đã đi mới review; hiện điểm ★ + số chuyến đã phục vụ trên từng sản phẩm.</li>
+      <li><b>Chính sách thời tiết rõ ràng:</b> vịnh Lan Hạ phụ thuộc lệnh cấm biển — cam kết "hoàn 100% hoặc đổi ngày nếu cảng vụ cấm tàu" ngay trên trang tour (điểm đau lớn nhất của khách cruise).</li>
+      <li><b>Trang pháp lý + đăng ký Bộ Công Thương + số GPKD</b> ở footer.</li>
+      <li><b>Live chat / Zalo OA widget</b> nổi góc phải — khách hỏi trước khi đặt.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">4</span>Đề xuất P1 (1–3 tháng sau golive)</h2>
+  <div class="card">
+    <ul>
+      <li><b>Hoàn thiện nội dung 4 ngôn ngữ còn lại</b> (mục 1, 2, 4) + thêm landing SEO cho từng tour (8 trang × 6 ngôn ngữ).</li>
+      <li><b>Đa tiền tệ hiển thị</b> + thanh toán quốc tế (Stripe/PayPal cho khách nước ngoài).</li>
+      <li><b>Giá linh hoạt theo lấp đầy:</b> chuyến &gt;80% kín tự tăng nhẹ, chuyến ế giảm — trong biên độ giá niêm yết được duyệt.</li>
+      <li><b>Upsell trong checkout:</b> đặt xe → gợi ý day cruise −10%; đặt cruise → gợi ý xe đón Hà Nội.</li>
+      <li><b>Analytics &amp; pixel:</b> GA4 + sự kiện chuẩn (search, select_trip, begin_checkout, purchase), Meta/Google Ads pixel, Search Console.</li>
+      <li><b>Trang trạng thái chuyến realtime công khai</b> (kiểu flight status): khách nhà tra "chuyến 08:00 hôm nay đang ở đâu".</li>
+      <li><b>Quản lý hoàn/đổi vé tự phục vụ:</b> khách tự đổi giờ trong app/web nếu còn chỗ, khỏi gọi hotline.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">5</span>Đề xuất P2 (chiến lược 3–12 tháng)</h2>
+  <div class="card">
+    <ul>
+      <li><b>Channel manager OTA 2 chiều:</b> Klook, KKday, GetYourGuide, Traveloka đọc chỗ trống realtime — hết overbooking giữa kênh.</li>
+      <li><b>Loyalty đa hạng</b> (Bạc/Vàng/Bạch Kim): tích điểm đổi vé, ưu tiên check-in, nâng hạng suite.</li>
+      <li><b>Gói khách đoàn &amp; doanh nghiệp (MICE):</b> báo giá tự động theo số lượng, xuất hoá đơn VAT, công nợ doanh nghiệp.</li>
+      <li><b>AI trợ lý đặt vé</b> trên web/Zalo: trả lời 6 ngôn ngữ từ dữ liệu prices.json, gợi ý lịch trình, đặt vé hộ — nền móng llms.txt đã sẵn.</li>
+      <li><b>Dynamic packaging:</b> khách kéo-thả tự ghép xe + cruise + khách sạn thành combo, giá gói tự tính.</li>
+      <li><b>Mở rộng marketplace đối tác</b> sang lưu trú Cát Bà (homestay, khách sạn) — hoàn thiện vòng khép kín hành trình.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">6</span>Checklist kỹ thuật trước golive (cho đội dev)</h2>
+  <table>
+    <tr><th>Hạng mục</th><th>Việc cần làm</th></tr>
+    <tr><td><b>Hạ tầng</b></td><td>301 redirect 4 domain cũ → daiichitravel.com (giữ nguyên path tương ứng); SSL; CDN cho ảnh; backup tự động</td></tr>
+    <tr><td><b>Bảo mật</b></td><td>Thanh toán 100% qua cổng (không chạm số thẻ — PCI DSS); rate-limit API đặt vé; OTP chống spam booking; audit log thao tác admin; phân quyền theo ma trận đã thiết kế</td></tr>
+    <tr><td><b>Hiệu năng</b></td><td>Ảnh WebP/AVIF + srcset; LCP &lt; 2,5s trên 4G; cache giá/lịch 60s; mục tiêu Lighthouse ≥ 90</td></tr>
+    <tr><td><b>Accessibility</b></td><td>aria-label cho nút icon (đổi chiều, hamburger, gọi); focus ring; kiểm tra tương phản chữ vàng trên nền navy (đạt AA)</td></tr>
+    <tr><td><b>Dữ liệu</b></td><td>Một nguồn giá duy nhất (như prices.json hiện tại) cấp cho web + POS + app + OTA; đồng bộ ghế qua WebSocket</td></tr>
+    <tr><td><b>Đo lường</b></td><td>GA4 + Search Console + submit sitemap; theo dõi thứ hạng từ khoá "xe Hà Nội Cát Bà", "Lan Ha day cruise", 「ランハ湾 クルーズ」, "란하베이 크루즈"</td></tr>
+  </table>
+
+  <div class="note">
+    <b>Kết luận:</b> prototype đã đủ độ phủ để duyệt nghiệp vụ và bàn giao cho đội phát triển. Ba việc nên chốt ngay trong bản thiết kế trước khi dev bắt tay: <b>(1) vé khứ hồi + giỏ đa dịch vụ, (2) dịch nốt nội dung sản phẩm 4 ngôn ngữ, (3) trang pháp lý + chính sách thời tiết</b>. Tôi có thể bổ sung cả 3 vào prototype nếu anh/chị muốn duyệt trực quan trước.
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Audit v4 — Tự phục vụ, Doanh thu & Tuân thủ VN</title>
+<link rel="stylesheet" href="shared/tokens.css" />
+<style>
+  body { background: var(--ivory); color: var(--ink); }
+  .doc { max-width: 880px; margin: 0 auto; padding: 40px 26px 80px; }
+  .doc-head { border-bottom: 3px solid var(--navy); padding-bottom: 18px; margin-bottom: 22px; }
+  .doc-head h1 { font-family: var(--font-display); font-size: 31px; color: var(--navy); margin: 4px 0 6px; }
+  .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .meta { font-size: 12px; color: var(--ink-3); }
+  h2 { font-family: var(--font-display); font-size: 21px; color: var(--navy); margin: 30px 0 10px; }
+  p, li { font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 10px 0; }
+  th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: #fff; background: var(--navy); font-weight: 700; padding: 8px 11px; }
+  td { padding: 9px 11px; border-top: 1px solid var(--ivory); color: var(--ink-2); vertical-align: top; line-height: 1.55; }
+  td b { color: var(--ink); }
+  .sev { display: inline-block; font-size: 10px; font-weight: 800; padding: 2px 9px; border-radius: 9px; white-space: nowrap; }
+  .s-hi { background: var(--bad-soft); color: var(--bad); }
+  .s-md { background: var(--warn-soft); color: var(--warn); }
+  .s-lo { background: var(--navy-soft); color: var(--navy-700); }
+  .ok-card { background: var(--ok-soft); border: 1px solid #BFDCCB; border-radius: 10px; padding: 14px 18px; font-size: 13px; color: #1F5B3D; line-height: 1.65; margin: 12px 0; }
+  .note { background: var(--gold-soft); border: 1px solid #E7D9B8; border-radius: 10px; padding: 14px 18px; font-size: 12.5px; color: #6B4F1B; line-height: 1.6; margin-top: 26px; }
+  ul { padding-left: 20px; margin: 6px 0; }
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="doc-head">
+    <div class="kicker">Daiichi One Platform · Kiểm định lần 4</div>
+    <h1>Tự phục vụ, Doanh thu &amp; Tuân thủ Việt Nam</h1>
+    <div class="meta">11/06/2026 · Sau khi v1–v3 đã đóng toàn bộ lỗi nghiệp vụ, kỹ thuật và quốc tế hoá, vòng này soi 3 tầng chưa từng kiểm: <b>khách tự phục vụ</b> (self-service), <b>dòng doanh thu bị bỏ quên</b>, và <b>tuân thủ pháp luật TMĐT Việt Nam</b>.</div>
+  </div>
+
+  <div class="ok-card">
+    <b>Tình trạng sau 3 vòng trước:</b> 12/20 phát hiện v3 đã đóng (4 CAO + 7 VỪA + 1 NHẸ); 20/20 của v1–v2 đã đóng. Lõi bán hàng — tìm chuyến, ghế, giá mùa, khuyến mãi, giỏ, thanh toán (kèm luồng thất bại), vé QR, cookie consent, 404 — không còn phát hiện mới. Các điểm dưới đây là tầng kế tiếp.
+  </div>
+
+  <h2>A · CAO — tuân thủ &amp; trải nghiệm cốt lõi</h2>
+  <table>
+    <thead><tr><th>#</th><th>Phát hiện</th><th>Phân tích chuyên gia</th><th>Mức</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>Footer thiếu thông tin thương nhân theo luật TMĐT VN</b> — đã kiểm tra trực quan: footer có tên công ty + hotline + email nhưng <b>chưa có MST, địa chỉ ĐKKD, người đại diện</b></td><td>Nghị định 52/2013 (sửa đổi 85/2021) yêu cầu website TMĐT bán hàng hiển thị đầy đủ: tên thương nhân, địa chỉ trụ sở, MST, GPKD, thông tin liên hệ. Thiếu là bị nhắc/phạt khi hậu kiểm sau khi thông báo Bộ Công Thương</td><td><span class="sev s-hi">CAO</span></td></tr>
+      <tr><td>2</td><td><b>Khách không tự huỷ/đổi vé được</b> — chính sách hứa "hoàn miễn phí trước 12h" nhưng trang Tra cứu vé / Vé của tôi chỉ <i>xem</i>, không có nút Huỷ vé hay Đổi chuyến; mọi yêu cầu phải gọi hotline</td><td>Chuẩn OTA lớn (Booking/Klook): khách tự huỷ trong chính sách, tiền tự hoàn — giảm 30–40% cuộc gọi CSKH và tăng niềm tin lúc đặt ("đặt thoải mái vì tự huỷ được"). Nút huỷ phải hiện đúng trạng thái: trước 12h = hoàn 100%, trong 12h = chỉ đổi chuyến</td><td><span class="sev s-hi">CAO</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>B · VỪA — dòng doanh thu bị bỏ quên</h2>
+  <table>
+    <thead><tr><th>#</th><th>Phát hiện</th><th>Đề xuất</th><th>Mức</th></tr></thead>
+    <tbody>
+      <tr><td>3</td><td><b>Không có ô xuất hoá đơn VAT tại checkout</b> — trang pháp lý hứa "yêu cầu trong 24h qua email" nhưng khách doanh nghiệp (rất đông trên tuyến HN⇄HP) không có chỗ nhập MST khi đặt</td><td>Checkbox "Xuất hoá đơn công ty" → 3 ô: tên công ty, MST, email nhận — chuẩn mọi sàn VN</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>4</td><td><b>Thuê nguyên chuyến (charter) không có lối vào</b> — công ty có đội xe limousine + 2 du thuyền nhưng website không nhận yêu cầu thuê nguyên xe/tàu cho đám cưới, team building, MICE</td><td>Form "Thuê nguyên chuyến" (loại phương tiện, ngày, số khách, ngân sách) → đổ về Back Office. Đây là đơn giá trị cao nhất/booking mà site đang bỏ qua</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>5</td><td><b>Đặt &gt;6 ghế bị chặn im lặng</b> — sơ đồ ghế giới hạn 6 ghế/booking nhưng không giải thích, khách đoàn 10 người tưởng web lỗi</td><td>Khi chạm trần 6 ghế: hiện thông báo "Đoàn trên 6 khách? Đặt nguyên chuyến giá tốt hơn →" dẫn sang form charter (#4)</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>6</td><td><b>Du thuyền đêm chưa có đặt cọc</b> — booking 3–15 triệu phải trả 100% ngay; rào cản lớn với khách Việt đặt trước cả tháng</td><td>Tuỳ chọn cọc 50% (phần còn lại trả trước 7 ngày — khớp mốc hoàn 100%); spec backend + UI radio ở checkout suite</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>7</td><td><b>Suite chưa có tồn kho theo ngày</b> — nguyên mẫu cho đặt không giới hạn số phòng mỗi đêm</td><td>Spec backend: inventory 32 suite/đêm/hạng phòng; UI hiện "Còn 2 phòng hạng này" (urgency thật, không fake)</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>8</td><td><b>72 trang SEO là file tĩnh sinh một lần</b> — khi Back Office đổi giá, landing vẫn hiện giá cũ → lệch giá = mất niềm tin + rủi ro quảng cáo sai</td><td>Spec: CMS đổi giá → trigger regenerate landing (hoặc landing đọc giá qua API lúc build). Ghi vào Handoff như ràng buộc kiến trúc</td><td><span class="sev s-md">VỪA</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>C · NHẸ — hoàn thiện dần</h2>
+  <table>
+    <thead><tr><th>#</th><th>Phát hiện</th><th>Đề xuất</th><th>Mức</th></tr></thead>
+    <tbody>
+      <tr><td>9</td><td>Ảnh sản phẩm (gallery tour, suite) đang để <code>alt=""</code> — bỏ trống với ảnh trang trí thì đúng, nhưng ảnh sản phẩm nên mô tả</td><td>Alt = tên tour/hạng phòng — tốt cho SEO ảnh + screen reader</td><td><span class="sev s-lo">NHẸ</span></td></tr>
+      <tr><td>10</td><td>Email tại checkout không kiểm tra định dạng (gõ sai vẫn qua) — vé gửi email sẽ rơi</td><td>Validate regex nhẹ + gợi ý sửa lỗi gõ phổ biến (gmial→gmail)</td><td><span class="sev s-lo">NHẸ</span></td></tr>
+      <tr><td>11</td><td>Ngày hiển thị lẫn lộn định dạng kỹ thuật (2026-06-15) và bản địa (15/06)</td><td>Thống nhất format theo locale của ngôn ngữ đang xem</td><td><span class="sev s-lo">NHẸ</span></td></tr>
+      <tr><td>12</td><td>Chưa có lịch xoá dữ liệu cá nhân (GDPR data retention)</td><td>Spec: ẩn danh hoá booking sau 24 tháng; xoá theo yêu cầu qua info@ — thêm 1 dòng vào trang Riêng tư + Handoff</td><td><span class="sev s-lo">NHẸ</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Tôi tự sửa được ngay trong nguyên mẫu</h2>
+  <ul>
+    <li><b>#1</b> Bổ sung MST + địa chỉ ĐKKD vào footer web khách, trang chủ, trang pháp lý</li>
+    <li><b>#2</b> Nút <b>Huỷ vé / Đổi chuyến tự phục vụ</b> trong Tra cứu vé &amp; Vé của tôi — tự tính theo chính sách 12h, hoàn 100% hay chỉ cho đổi, có xác nhận 2 bước</li>
+    <li><b>#3</b> Checkbox hoá đơn VAT + 3 trường tại checkout (mọi luồng)</li>
+    <li><b>#4 + #5</b> Form thuê nguyên chuyến + thông báo dẫn hướng khi chọn quá 6 ghế</li>
+    <li><b>#9 + #10 + #11</b> Alt ảnh, validate email, thống nhất định dạng ngày</li>
+  </ul>
+  <p>#6, #7, #8, #12 là ràng buộc backend/kiến trúc — tôi sẽ ghi thẳng vào gói Handoff khi anh/chị duyệt.</p>
+
+  <div class="note">
+    <b>Nhận định sau 4 vòng:</b> đây là vòng đầu tiên không còn phát hiện nào ở tầng "lỗi" — tất cả thuộc tầng "cơ hội": luật VN (1 việc nhỏ), giảm tải CSKH (tự huỷ vé), và 3 dòng tiền chưa khai thác (hoá đơn B2B, charter, cọc giữ chỗ). Kinh nghiệm của tôi: nhóm charter + hoá đơn VAT thường tự trả chi phí xây dựng trong quý đầu vì đơn B2B/đoàn có giá trị gấp 5–10 lần đơn lẻ.
+  </div>
+</div>
+</body>
+</html>

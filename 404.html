@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 — Daiichi Travel</title>
+<link rel="icon" href="/favicon.ico" />
+<meta name="robots" content="noindex" />
+<style>
+  :root { --navy:#122441; --gold:#B98A3C; --gold-b:#D4A648; --red:#A8121E; --ink2:#4A5468; --ivory:#FAF8F4; --line:#E4DFD5; }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(160deg,#0D182E 0%,#122441 60%,#1B3157 100%); font-family:'Be Vietnam Pro','Helvetica Neue',system-ui,sans-serif; padding:24px; }
+  .card { background:#fff; border-radius:18px; max-width:560px; width:100%; padding:38px 36px 32px; text-align:center; box-shadow:0 24px 60px rgba(0,0,0,.35); }
+  .num { font-family:Georgia,'Times New Roman',serif; font-size:84px; font-weight:700; color:var(--navy); line-height:1; letter-spacing:.02em; }
+  .num span { color:var(--gold-b); }
+  h1 { font-size:20px; color:var(--navy); margin:10px 0 6px; }
+  p.sub { font-size:13.5px; color:var(--ink2); line-height:1.65; margin:0 0 22px; }
+  .links { display:flex; flex-direction:column; gap:9px; }
+  .links a { display:flex; align-items:center; justify-content:space-between; gap:10px; border:1.5px solid var(--line); border-radius:11px; padding:12px 16px; text-decoration:none; color:var(--navy); font-size:13.5px; font-weight:700; transition:all .14s; }
+  .links a:hover { border-color:var(--gold); background:var(--ivory); }
+  .links a span.go { color:var(--gold); }
+  .links a.primary { background:var(--red); border-color:var(--red); color:#fff; justify-content:center; font-size:14px; }
+  .links a.primary:hover { background:#C41420; }
+  .hot { margin-top:18px; font-size:12px; color:var(--ink2); }
+  .hot b { color:var(--navy); }
+  .langs { margin-top:14px; font-size:11px; color:#9AA3B5; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="num">4<span>0</span>4</div>
+  <h1 id="t-title">Trang này không tồn tại</h1>
+  <p class="sub" id="t-sub">Có thể đường dẫn đã thay đổi khi chúng tôi hợp nhất các website về daiichitravel.com. Những trang dưới đây sẽ đưa bạn về đúng chỗ:</p>
+  <div class="links">
+    <a class="primary" href="/booking" id="l-book">Đặt vé xe · tàu · du thuyền →</a>
+    <a href="/"><span id="l-home">Trang chủ Daiichi Travel</span><span class="go">→</span></a>
+    <a href="/booking"><span id="l-lookup">Tra cứu vé đã đặt</span><span class="go">→</span></a>
+    <a href="/vi/xe-ha-noi-di-cat-ba" id="l-route-a"><span>Xe Hà Nội ⇄ Cát Bà</span><span class="go">→</span></a>
+  </div>
+  <div class="hot" id="t-hot">Cần giúp ngay? Gọi/Zalo 24/7: <b>096 100 4709</b></div>
+  <div class="langs">Tiếng Việt · English · 日本語 · 한국어 · 中文 · Français</div>
+</div>
+<script>
+(function () {
+  var T = {
+    vi: null, // default markup already vi
+    en: { title: 'This page doesn\u2019t exist', sub: 'The address may have changed when we merged our websites into daiichitravel.com. These links will get you back on track:', book: 'Book bus · boat · cruise →', home: 'Daiichi Travel home', lookup: 'Find my booking', hot: 'Need help now? Call/Zalo 24/7: <b>+84 96 100 4709</b>' },
+    ja: { title: 'ページが見つかりません', sub: 'daiichitravel.com への統合に伴いURLが変更された可能性があります。以下のリンクをご利用ください：', book: 'バス・船・クルーズを予約 →', home: 'Daiichi Travel ホーム', lookup: '予約を確認する', hot: 'お急ぎの場合：<b>+84 96 100 4709</b>（24時間）' },
+    ko: { title: '페이지를 찾을 수 없습니다', sub: 'daiichitravel.com 통합 과정에서 주소가 변경되었을 수 있습니다. 아래 링크를 이용해 주세요:', book: '버스 · 보트 · 크루즈 예약 →', home: 'Daiichi Travel 홈', lookup: '예약 조회', hot: '긴급 문의: <b>+84 96 100 4709</b> (연중무휴)' },
+    zh: { title: '页面不存在', sub: '在合并至 daiichitravel.com 的过程中，网址可能已更改。以下链接可帮您找到正确页面：', book: '预订巴士 · 船 · 游轮 →', home: 'Daiichi Travel 首页', lookup: '查询我的订单', hot: '需要帮助？致电 <b>+84 96 100 4709</b>（24小时）' },
+    fr: { title: 'Cette page n\u2019existe pas', sub: 'L\u2019adresse a peut-être changé lors de la fusion de nos sites vers daiichitravel.com. Ces liens vous remettront sur la bonne voie :', book: 'Réserver bus · bateau · croisière →', home: 'Accueil Daiichi Travel', lookup: 'Retrouver ma réservation', hot: 'Besoin d\u2019aide ? <b>+84 96 100 4709</b> (24h/24)' },
+  };
+  var lang = 'vi';
+  try { lang = localStorage.getItem('dt_lang') || (navigator.language || 'vi').slice(0, 2); } catch (e) {}
+  if (lang === 'ja' || lang === 'ko' || lang === 'fr') {} else if (lang.indexOf('zh') === 0) lang = 'zh';
+  else if (lang !== 'vi' && lang !== 'en' && lang !== 'ja' && lang !== 'ko' && lang !== 'fr' && lang !== 'zh') lang = 'en';
+  var t = T[lang];
+  if (t) {
+    document.documentElement.lang = lang;
+    document.getElementById('t-title').textContent = t.title;
+    document.getElementById('t-sub').textContent = t.sub;
+    document.getElementById('l-book').textContent = t.book;
+    document.getElementById('l-home').textContent = t.home;
+    document.getElementById('l-lookup').textContent = t.lookup;
+    document.getElementById('t-hot').innerHTML = t.hot;
+    var ROUTE = { vi: '/vi/xe-ha-noi-di-cat-ba', en: '/en/hanoi-to-cat-ba-bus', ja: '/ja/hanoi-catba-bus', ko: '/ko/hanoi-catba-bus', zh: '/zh/hanoi-catba-bus', fr: '/fr/bus-hanoi-cat-ba' };
+    var ra = document.getElementById('l-route-a');
+    if (ra && ROUTE[lang]) ra.href = ROUTE[lang];
+  }
+})();
+</script>
+</body>
+</html>

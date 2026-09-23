@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daiichi One Platform — Go-live Checklist</title>
+<link rel="stylesheet" href="shared/tokens.css" />
+<style>
+  body { background: var(--ivory); color: var(--ink); }
+  .doc { max-width: 880px; margin: 0 auto; padding: 40px 26px 80px; }
+  .doc-head { border-bottom: 3px solid var(--navy); padding-bottom: 18px; margin-bottom: 26px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; }
+  .doc-head h1 { font-family: var(--font-display); font-size: 34px; color: var(--navy); margin: 4px 0 6px; }
+  .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .meta { font-size: 12px; color: var(--ink-3); }
+  .print-btn { background: var(--red); color: #fff; border: 0; border-radius: 8px; padding: 10px 18px; font-size: 13px; font-weight: 700; cursor: pointer; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--ink-2); margin-bottom: 22px; }
+  .legend b { padding: 2px 9px; border-radius: 9px; font-size: 11px; }
+  .phase { margin: 34px 0 0; }
+  .phase > h2 { font-family: var(--font-display); font-size: 23px; color: var(--navy); margin: 0 0 2px; }
+  .phase > .sub { font-size: 12.5px; color: var(--ink-3); margin-bottom: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: #fff; background: var(--navy); font-weight: 700; padding: 9px 12px; }
+  td { padding: 10px 12px; border-top: 1px solid var(--ivory); color: var(--ink-2); vertical-align: top; line-height: 1.5; }
+  td.chk { width: 30px; text-align: center; }
+  td.chk span { display: inline-block; width: 16px; height: 16px; border: 2px solid var(--line-2); border-radius: 4px; }
+  td b { color: var(--ink); }
+  .dept { display: inline-block; font-size: 10.5px; font-weight: 700; padding: 2px 9px; border-radius: 9px; white-space: nowrap; }
+  .d-bgd { background: var(--navy-soft); color: var(--navy-700); }
+  .d-kt { background: var(--ok-soft); color: var(--ok); }
+  .d-mkt { background: var(--gold-soft); color: #7A5A1E; }
+  .d-vh { background: var(--bad-soft); color: var(--bad); }
+  .d-dev { background: #ECE8F5; color: #5B4A8A; }
+  .note { background: var(--gold-soft); border: 1px solid #E7D9B8; border-radius: 10px; padding: 14px 18px; font-size: 12.5px; color: #6B4F1B; line-height: 1.6; margin-top: 30px; }
+  @media print {
+    .print-btn { display: none; }
+    body { background: #fff; }
+    .doc { padding: 0; max-width: none; }
+    .phase { break-inside: avoid; }
+    th { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="doc-head">
+    <div>
+      <div class="kicker">Daiichi One Platform · Tài liệu vận hành</div>
+      <h1>Go-live Checklist</h1>
+      <div class="meta">Hợp nhất 4 website → daiichitravel.com · Bản 1.0 · 10/06/2026 · In ra và đánh dấu khi họp giao việc</div>
+    </div>
+    <button class="print-btn" onclick="window.print()">🖨 In / Lưu PDF</button>
+  </div>
+
+  <div class="legend">
+    Phòng ban phụ trách:
+    <b class="dept d-bgd">BGĐ — Ban giám đốc</b>
+    <b class="dept d-kt">KT — Kế toán</b>
+    <b class="dept d-mkt">MKT — Marketing</b>
+    <b class="dept d-vh">VH — Vận hành (quầy, xe, tàu)</b>
+    <b class="dept d-dev">DEV — Đội phát triển / đối tác IT</b>
+  </div>
+
+  <div class="phase">
+    <h2>Giai đoạn 1 · T-8 → T-6 tuần — Khởi động hợp đồng & hạ tầng</h2>
+    <div class="sub">Các việc chờ duyệt lâu nhất — bắt đầu càng sớm càng tốt, làm song song.</div>
+    <table>
+      <thead><tr><th></th><th>Việc</th><th>Phụ trách</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr><td class="chk"><span></span></td><td><b>Ký hợp đồng cổng thanh toán VNPay + MoMo</b></td><td><span class="dept d-kt">KT</span></td><td>Hồ sơ DN, 2–4 tuần duyệt. Yêu cầu cả QR động và refund API.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Đăng ký cổng thẻ quốc tế</b> (Visa/Master) cho khách nước ngoài</td><td><span class="dept d-kt">KT</span></td><td>Qua VNPay/OnePay quốc tế; cần xác minh bổ sung — lâu nhất trong các cổng.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Đăng ký Zalo OA xác thực</b> (gửi vé, nhắc lịch, chăm sóc)</td><td><span class="dept d-mkt">MKT</span></td><td>1–2 tuần duyệt. Chuẩn bị giấy phép kinh doanh.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Thông báo website TMĐT với Bộ Công Thương</b></td><td><span class="dept d-kt">KT</span></td><td>Bắt buộc với web bán hàng — có phạt nếu thiếu. Làm trên online.gov.vn.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Chọn đối tác phát triển & chốt báo giá</b> theo gói bàn giao kỹ thuật</td><td><span class="dept d-bgd">BGĐ</span></td><td>Dùng tài liệu "Handoff — Đặc tả kỹ thuật" kèm nguyên mẫu này để lấy báo giá đồng nhất.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Gia hạn dài hạn 4 domain cũ</b> (vn/com/lanhacruises/daiichibus)</td><td><span class="dept d-dev">DEV</span></td><td>Tối thiểu 2–3 năm. Tuyệt đối không để rơi vào tay đối thủ.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Thuê hosting/cloud + SSL</b>, môi trường staging riêng</td><td><span class="dept d-dev">DEV</span></td><td>Staging để thử giá/khuyến mãi trước khi lên web thật.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="phase">
+    <h2>Giai đoạn 2 · T-6 → T-3 tuần — Xây dựng & nội dung</h2>
+    <div class="sub">Đội dev dựng backend theo nguyên mẫu; nội bộ chuẩn bị nội dung và dữ liệu thật.</div>
+    <table>
+      <thead><tr><th></th><th>Việc</th><th>Phụ trách</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr><td class="chk"><span></span></td><td><b>Backend + database thật</b>: chuyến, ghế, giá, booking, đại lý, công nợ</td><td><span class="dept d-dev">DEV</span></td><td>Theo data model trong gói bàn giao. Khoá ghế (seat hold) 10 phút là bắt buộc.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Bảng map 301 redirect</b>: từng URL của 4 web cũ → URL mới</td><td><span class="dept d-dev">DEV</span> <span class="dept d-mkt">MKT</span></td><td>Xuất danh sách URL từ Search Console của từng domain cũ. Mất bảng này = mất SEO.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Buổi chụp ảnh chuyên nghiệp</b>: tàu 5★, suite, món ăn, đội xe</td><td><span class="dept d-mkt">MKT</span></td><td>Thay ảnh 3D bằng ảnh thật — tác động chuyển đổi lớn nhất trong mọi việc MKT.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Rà soát bản dịch 6 ngôn ngữ</b> bởi người bản xứ (ưu tiên Nhật, Hàn)</td><td><span class="dept d-mkt">MKT</span></td><td>Nguyên mẫu đã có đủ bản dịch — chỉ cần hiệu đính, không dịch lại từ đầu.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Nhập dữ liệu thật</b>: lịch chạy chính thức, hạn mức công nợ từng đại lý, hoa hồng</td><td><span class="dept d-kt">KT</span> <span class="dept d-vh">VH</span></td><td>Đối chiếu với biểu giá 2026–2027 đã nhập trong nguyên mẫu.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Cài Google Analytics 4 + Search Console + Tag Manager</b>, đo phễu đặt vé</td><td><span class="dept d-dev">DEV</span></td><td>Đo 4 bước: xem chuyến → chọn ghế → thanh toán → thành công.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Thiết lập backup tự động hằng ngày</b> + diễn tập khôi phục thử 1 lần</td><td><span class="dept d-dev">DEV</span></td><td>Backup chưa từng khôi phục thử = chưa có backup.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Cài giám sát lỗi & uptime</b>: Sentry + UptimeRobot + cảnh báo thanh toán thất bại bất thường</td><td><span class="dept d-dev">DEV</span></td><td>Miễn phí ở quy mô đầu. Khi sập lúc 2h sáng, người trực phải biết trước khách.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Đàm phán OTA</b>: Klook, Traveloka, GetYourGuide</td><td><span class="dept d-bgd">BGĐ</span></td><td>Hoa hồng 15–25%. Giữ nguyên tắc: giá web chính thức luôn tốt nhất.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="phase">
+    <h2>Giai đoạn 3 · T-3 → T-1 tuần — Thử nghiệm & đào tạo</h2>
+    <div class="sub">Mọi người, mọi quy trình chạy thử như thật trước khi mở cổng.</div>
+    <table>
+      <thead><tr><th></th><th>Việc</th><th>Phụ trách</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr><td class="chk"><span></span></td><td><b>Đào tạo nhân viên quầy</b>: POS, check-in, hoàn vé, kết ca</td><td><span class="dept d-vh">VH</span></td><td>Dùng chính nguyên mẫu làm giáo trình — mỗi NV tự bán thử 10 vé.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Đào tạo tài xế & HDV</b>: app điểm danh, GPS, chấm công, quên đồ</td><td><span class="dept d-vh">VH</span></td><td>Nhấn mạnh: tài xế không thao tác khi lái — liên hệ khách qua HDV.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Đào tạo đại lý</b> (3 đại lý hiện có): cổng đặt hộ, công nợ, hoa hồng</td><td><span class="dept d-kt">KT</span></td><td>Buổi online 1 giờ + tài liệu PDF.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>In quy trình giấy dự phòng</b> đặt tại quầy: bán vé khi mất mạng/mất điện</td><td><span class="dept d-vh">VH</span></td><td>Sổ vé giấy + đối soát lại vào hệ thống cuối ca.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Đặt vé thử end-to-end bằng tiền thật</b>: web → thanh toán → vé Zalo → check-in → hoàn vé</td><td><span class="dept d-bgd">BGĐ</span></td><td>Cả 4 phương thức thanh toán, ít nhất 2 ngôn ngữ (VI + EN).</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Phân công trực chat/hotline + quy trình trả lời review</b></td><td><span class="dept d-mkt">MKT</span></td><td>SLA: chat 5 phút, review 24 giờ, có mẫu trả lời VI/EN.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Kiểm tra tải</b> (load test) trang chọn ghế giờ cao điểm</td><td><span class="dept d-dev">DEV</span></td><td>Mô phỏng 200 người cùng đặt sáng thứ Bảy.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="phase">
+    <h2>Giai đoạn 4 · Ngày G — Khai trương</h2>
+    <div class="sub">Chuyển đổi trong đêm ít khách nhất (thứ Ba/Tư), có đường lùi.</div>
+    <table>
+      <thead><tr><th></th><th>Việc</th><th>Phụ trách</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr><td class="chk"><span></span></td><td><b>Bật 301 redirect 4 domain cũ</b> → daiichitravel.com</td><td><span class="dept d-dev">DEV</span></td><td>Kiểm tra 20 URL quan trọng nhất ngay sau khi bật.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Gửi sitemap mới lên Search Console</b>, khai báo đổi địa chỉ</td><td><span class="dept d-dev">DEV</span></td><td>Dùng công cụ "Change of Address" cho từng domain cũ.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Thông báo khách cũ & đại lý</b>: email + Zalo + bài đăng mạng xã hội</td><td><span class="dept d-mkt">MKT</span></td><td>Kèm mã khuyến mãi khai trương để kích hoạt đặt thử.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Trực chiến 48 giờ đầu</b>: dev + vận hành + kế toán cùng nhóm chat</td><td><span class="dept d-bgd">BGĐ</span></td><td>Theo dõi: thanh toán thành công, ghế trùng, tốc độ trang.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Cập nhật Google Business Profile</b> trỏ về web mới</td><td><span class="dept d-mkt">MKT</span></td><td>Cả 2 điểm: văn phòng Cát Bà + bến tàu.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="phase">
+    <h2>Giai đoạn 5 · Sau khai trương — 4 tuần đầu</h2>
+    <div class="sub">Đo, sửa, và bắt đầu vòng tăng trưởng.</div>
+    <table>
+      <thead><tr><th></th><th>Việc</th><th>Phụ trách</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr><td class="chk"><span></span></td><td><b>Họp số liệu hằng tuần</b>: phễu đặt vé, kênh bán, tỉ lệ huỷ theo kênh</td><td><span class="dept d-bgd">BGĐ</span></td><td>Khách rơi nhiều ở bước nào → ưu tiên sửa bước đó.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Theo dõi thứ hạng SEO 4 domain cũ → mới</b> trong 90 ngày</td><td><span class="dept d-mkt">MKT</span></td><td>Sụt nhẹ 2–4 tuần đầu là bình thường; sụt &gt;50% sau 1 tháng là redirect lỗi.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Lịch nội dung CMS</b>: 1 bài tin/ưu đãi mỗi tuần, 6 ngôn ngữ (engine tự dịch)</td><td><span class="dept d-mkt">MKT</span></td><td>Website "động" cần nội dung sống — đã có CMS tự dịch, chỉ cần 1 người viết tiếng Việt.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Mời khách đánh giá sau chuyến</b> (tự động +150 điểm) và trả lời 100% review</td><td><span class="dept d-mkt">MKT</span></td><td>Mục tiêu: 50 review xác thực trong tháng đầu.</td></tr>
+        <tr><td class="chk"><span></span></td><td><b>Khởi động giai đoạn 2</b>: app native, GPS realtime, channel manager OTA</td><td><span class="dept d-bgd">BGĐ</span></td><td>Theo roadmap trong trang hub — mockup app đã sẵn trong nguyên mẫu.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <b>Nguyên tắc vàng khi chuyển đổi:</b> không tắt hệ thống cũ ngay — chạy song song 2 tuần (web mới bán thật, web cũ chỉ redirect), giữ nguyên số hotline và Zalo cũ, và mọi thay đổi giá/khuyến mãi trong tháng đầu đều thử trên staging trước. Khi có sự cố: ưu tiên khôi phục việc <i>bán được vé</i> trước (kể cả bằng quy trình giấy), sửa hệ thống sau.
+  </div>
+</div>
+</body>
+</html>

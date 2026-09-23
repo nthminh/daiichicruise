@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daiichi One Platform — Hợp nhất 4 website</title>
+<link rel="stylesheet" href="shared/tokens.css" />
+<style>
+  body { background: #F0EDE6; }
+  .hub { max-width: 1100px; margin: 0 auto; padding: 52px 28px 90px; }
+  .hub-hero { text-align: center; margin-bottom: 14px; }
+  .hub-hero img.logo { height: 54px; margin: 0 auto 18px; }
+  .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .hub-hero h1 { font-family: var(--font-display); font-size: 42px; font-weight: 600; color: var(--navy); margin: 6px 0 12px; }
+  .hub-hero p { font-size: 15px; color: var(--ink-2); max-width: 660px; margin: 0 auto; line-height: 1.65; }
+  .domains { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 22px 0 8px; }
+  .domains span { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 7px 15px; font-size: 12.5px; color: var(--ink-2); text-decoration: line-through; }
+  .domains .one { background: var(--navy); border-color: var(--navy); color: var(--gold-bright); font-weight: 700; text-decoration: none; }
+  .arrow-down { text-align: center; color: var(--gold); font-size: 20px; margin: 4px 0 0; }
+
+  h2.sec { font-family: var(--font-display); font-size: 26px; color: var(--navy); margin: 48px 0 6px; }
+  p.sec-sub { font-size: 13.5px; color: var(--ink-3); margin: 0 0 18px; }
+
+  .links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .link-card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; text-decoration: none; transition: all .18s; display: flex; flex-direction: column; }
+  .link-card:hover { box-shadow: var(--shadow-2); transform: translateY(-3px); }
+  .link-card .im { height: 150px; background-size: cover; background-position: center; position: relative; }
+  .link-card .im .tag { position: absolute; top: 12px; left: 12px; background: var(--navy); color: var(--gold-bright); font-size: 10px; font-weight: 700; letter-spacing: .1em; padding: 5px 10px; border-radius: 6px; }
+  .link-card .bd { padding: 16px 18px 18px; }
+  .link-card h3 { font-size: 16.5px; color: var(--navy); margin: 0 0 6px; font-weight: 700; }
+  .link-card p { font-size: 12.5px; color: var(--ink-2); margin: 0 0 12px; line-height: 1.55; }
+  .link-card .go { font-size: 12.5px; font-weight: 700; color: var(--red); }
+
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .pillar { background: #fff; border: 1px solid var(--line); border-radius: var(--r-md); padding: 18px; }
+  .pillar b { display: block; font-size: 13.5px; color: var(--navy); margin-bottom: 5px; }
+  .pillar span { font-size: 12.5px; color: var(--ink-2); line-height: 1.55; }
+  .pillar .n { display: inline-flex; width: 26px; height: 26px; border-radius: 8px; background: var(--gold-soft); color: var(--gold); font-weight: 800; font-size: 12px; align-items: center; justify-content: center; margin-bottom: 9px; }
+
+  .road { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .road-card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-md); padding: 18px 20px; }
+  .road-card h4 { margin: 0 0 10px; font-size: 13px; color: var(--navy); text-transform: uppercase; letter-spacing: .08em; }
+  .road-card h4 em { font-style: normal; color: var(--gold); }
+  .road-card ul { margin: 0; padding: 0; list-style: none; }
+  .road-card li { font-size: 12.5px; color: var(--ink-2); padding: 5px 0 5px 22px; position: relative; line-height: 1.5; }
+  .road-card li::before { content: '◆'; position: absolute; left: 2px; color: var(--gold); font-size: 9px; top: 8px; }
+  .road-card li b { color: var(--ink); }
+
+  .note { background: var(--gold-soft); border: 1px solid #E7D9B8; border-radius: var(--r-md); padding: 16px 20px; font-size: 13px; color: #6B4F1B; line-height: 1.6; margin-top: 40px; }
+  .note b { color: #4F3A12; }
+  @media (max-width: 880px) { .links, .pillars { grid-template-columns: 1fr; } .road { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="hub">
+  <div class="hub-hero">
+    <img class="logo" src="assets/brand/logo-DaiichiTravel.webp" alt="Daiichi Travel" />
+    <div class="kicker">Daiichi One Platform · Prototype v1</div>
+    <h1>Bốn website. Một nền tảng.</h1>
+    <p>Nguyên mẫu tương tác hợp nhất daiichitravel.vn, daiichitravel.com, lanhacruises.vn và daiichibus.vn thành một hệ thống duy nhất — tham khảo mô hình 12Go, Omio, redBus (vận tải) và Booking, Klook, Traveloka (cruise &amp; tour). Toàn bộ giá và hình ảnh lấy từ biểu giá &amp; kho marketing thật 2026–2027.</p>
+    <div class="domains">
+      <span>daiichitravel.vn</span>
+      <span>daiichitravel.com</span>
+      <span>lanhacruises.vn</span>
+      <span>daiichibus.vn</span>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="domains" style="margin-top:8px"><span class="one">daiichitravel.com — một nền tảng, 6 ngôn ngữ</span></div>
+  </div>
+
+  <h2 class="sec">Ba không gian làm việc</h2>
+  <p class="sec-sub">Click để mở từng phần — tất cả dùng chung một nguồn dữ liệu giá, chuyến và sơ đồ ghế.</p>
+  <div class="links">
+    <a class="link-card" href="customer/Daiichi Travel.html">
+      <div class="im" style="background-image:url('assets/photos/daycruise-2.jpg')"><span class="tag">KHÁCH HÀNG</span></div>
+      <div class="bd">
+        <h3>Website bán hàng</h3>
+        <p>Trang chủ tabs tìm kiếm · đặt xe với sơ đồ ghế · day cruise · du thuyền 5★ · combo · vé QR · tra cứu vé · 6 ngôn ngữ tự detect (Việt, Anh, Nhật, Hàn, Trung, Pháp).</p>
+        <span class="go">Mở website →</span>
+      </div>
+    </a>
+    <a class="link-card" href="admin/Daiichi Back Office.html">
+      <div class="im" style="background-image:url('assets/photos/luxury-1.jpg')"><span class="tag">NỘI BỘ · ĐẠI LÝ</span></div>
+      <div class="bd">
+        <h3>Back Office</h3>
+        <p>Một đăng nhập, bốn vai trò: Quản lý (dashboard, giá &amp; KM, báo cáo, duyệt đối tác) · Nhân viên (POS quầy, soát vé) · Đại lý (giá net, công nợ) · Đối tác vận hành (dịch vụ riêng, doanh thu, đối soát).</p>
+        <span class="go">Mở back office →</span>
+      </div>
+    </a>
+    <a class="link-card" href="apps/Mobile Apps.html">
+      <div class="im" style="background-image:url('assets/photos/daycruise-deck.jpg')"><span class="tag">MOBILE</span></div>
+      <div class="bd">
+        <h3>4 ứng dụng di động</h3>
+        <p>App Khách hàng &amp; Tài xế với GPS realtime 2 chiều, luồng quên đồ, chat/gọi, SOS, thu nhập tài xế — chuẩn tính năng Grab/GreenSM. Kèm app Đại lý &amp; Nhân viên.</p>
+        <span class="go">Xem mockup →</span>
+      </div>
+    </a>
+  </div>
+
+  <h2 class="sec">Nguyên tắc hợp nhất</h2>
+  <p class="sec-sub">Những quyết định thiết kế chính (giả định — anh/chị duyệt hoặc chỉnh).</p>
+  <div class="pillars">
+    <div class="pillar"><span class="n">1</span><b>Một thương hiệu, ba dòng sản phẩm</b><span>Daiichi Travel là thương hiệu mẹ; Daiichi Bus, Daiichi Cruise (tàu ngày) và Daiichi Luxury Cruise là dòng sản phẩm — không còn 4 website cạnh tranh SEO lẫn nhau. Các domain cũ 301-redirect về domain chính.</span></div>
+    <div class="pillar"><span class="n">2</span><b>Tìm kiếm theo loại dịch vụ</b><span>Trang chủ dạng tabs (như Traveloka/Booking) vì hành vi khách khác nhau: khách xe cần A→B + giờ; khách cruise cần ngày + hạng phòng. Giá hiển thị đúng mùa cao/thấp theo ngày khách chọn.</span></div>
+    <div class="pillar"><span class="n">3</span><b>Một nguồn dữ liệu duy nhất</b><span>Web, POS, đại lý và app đọc cùng một kho chuyến – ghế – giá. Bán 1 ghế ở quầy thì website trừ ghế ngay; không còn overbooking giữa các kênh.</span></div>
+  </div>
+
+  <h2 class="sec">Những thứ nên có (học từ 12Go, redBus, Klook, Booking…)</h2>
+  <p class="sec-sub">Các tính năng anh/chị chưa yêu cầu nhưng ngành đang chuẩn hoá — đề xuất đưa vào lộ trình.</p>
+  <div class="road">
+    <div class="road-card">
+      <h4><em>Giai đoạn 1</em> · Cùng lúc ra mắt web</h4>
+      <ul>
+        <li><b>Landing SEO từng tuyến</b> (kiểu 12Go): “Xe Hà Nội đi Cát Bà”, “Hanoi to Cat Ba bus” — mỗi tuyến một URL, 6 ngôn ngữ.</li>
+        <li><b>Đánh giá có xác thực vé</b> (kiểu Booking): chỉ khách đã đi mới được review — tăng chuyển đổi khách nước ngoài.</li>
+        <li><b>Vé QR + Zalo OA</b>: vé gửi qua Zalo/SMS/email; nhắc lịch trước 24h và 1h, kèm vị trí xe.</li>
+        <li><b>Thanh toán đủ kênh</b>: VNPay, MoMo/ZaloPay, Visa/Master (khách quốc tế), trả tại quầy/công nợ đại lý.</li>
+      </ul>
+    </div>
+    <div class="road-card">
+      <h4><em>Giai đoạn 2</em> · Sau 3–6 tháng</h4>
+      <ul>
+        <li><b>GPS xe theo thời gian thực</b> (kiểu redBus): khách thấy xe đang ở đâu; tài xế dùng app điểm danh.</li>
+        <li><b>Channel manager OTA</b>: đồng bộ chỗ trống lên Klook, Traveloka, GetYourGuide, KKday — chống trùng ghế/suite.</li>
+        <li><b>Marketplace đối tác vận hành</b> (kiểu 12Go/Klook): đơn vị ngoài bán xe/tàu/tour trên nền tảng, Daiichi thu hoa hồng 12–15%, duyệt giá &amp; chất lượng — đã có trong prototype.</li>
+        <li><b>App khách hàng + tích điểm</b>: hạng thẻ, ưu đãi riêng, đặt lại 1 chạm.</li>
+        <li><b>Giá linh hoạt theo lấp đầy</b>: tự tăng/giảm nhẹ quanh giá niêm yết khi chuyến gần kín hoặc ế.</li>
+        <li><b>Đa tiền tệ &amp; multi-currency display</b> (USD/JPY/KRW/CNY/EUR) cho khách quốc tế.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Lưu ý phạm vi:</b> đây là nguyên mẫu thiết kế tương tác (frontend, dữ liệu demo lưu trên máy) để duyệt UX/UI và quy trình nghiệp vụ trước khi đội kỹ thuật xây hệ thống thật (backend, thanh toán, đồng bộ ghế thời gian thực). Giá vé, lịch chạy, hạng phòng đều lấy từ biểu giá chính thức 2026–2027 trong thư mục Marketing. Phần quản trị hiện ưu tiên tiếng Việt cho nhân viên; web khách hàng đủ 6 ngôn ngữ.
+  </div>
+</div>
+</body>
+</html>

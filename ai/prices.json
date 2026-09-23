@@ -1,0 +1,282 @@
+{
+ "$schema": "https://daiichitravel.com/ai/prices.schema.json",
+ "updated": "2026-06-10",
+ "currency": "VND",
+ "vat_included": true,
+ "seasons": {
+  "high": {
+   "from": "2026-05-09",
+   "to": "2026-09-02"
+  },
+  "low": {
+   "from": "2026-09-03",
+   "to": "2027-05-02"
+  },
+  "holiday_surcharge_per_pax_per_way": 30000
+ },
+ "cancellation": "free_until_12h_before_departure",
+ "support": {
+  "phone": "+84961004709",
+  "channels": [
+   "zalo",
+   "whatsapp",
+   "phone"
+  ],
+  "email": "info@daiichitravel.vn"
+ },
+ "bus_routes": [
+  {
+   "from": "Hanoi",
+   "to": "Cat Ba",
+   "duration_min": 210,
+   "via": "speedboat",
+   "vehicle": "bus45",
+   "price_low": 270000,
+   "price_high": 300000,
+   "departures": [
+    "05:00",
+    "06:00",
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:45",
+    "12:30",
+    "14:30",
+    "15:30"
+   ]
+  },
+  {
+   "from": "Hanoi",
+   "to": "Cat Ba",
+   "duration_min": 195,
+   "via": "speedboat",
+   "vehicle": "limousine11",
+   "price_low": 330000,
+   "price_high": 360000,
+   "departures": [
+    "05:00",
+    "06:00",
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:45",
+    "12:30",
+    "14:30",
+    "15:30"
+   ]
+  },
+  {
+   "from": "Hanoi",
+   "to": "Cat Ba",
+   "duration_min": 195,
+   "via": "cable_car",
+   "vehicle": "limousine11",
+   "price_low": 390000,
+   "price_high": 420000,
+   "departures": [
+    "08:00",
+    "09:00"
+   ]
+  },
+  {
+   "from": "Hanoi",
+   "to": "Hai Phong",
+   "duration_min": 120,
+   "vehicle": "bus45",
+   "price_low": 140000,
+   "price_high": 140000,
+   "departures": [
+    "05:00",
+    "06:00",
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:45",
+    "12:30",
+    "14:30",
+    "15:30"
+   ]
+  },
+  {
+   "from": "Hanoi",
+   "to": "Hai Phong",
+   "duration_min": 110,
+   "vehicle": "limousine10",
+   "price_low": 210000,
+   "price_high": 210000,
+   "departures": [
+    "05:00",
+    "06:30",
+    "08:00",
+    "09:30",
+    "11:00",
+    "12:30",
+    "14:00",
+    "15:30",
+    "17:00",
+    "18:30",
+    "20:00",
+    "21:00"
+   ]
+  },
+  {
+   "from": "Ha Long",
+   "to": "Ninh Binh",
+   "duration_min": 225,
+   "vehicle": "bus45",
+   "price_low": 300000,
+   "price_high": 300000,
+   "departures": [
+    "09:00",
+    "12:30",
+    "16:00"
+   ]
+  },
+  {
+   "from": "Cat Ba",
+   "to": "Ninh Binh",
+   "duration_min": 225,
+   "via": "speedboat",
+   "vehicle": "bus45",
+   "price_low": 300000,
+   "price_high": 300000,
+   "departures": [
+    "08:30",
+    "12:30",
+    "16:00"
+   ]
+  },
+  {
+   "from": "Cat Ba",
+   "to": "Hai Phong",
+   "duration_min": 225,
+   "via": "ferry",
+   "vehicle": "ev7",
+   "price_low": 200000,
+   "price_high": 200000,
+   "departures": [
+    "07:00",
+    "09:00",
+    "12:30",
+    "14:30",
+    "16:00"
+   ]
+  }
+ ],
+ "day_cruises": [
+  {
+   "code": "VIP1",
+   "name": "Lan Ha – Viet Hai full day",
+   "time": "09:00-15:30",
+   "price_low": 650000,
+   "price_peak": 720000,
+   "lunch": true
+  },
+  {
+   "code": "SUNSET",
+   "name": "Sunset cruise",
+   "time": "15:30-18:30",
+   "price_low": 400000,
+   "price_peak": 430000,
+   "lunch": false
+  },
+  {
+   "code": "MORNING",
+   "name": "Sunrise cruise (peak season only)",
+   "time": "06:00-09:00",
+   "price_peak": 430000,
+   "breakfast": true
+  },
+  {
+   "code": "VIP3",
+   "name": "Grand sunrise + brunch (peak only)",
+   "time": "06:00-11:30",
+   "price_peak": 800000,
+   "lunch": true
+  },
+  {
+   "code": "VIP4",
+   "name": "5-star day cruise",
+   "time": "11:45-17:00",
+   "price_all": 850000,
+   "lunch": true
+  },
+  {
+   "code": "VIP5",
+   "name": "Dinner cruise, DJ & fireworks",
+   "time": "16:30-23:00",
+   "price_all": 850000,
+   "dinner": true
+  },
+  {
+   "code": "COMBO_VIP1",
+   "name": "VIP1 + Hanoi bus combo",
+   "time": "08:00-20:00",
+   "price_all": 1250000
+  },
+  {
+   "code": "COMBO_VIP4",
+   "name": "VIP4 + Hanoi bus combo",
+   "time": "08:00-20:00",
+   "price_all": 1350000
+  }
+ ],
+ "overnight_cruise": {
+  "ship": "Daiichi Luxury Cruise",
+  "stars": 5,
+  "suites": 32,
+  "checkin": "12:00 Got Pier Hai Phong",
+  "vat_included": false,
+  "cabins": [
+   {
+    "name": "Deluxe Suite",
+    "n1": 2860000,
+    "n2": 5720000
+   },
+   {
+    "name": "Premium Suite",
+    "n1": 2990000,
+    "n2": 5980000
+   },
+   {
+    "name": "Junior Suite",
+    "n1": 3120000,
+    "n2": 6240000
+   },
+   {
+    "name": "Senior Suite",
+    "n1": 3250000,
+    "n2": 6500000
+   },
+   {
+    "name": "Executive Suite",
+    "n1": 3380000,
+    "n2": 6760000
+   },
+   {
+    "name": "Royal Suite VIP",
+    "n1": 3640000,
+    "n2": 7280000
+   }
+  ],
+  "promos": [
+   {
+    "code": "EARLYBIRD12",
+    "discount_pct": 12,
+    "condition": "book_30_days_ahead"
+   }
+  ]
+ },
+ "child_policy": {
+  "under_2": "free",
+  "age_2_4": "150000-400000 supplement by tour",
+  "age_5_11": "60000 off adult rate"
+ },
+ "payment_methods": [
+  "vnpay_qr",
+  "momo",
+  "zalopay",
+  "visa_mastercard",
+  "pay_at_counter"
+ ]
+}

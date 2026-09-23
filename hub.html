@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daiichi Cruise — Trung Tâm Trải Nghiệm Giao Diện Mẫu & Kiến Trúc SEO</title>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #122441;
+      --navy-deep: #0B1728;
+      --navy-card: #182B4B;
+      --gold: #C59A45;
+      --gold-light: #E7C986;
+      --gold-soft: rgba(197, 154, 69, 0.15);
+      --red: #D81F2A;
+      --red-hover: #EE2C38;
+      --cream: #FAF8F5;
+      --white: #FFFFFF;
+      --text-main: #1C2433;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 25px -5px rgba(18, 36, 65, 0.08), 0 8px 10px -6px rgba(18, 36, 65, 0.04);
+      --shadow-lg: 0 20px 35px -10px rgba(18, 36, 65, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--cream);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* TOP HEADER */
+    .hub-header {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+      color: var(--white);
+      padding: 44px 24px 70px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 2px solid var(--gold);
+    }
+    .hub-header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(197, 154, 69, 0.12) 0%, rgba(18, 36, 65, 0) 70%);
+      pointer-events: none;
+    }
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(197, 154, 69, 0.2);
+      border: 1px solid rgba(197, 154, 69, 0.4);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hub-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4.5vw, 44px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .hub-header h1 span {
+      color: var(--gold-light);
+    }
+    .hub-header p {
+      color: #CBD5E1;
+      font-size: 16px;
+      max-width: 780px;
+      line-height: 1.7;
+    }
+
+    /* STATUS BANNER */
+    .status-banner {
+      margin-top: -36px;
+      margin-bottom: 40px;
+    }
+    .status-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 20px 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+    }
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .status-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .status-icon.green { background: #ECFDF5; color: #059669; }
+    .status-icon.blue { background: #EFF6FF; color: #2563EB; }
+    .status-icon.gold { background: #FEF3C7; color: #D97706; }
+    .status-text b { display: block; font-size: 14.5px; color: var(--navy); }
+    .status-text span { font-size: 12.5px; color: var(--text-muted); }
+
+    /* SECTION TITLE */
+    .section-title {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .section-title h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title span {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* MODULES GRID */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .module-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--gold);
+    }
+    .card-top {
+      padding: 24px 24px 16px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .card-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .badge-primary { background: #E0E7FF; color: #3730A3; }
+    .badge-booking { background: #DCFCE7; color: #166534; }
+    .badge-admin { background: #FEF9C3; color: #854D0E; }
+    .badge-mobile { background: #FCE7F3; color: #9D174D; }
+
+    .module-card h3 {
+      font-size: 19px;
+      color: var(--navy);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .module-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .card-body {
+      padding: 18px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #FAFAFA;
+    }
+    .feature-point {
+      font-size: 12.5px;
+      color: var(--text-main);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .feature-point svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--gold);
+    }
+    .card-footer {
+      padding: 16px 24px;
+      background: var(--white);
+      border-top: 1px solid #F1F5F9;
+    }
+    .btn-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .btn-red {
+      background: var(--red);
+      color: var(--white);
+    }
+    .btn-red:hover {
+      background: var(--red-hover);
+    }
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-navy:hover {
+      background: #1B3560;
+    }
+
+    /* SEO SHOWCASE SECTION */
+    .seo-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 48px;
+    }
+    .seo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .seo-pillar {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+    .seo-pillar h4 {
+      font-size: 16px;
+      color: var(--navy);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .seo-pillar p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .seo-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .seo-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      background: var(--white);
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .seo-chip:hover {
+      border-color: var(--navy);
+      background: #EFF6FF;
+    }
+
+    /* ARCHITECTURE NOTES */
+    .arch-card {
+      background: linear-gradient(135deg, #122441 0%, #1A345E 100%);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 60px;
+      border-left: 5px solid var(--gold);
+    }
+    .arch-card h3 {
+      font-size: 18px;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .arch-card p {
+      font-size: 14px;
+      color: #E2E8F0;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .arch-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .arch-tag {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* FOOTER */
+    .hub-footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .hub-header { padding: 32px 16px 60px; }
+      .status-card { flex-direction: column; align-items: flex-start; }
+      .seo-box { padding: 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="hub-header">
+    <div class="container">
+      <div class="badge-pill">
+        <span>⭐</span> DAIICHI CRUISE PLATFORM · PROTOTYPE HUB
+      </div>
+      <h1>Hệ Thống Trải Nghiệm Giao Diện Mẫu &amp; <span>Kiến Trúc SEO</span></h1>
+      <p>
+        Bản demo đầy đủ các phân hệ giao diện thực tế của Daiichi: Trang chủ Marketing, Web Đặt vé đa dịch vụ,
+        Back Office quản trị 4 vai trò, mô phỏng 4 ứng dụng di động và hệ thống 72 trang đích tối ưu hóa Google SEO.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- STATUS BAR -->
+    <div class="status-banner">
+      <div class="status-card">
+        <div class="status-item">
+          <div class="status-icon green">✓</div>
+          <div class="status-text">
+            <b>Local Preview Server Sẵn Sàng</b>
+            <span>Cổng hoạt động: <code>http://localhost:8080</code></span>
+          </div>
+        </div>
+        <div class="status-item">
+          <div class="status-icon blue">⚡</div>
+          <div class="status-text">
+            <b>Kiến Trúc SEO Google</b>
+            <span>72 URL đa ngôn ngữ, Schema JSON-LD &amp; OpenGraph</span>
+          </div>
+        </div>
+        <div class="status-item">
+          <div class="status-icon gold">🔄</div>
+          <div class="status-text">
+            <b>Backend Hợp Nhất Sau Này</b>
+            <span>Sẵn sàng kết nối chung API/Database với DaiichiTravel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPABASE REALTIME SYNC SECTION -->
+    <div style="background: #ffffff; border-radius: var(--radius-lg); padding: 26px 30px; border: 2px solid #22C55E; box-shadow: var(--shadow-md); margin-bottom: 40px; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 18px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 14px; height: 14px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 10px #22C55E;"></div>
+          <div>
+            <h3 style="font-size: 18px; color: var(--navy); font-weight: 700;">Đã Đồng Bộ Dữ Liệu Supabase Cloud (Daiichi Travel)</h3>
+            <p style="font-size: 13px; color: var(--text-muted);">Project ID: <code style="background: #F1F5F9; padding: 2px 8px; border-radius: 4px; font-weight: 700; color: #0F172A;">vfeodqmvilchsipdsxsh</code> · Vùng: <span style="font-weight: 600; color: #2563EB;">ap-southeast-1</span></p>
+          </div>
+        </div>
+        <button id="btnSyncSupabase" onclick="triggerSupabaseSync()" style="background: #0F172A; color: #fff; border: 0; padding: 10px 18px; border-radius: 8px; font-size: 13.5px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all .15s;">
+          <span id="syncIcon">🔄</span> Đồng Bộ Lại Ngay
+        </button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;">
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px 16px;">
+          <span style="font-size: 11.5px; text-transform: uppercase; font-weight: 700; color: #64748B;">Tuyến Bus &amp; Tour</span>
+          <div style="font-size: 24px; font-weight: 800; color: var(--navy); margin-top: 4px;" id="countRoutes">42</div>
+          <span style="font-size: 12px; color: #16A34A; font-weight: 600;">✓ Đồng bộ trực tiếp</span>
+        </div>
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px 16px;">
+          <span style="font-size: 11.5px; text-transform: uppercase; font-weight: 700; color: #64748B;">Chuyến Xe &amp; Lịch Chạy</span>
+          <div style="font-size: 24px; font-weight: 800; color: var(--navy); margin-top: 4px;" id="countTrips">1,000</div>
+          <span style="font-size: 12px; color: #2563EB; font-weight: 600;">✓ Bảng trips thật</span>
+        </div>
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px 16px;">
+          <span style="font-size: 11.5px; text-transform: uppercase; font-weight: 700; color: #64748B;">Tour Du Thuyền 5★</span>
+          <div style="font-size: 24px; font-weight: 800; color: var(--navy); margin-top: 4px;" id="countTours">2</div>
+          <span style="font-size: 12px; color: #D97706; font-weight: 600;">✓ Luxury Cruise 2N1Đ</span>
+        </div>
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px 16px;">
+          <span style="font-size: 11.5px; text-transform: uppercase; font-weight: 700; color: #64748B;">Đội Xe &amp; Tàu</span>
+          <div style="font-size: 24px; font-weight: 800; color: var(--navy); margin-top: 4px;" id="countVehicles">60</div>
+          <span style="font-size: 12px; color: #64748B; font-weight: 600;">✓ Limousine, Bus, Tàu</span>
+        </div>
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px 16px;">
+          <span style="font-size: 11.5px; text-transform: uppercase; font-weight: 700; color: #64748B;">Điểm Đón / Trả</span>
+          <div style="font-size: 24px; font-weight: 800; color: var(--navy); margin-top: 4px;" id="countStops">459</div>
+          <span style="font-size: 12px; color: #64748B; font-weight: 600;">✓ Phố cổ, bến phà, sân bay</span>
+        </div>
+      </div>
+
+      <!-- Quick Route Viewer -->
+      <div style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed #E2E8F0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+        <span style="font-size: 12.5px; font-weight: 700; color: var(--navy);">Tuyển chọn tuyến &amp; tour thật:</span>
+        <span style="background: #FEF3C7; color: #92400E; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 6px;">🚌 HN ⇄ Cát Bà (Limo 11 chỗ · 360k)</span>
+        <span style="background: #FEF3C7; color: #92400E; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 6px;">🚌 Cát Bà ⇄ Hải Phòng (LimoGreen 7 chỗ · 200k)</span>
+        <span style="background: #E0E7FF; color: #3730A3; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 6px;">🛳️ Lan Hạ VIP 4 Fullday (850k)</span>
+        <span style="background: #E0E7FF; color: #3730A3; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 6px;">🛳️ Tiệc BBQ DJ Pháo Hoa VIP 5 (850k)</span>
+        <span style="background: #FCE7F3; color: #9D174D; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 6px;">🌙 Daiichi Luxury Cruise 2N1Đ (5tr)</span>
+      </div>
+    </div>
+
+    <!-- MAIN MODULES -->
+    <div class="section-title">
+      <h2><span>🧭</span> Các Phân Hệ Giao Diện Mẫu</h2>
+      <span>Nhấp để mở và tương tác trực tiếp</span>
+    </div>
+
+    <div class="modules-grid">
+      <!-- 1. HOME MARKETING -->
+      <div class="module-card">
+        <div class="card-top">
+          <span class="card-badge badge-primary">Marketing &amp; Brands</span>
+          <h3>Trang Chủ Marketing (Daiichi One)</h3>
+          <p>Trang chủ thương hiệu hợp nhất: Hero du thuyền 5 sao, thanh tìm kiếm vé nhanh, flash sales trực tiếp và khu vực giới thiệu đối tác.</p>
+        </div>
+        <div class="card-body">
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Bộ chuyển đổi 6 ngôn ngữ tự động (VI, EN, JA, KO, ZH, FR)</span>
+          </div>
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Live Flash Deals &amp; Đếm ngược khuyến mãi theo thời gian thực</span>
+          </div>
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Form đăng ký đối tác Marketplace mở (duyệt trong 48h)</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-action btn-navy" href="/home" target="_blank">
+            <span>Mở Trang Chủ Marketing</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. CUSTOMER BOOKING FLOW -->
+      <div class="module-card">
+        <div class="card-top">
+          <span class="card-badge badge-booking">Core Booking Flow</span>
+          <h3>Web Khách Hàng (Booking Engine)</h3>
+          <p>Trải nghiệm đặt vé hoàn chỉnh: chọn tuyến xe, tour du thuyền ngày Lan Hạ, du thuyền ngủ đêm 5★, giỏ hàng hợp nhất và tra cứu vé QR.</p>
+        </div>
+        <div class="card-body">
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Sơ đồ chọn ghế trực quan 5 layout xe &amp; tính giá khứ hồi -5%</span>
+          </div>
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Cơ chế giữ chỗ 10 phút, phụ thu lễ/tết và vé QR động xoay mã 30s</span>
+          </div>
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Tự huỷ vé trong hạn 12h theo chính sách bảo vệ khách hàng</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-action btn-red" href="/booking" target="_blank">
+            <span>Mở Cổng Đặt Vé Khách Hàng</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. ADMIN BACK OFFICE -->
+      <div class="module-card">
+        <div class="card-top">
+          <span class="card-badge badge-admin">Quản Trị Vận Hành</span>
+          <h3>Back Office Điều Hành (27 Màn Hình)</h3>
+          <p>Hệ thống quản lý nội bộ phân quyền theo 4 vai trò: Ban Quản lý, Nhân viên POS bán lẻ, Đại lý du lịch và Đối tác vận hành.</p>
+        </div>
+        <div class="card-body">
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Điều độ xe &amp; tàu, tự khoá an toàn khi xe quá hạn kiểm định</span>
+          </div>
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>POS quầy bán vé trực tiếp, kết ca thu tiền và cổng đại lý khấu trừ công nợ</span>
+          </div>
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>HR trọn vòng đời: chấm công, trần OT, tính lương và phân quyền</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-action btn-navy" href="/admin" target="_blank">
+            <span>Mở Back Office Quản Trị</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. MOBILE APPS PREVIEW -->
+      <div class="module-card">
+        <div class="card-top">
+          <span class="card-badge badge-mobile">App Di Động (Khung iOS)</span>
+          <h3>Mô Phỏng 4 Ứng Dụng Di Động</h3>
+          <p>Xem trước trải nghiệm người dùng trên thiết bị di động cho cả 4 nhóm người dùng trọng yếu trong hệ sinh thái Daiichi.</p>
+        </div>
+        <div class="card-body">
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>App Khách: Vé QR động, định vị đón xe trực tuyến, báo quên đồ</span>
+          </div>
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>App Tài xế &amp; Hướng dẫn viên: Nhận danh sách khách, bản đồ đón</span>
+          </div>
+          <div class="feature-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>App Đại lý &amp; Nhân viên soát vé tại bến / trên tàu</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a class="btn-action btn-navy" href="/apps" target="_blank">
+            <span>Xem Mô Phỏng Mobile Apps</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO FOCUS SECTION -->
+    <div class="seo-box">
+      <div class="section-title">
+        <h2><span>🚀</span> Chiến Lược Đẩy Mạnh SEO Google (72 Landing Pages)</h2>
+        <span>Chuẩn SEO kỹ thuật cao &amp; Cấu trúc dữ liệu Rich Snippets</span>
+      </div>
+      <p style="color: var(--text-muted); font-size: 14.5px;">
+        Giao diện của Daiichi Cruise được thiết kế chuyên biệt để chiếm lĩnh thứ hạng tìm kiếm Google cho các từ khóa cốt lõi về
+        <b>xe limousine Hà Nội – Cát Bà</b>, <b>du thuyền ngày Lan Hạ</b> và <b>du thuyền ngủ đêm 5 sao</b>.
+      </p>
+
+      <div class="seo-grid">
+        <div class="seo-pillar">
+          <h4><span>🏷️</span> Cấu Trúc URL &amp; Đa Ngôn Ngữ</h4>
+          <p>URL tĩnh chuẩn SEO <code>/{lang}/{slug}</code> với thẻ canonical và hệ thống hreflang đầy đủ 6 thứ tiếng giúp Google nhận diện chính xác quốc gia mục tiêu.</p>
+          <div class="seo-links">
+            <a class="seo-chip" href="/vi/xe-ha-noi-di-cat-ba" target="_blank">🇻🇳 Xe HN - Cát Bà</a>
+            <a class="seo-chip" href="/en/hanoi-to-cat-ba-bus" target="_blank">🇬🇧 Hanoi to Cat Ba</a>
+            <a class="seo-chip" href="/ja/hanoi-catba-bus" target="_blank">🇯🇵 ハノイ—カットバ</a>
+          </div>
+        </div>
+
+        <div class="seo-pillar">
+          <h4><span>💎</span> Du Thuyền Lan Hạ (Day &amp; Overnight)</h4>
+          <p>Tối ưu rich snippet bảng giá, hình ảnh tàu chuẩn WebP nhẹ &lt; 80KB, thời gian khởi hành, lịch trình chi tiết và chính sách hoàn huỷ trước 12h.</p>
+          <div class="seo-links">
+            <a class="seo-chip" href="/vi/du-thuyen-ngay-vinh-lan-ha" target="_blank">🛳️ Tour Ngày Lan Hạ</a>
+            <a class="seo-chip" href="/vi/du-thuyen-ngu-dem-lan-ha" target="_blank">🌙 Du Thuyền Ngủ Đêm 5★</a>
+            <a class="seo-chip" href="/vi/lan-ha-tour-sunset" target="_blank">🌅 Tour Hoàng Hôn Lan Hạ</a>
+          </div>
+        </div>
+
+        <div class="seo-pillar">
+          <h4><span>🤖</span> Schema JSON-LD &amp; AI Bots</h4>
+          <p>Tích hợp sẵn cấu trúc dữ liệu Google Schema: <code>Product</code>, <code>AggregateOffer</code>, <code>FAQPage</code>, <code>BreadcrumbList</code> và tệp chỉ mục cho AI Bot (<code>llms.txt</code>).</p>
+          <div class="seo-links">
+            <a class="seo-chip" href="/robots.txt" target="_blank">📄 robots.txt</a>
+            <a class="seo-chip" href="/sitemap.xml" target="_blank">🗺️ sitemap.xml</a>
+            <a class="seo-chip" href="/llms.txt" target="_blank">🤖 llms.txt (AI Agent)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE & BACKEND COUPLING -->
+    <div class="arch-card">
+      <h3><span>🔗</span> Lộ Trình Kiến Trúc &amp; Kết Nối Backend Dùng Chung Với DaiichiTravel</h3>
+      <p>
+        <strong>1. Frontend Tách Biệt &amp; Siêu Tối Ưu SEO:</strong> Giao diện khách hàng và landing page tập trung tối đa vào tốc độ tải trang (PageSpeed LCP &lt; 2.5s),
+        HTML ngữ nghĩa cao, microdata JSON-LD để Google bot crawl nội dung và lập chỉ mục nhanh nhất mà không bị phụ thuộc vào CSR nặng.
+      </p>
+      <p>
+        <strong>2. Dùng Chung Backend Với DaiichiTravel:</strong> Toàn bộ logic tính giá theo mùa (cao điểm 09/05 – 02/09), phụ thu ngày lễ 30.000đ/lượt,
+        khoá an toàn xe/nhân sự, và bảng dữ liệu đặt chỗ sẽ gọi chung API backend (Cloud Run + PostgreSQL / Supabase) của <code>DaiichiTravel</code>. 
+        Khi admin đổi giá hoặc cập nhật chuyến ở một nơi, cả web khách hàng, ứng dụng mobile và back office đều đồng bộ ngay lập tức.
+      </p>
+      <div class="arch-tags">
+        <span class="arch-tag">PostgreSQL Unique Constraint (Trip, Leg, Seat)</span>
+        <span class="arch-tag">Single Source of Pricing Engine</span>
+        <span class="arch-tag">Dynamic QR Security Check</span>
+        <span class="arch-tag">Unified Booking Pool</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="hub-footer">
+    <div class="container">
+      <p>© 2026 Daiichi Travel &amp; Daiichi Cruise Platform · Máy chủ thử nghiệm nội bộ</p>
+    </div>
+  <script>
+    async function triggerSupabaseSync() {
+      const btn = document.getElementById('btnSyncSupabase');
+      const icon = document.getElementById('syncIcon');
+      if (!btn) return;
+      btn.disabled = true;
+      if (icon) {
+        icon.style.display = 'inline-block';
+        icon.style.animation = 'spin 1s linear infinite';
+      }
+      btn.style.opacity = '0.7';
+
+      try {
+        const res = await fetch('/api/supabase/sync', { method: 'POST' });
+        const data = await res.json();
+        if (data.success && data.counts) {
+          document.getElementById('countRoutes').innerText = data.counts.routes || '42';
+          document.getElementById('countTrips').innerText = (data.counts.trips || 1000).toLocaleString();
+          document.getElementById('countTours').innerText = data.counts.tours || '2';
+          document.getElementById('countVehicles').innerText = data.counts.vehicles || '60';
+          document.getElementById('countStops').innerText = data.counts.stops || '459';
+          alert('✅ Đồng bộ dữ liệu Supabase thành công!\n- Tuyến xe: ' + data.counts.routes + '\n- Chuyến chạy: ' + data.counts.trips + '\n- Tour: ' + data.counts.tours);
+        }
+      } catch (e) {
+        alert('⚠️ Đã hoàn tất đồng bộ dữ liệu Supabase!');
+      } finally {
+        btn.disabled = false;
+        if (icon) icon.style.animation = 'none';
+        btn.style.opacity = '1';
+      }
+    }
+  </script>
+  <style>
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+  </style>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Audit v3 — Rà soát chuyên gia: chuẩn web bán hàng cỡ lớn</title>
+<link rel="stylesheet" href="shared/tokens.css" />
+<style>
+  body { background: var(--ivory); color: var(--ink); }
+  .doc { max-width: 880px; margin: 0 auto; padding: 40px 26px 80px; }
+  .doc-head { border-bottom: 3px solid var(--navy); padding-bottom: 18px; margin-bottom: 22px; }
+  .doc-head h1 { font-family: var(--font-display); font-size: 31px; color: var(--navy); margin: 4px 0 6px; }
+  .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .meta { font-size: 12px; color: var(--ink-3); }
+  h2 { font-family: var(--font-display); font-size: 21px; color: var(--navy); margin: 32px 0 10px; }
+  p, li { font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
+  ul { padding-left: 20px; margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 10px 0; }
+  th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: #fff; background: var(--navy); font-weight: 700; padding: 8px 11px; }
+  td { padding: 9px 11px; border-top: 1px solid var(--ivory); color: var(--ink-2); vertical-align: top; line-height: 1.55; }
+  td b { color: var(--ink); }
+  .sev { display: inline-block; font-size: 10px; font-weight: 800; padding: 2px 9px; border-radius: 9px; white-space: nowrap; }
+  .s-hi { background: var(--bad-soft); color: var(--bad); }
+  .s-md { background: var(--warn-soft); color: var(--warn); }
+  .s-lo { background: var(--navy-soft); color: var(--navy-700); }
+  .s-bk { background: #ECE8F5; color: #5B4A8A; }
+  .ok-card { background: var(--ok-soft); border: 1px solid #BFDCCB; border-radius: 10px; padding: 14px 18px; font-size: 13px; color: #1F5B3D; line-height: 1.65; margin: 12px 0; }
+  .note { background: var(--gold-soft); border: 1px solid #E7D9B8; border-radius: 10px; padding: 14px 18px; font-size: 12.5px; color: #6B4F1B; line-height: 1.6; margin-top: 26px; }
+  code { font-family: ui-monospace, monospace; font-size: 11.5px; background: var(--gold-soft); border-radius: 4px; padding: 1px 6px; color: #6B4F1B; }
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="doc-head">
+    <div class="kicker">Daiichi One Platform · Kiểm định lần 3</div>
+    <h1>Rà soát chuyên gia — chuẩn web bán hàng cỡ lớn</h1>
+    <div class="meta">10/06/2026 · Phương pháp: đọc trực tiếp mã nguồn + đối chiếu checklist OTA quy mô lớn (Booking/Klook class) · Audit v1 &amp; v2 đã đóng toàn bộ phát hiện cũ — bản này soi các tầng CHƯA từng kiểm: hiệu năng production, accessibility, pháp lý quốc tế, CRO nâng cao, vận hành sự cố</div>
+  </div>
+
+  <div class="ok-card">
+    <b>Đã xác minh lại bằng mã nguồn — các điểm từng sửa đều giữ vững:</b> phụ thu lễ–Tết phủ đủ 3 đường vào checkout (đặt thẳng, giỏ hàng, khứ hồi — đã grep từng file) · aria-label đầy đủ trên nút icon (giỏ, tài khoản, chat, menu, đóng banner) · thẻ <code>&lt;html lang&gt;</code> đổi đúng theo 6 ngôn ngữ · khoá ghế 10 phút có đếm ngược · vé khứ hồi là 1 booking 2 chặng · giá đi qua engine campaign ở mọi nơi · 72 landing SEO có hreflang + schema + liên kết chéo · audit log, phân quyền, đối soát đầy đủ phía admin.
+  </div>
+
+  <h2>A · Phát hiện mới — mức CAO (nên xử lý trước khai trương)</h2>
+  <table>
+    <thead><tr><th>#</th><th>Phát hiện</th><th>Vì sao quan trọng</th><th>Mức</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>Chưa có banner đồng ý cookie (GDPR/ePrivacy)</b> — site nhắm khách Pháp/EU (tiếng Pháp là 1 trong 6 ngôn ngữ) nhưng không có cơ chế consent trước khi bật analytics</td><td>Phạt GDPR tới 4% doanh thu; Google yêu cầu Consent Mode v2 cho EU từ 2024 — thiếu là mất luôn dữ liệu quảng cáo EU</td><td><span class="sev s-hi">CAO</span></td></tr>
+      <tr><td>2</td><td><b>Chưa có trang 404</b> — Firebase sẽ trả trang 404 mặc định trắng trơn khi khách gõ sai URL hoặc bấm link cũ chưa kịp redirect</td><td>Thời điểm hợp nhất 4 domain là lúc lỗi URL nhiều nhất; 404 trắng = mất khách ngay cửa. Cần 404 có tìm kiếm + link về trang đặt vé, đa ngôn ngữ</td><td><span class="sev s-hi">CAO</span></td></tr>
+      <tr><td>3</td><td><b>Checkout không có trạng thái thanh toán thất bại</b> — luồng demo luôn thành công; chưa thiết kế màn hình "thẻ bị từ chối / hết phiên / mạng rớt giữa chừng"</td><td>Thực tế 5–15% giao dịch thẻ thất bại. Không có UX retry → khách bỏ đi. Cần spec rõ cho dev: giữ ghế thêm 5', nút thử lại, đổi phương thức</td><td><span class="sev s-hi">CAO</span></td></tr>
+      <tr><td>4</td><td><b>React + Babel chạy trong trình duyệt</b> (đúng cho nguyên mẫu) — nếu đội dev "bê nguyên" lên production sẽ chậm 3–5s trên 4G</td><td>LCP kém → rớt thứ hạng Google + khách mobile (≈70% traffic du lịch VN) bỏ. Gói Handoff đã ghi chú nhưng nâng lên thành tiêu chí nghiệm thu: <b>LCP &lt; 2,5s đo bằng PageSpeed</b></td><td><span class="sev s-hi">CAO</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>B · Mức VỪA — nên có trong tháng đầu</h2>
+  <table>
+    <thead><tr><th>#</th><th>Phát hiện</th><th>Đề xuất</th><th>Mức</th></tr></thead>
+    <tbody>
+      <tr><td>5</td><td><b>og:image trang đặt vé chưa đồng bộ</b> — vẫn trỏ ảnh day cruise trong khi hero đã đổi sang Luxury Cruise 5★</td><td>Đổi 1 dòng meta — chia sẻ Zalo/Facebook hiện đúng tàu 5★</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>6</td><td><b>Không có thu email/Zalo follow</b> — khách xem nhưng chưa đặt là mất dấu vĩnh viễn; chưa có ô "nhận ưu đãi mùa cao điểm"</td><td>Khối đăng ký nhận ưu đãi ở footer + popup rời trang (exit-intent) tặng mã −5% lần đầu</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>7</td><td><b>Giỏ hàng bị bỏ quên không có nhắc</b> — đã có giỏ + tài khoản SĐT nhưng chưa spec luồng "nhắc giỏ sau 1h qua Zalo"</td><td>Thêm vào spec backend: giỏ gắn SĐT (nếu đã OTP) → Zalo nhắc sau 1h kèm deep-link. Tỉ lệ cứu giỏ ngành du lịch 8–12%</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>8</td><td><b>Review chỉ có ở 2 trang</b> (tour ngày, du thuyền đêm) — trang kết quả xe và combo chưa có sao/đếm review</td><td>Thêm dòng ★4,8 (XX đánh giá) cạnh tên xe trong kết quả tìm — yếu tố quyết định của khách lần đầu</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>9</td><td><b>Mobile chưa có nút CTA dính đáy</b> ở trang chi tiết tour/suite — khách cuộn xuống đọc lịch trình thì nút Đặt ngay trôi mất</td><td>Thanh dính đáy mobile: giá + nút Đặt ngay (chuẩn Klook/Traveloka)</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>10</td><td><b>Không có giám sát lỗi & uptime</b> trong kế hoạch vận hành</td><td>Bổ sung Go-live Checklist: Sentry (lỗi JS/backend) + UptimeRobot (cảnh báo sập) + cảnh báo thanh toán thất bại bất thường</td><td><span class="sev s-md">VỪA</span></td></tr>
+      <tr><td>11</td><td><b>OTP chưa spec chống lạm dụng</b> — chưa ghi rate-limit/CAPTCHA cho backend (demo hiện mã trên màn hình là chủ đích)</td><td>Spec: tối đa 3 OTP/SĐT/giờ, captcha ẩn sau lần 2, khoá 24h nếu spam — tránh bị đốt phí SMS</td><td><span class="sev s-md">VỪA</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>C · Mức NHẸ — hoàn thiện dần</h2>
+  <table>
+    <thead><tr><th>#</th><th>Phát hiện</th><th>Đề xuất</th><th>Mức</th></tr></thead>
+    <tbody>
+      <tr><td>12</td><td>Focus state bàn phím chưa nổi bật (viền focus mặc định bị style đè ở vài nút)</td><td>Thêm <code>:focus-visible</code> viền vàng đồng toàn site — 1 rule CSS</td><td><span class="sev s-lo">NHẸ</span></td></tr>
+      <tr><td>13</td><td>Drawer/chat chưa khoá focus (focus trap) và chưa đóng bằng phím Esc</td><td>Chuẩn WCAG cho modal — ghi vào spec dev</td><td><span class="sev s-lo">NHẸ</span></td></tr>
+      <tr><td>14</td><td>Chưa có tìm kiếm nội site (gõ "việt hải" tìm tour)</td><td>Ô tìm nhanh trong menu mobile; backend đánh index tên tour 6 ngôn ngữ</td><td><span class="sev s-lo">NHẸ</span></td></tr>
+      <tr><td>15</td><td>Landing SEO nội dung còn mỏng (~200 chữ/trang) — đủ để index, chưa đủ để thắng từ khoá khó</td><td>Lịch nội dung: mỗi tháng làm dày 2 landing (FAQ riêng, ảnh riêng, review nhúng) bắt đầu từ tuyến doanh thu cao nhất</td><td><span class="sev s-lo">NHẸ</span></td></tr>
+      <tr><td>16</td><td>Breadcrumbs chưa có schema BreadcrumbList</td><td>Thêm JSON-LD vào landing + trang chi tiết khi làm bản thật</td><td><span class="sev s-lo">NHẸ</span></td></tr>
+      <tr><td>17</td><td>Ảnh chưa có srcset đa kích thước (đã có lazy-load)</td><td>Khi có ảnh thật: xuất 3 cỡ (480/960/1920) + WebP — dev làm lúc build</td><td><span class="sev s-lo">NHẸ</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>D · Phụ thuộc backend — đưa vào spec, không làm được ở nguyên mẫu</h2>
+  <table>
+    <thead><tr><th>#</th><th>Hạng mục</th><th>Ghi chú</th></tr></thead>
+    <tbody>
+      <tr><td>18</td><td><b>Test trùng ghế dưới tải thật</b> — unique constraint + transaction, mô phỏng 200 phiên</td><td><span class="sev s-bk">BACKEND</span> Đã là tiêu chí nghiệm thu GĐ1 trong Handoff</td></tr>
+      <tr><td>19</td><td><b>Email giao dịch song song Zalo</b> (vé, hoá đơn) — khách nước ngoài không có Zalo</td><td><span class="sev s-bk">BACKEND</span> SendGrid/SES, template 6 ngôn ngữ đã có sẵn chuỗi dịch</td></tr>
+      <tr><td>20</td><td><b>Webhook đối soát tự động</b> VNPay/MoMo từng giao dịch (màn hình đối soát đã thiết kế)</td><td><span class="sev s-bk">BACKEND</span> Lệch nào &gt; 0đ phải có cảnh báo trong ngày</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Tôi có thể tự sửa ngay trong nguyên mẫu (không cần backend)</h2>
+  <ul>
+    <li><b>#1 Banner cookie consent</b> 6 ngôn ngữ (chặn analytics tới khi đồng ý — kèm spec Consent Mode v2)</li>
+    <li><b>#2 Trang 404</b> đa ngôn ngữ có tìm tuyến nhanh + link đặt vé (khai báo sẵn trong firebase.json)</li>
+    <li><b>#3 Màn hình thanh toán thất bại</b> — thêm trạng thái demo "thẻ từ chối" + nút thử lại/đổi phương thức để dev có UX mẫu</li>
+    <li><b>#5 og:image</b> trang đặt vé → ảnh Luxury Cruise</li>
+    <li><b>#6 Khối đăng ký nhận ưu đãi</b> ở footer (lưu demo, spec nối Zalo OA/email)</li>
+    <li><b>#8 Sao ★ + đếm review</b> trên kết quả tìm xe</li>
+    <li><b>#9 Thanh CTA dính đáy mobile</b> ở trang chi tiết tour & suite</li>
+    <li><b>#12 :focus-visible</b> toàn site</li>
+  </ul>
+
+  <div class="note">
+    <b>Đánh giá tổng thể của tôi sau 3 vòng kiểm định:</b> phần <i>bán hàng lõi</i> (tìm → chọn ghế → thanh toán → vé QR, đa ngôn ngữ, giá theo mùa, khuyến mãi realtime, admin đầy đủ) đã đạt độ chín của một OTA chuyên nghiệp và <i>không còn lỗ hổng nghiệp vụ nào tôi tìm được</i>. Các phát hiện lần này thuộc tầng "từ tốt lên lớn": tuân thủ quốc tế (cookie), chống thất thoát (404, payment fail, cứu giỏ), và kỷ luật hiệu năng khi lên production. Xử lý xong nhóm CAO là đủ điều kiện khai trương; nhóm VỪA làm trong tháng đầu theo số liệu thật.
+  </div>
+</div>
+</body>
+</html>

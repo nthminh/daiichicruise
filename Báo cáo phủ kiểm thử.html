@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Báo cáo phủ kiểm thử toàn hệ thống — Daiichi One Platform</title>
+<link rel="stylesheet" href="shared/tokens.css" />
+<style>
+  body { background: var(--ivory); color: var(--ink); }
+  .doc { max-width: 880px; margin: 0 auto; padding: 40px 26px 80px; }
+  .doc-head { border-bottom: 3px solid var(--navy); padding-bottom: 18px; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; }
+  .doc-head h1 { font-family: var(--font-display); font-size: 30px; color: var(--navy); margin: 4px 0 6px; }
+  .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .meta { font-size: 12px; color: var(--ink-3); }
+  .print-btn { background: var(--red); color: #fff; border: 0; border-radius: 8px; padding: 10px 18px; font-size: 13px; font-weight: 700; cursor: pointer; }
+  h2 { font-family: var(--font-display); font-size: 21px; color: var(--navy); margin: 30px 0 10px; }
+  p, li { font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 10px 0; }
+  th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: #fff; background: var(--navy); font-weight: 700; padding: 8px 11px; }
+  td { padding: 9px 11px; border-top: 1px solid var(--ivory); color: var(--ink-2); vertical-align: top; line-height: 1.55; }
+  td b { color: var(--ink); }
+  .pill { display: inline-block; font-size: 10px; font-weight: 800; padding: 2px 9px; border-radius: 9px; white-space: nowrap; }
+  .ok { background: var(--ok-soft); color: var(--ok); }
+  .demo { background: var(--gold-soft); color: #7A5A1E; }
+  .na { background: var(--navy-soft); color: var(--navy-700); }
+  .sum { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+  .sum > div { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; text-align: center; }
+  .sum b { font-size: 26px; color: var(--navy); display: block; }
+  .sum span { font-size: 11.5px; color: var(--ink-3); }
+  .note { background: var(--gold-soft); border: 1px solid #E7D9B8; border-radius: 10px; padding: 14px 18px; font-size: 12.5px; color: #6B4F1B; line-height: 1.6; margin-top: 24px; }
+  @media print { .print-btn { display: none; } body { background: #fff; } .doc { padding: 0; max-width: none; } table { break-inside: avoid; } th { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="doc-head">
+    <div>
+      <div class="kicker">Daiichi One Platform · Hồ sơ chất lượng</div>
+      <h1>Báo cáo phủ kiểm thử toàn hệ thống</h1>
+      <div class="meta">11/06/2026 · Tổng hợp 4 vòng audit + hơn 20 lượt kiểm tra tự động (subagent độc lập chụp màn hình, truy vấn DOM, chạy nghiệp vụ thật) + các phiên tự kiểm bằng dữ liệu sống</div>
+    </div>
+    <button class="print-btn" onclick="window.print()">🖨 In / Lưu PDF</button>
+  </div>
+
+  <div class="sum">
+    <div><b>9/9</b><span>nhóm nghiệp vụ đã kiểm end-to-end</span></div>
+    <div><b>39/39</b><span>phát hiện qua 4 vòng audit đã đóng</span></div>
+    <div><b>0</b><span>lỗi còn mở tại thời điểm lập báo cáo</span></div>
+  </div>
+
+  <h2>1 · Phủ kiểm theo nhóm nghiệp vụ</h2>
+  <table>
+    <thead><tr><th>Nhóm</th><th>Đã kiểm thật (tự động + dữ liệu sống)</th><th>Kết quả</th></tr></thead>
+    <tbody>
+      <tr><td><b>Đặt vé xe</b></td><td>Tìm 1 chiều & khứ hồi (−5%), lọc/sắp xếp, sơ đồ ghế 5 loại xe, giữ ghế 10', phụ thu lễ, mã khuyến mãi, add-on (bảo hiểm/hành lý/sân bay), hoá đơn VAT, thanh toán 4 kênh + luồng thất bại–thử lại, vé QR động — chạy trọn luồng bằng tiếng Việt, Nhật, Hàn</td><td><span class="pill ok">PASS</span></td></tr>
+      <tr><td><b>Cruise & tour</b></td><td>6 tour ngày (lịch trình 6 ngôn ngữ, chính sách trẻ em, khoá ngoài mùa), 6 hạng suite 2 gói đêm, 2 combo, review xác thực, CTA dính đáy mobile</td><td><span class="pill ok">PASS</span></td></tr>
+      <tr><td><b>Sau bán</b></td><td>Tra cứu mã + SĐT/OTP, tự huỷ theo chính sách 12h (dấu HUỶ VÉ, chặn huỷ lại), đổi chuyến, in vé sạch, timeline thông báo, tài khoản + điểm thưởng + đặt lại prefill</td><td><span class="pill ok">PASS</span></td></tr>
+      <tr><td><b>Giỏ hàng & upsell</b></td><td>Giỏ đa dịch vụ, giữ ghế từng món, phụ thu lễ trong giỏ, bundle −10%, thanh toán 1 lần ra nhiều vé</td><td><span class="pill ok">PASS</span></td></tr>
+      <tr><td><b>Đa ngôn ngữ & theme</b></td><td>6 ngôn ngữ tự detect, 6 theme văn hoá, vùng giao dịch trung tính, chuỗi dịch phủ cả nội dung sản phẩm; chatbot trả lời đúng ngôn ngữ từ dữ liệu hệ thống (13 intent)</td><td><span class="pill ok">PASS</span></td></tr>
+      <tr><td><b>Động & marketing</b></td><td>Flash sale countdown realtime, CMS tự dịch 5 ngôn ngữ (admin sửa → web đổi), newsletter, cookie consent 6 ngôn ngữ, 404, 72 trang SEO + schema + liên kết chéo</td><td><span class="pill ok">PASS</span></td></tr>
+      <tr><td><b>Back Office bán hàng</b></td><td>27 màn hình: dashboard, booking + hoàn vé theo chính sách, sơ đồ ghế chuyến, giá & KM, đối soát, POS, soát vé, đại lý (công nợ, đặt hộ, hạng bậc thang + leaderboard), đối tác, audit, phân quyền — từng màn hình đều có lượt kiểm tương tác riêng</td><td><span class="pill ok">PASS</span></td></tr>
+      <tr><td><b>Vận hành & HR</b></td><td>Điều độ (soát 5 loại xung đột), segment inventory, cấm biển hàng loạt, đăng kiểm tự khoá, P&L theo chuyến (giá dầu tính lại), hồ sơ NS, bảng công tương tác, tính lương + phiếu lương, đào tạo/sức khoẻ/trần OT, tuyển thời vụ + cổng cứng onboarding, xếp ca liên thông an toàn, KPI & chia tip, offboarding 6 bước</td><td><span class="pill ok">PASS</span></td></tr>
+      <tr><td><b>Liên thông toàn hệ</b></td><td>Booking/charter/hồ sơ ứng tuyển từ web đổ vào admin (kiểm bằng dữ liệu thật); 1 nguồn giá cho web–chatbot–SEO–AI; 1 engine khuyến mãi 3 cổng; khoá an toàn chéo điều độ↔xếp ca↔hồ sơ</td><td><span class="pill ok">PASS</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>2 · Minh bạch: phần là mô phỏng có chủ đích (đúng vai trò nguyên mẫu)</h2>
+  <table>
+    <thead><tr><th>Hạng mục</th><th>Trạng thái trong nguyên mẫu</th><th>Khi xây bản thật</th></tr></thead>
+    <tbody>
+      <tr><td>Thanh toán, SMS/Zalo, email</td><td><span class="pill demo">MÔ PHỎNG</span> luồng UX đầy đủ, không gọi cổng thật; OTP hiện mã demo</td><td>Nối VNPay/MoMo/cổng thẻ + Zalo OA theo spec Handoff</td></tr>
+      <tr><td>Nút "Xuất Excel", "Gửi Zalo", "In danh sách"</td><td><span class="pill demo">MÔ PHỎNG</span> đổi trạng thái giao diện, không sinh file thật</td><td>Backend xuất file/queue tin nhắn</td></tr>
+      <tr><td>Dữ liệu admin (46 booking, 42 NS, doanh thu…)</td><td><span class="pill demo">DEMO</span> sinh cố định để duyệt nghiệp vụ + trộn booking thật từ web</td><td>Đọc database thật</td></tr>
+      <tr><td>5 app mobile</td><td><span class="pill demo">MOCKUP</span> 13 màn hình tương tác cục bộ — là spec giao diện GĐ2</td><td>Xây native/Flutter dùng chung API</td></tr>
+      <tr><td>Đăng nhập Back Office</td><td><span class="pill demo">DEMO</span> chọn vai trò không mật khẩu (đã ẩn mọi link công khai + chặn index)</td><td>Bắt buộc đăng nhập + phân quyền backend (tiêu chí nghiệm thu GĐ1)</td></tr>
+    </tbody>
+  </table>
+
+  <h2>3 · Ngoài phạm vi kiểm của nguyên mẫu</h2>
+  <ul>
+    <li><span class="pill na">CẦN BACKEND</span> Chịu tải đồng thời (200 phiên chọn ghế), chống trùng ghế đa người dùng, webhook đối soát — đã là <b>tiêu chí nghiệm thu GĐ1</b> trong gói Handoff.</li>
+    <li><span class="pill na">CẦN MÔI TRƯỜNG THẬT</span> Đo Core Web Vitals sau khi precompile (cấm Babel runtime — đã ghi điều kiện nghiệm thu), kiểm trên dải thiết bị thật (iOS Safari, Android cũ), trình đọc màn hình đầy đủ (đã đạt mức cơ bản: aria-label, focus-visible, contrast AA).</li>
+  </ul>
+
+  <div class="note">
+    <b>Kết luận:</b> mọi tính năng, tác vụ và nghiệp vụ <i>trong phạm vi nguyên mẫu</i> đã được kiểm ít nhất một lượt tự động độc lập, các luồng doanh thu chính được kiểm nhiều lượt ở nhiều ngôn ngữ; 39/39 phát hiện qua 4 vòng audit đã đóng và xác minh lại. Phần mô phỏng được liệt kê minh bạch ở mục 2 — đó là ranh giới tự nhiên giữa nguyên mẫu thiết kế và hệ thống production, đã chuyển hoá thành tiêu chí nghiệm thu trong tài liệu bàn giao dev.
+  </div>
+</div>
+</body>
+</html>

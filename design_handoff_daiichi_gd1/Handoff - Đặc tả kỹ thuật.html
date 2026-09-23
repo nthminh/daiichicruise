@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daiichi One Platform — Handoff: Đặc tả kỹ thuật cho đội phát triển</title>
+<link rel="stylesheet" href="../shared/tokens.css" />
+<style>
+  body { background: var(--ivory); color: var(--ink); }
+  .doc { max-width: 880px; margin: 0 auto; padding: 40px 26px 80px; }
+  .doc-head { border-bottom: 3px solid var(--navy); padding-bottom: 18px; margin-bottom: 26px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px; }
+  .doc-head h1 { font-family: var(--font-display); font-size: 32px; color: var(--navy); margin: 4px 0 6px; }
+  .kicker { font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .meta { font-size: 12px; color: var(--ink-3); }
+  .print-btn { background: var(--red); color: #fff; border: 0; border-radius: 8px; padding: 10px 18px; font-size: 13px; font-weight: 700; cursor: pointer; }
+  h2 { font-family: var(--font-display); font-size: 22px; color: var(--navy); margin: 34px 0 10px; }
+  h3 { font-size: 14.5px; color: var(--navy); margin: 20px 0 8px; }
+  p, li { font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
+  ul { padding-left: 20px; margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 10px 0; }
+  th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: #fff; background: var(--navy); font-weight: 700; padding: 8px 11px; }
+  td { padding: 9px 11px; border-top: 1px solid var(--ivory); color: var(--ink-2); vertical-align: top; line-height: 1.5; }
+  td b { color: var(--ink); }
+  code { font-family: ui-monospace, monospace; font-size: 11.5px; background: var(--gold-soft); border-radius: 4px; padding: 1px 6px; color: #6B4F1B; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 10px 0; }
+  .warn { background: var(--bad-soft); border: 1px solid #E8C5C5; border-radius: 10px; padding: 13px 17px; font-size: 12.5px; color: #7A2A2A; line-height: 1.6; margin: 12px 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: .05em; padding: 2px 8px; border-radius: 8px; background: var(--navy-soft); color: var(--navy-700); margin-right: 4px; }
+  .tag.p2 { background: var(--gold-soft); color: #7A5A1E; }
+  @media print { .print-btn { display: none; } body { background: #fff; } .doc { padding: 0; max-width: none; } h2 { break-after: avoid; } table, .card { break-inside: avoid; } th { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="doc-head">
+    <div>
+      <div class="kicker">Daiichi One Platform · Developer Handoff</div>
+      <h1>Đặc tả kỹ thuật từ nguyên mẫu</h1>
+      <div class="meta">Bản 1.0 · 10/06/2026 · Đính kèm: toàn bộ nguyên mẫu chạy được (ZIP) — nguyên mẫu là nguồn chân lý về UX/UI, tài liệu này là nguồn chân lý về nghiệp vụ</div>
+    </div>
+    <button class="print-btn" onclick="window.print()">🖨 In / Lưu PDF</button>
+  </div>
+
+  <h2>1 · Phạm vi & kiến trúc đề xuất</h2>
+  <p>Hợp nhất 4 website (daiichitravel.vn, daiichitravel.com, lanhacruises.vn, daiichibus.vn) thành một nền tảng: <b>web khách hàng đa ngôn ngữ</b> + <b>Back Office</b> (quản lý, POS, đại lý, đối tác) + <b>API dùng chung</b> chuẩn bị cho 5 app mobile. Nguyên mẫu frontend đã hoàn chỉnh trong ZIP đính kèm; đội dev xây backend và nối API thay cho dữ liệu demo.</p>
+  <div class="card" style="border-color: var(--gold); background: var(--gold-soft);">
+    <b>⚑ KIẾN TRÚC ĐÃ CHỐT (quyết định của chủ đầu tư, 11/06/2026 — không phải gợi ý):</b>
+    <ul>
+      <li><b>Frontend:</b> Next.js (SSR/SSG) — giữ SEO 6 ngôn ngữ + 72 landing; JSX precompile lúc build, cấm Babel runtime.</li>
+      <li><b>Backend API:</b> Google <b>Cloud Run</b> — một API duy nhất (API-first) phục vụ web, Back Office, app GĐ2; scale-to-zero.</li>
+      <li><b>Database:</b> Google <b>Cloud SQL (PostgreSQL)</b> — data model theo mục 3; unique constraint (trip, chặng, ghế) chống trùng ghế.</li>
+      <li><b>Xác thực khách:</b> <b>Firebase Authentication</b> (OTP SĐT) — khớp thiết kế tài khoản không mật khẩu hiện có.</li>
+      <li><b>Back Office:</b> SPA sau đăng nhập, phân quyền theo vai trò (mục 6).</li>
+      <li><b>Hosting tĩnh + ảnh:</b> Firebase Hosting / Cloud Storage; region <b>asia-southeast1 (Singapore)</b> cho toàn bộ.</li>
+      <li>Realtime tối thiểu: trạng thái ghế (WebSocket/polling 5s) để chống trùng ghế giữa web–POS–đại lý.</li>
+      <li><b>Mô hình "một nguồn dữ liệu" đã có bằng chứng chạy được trong nguyên mẫu</b>: booking/charter/hồ sơ ứng tuyển từ web đổ vào admin; app khách hiển thị vé thật; app HDV nhận danh sách đón — tất cả qua một kho chung (demo bằng localStorage, production thay bằng API + DB).</li>
+    </ul>
+  </div>
+
+  <h2>2 · Bản đồ nguyên mẫu → module</h2>
+  <table>
+    <thead><tr><th>Thư mục / file trong ZIP</th><th>Module tương ứng</th><th>Ghi chú triển khai</th></tr></thead>
+    <tbody>
+      <tr><td><code>index.html</code> + <code>one-home.jsx</code></td><td>Trang chủ marketing</td><td>Hero Luxury Cruise 5★, tabs tìm kiếm, flash sale realtime, khối đối tác (góc nhỏ).</td></tr>
+      <tr><td><code>customer/</code></td><td>Web đặt vé</td><td>Toàn bộ luồng: tìm chuyến (1 chiều/khứ hồi −5%), sơ đồ ghế, giỏ hàng, checkout (promo, phụ thu lễ, hold ghế 10'), vé QR, tra cứu (mã / SĐT+OTP), tài khoản + điểm thưởng, chatbot 13 intent, trang pháp lý.</td></tr>
+      <tr><td><code>admin/</code></td><td>Back Office — 27 màn hình</td><td>4 vai trò đăng nhập. <b>Bán hàng:</b> dashboard, booking + hoàn vé theo chính sách, sơ đồ ghế chuyến, giá & KM theo mùa, CMS tự dịch, báo cáo đối soát, POS, soát vé. <b>Đại lý/đối tác:</b> công nợ, đặt hộ, hoạ hồng bậc thang + leaderboard, duyệt đối tác. <b>Vận hành đội xe/tàu:</b> bảng điều độ (soát 5 loại xung đột), bán ghế theo chặng (segment inventory), cấm biển xử lý hàng loạt, đăng kiểm & bảo dưỡng tự khoá, lãi–lỗ theo chuyến. <b>Nhân sự:</b> hồ sơ (cảnh báo GPLX/chứng chỉ), bảng công tương tác, tính lương + phiếu lương, đào tạo & an toàn + trần OT luật LĐ, tuyển thời vụ + cổng cứng onboarding, xếp ca liên thông an toàn, KPI & chia tip, offboarding. <b>Hệ thống:</b> phân quyền, audit log append-only.</td></tr>
+      <tr><td><code>apps/</code></td><td>Spec 5 app mobile</td><td>Mockup là spec màn hình cho giai đoạn 2 — không cần code lại bằng web.</td></tr>
+      <tr><td><code>shared/</code></td><td>Lõi dùng chung</td><td><code>i18n.js</code> (6 ngôn ngữ + detect thiết bị), <code>themes.js</code> (6 theme văn hoá), <code>data.js</code> (biểu giá thật 2026–2027 + lịch chạy + mùa vụ — <b>chuyển thành seed data cho DB</b>), <code>campaigns.js</code> (engine khuyến mãi/flash sale).</td></tr>
+      <tr><td><code>seo/</code> + <code>sitemap.xml</code> + <code>robots.txt</code> + <code>llms.txt</code> + <code>ai/</code></td><td>SEO & AI-agent</td><td>72 landing (12 tuyến + 9 tour × 6 ngôn ngữ) đã liên kết chéo, schema.org Product/FAQ, hreflang. Giữ nguyên URL khi triển khai. <b>RÀNG BUỘC KIẾN TRÚC: landing không được hard-code giá</b> — đổi giá/khuyến mãi ở admin phải trigger regenerate (hoặc landing đọc giá qua API lúc build) để không lệch giá với web đặt vé.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>3 · Mô hình dữ liệu (entity chính)</h2>
+  <table>
+    <thead><tr><th>Entity</th><th>Trường quan trọng</th><th>Quy tắc nghiệp vụ</th></tr></thead>
+    <tbody>
+      <tr><td><b>Route / Service</b></td><td>điểm đi–đến, loại xe/tàu, thời lượng, giờ chạy 2 chiều, giá mùa thấp/cao, đối tác (nullable)</td><td>Mùa cao 09/05–02/09; vé HN⇄HP đồng giá quanh năm. Dịch vụ đối tác có badge + revenue share 12–15%.</td></tr>
+      <tr><td><b>Vehicle layout</b></td><td>5 layout ghế: bus45 (A–D), limo34, limo11, limo10, limo7</td><td>Sơ đồ trong <code>data.js → buildSeats()</code> — đúng từng hàng/cột, hàng cuối khác pattern.</td></tr>
+      <tr><td><b>Trip instance</b></td><td>service + ngày + giờ; trạng thái từng ghế (trống/giữ/bán)</td><td><b>Seat hold 10 phút</b> khi vào checkout; hết hạn tự nhả. Giữ chỗ điện thoại từ Back Office cũng dùng hold.</td></tr>
+      <tr><td><b>Tour (day/overnight)</b></td><td>code VIP1–5, giờ, tàu, giá mùa, peakOnly, lịch trình 6 ngôn ngữ, chính sách trẻ em theo bậc giá</td><td>Tour peakOnly tự khoá ngoài 27/5–02/8. Suite: 6 hạng × giá 2N1Đ/3N2Đ; <b>tồn kho 32 suite/đêm theo hạng phòng</b> — UI hiển thị "Còn X phòng" từ tồn thật; <b>đặt cọc 50%</b> cho booking đêm (phần còn lại thu trước 7 ngày — khớp mốc hoàn 100%).</td></tr>
+      <tr><td><b>Booking</b></td><td>mã DT26-XXXXX, kind, khách, ghế/suite, điểm đón-trả, thanh toán, promo, trạng thái (paid/hold/checkedin/refund), kênh (web/agent/pos/ota)</td><td>Khứ hồi −5%; phụ thu lễ–Tết 30.000đ/khách/lượt tự cộng; hoàn vé: miễn phí >12h, cruise đêm 100%/50%/0 theo 7/3 ngày; cấm biển hoàn 100%.</td></tr>
+      <tr><td><b>Cart</b></td><td>nhiều booking-item, mỗi item giữ hold ghế riêng</td><td>Upsell bundle −10% (cruise↔bus). Thanh toán 1 lần ra nhiều vé.</td></tr>
+      <tr><td><b>Agent</b></td><td>hạng (Bạc/Vàng), chiết khấu 8–10%, hạn mức công nợ, kỳ thanh toán 15 & 30</td><td>Cảnh báo 70% hạn mức; đặt hộ trừ công nợ; hoa hồng theo đơn.</td></tr>
+      <tr><td><b>Partner</b></td><td>dịch vụ riêng, trạng thái mở bán, GMV, revenue share, điểm chất lượng</td><td>Dịch vụ mới & đổi giá phải qua duyệt của quản lý; tắt mở bán có hiệu lực tức thì mọi kênh.</td></tr>
+      <tr><td><b>Campaign</b></td><td>loại (flash/seasonal/code), %, hạn, phạm vi sản phẩm, lượt dùng</td><td>Flash sale có countdown; giá hiển thị tự áp; mã nhập tay ở checkout; chatbot đọc cùng nguồn.</td></tr>
+      <tr><td><b>Customer account</b></td><td>SĐT (định danh), OTP login, điểm thưởng, hạng (Bạc/Vàng/Bạch Kim)</td><td>+150 điểm/chuyến + 1 điểm/20.000đ; không dùng mật khẩu.</td></tr>
+      <tr><td><b>Employee + Timesheet</b></td><td>phòng ban, vai trò, chấm công GPS+selfie, giờ lái (đối chiếu GPS chuyến), đơn từ</td><td>Giới hạn lái an toàn 4h liên tục/10h ngày; lệch GPS >15' gắn cờ.</td></tr>
+      <tr><td><b>CMS post + Hero</b></td><td>nội dung nhập tiếng Việt, engine tự dịch 5 ngôn ngữ còn lại, trạng thái draft/published</td><td>Bản dịch máy được đánh dấu để hiệu đính sau; xuất bản là web đổi ngay.</td></tr>
+      <tr><td><b>Audit log</b></td><td>ai, làm gì, khu vực, IP, thời gian</td><td>Append-only, lưu ≥24 tháng: đổi giá, hoàn vé, phân quyền, đăng nhập, duyệt đối tác.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>4 · API tối thiểu (giai đoạn 1)</h2>
+  <div class="card">
+    <p style="margin:0 0 6px"><b>Public (web khách):</b></p>
+    <p style="margin:0"><code>GET /routes</code> · <code>GET /trips?from&to&date</code> · <code>GET /trips/:id/seats</code> · <code>POST /holds</code> (10') · <code>GET /tours</code> · <code>GET /suites</code> · <code>GET /campaigns/active</code> · <code>POST /bookings</code> · <code>POST /payments/:provider</code> + webhook · <code>GET /bookings/:code</code> · <code>POST /otp</code> / <code>POST /otp/verify</code> · <code>GET /me/bookings</code> · <code>POST /chatbot/query</code> (đọc cùng DB)</p>
+    <p style="margin:10px 0 6px"><b>Back Office (theo vai trò):</b></p>
+    <p style="margin:0"><code>GET /admin/dashboard</code> · <code>CRUD /admin/bookings</code> + <code>POST :id/refund</code> (validate chính sách) · <code>GET /admin/trips/:id/seatmap</code> + hold/release · <code>CRUD /admin/pricing</code>, <code>/admin/campaigns</code> · <code>CRUD /admin/cms</code> + <code>POST /translate</code> · <code>GET /admin/reports/recon</code> · <code>CRUD /admin/agents</code> + ledger · <code>CRUD /admin/partners</code> + approvals · <code>POST /pos/sale</code> · <code>POST /checkin/:code</code> · <code>CRUD /admin/users</code> · <code>GET /admin/audit</code> · timesheet endpoints</p>
+  </div>
+
+  <h2>5 · Tích hợp bên thứ ba</h2>
+  <table>
+    <thead><tr><th>Dịch vụ</th><th>Dùng cho</th><th>Ghi chú</th></tr></thead>
+    <tbody>
+      <tr><td>VNPay / MoMo / cổng thẻ quốc tế</td><td>Thanh toán + refund API</td><td>QR động; webhook xác nhận; đối soát file hằng ngày (màn hình đối soát đã thiết kế).</td></tr>
+      <tr><td>Zalo OA + SMS brandname</td><td>Vé QR, nhắc 24h/1h, OTP, mời review, <b>nhắc giỏ bỏ quên</b></td><td>Timeline thông báo đã đặc tả trên vé điện tử. Giỏ gắn SĐT (đã OTP) bỏ quên &gt;1h → Zalo kèm deep-link quay lại đúng giỏ; tối đa 1 nhắc/giỏ, ngừng khi khách đặt xong. Tỉ lệ cứu giỏ ngành du lịch 8–12%.</td></tr>
+      <tr><td>Dịch máy (Google/DeepL)</td><td>CMS tự dịch VI → 5 ngôn ngữ</td><td>UI đã có sẵn trạng thái "bản dịch máy — cần hiệu đính".</td></tr>
+      <tr><td>Claude API (tuỳ chọn)</td><td>Nâng cấp chatbot rule-based → AI</td><td>Dữ liệu nền đã chuẩn bị tại <code>ai/prices.json</code> + <code>llms.txt</code>.</td></tr>
+      <tr><td>OTA channel manager <span class="tag p2">GĐ 2</span></td><td>Klook/Traveloka đồng bộ chỗ</td><td>Thiết kế inventory chung đã chống trùng ghế đa kênh từ đầu.</td></tr>
+      <tr><td>GPS thiết bị xe <span class="tag p2">GĐ 2</span></td><td>Theo dõi xe realtime, giờ lái</td><td>Màn hình khách & tài xế đã mock trong <code>apps/</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>6 · Ma trận phân quyền (rút gọn)</h2>
+  <table>
+    <thead><tr><th>Chức năng</th><th>BGĐ</th><th>Điều hành</th><th>Kế toán</th><th>Quầy/POS</th><th>HDV/Thuyền viên</th><th>Tài xế</th><th>Đại lý</th><th>Đối tác</th></tr></thead>
+    <tbody>
+      <tr><td>Dashboard & báo cáo</td><td><b>Full</b></td><td>Xem</td><td>Xem</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Của mình</td></tr>
+      <tr><td>Booking (sửa/hoàn)</td><td><b>Full</b></td><td><b>Full</b></td><td>Hoàn vé</td><td>Tạo/check-in</td><td>Check-in</td><td>—</td><td>Của mình</td><td>Của mình</td></tr>
+      <tr><td>Giá & khuyến mãi</td><td><b>Duyệt</b></td><td>Soạn</td><td>Xem</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Đề xuất (chờ duyệt)</td></tr>
+      <tr><td>CMS nội dung</td><td>Duyệt</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>Công nợ đại lý</td><td>Xem</td><td>—</td><td><b>Full</b></td><td>—</td><td>—</td><td>—</td><td>Của mình</td><td>—</td></tr>
+      <tr><td>Chấm công & lương</td><td>Duyệt</td><td>Duyệt đơn</td><td><b>Full</b></td><td>Của mình</td><td>Của mình</td><td>Của mình</td><td>—</td><td>—</td></tr>
+      <tr><td>Phân quyền & audit</td><td><b>Full</b></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <p>Marketing: Full CMS + campaigns (soạn), xem dashboard. Bản đầy đủ 9 vai trò × 8 nhóm chức năng xem trong nguyên mẫu <code>apps/Mobile Apps.html</code> (mục phân quyền) và <code>admin/admin-hr.jsx</code>.</p>
+
+  <h2>7 · Yêu cầu phi chức năng</h2>
+  <ul>
+    <li><b>Chống trùng ghế tuyệt đối</b>: transaction + unique constraint (trip, seat); hold hết hạn tự nhả; load test 200 phiên đồng thời trên trang chọn ghế.</li>
+    <li><b>i18n</b>: 6 ngôn ngữ, detect ngôn ngữ thiết bị lần đầu, nhớ lựa chọn; URL landing giữ cấu trúc <code>/{lang}/{slug}</code>; hreflang như sitemap hiện có.</li>
+    <li><b>Theme văn hoá</b>: biến CSS theo <code>data-theme</code> (đã có <code>shared/themes.js</code>) — vùng giao dịch (vé, sơ đồ ghế) giữ màu trung tính.</li>
+    <li><b>Hiệu năng</b>: LCP &lt; 2,5s trên 4G (ảnh hero đã có lazy-load + kích thước responsive trong nguyên mẫu).</li>
+    <li><b>Bảo mật</b>: OTP chống lạm dụng — tối đa 3 OTP/SĐT/giờ, captcha ẩn từ lần thứ 2, khoá 24h nếu spam (tránh bị đốt phí SMS); không lưu số thẻ (PCI qua cổng); audit append-only; backup hằng ngày + diễn tập khôi phục.</li>
+    <li><b>Giám sát vận hành</b>: Sentry (lỗi JS/backend) + UptimeRobot (sập site) + cảnh báo khi tỉ lệ thanh toán thất bại tăng bất thường (&gt;20%/15 phút).</li>
+    <li><b>SEO khi migrate</b>: 301 từng URL 4 domain cũ; giữ nguyên 72 URL landing; submit sitemap + Change of Address.</li>
+  </ul>
+
+  <div class="warn">
+    <b>3 điểm dễ làm sai nhất (đã gặp trong thiết kế):</b> (1) Phụ thu lễ–Tết phải cộng ở <i>mọi</i> đường vào checkout — kể cả giỏ hàng và POS, không chỉ luồng đặt thẳng. (2) Vé khứ hồi là <i>một</i> booking 2 chặng với ghế riêng từng chặng — không phải 2 booking. (3) Giá hiển thị phải đi qua engine campaign ở <i>mọi</i> nơi (web, chatbot, POS, đại lý net) — một nguồn tính giá duy nhất.
+  </div>
+
+  <h2>8 · Lộ trình bàn giao</h2>
+  <table>
+    <thead><tr><th>Giai đoạn</th><th>Phạm vi</th><th>Tiêu chí nghiệm thu</th></tr></thead>
+    <tbody>
+      <tr><td><b>GĐ 1 — Web + Back Office</b></td><td>Toàn bộ mục 2–7 trừ tag GĐ 2</td><td>Đặt vé thật end-to-end 4 phương thức thanh toán <b>kèm luồng thất bại–thử lại</b>; POS bán + kết ca; đại lý đặt hộ trừ công nợ; đổi giá trên admin → web đổi ngay; 0 trùng ghế trong load test; <b>PageSpeed mobile LCP &lt; 2,5s — JSX phải precompile lúc build, cấm Babel runtime</b>; banner cookie consent hoạt động theo Consent Mode v2.</td></tr>
+      <tr><td><b>GĐ 2 — Mobile & realtime</b></td><td>5 app theo mockup <code>apps/</code>, GPS, channel manager OTA, Wallet pass, waitlist</td><td>App khách đặt vé + vé QR offline; app tài xế hoạt động vùng sóng yếu; đồng bộ Klook không trùng chỗ.</td></tr>
+    </tbody>
+  </table>
+
+  <p class="meta" style="margin-top:30px">Liên hệ nghiệp vụ: Daiichi Travel · 096 100 4709 · info@daiichitravel.vn — Tài liệu đi kèm: Go-live Checklist (vận hành), Audit v1 & v2 (lịch sử quyết định), nguyên mẫu ZIP (nguồn chân lý UX/UI).</p>
+</div>
+</body>
+</html>

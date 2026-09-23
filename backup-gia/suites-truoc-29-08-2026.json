@@ -1,0 +1,67 @@
+{
+ "ghi_chu": "Giá suite TRƯỚC khi cập nhật theo Gia_Khach_le.xlsx",
+ "luc": "2026-08-29",
+ "nguon": "GET /suites production",
+ "suites": [
+  {
+   "id": "deluxe",
+   "name": "Deluxe Suite",
+   "price_n1": 2860000,
+   "price_n2": 5720000,
+   "total_count": 8,
+   "cap": "2–3",
+   "floor": 1,
+   "bath": "shower"
+  },
+  {
+   "id": "premium",
+   "name": "Premium Suite",
+   "price_n1": 2990000,
+   "price_n2": 5980000,
+   "total_count": 6,
+   "cap": "2",
+   "floor": 1,
+   "bath": "bathtub"
+  },
+  {
+   "id": "junior",
+   "name": "Junior Suite",
+   "price_n1": 3120000,
+   "price_n2": 6240000,
+   "total_count": 6,
+   "cap": "2–3",
+   "floor": 2,
+   "bath": "shower"
+  },
+  {
+   "id": "senior",
+   "name": "Senior Suite",
+   "price_n1": 3250000,
+   "price_n2": 6500000,
+   "total_count": 6,
+   "cap": "2",
+   "floor": 2,
+   "bath": "bathtub"
+  },
+  {
+   "id": "executive",
+   "name": "Executive Suite",
+   "price_n1": 3380000,
+   "price_n2": 6760000,
+   "total_count": 4,
+   "cap": "2–4",
+   "floor": 2,
+   "bath": "bathtub"
+  },
+  {
+   "id": "royal",
+   "name": "Royal Suite (VIP)",
+   "price_n1": 3640000,
+   "price_n2": 7280000,
+   "total_count": 2,
+   "cap": "2",
+   "floor": 4,
+   "bath": "bathtub"
+  }
+ ]
+}

@@ -29,7 +29,10 @@ def sync():
     print("🚀 Bắt đầu đồng bộ dữ liệu từ Supabase (Project ID: vfeodqmvilchsipdsxsh)...")
     print("=" * 60)
 
-    tables = ["routes", "trips", "tours", "vehicles", "stops"]
+    tables = [
+        "routes", "trips", "tours", "vehicles", "stops",
+        "properties", "property_room_types", "property_rooms", "bookings"
+    ]
     synced_data = {}
 
     for tbl in tables:
@@ -57,6 +60,16 @@ def sync():
         price = t.get("price") or t.get("price_adult") or 0
         dur = t.get("duration") or ""
         print(f"• [{t.get('id')}] {title} | Giá: {price:,.0f}đ | Thời lượng: {dur}")
+
+    # Print summary of property room types (cabin suites)
+    print("\n--- DANH SÁCH HẠNG PHÒNG DU THUYỀN (CABIN SUITES) TRÊN SUPABASE ---")
+    for rt in synced_data["property_room_types"]:
+        name = rt.get("name") or "Hạng phòng"
+        base_p = rt.get("base_price") or rt.get("basePrice") or 0
+        cap_a = rt.get("capacity_adults") or rt.get("capacityAdults") or 2
+        area = rt.get("area_sqm") or rt.get("areaSqm") or 0
+        units = rt.get("total_units") or rt.get("totalUnits") or 0
+        print(f"• [{rt.get('id')}] {name} | Giá gốc: {base_p:,.0f}đ | Sức chứa: {cap_a} người | Diện tích: {area}m² | Số phòng: {units}")
 
     # Save to shared/supabase_data.json
     out_file = os.path.join(BASE_DIR, "shared", "supabase_data.json")

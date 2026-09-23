@@ -380,6 +380,321 @@ function DayCruisesSection() {
   );
 }
 
+function LiveBusScheduleSection() {
+  const [vehFilter, setVehFilter] = useState('all');
+  const [sort, setSort] = useState('early');
+
+  // Standard departures matching Image 2 with real prices and seat availability
+  const initialDepartures = [
+    {
+      id: 'hn-cb-0500-bus45',
+      time: '05:00',
+      arrTime: '08:00',
+      vehType: 'bus45',
+      vehLabel: 'Bus thường 45 chỗ',
+      badge: 'kèm tàu cao tốc',
+      duration: '3h',
+      wifi: 'WiFi · USB',
+      price: 250000,
+      availableSeats: 49
+    },
+    {
+      id: 'hn-cb-0500-limo7',
+      time: '05:00',
+      arrTime: '08:00',
+      vehType: 'limo7',
+      vehLabel: 'Limo Green 7 chỗ (xe điện)',
+      badge: 'kèm tàu cao tốc',
+      duration: '3h',
+      wifi: 'WiFi · EV',
+      price: 330000,
+      availableSeats: 7
+    },
+    {
+      id: 'hn-cb-0500-limo34',
+      time: '05:00',
+      arrTime: '08:30',
+      vehType: 'limo34',
+      vehLabel: 'Limousine Luxury 34 ghế',
+      badge: 'kèm tàu cao tốc',
+      duration: '3h30',
+      wifi: 'WiFi · USB',
+      price: 310000,
+      availableSeats: 34
+    },
+    {
+      id: 'hn-cb-0500-limo11',
+      time: '05:00',
+      arrTime: '08:00',
+      vehType: 'limo11',
+      vehLabel: 'Limousine Luxury 11 ghế',
+      badge: 'kèm tàu cao tốc',
+      duration: '3h',
+      wifi: 'WiFi · USB',
+      price: 330000,
+      availableSeats: 11
+    },
+    {
+      id: 'hn-cb-0600-bus45',
+      time: '06:00',
+      arrTime: '09:00',
+      vehType: 'bus45',
+      vehLabel: 'Bus thường 45 chỗ',
+      badge: 'kèm tàu cao tốc',
+      duration: '3h',
+      wifi: 'WiFi · USB',
+      price: 250000,
+      availableSeats: 49
+    },
+    {
+      id: 'hn-cb-0700-limo34',
+      time: '07:00',
+      arrTime: '10:30',
+      vehType: 'limo34',
+      vehLabel: 'Limousine Luxury 34 ghế',
+      badge: 'kèm tàu cao tốc',
+      duration: '3h30',
+      wifi: 'WiFi · USB',
+      price: 310000,
+      availableSeats: 34
+    },
+    {
+      id: 'hn-cb-0800-limo11',
+      time: '08:00',
+      arrTime: '11:00',
+      vehType: 'limo11',
+      vehLabel: 'Limousine Luxury 11 ghế',
+      badge: 'kèm tàu cao tốc',
+      duration: '3h',
+      wifi: 'WiFi · USB',
+      price: 330000,
+      availableSeats: 11
+    },
+    {
+      id: 'hn-cb-0900-bus45',
+      time: '09:00',
+      arrTime: '12:00',
+      vehType: 'bus45',
+      vehLabel: 'Bus thường 45 chỗ',
+      badge: 'kèm tàu cao tốc',
+      duration: '3h',
+      wifi: 'WiFi · USB',
+      price: 250000,
+      availableSeats: 45
+    }
+  ];
+
+  const [trips, setTrips] = useState(initialDepartures);
+
+  // Sync real-time Supabase departures and seat availability
+  useEffect(() => {
+    const syncFromSupabase = () => {
+      if (window.DT_SUPABASE_SYNC && typeof DT_SUPABASE_SYNC.getTripsWithAvailability === 'function') {
+        const sbTrips = DT_SUPABASE_SYNC.getTripsWithAvailability('Hà Nội', 'Cát Bà');
+        if (sbTrips && sbTrips.length > 0) {
+          setTrips(sbTrips);
+        }
+      }
+    };
+
+    syncFromSupabase();
+    const interval = setInterval(syncFromSupabase, 800);
+    window.addEventListener('dt:supabase_synced', syncFromSupabase);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('dt:supabase_synced', syncFromSupabase);
+    };
+  }, []);
+
+  // Filter by vehicle type
+  let filtered = trips;
+  if (vehFilter !== 'all') {
+    filtered = filtered.filter(t => t.vehType === vehFilter);
+  }
+
+  // Sort by time or price
+  if (sort === 'cheap') {
+    filtered = [...filtered].sort((a, b) => a.price - b.price);
+  } else {
+    filtered = [...filtered].sort((a, b) => (a.time || '').localeCompare(b.time || ''));
+  }
+
+  // Vehicle image lookup matching Image 2
+  const vehImages = {
+    bus45: 'assets/photos/bus45-interior.jpg',
+    limo7: 'assets/photos/limo7.jpg',
+    limo34: 'assets/photos/limo34.jpg',
+    limo11: 'assets/photos/limo10.jpg'
+  };
+
+  return (
+    <section className="dt-bus-sched-sec" id="schedule" data-screen-label="Lịch chạy xe Hà Nội - Cát Bà">
+      <div className="dt-sched-head">
+        <h2>
+          Hà Nội <span style={{ color: 'var(--gold)' }}>→</span> Cát Bà
+        </h2>
+        <div className="dt-sched-filters">
+          <button className={'dt-sched-filter-btn' + (vehFilter === 'all' ? ' active' : '')} onClick={() => setVehFilter('all')}>
+            {LV('Tất cả', 'All')}
+          </button>
+          <button className={'dt-sched-filter-btn' + (vehFilter === 'bus45' ? ' active' : '')} onClick={() => setVehFilter('bus45')}>
+            Bus thường 45 chỗ
+          </button>
+          <button className={'dt-sched-filter-btn' + (vehFilter === 'limo7' ? ' active' : '')} onClick={() => setVehFilter('limo7')}>
+            Limo Green 7 chỗ (xe điện)
+          </button>
+          <button className={'dt-sched-filter-btn' + (vehFilter === 'limo34' ? ' active' : '')} onClick={() => setVehFilter('limo34')}>
+            Limousine Luxury 34 ghế
+          </button>
+          <button className={'dt-sched-filter-btn' + (vehFilter === 'limo11' ? ' active' : '')} onClick={() => setVehFilter('limo11')}>
+            Limousine Luxury 11 ghế
+          </button>
+          <button className={'dt-sched-filter-btn' + (sort === 'early' ? ' active' : '')} onClick={() => setSort('early')}>
+            {LV('Giờ sớm nhất', 'Earliest')}
+          </button>
+          <button className={'dt-sched-filter-btn' + (sort === 'cheap' ? ' active' : '')} onClick={() => setSort('cheap')}>
+            {LV('Giá thấp nhất', 'Lowest price')}
+          </button>
+        </div>
+      </div>
+
+      <div className="dt-sched-cards">
+        {filtered.slice(0, 10).map((tr, idx) => {
+          const deepLink = (window.DT_SUPABASE_SYNC && typeof DT_SUPABASE_SYNC.buildBookingDeepLink === 'function')
+            ? DT_SUPABASE_SYNC.buildBookingDeepLink({
+                from: 'Hà Nội',
+                to: 'Cát Bà',
+                date: tr.date || '2026-06-25',
+                tripId: tr.id,
+                vehType: tr.vehType,
+                price: tr.price
+              })
+            : `https://daiichitravel.com/?tab=book-ticket&from=Hà%20Nội&to=Cát%20Bà`;
+
+          return (
+            <div key={idx} className="dt-sched-card">
+              <div className="dt-sched-time">
+                <div className="dep">{tr.time}</div>
+                <div className="arr">→ {tr.arrTime}</div>
+              </div>
+              <div className="dt-sched-thumb">
+                <img src={vehImages[tr.vehType] || 'assets/photos/limo10.jpg'} alt={tr.vehLabel} loading="lazy" />
+                <span className="dt-sched-thumb-badge">★ 5</span>
+              </div>
+              <div className="dt-sched-info">
+                <div className="dt-sched-title-row">
+                  <span className="dt-sched-name">{tr.vehLabel}</span>
+                  <span className="dt-sched-badge">{tr.badge}</span>
+                </div>
+                <div className="dt-sched-meta">
+                  <span>⏱ {tr.duration}</span>
+                  <span>📍 {LV('Đón trả miễn phí trung tâm', 'Free center pickup')}</span>
+                  <span>{tr.wifi}</span>
+                </div>
+              </div>
+              <div className="dt-sched-right">
+                <div className="dt-sched-price">
+                  {tr.price.toLocaleString('vi-VN')}đ<em>/khách</em>
+                </div>
+                <div className="dt-sched-seats">
+                  {tr.availableSeats} {LV('chỗ trống', 'seats left')}
+                </div>
+                <a className="dt-sched-btn" href={deepLink} target="_blank" rel="noopener">
+                  {LV('Chọn ghế', 'Select seats')}
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function LuxurySuitesGallery() {
+  const [, force] = useState(0);
+  useEffect(() => {
+    const onSync = () => force(x => x + 1);
+    window.addEventListener('dt:supabase_synced', onSync);
+    return () => window.removeEventListener('dt:supabase_synced', onSync);
+  }, []);
+
+  // Sync suites from Supabase property_room_types or fallback
+  const sbRoomTypes = (window.DT_DATA && DT_DATA.SUPABASE && DT_DATA.SUPABASE.roomTypes) || [];
+
+  // The 6 standard suite classes matching Image 1
+  const defaultSuites = [
+    { id: 'deluxe', name: 'Deluxe', localImg: 'assets/photos/suite-deluxe.jpg', price: 6318000 },
+    { id: 'premium', name: 'Premium', localImg: 'assets/photos/suite-premium.jpg', price: 6065000 },
+    { id: 'junior', name: 'Junior', localImg: 'assets/photos/suite-junior.jpg', price: 5000000 },
+    { id: 'senior', name: 'Senior', localImg: 'assets/photos/suite-senior.jpg', price: 5000000 },
+    { id: 'executive', name: 'Executive', localImg: 'assets/photos/suite-executive.jpg', price: 6000000 },
+    { id: 'royal', name: 'Royal', localImg: 'assets/photos/suite-royal.jpg', price: 10500000 },
+  ];
+
+  // Map each suite to real Supabase room type if available
+  const suites = defaultSuites.map((ds) => {
+    const found = sbRoomTypes.find(rt => (rt.name || '').toLowerCase().includes(ds.id));
+    return {
+      ...ds,
+      img: (found && found.images && found.images[0]) || ds.localImg,
+      price: found ? found.base_price : ds.price,
+      area: found ? found.area_sqm : (ds.id === 'royal' ? 53 : 28),
+      units: found ? found.total_units : (ds.id === 'royal' ? 2 : 4)
+    };
+  });
+
+  return (
+    <section className="dt-suites-sec" id="suites" data-screen-label="6 Hạng Suite Du Thuyền 5★">
+      <div className="dt-suites-inner">
+        <div className="dt-suites-title">
+          {LV('6 HẠNG SUITE — ĐỀU CÓ BAN CÔNG RIÊNG', '6 SUITE CATEGORIES — ALL WITH PRIVATE BALCONY')}
+        </div>
+        <div className="dt-suites-grid">
+          {suites.map((st) => (
+            <a key={st.id} className="dt-suite-card" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+              <img src={st.img} alt={st.name} loading="lazy" />
+              <span className="name">{st.name}</span>
+            </a>
+          ))}
+        </div>
+        <div className="dt-suites-stats">
+          <div className="dt-suites-stat">
+            <b>30</b>
+            <span>{LV('suite ban công', 'balcony suites')}</span>
+          </div>
+          <div className="dt-suites-stat">
+            <b>6</b>
+            <span>{LV('hạng suite', 'suite categories')}</span>
+          </div>
+          <div className="dt-suites-stat">
+            <b>2N1Đ · 3N2Đ</b>
+            <span>{LV('hành trình', 'itinerary')}</span>
+          </div>
+          <div className="dt-suites-stat">
+            <b>từ 6.05tr</b>
+            <span>{LV('mỗi đêm / cabin 2 khách', 'per night / 2-guest cabin')}</span>
+          </div>
+        </div>
+        <div className="dt-suites-actions">
+          <a className="dt-suites-btn-primary" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+            {LV('Đặt du thuyền 5★ →', 'Book 5★ Cruise →')}
+          </a>
+          <a className="dt-suites-btn-ghost" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+            {LV('Tham quan con tàu', 'Ship Tour')}
+          </a>
+          <a className="dt-suites-btn-ghost" href="seo/vi/du-thuyen-ngu-dem-lan-ha.html">
+            {LV('Tìm hiểu du thuyền', 'Cruise Details')}
+          </a>
+          <a className="dt-suites-btn-ghost" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+            {LV('Tàu 4★ Daiichi Boutique', '4★ Daiichi Boutique')}
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function OneHome() {
   const [, force] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -461,7 +776,11 @@ function OneHome() {
 
       <PopularRoutesSection />
 
+      <LiveBusScheduleSection />
+
       <DayCruisesSection />
+
+      <LuxurySuitesGallery />
 
       <LiveDeals />
 

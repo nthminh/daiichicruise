@@ -31,7 +31,7 @@ window.DAIICHI_CONFIG = {
   },
 
   getCruiseBookingUrl(cruiseId) {
-    let url = `${this.BOOKING_BASE_URL}/?tab=cruise-tour`;
+    let url = `${this.BOOKING_BASE_URL}/?tab=cruise-tours`;
     if (cruiseId) url += `&tourId=${encodeURIComponent(cruiseId)}`;
     return url;
   },
@@ -45,6 +45,7 @@ window.DAIICHI_CONFIG = {
   },
 
   getGeneralBookingUrl() {
-    return `${this.BOOKING_BASE_URL}/?tab=book-ticket`;
+    return `${this.BOOKING_BASE_URL}/?tab=cruise-tours`;
   }
 };
+

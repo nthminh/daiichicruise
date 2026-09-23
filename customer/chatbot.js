@@ -150,7 +150,7 @@
   };
 
   function bookingReply(code) {
-    const bk = DT_STORE.get(code);
+    const bk = typeof DT_STORE !== 'undefined' ? DT_STORE.get(code) : null;
     if (!bk) return P([
       `Không tìm thấy mã ${code.toUpperCase()} 😕 Kiểm tra lại hoặc tra cứu bằng SĐT + OTP ở mục "Tra cứu vé".`,
       `Couldn\u2019t find ${code.toUpperCase()} 😕 Double-check it, or use phone + OTP lookup under "My Booking".`,

@@ -72,7 +72,7 @@ const SERVICES = [
     t: ['Tàu cao tốc sang đảo', 'Island speedboats'], d: ['Tuyến nhanh nhất vào Cát Bà — kết nối liền mạch với xe limousine trong cùng một vé.', 'The fastest way into Cat Ba — seamlessly connected to your bus on a single ticket.'], pr: null },
   { img: 'assets/photos/daycruise-1.jpg', tag: 'DAY CRUISE', wide: false, href: 'https://daiichitravel.com/?tab=tours&category=TOUR_SHORT',
     t: ['Du thuyền ngày vịnh Lan Hạ', 'Lan Ha Bay day cruises'], d: ['6 tour: trọn ngày Việt Hải, bình minh, hoàng hôn, dinner DJ & pháo hoa — tàu 48 đến 99 chỗ.', 'Six tours: full-day Viet Hai, sunrise, sunset, dinner-DJ & fireworks — 48 to 99-pax boats.'], pr: '350.000đ' },
-  { img: 'assets/photos/luxury-1.jpg', tag: 'LUXURY CRUISE ★★★★★', wide: true, href: 'https://daiichitravel.com/?tab=cruise-tour',
+  { img: 'assets/photos/luxury-1.jpg', tag: 'LUXURY CRUISE ★★★★★', wide: true, href: 'https://daiichitravel.com/?tab=cruise-tours',
     t: ['Du thuyền ngủ đêm 5 sao', '5★ overnight cruise'], d: ['32 suite ban công riêng, nhà hàng kính, spa, jacuzzi & cầu kính. Hành trình 2N1Đ – 3N2Đ trên vịnh Lan Hạ.', '32 balcony suites, glass restaurant, spa, jacuzzi & skywalk. 2-day and 3-day Lan Ha itineraries.'], pr: '2.860.000đ' },
   { img: 'assets/photos/daycruise-act-1.jpg', tag: 'COMBO TOUR', wide: false, href: 'https://daiichitravel.com/?tab=tours&category=TOUR_SHORT',
     t: ['Tour trọn gói từ Hà Nội', 'All-in tours from Hanoi'], d: ['Một vé: xe đón phố cổ + du thuyền + về trong ngày. Khởi hành mỗi sáng.', 'One ticket: Old Quarter pickup, cruise, home by night. Departs every morning.'], pr: '1.250.000đ' },
@@ -164,8 +164,11 @@ function LiveDeals() {
         {list.map((c) => {
           const base = CAMP_BASE[c.id];
           const final = base ? DT_CAMPAIGNS.apply(base, c) : null;
+          const dealHref = c.id === 'early'
+            ? 'https://daiichitravel.com/?tab=cruise-tours'
+            : 'https://daiichitravel.com/?tab=tours&category=TOUR_SHORT';
           return (
-            <a key={c.id} className="on-deal" href="customer/Daiichi Travel.html">
+            <a key={c.id} className="on-deal" href={dealHref} target="_blank" rel="noopener">
               <span className="im" style={{ backgroundImage: `url(${CAMP_IMG[c.id] || CAMP_IMG.flash})` }}>
                 <span className="bdg" style={{ background: c.color }}>{c.kind === 'flash' ? '⚡ ' : ''}{c.name}{c.off ? ' −' + c.off + '%' : ''}</span>
                 {c.ends && <span className="cd">⏱ {DT_CAMPAIGNS.fmtLeft(c.ends, I18N.lang)}</span>}
@@ -208,6 +211,175 @@ function PartnerMini() {
   );
 }
 
+function HomeSearch() {
+  const t = (k) => I18N.t(k);
+  const STATIONS = (window.DT_DATA && DT_DATA.STATIONS) || {};
+  const [tab, setTab] = useState('bus');
+  const [from, setFrom] = useState('HN');
+  const [to, setTo] = useState('CB');
+  const [date, setDate] = useState('2026-06-15');
+  const [ret, setRet] = useState('');
+  const [pax, setPax] = useState(2);
+  const L = (o) => I18N.L(o);
+
+  const go = () => {
+    if (tab === 'night') {
+      window.open('https://daiichitravel.com/?tab=cruise-tours', '_blank');
+    } else if (tab === 'day' || tab === 'tour') {
+      window.open('https://daiichitravel.com/?tab=tours&category=TOUR_SHORT', '_blank');
+    } else {
+      const fromName = STATIONS[from] ? (STATIONS[from].vi || from) : 'Hà Nội';
+      const toName = STATIONS[to] ? (STATIONS[to].vi || to) : 'Cát Bà';
+      const url = `https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(fromName)}&to=${encodeURIComponent(toName)}&date=${date}`;
+      window.open(url, '_blank');
+    }
+  };
+
+  const tabs = [
+    ['bus', t('tab_bus') || 'Xe & Limousine', window.I && I.bus ? I.bus : () => <span>🚌</span>],
+    ['day', t('tab_day') || 'Du thuyền ngày', window.I && I.ship ? I.ship : () => <span>🚢</span>],
+    ['night', t('tab_night') || 'Du thuyền ngủ đêm', window.I && I.moon ? I.moon : () => <span>🌙</span>],
+    ['tour', t('tab_tour') || 'Tour combo', window.I && I.map ? I.map : () => <span>🗺️</span>],
+  ];
+
+  return (
+    <div className="dt-search" data-comment-anchor="home-search" style={{ background: '#fff', borderRadius: 'var(--r-lg)', boxShadow: 'var(--shadow-2)', overflow: 'hidden' }}>
+      <div className="dt-tabs" style={{ display: 'flex', borderBottom: '1px solid var(--line)' }}>
+        {tabs.map(([id, lb, Icon]) => (
+          <button key={id} className={tab === id ? 'on' : ''} onClick={() => setTab(id)} style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9, background: 'none', border: 0, padding: '16px 10px', fontSize: 14, fontWeight: 600, color: tab === id ? 'var(--red)' : 'var(--ink-2)', borderBottom: tab === id ? '3px solid var(--red)' : '3px solid transparent', cursor: 'pointer', fontFamily: 'var(--font-ui)' }}>
+            <Icon size={17} />{lb}
+          </button>
+        ))}
+      </div>
+      <div className="dt-search-body" style={{ display: 'flex', gap: 12, padding: 20, alignItems: 'flex-end', flexWrap: 'wrap' }}>
+        {tab === 'bus' && (
+          <React.Fragment>
+            <div className="dt-field" style={{ flex: 1, minWidth: 150 }}>
+              <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{t('s_from') || 'Điểm đi'}</label>
+              <select value={from} onChange={(e) => setFrom(e.target.value)} style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%' }}>
+                {Object.keys(STATIONS).map((k) => <option key={k} value={k}>{L(STATIONS[k])}</option>)}
+              </select>
+            </div>
+            <button className="dt-swap" onClick={() => { setFrom(to); setTo(from); }} title="swap" type="button" style={{ background: 'var(--ivory)', border: '1.5px solid var(--line-2)', borderRadius: '50%', width: 38, height: 38, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink-2)', marginBottom: 3, cursor: 'pointer' }}>
+              {window.I && I.swap ? <I.swap size={16} /> : '⇄'}
+            </button>
+            <div className="dt-field" style={{ flex: 1, minWidth: 150 }}>
+              <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{t('s_to') || 'Điểm đến'}</label>
+              <select value={to} onChange={(e) => setTo(e.target.value)} style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%' }}>
+                {Object.keys(STATIONS).map((k) => <option key={k} value={k}>{L(STATIONS[k])}</option>)}
+              </select>
+            </div>
+          </React.Fragment>
+        )}
+        {tab !== 'bus' && (
+          <div className="dt-field" style={{ flex: 1, minWidth: 150 }}>
+            <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{t('s_from') || 'Địa điểm'}</label>
+            <select disabled value="lanha" style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%', background: '#F8FAFC' }}>
+              <option value="lanha">Vịnh Lan Hạ · Cát Bà</option>
+            </select>
+          </div>
+        )}
+        <div className="dt-field" style={{ flex: 1, minWidth: 140 }}>
+          <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{tab === 'bus' ? (t('s_date') || 'Ngày đi') : (t('s_date_cruise') || 'Ngày khởi hành')}</label>
+          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%' }} />
+        </div>
+        {tab === 'bus' && (
+          <div className="dt-field" style={{ flex: 1, minWidth: 140 }}>
+            <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{t('s_return') || 'Ngày về (khứ hồi)'}</label>
+            <input type="date" value={ret} min={date} onChange={(e) => setRet(e.target.value)} style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%' }} />
+          </div>
+        )}
+        <div className="dt-field" style={{ maxWidth: 120 }}>
+          <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{t('s_pax') || 'Hành khách'}</label>
+          <select value={pax} onChange={(e) => setPax(+e.target.value)} style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%' }}>
+            {[1,2,3,4,5,6,7,8,9,10].map((n) => <option key={n} value={n}>{n}</option>)}
+          </select>
+        </div>
+        <button className="dt-search-btn" onClick={go} style={{ background: 'var(--red)', color: '#fff', border: 0, borderRadius: 'var(--r-sm)', padding: '12px 28px', fontSize: 15, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 9, cursor: 'pointer', fontFamily: 'var(--font-ui)' }}>
+          {window.I && I.search ? <I.search size={17} /> : '🔍'} {t('s_search') || 'Tìm chuyến'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+const POPULAR_ROUTES = [
+  { fromName: 'Hà Nội', toName: 'Cát Bà', price: 270000 },
+  { fromName: 'Hà Nội', toName: 'Hải Phòng', price: 140000 },
+  { fromName: 'Cát Bà', toName: 'Ninh Bình', price: 250000 },
+  { fromName: 'Hạ Long', toName: 'Ninh Bình', price: 250000 },
+  { fromName: 'Cát Bà', toName: 'Hải Phòng', price: 200000 },
+  { fromName: 'Hà Nội', toName: 'Cát Bà', price: 390000, cable: true },
+];
+
+function PopularRoutesSection() {
+  const t = (k) => I18N.t(k);
+  return (
+    <section className="dt-section" style={{ maxWidth: 1240, margin: '0 auto', padding: '48px 24px 0' }}>
+      <div className="dt-sec-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 20 }}>
+        <div>
+          <div className="dt-kicker" style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 4 }}>DAIICHI BUS</div>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 600, color: 'var(--navy)' }}>{t('popular_routes') || 'Tuyến phổ biến'}</h2>
+        </div>
+        <span className="sub" style={{ fontSize: 13, color: 'var(--ink-3)' }}>Giá đã gồm VAT · Đón trả miễn phí trung tâm</span>
+      </div>
+      <div className="dt-routes" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 14 }}>
+        {POPULAR_ROUTES.map((r, i) => (
+          <a key={i} className="dt-route-chip" href={`https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(r.fromName)}&to=${encodeURIComponent(r.toName)}`} target="_blank" rel="noopener" style={{ display: 'flex', alignItems: 'center', gap: 14, background: '#fff', border: '1px solid var(--line)', borderRadius: 'var(--r-md)', padding: '14px 18px', textDecoration: 'none', transition: 'all .15s' }}>
+            <span className="rt" style={{ fontWeight: 600, fontSize: 14.5, display: 'flex', alignItems: 'center', gap: 8, color: 'var(--navy)' }}>
+              {r.fromName} {window.I && I.arrR ? <I.arrR size={14} style={{ color: 'var(--gold)' }} /> : '→'} {r.toName}{r.cable ? ' 🚡' : ''}
+            </span>
+            <span className="pr" style={{ marginLeft: 'auto', textAlign: 'right' }}>
+              <span style={{ display: 'block', fontSize: 11, color: 'var(--ink-3)' }}>từ</span>
+              <b style={{ color: 'var(--red)', fontSize: 15 }}>{r.price.toLocaleString('vi-VN')}đ</b>
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+const DAY_CRUISES = [
+  { id: 'dc1', code: 'VIP 1', name: 'Du thuyền VIP 1 · Lan Hạ – Việt Hải', time: '8h00 – 17h00', boat: 'Tàu 48 chỗ', price: 720000, img: 'assets/photos/daycruise-1.jpg' },
+  { id: 'dc2', code: 'SUNSET', name: 'Tour Hoàng hôn & Tiệc Trà vịnh Lan Hạ', time: '15h30 – 19h00', boat: 'Tàu 99 chỗ', price: 430000, img: 'assets/photos/daycruise-2.jpg' },
+  { id: 'dc3', code: 'MORNING', name: 'Tour Bình minh Lan Hạ & Chèo Kayak', time: '5h30 – 9h30', boat: 'Tàu 48 chỗ', price: 430000, img: 'assets/photos/daycruise-3.jpg' },
+  { id: 'dc4', code: 'VIP 3', name: 'Dinner Cruise & Pháo hoa DJ', time: '17h30 – 21h30', boat: 'Tàu 2 tầng', price: 590000, img: 'assets/photos/daycruise-4.jpg' },
+];
+
+function DayCruisesSection() {
+  const t = (k) => I18N.t(k);
+  return (
+    <section className="dt-section" style={{ maxWidth: 1240, margin: '0 auto', padding: '48px 24px 0' }}>
+      <div className="dt-sec-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 20 }}>
+        <div>
+          <div className="dt-kicker" style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 4 }}>LAN HA BAY</div>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 600, color: 'var(--navy)' }}>{t('nav_day') || 'Du thuyền ngày'}</h2>
+        </div>
+        <span className="sub" style={{ fontSize: 13, color: 'var(--ink-3)' }}>Giá đã gồm VAT</span>
+      </div>
+      <div className="dt-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 18 }}>
+        {DAY_CRUISES.map((tr) => (
+          <a key={tr.id} className="dt-card" href="https://daiichitravel.com/?tab=tours&category=TOUR_SHORT" target="_blank" rel="noopener" style={{ background: '#fff', borderRadius: 'var(--r-md)', overflow: 'hidden', border: '1px solid var(--line)', textDecoration: 'none', display: 'flex', flexDirection: 'column' }}>
+            <div className="dt-card-img" style={{ backgroundImage: `url(${tr.img})`, height: 165, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
+              <span className="dt-card-badge" style={{ position: 'absolute', top: 12, left: 12, background: 'var(--navy)', color: 'var(--gold-bright)', fontSize: 10.5, fontWeight: 700, padding: '5px 10px', borderRadius: 6 }}>{tr.code}</span>
+            </div>
+            <div className="dt-card-body" style={{ padding: '15px 16px', display: 'flex', flexDirection: 'column', gap: 7, flex: 1 }}>
+              <h3 style={{ fontSize: 15.5, fontWeight: 700, color: 'var(--navy)', lineHeight: 1.35, margin: 0 }}>{tr.name}</h3>
+              <div style={{ fontSize: 12, color: 'var(--ink-2)' }}>⏱ {tr.time} · {tr.boat}</div>
+              <div style={{ marginTop: 'auto', paddingTop: 6, display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                <span style={{ fontSize: 11.5, color: 'var(--ink-3)' }}>từ</span>
+                <b style={{ color: 'var(--red)', fontSize: 16 }}>{tr.price.toLocaleString('vi-VN')}đ</b>
+                <span style={{ fontSize: 11.5, color: 'var(--ink-3)' }}>/khách</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function OneHome() {
   const [, force] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -243,7 +415,7 @@ function OneHome() {
               <span>💬</span><b>Zalo</b>
             </a>
             <OneLang />
-            <a className="on-cta" href="https://daiichitravel.com/?tab=book-ticket" target="_blank" rel="noopener">{T('cta_book')}</a>
+            <a className="on-cta" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">{T('cta_book')}</a>
             <button className="on-burger" aria-label="menu" onClick={() => setMenuOpen(!menuOpen)}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 {menuOpen ? <path d="M5 5l14 14M19 5L5 19" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -278,10 +450,18 @@ function OneHome() {
         <h1>{heroT ? I18N.L(heroT) : T('hero_t')}</h1>
         <p>{T('hero_p')}</p>
         <div className="on-hero-actions">
-          <a className="on-btn red" href="https://daiichitravel.com/?tab=book-ticket" target="_blank" rel="noopener">{T('cta_book')} →</a>
+          <a className="on-btn red" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">{T('cta_book')} →</a>
           <a className="on-btn glass" href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a>
         </div>
       </div>
+
+      <div className="dt-search-wrap" style={{ maxWidth: 1040, margin: '-78px auto 0', padding: '0 24px', position: 'relative', zIndex: 10 }}>
+        <HomeSearch />
+      </div>
+
+      <PopularRoutesSection />
+
+      <DayCruisesSection />
 
       <LiveDeals />
 
@@ -423,6 +603,7 @@ function OneHome() {
           </div>
         </div>
       </footer>
+      {typeof ChatWidget !== 'undefined' ? <ChatWidget /> : (window.ChatWidget && <window.ChatWidget />)}
     </React.Fragment>
   );
 }

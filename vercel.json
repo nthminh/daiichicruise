@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/home", "destination": "/index.html" },
+    { "source": "/booking", "destination": "/customer/Daiichi Travel.html" }
+  ]
+}

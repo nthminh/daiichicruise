@@ -46,12 +46,12 @@
 
   /* ---- localized answer templates ---- */
   const A = {
-    greet: ['Xin chào! Tôi là trợ lý ảo Daiichi 🤖 Hỏi tôi về giá vé, giờ chạy, tour, khuyến mãi — hoặc dán mã vé (VD: DT26-8X4K2) để tra cứu.',
-      'Hi! I\u2019m the Daiichi virtual assistant 🤖 Ask me about fares, schedules, tours, deals — or paste a booking code (e.g. DT26-8X4K2).',
-      'こんにちは！Daiichiバーチャルアシスタントです🤖 料金・時刻・ツアー・セールについて質問するか、予約コード（例：DT26-8X4K2）を貼り付けてください。',
-      '안녕하세요! Daiichi 가상 비서입니다 🤖 요금·시간표·투어·할인 문의 또는 예약 코드(예: DT26-8X4K2)를 입력하세요.',
-      '您好！我是Daiichi智能助手🤖 可咨询票价、班次、行程、优惠，或粘贴订单编号（如 DT26-8X4K2）查询。',
-      'Bonjour ! Je suis l\u2019assistant virtuel Daiichi 🤖 Tarifs, horaires, circuits, promos — ou collez votre code (ex. DT26-8X4K2).'],
+    greet: ['Xin chào! Tôi là Trợ lý ảo Daiichi Travel AI 🤖 Tôi có thể tra cứu giờ xe, số ghế trống thời gian thực, giá phòng du thuyền 5★, tour vịnh Lan Hạ, hoặc tra cứu mã vé trực tiếp. Quý khách đang quan tâm đến hành trình nào ạ?',
+      'Hello! I am Daiichi Travel AI 🤖 I can check real-time bus schedules, available seats, 5★ cruise suites, Lan Ha Bay tours, or look up your booking code directly. How can I assist your journey today?',
+      'こんにちは！Daiichi Travel AIです🤖 バスの運行状況・リアルタイム空席・5つ星クルーズ・ランハ湾ツアー・予約確認を即座にお調べします。ご案内いたしましょうか？',
+      '안녕하세요! Daiichi Travel AI입니다 🤖 실시간 버스 시간표, 잔여 좌석, 5성급 크루즈 객실, 란하베이 투어, 예약 조회를 도와드립니다. 무엇을 도와드릴까요?',
+      '您好！我是Daiichi Travel AI智能助手🤖 可为您实时查询班车时刻、余票座位、五星游轮套房、兰哈湾行程及订单状态。请问有什么可以帮您？',
+      'Bonjour ! Je suis Daiichi Travel AI 🤖 Horaires de bus, sièges disponibles en temps réel, croisière 5★, circuits et suivi de réservation. Comment puis-je vous aider ?'],
     bus: (i) => P([
       `Xe Hà Nội ⇄ Cát Bà (đã gồm tàu cao tốc & VAT):\n• Bus 45 chỗ: ${i.l1} (thấp điểm) – ${i.h1} (cao điểm)\n• Limousine 11 ghế: ${i.l2} – ${i.h2}\n${i.n} chuyến/ngày, ${i.t1} → ${i.t2}. Hà Nội ⇄ Hải Phòng từ ${i.hp}. Đặt khứ hồi giảm thêm 5%!`,
       `Hanoi ⇄ Cat Ba (speedboat & VAT included):\n• 45-seat bus: ${i.l1} (low) – ${i.h1} (high season)\n• Limousine 11: ${i.l2} – ${i.h2}\n${i.n} departures/day, ${i.t1} → ${i.t2}. Hanoi ⇄ Hai Phong from ${i.hp}. Round trips save 5% extra!`,
@@ -181,40 +181,86 @@
         ['吉婆巴士票价？', '兰哈湾五星一日游？', '2天1晚豪华过夜游轮？', '学生优惠100k？', '接送政策'],
         ['Prix Hanoï–Cat Ba ?', 'Croisière 5★ Lan Ha ?', 'Croisière 2J1N ?', 'Réduction étudiants ?', 'Politique de ramassage']]);
     },
+    bookingApi: {
+      url: 'https://vfeodqmvilchsipdsxsh.supabase.co/functions/v1/chatbot-booking',
+      apiKey: 'daiichi_ai_bot_secret_key_2026',
+      async call(action, payload = {}) {
+        try {
+          const res = await fetch('https://vfeodqmvilchsipdsxsh.supabase.co/functions/v1/chatbot-booking', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-bot-api-key': 'daiichi_ai_bot_secret_key_2026'
+            },
+            body: JSON.stringify({ action, ...payload })
+          });
+          return await res.json();
+        } catch (e) {
+          console.warn('Booking API error:', e);
+          return null;
+        }
+      }
+    },
     // Async call to real Daiichi AI Chatbot
     async askAI(raw, customerType = 'retail') {
       const text = String(raw || '').trim();
       if (!text) return '';
 
-      // If user pasted a booking code (DT26-...), we can answer instantly
+      // If user pasted a booking code (DT26-... or DT-...), we can answer instantly or query live Supabase
       const code = text.match(CODE_RE);
-      if (code) return bookingReply(code[0]);
-
-      try {
-        if (!window._dt_chat_session) {
-          window._dt_chat_session = 'web_' + Math.random().toString(36).substring(2, 9);
-        }
-        const res = await fetch('/api/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            message: text,
-            session_id: window._dt_chat_session,
-            engine: 'hybrid',
-            customer_type: customerType || 'retail'
-          })
-        });
-        if (res.ok) {
-          const data = await res.json();
-          const reply = data.response || data.reply;
-          if (reply && reply.trim()) {
-            return reply;
+      if (code) {
+        try {
+          const bkData = await this.bookingApi.call('get_booking', { ticketCode: code[0] });
+          if (bkData && bkData.success && bkData.data) {
+            const b = bkData.data;
+            return `✓ Tìm thấy vé ${b.ticketCode || code[0]}!\n• Khách: ${b.customerName || 'Quý khách'} (${b.customerPhone || ''})\n• Chuyến: ${b.route || ''} lúc ${b.departureTime || ''} ngày ${b.travelDate || ''}\n• Ghế: ${(b.seats || []).join(', ')}\n• Trạng thái: ${b.status || 'Đã xác nhận'}\nCần hỗ trợ thay đổi vé, cứ nhắn tôi nhé!`;
           }
+        } catch (e) {
+          // fallback to local store lookup
         }
-      } catch (err) {
-        console.warn('AI Chat API offline, using local smart fallback:', err);
+        return bookingReply(code[0]);
       }
-      // Graceful local fallback if offline
+
+      if (!window._dt_chat_session) {
+        window._dt_chat_session = 'web_' + Math.random().toString(36).substring(2, 9);
+      }
+
+      // Candidate API endpoints for Daiichi AI Chatbot (local preview proxy, live Render cloud server, direct local port)
+      const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+      const endpoints = isLocal
+        ? ['/api/chat', 'http://127.0.0.1:8000/api/chat', 'https://daiichi-ai-chatbot.onrender.com/api/chat']
+        : ['https://daiichi-ai-chatbot.onrender.com/api/chat', '/api/chat', 'http://127.0.0.1:8000/api/chat'];
+
+      for (const ep of endpoints) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 20000);
+          const res = await fetch(ep, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              message: text,
+              session_id: window._dt_chat_session,
+              engine: 'hybrid',
+              customer_type: customerType || 'retail'
+            }),
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+          if (res.ok) {
+            const data = await res.json();
+            const reply = data.response || data.reply;
+            if (reply && reply.trim()) {
+              return reply.trim();
+            }
+          }
+        } catch (err) {
+          // Try next candidate
+          continue;
+        }
+      }
+
+      // Graceful local fallback only if ALL AI endpoints are completely unreachable
       return this.reply(text);
     },
     reply(raw) {

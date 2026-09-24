@@ -66,14 +66,14 @@ const CFG = () => (window.DAIICHI_CONFIG || {
 });
 
 const SERVICES = [
-  { img: 'assets/photos/limo10.jpg', tag: 'DAIICHI BUS', wide: false, href: 'https://daiichitravel.com/?tab=book-ticket&from=Hà%20Nội&to=Cát%20Bà',
+  { img: 'assets/photos/limo10.jpg', tag: 'DAIICHI BUS', wide: false, href: '/vi/xe-ha-noi-di-cat-ba',
     t: ['Xe khách & Limousine', 'Bus & Limousine'], d: ['Hà Nội ⇄ Cát Bà · Hải Phòng · Hạ Long ⇄ Ninh Bình. Bus 45, limousine 7–34 chỗ, xe điện nội đảo.', 'Hanoi ⇄ Cat Ba · Hai Phong · Ha Long ⇄ Ninh Binh. 45-seat buses, 7–34-seat limousines, island EVs.'], pr: '140.000đ' },
   { img: 'assets/photos/speedboat.jpg', tag: 'DAIICHI BOAT', wide: false, href: 'https://daiichitravel.com/?tab=book-ticket',
     t: ['Tàu cao tốc sang đảo', 'Island speedboats'], d: ['Tuyến nhanh nhất vào Cát Bà — kết nối liền mạch với xe limousine trong cùng một vé.', 'The fastest way into Cat Ba — seamlessly connected to your bus on a single ticket.'], pr: null },
   { img: 'assets/photos/daycruise-1.jpg', tag: 'DAY CRUISE', wide: false, href: 'https://daiichitravel.com/?tab=tours&category=TOUR_SHORT',
     t: ['Du thuyền ngày vịnh Lan Hạ', 'Lan Ha Bay day cruises'], d: ['6 tour: trọn ngày Việt Hải, bình minh, hoàng hôn, dinner DJ & pháo hoa — tàu 48 đến 99 chỗ.', 'Six tours: full-day Viet Hai, sunrise, sunset, dinner-DJ & fireworks — 48 to 99-pax boats.'], pr: '350.000đ' },
   { img: 'assets/photos/luxury-1.jpg', tag: 'LUXURY CRUISE ★★★★★', wide: true, href: 'https://daiichitravel.com/?tab=cruise-tours',
-    t: ['Du thuyền ngủ đêm 5 sao', '5★ overnight cruise'], d: ['32 suite ban công riêng, nhà hàng kính, spa, jacuzzi & cầu kính. Hành trình 2N1Đ – 3N2Đ trên vịnh Lan Hạ.', '32 balcony suites, glass restaurant, spa, jacuzzi & skywalk. 2-day and 3-day Lan Ha itineraries.'], pr: '2.860.000đ' },
+    t: ['Du thuyền ngủ đêm 5 sao', '5★ overnight cruise'], d: ['30 suite ban công riêng, 4 hạng phòng cao cấp, nhà hàng kính, spa, jacuzzi & cầu kính. Hành trình 2N1Đ – 3N2Đ trên vịnh Lan Hạ.', '30 balcony suites, 4 luxury room categories, glass restaurant, spa, jacuzzi & skywalk. 2-day and 3-day Lan Ha itineraries.'], pr: '5.000.000đ' },
   { img: 'assets/photos/daycruise-act-1.jpg', tag: 'COMBO TOUR', wide: false, href: 'https://daiichitravel.com/?tab=tours&category=TOUR_SHORT',
     t: ['Tour trọn gói từ Hà Nội', 'All-in tours from Hanoi'], d: ['Một vé: xe đón phố cổ + du thuyền + về trong ngày. Khởi hành mỗi sáng.', 'One ticket: Old Quarter pickup, cruise, home by night. Departs every morning.'], pr: '1.250.000đ' },
   { img: 'assets/photos/daycruise-act-2.jpg', tag: ['DỊCH VỤ ĐỐI TÁC', 'PARTNER SERVICES'], pt: true, wide: false, href: 'https://daiichitravel.com/?tab=tours',
@@ -644,14 +644,12 @@ function LuxurySuitesGallery() {
   // Sync suites from Supabase property_room_types or fallback
   const sbRoomTypes = (window.DT_DATA && DT_DATA.SUPABASE && DT_DATA.SUPABASE.roomTypes) || [];
 
-  // The 6 standard suite classes matching Image 1
+  // 4 standard suite classes matching live Daiichi Luxury Cruise
   const defaultSuites = [
-    { id: 'deluxe', name: 'Deluxe', localImg: 'assets/photos/suite-deluxe.jpg', price: 6318000 },
-    { id: 'premium', name: 'Premium', localImg: 'assets/photos/suite-premium.jpg', price: 6065000 },
-    { id: 'junior', name: 'Junior', localImg: 'assets/photos/suite-junior.jpg', price: 5000000 },
-    { id: 'senior', name: 'Senior', localImg: 'assets/photos/suite-senior.jpg', price: 5000000 },
-    { id: 'executive', name: 'Executive', localImg: 'assets/photos/suite-executive.jpg', price: 6000000 },
-    { id: 'royal', name: 'Royal', localImg: 'assets/photos/suite-royal.jpg', price: 10500000 },
+    { id: 'senior', name: 'Senior Suite', localImg: 'assets/photos/suite-senior.jpg', price: 5000000, units: 18, area: 30 },
+    { id: 'trip', name: 'Trip Suite', localImg: 'assets/photos/suite-junior.jpg', price: 5000000, units: 9, area: 32 },
+    { id: 'family', name: 'Family Suite', localImg: 'assets/photos/suite-executive.jpg', price: 6000000, units: 1, area: 45 },
+    { id: 'royal', name: 'Royal Suite', localImg: 'assets/photos/suite-royal.jpg', price: 10500000, units: 2, area: 55 },
   ];
 
   // Map each suite to real Supabase room type if available
@@ -661,16 +659,16 @@ function LuxurySuitesGallery() {
       ...ds,
       img: (found && found.images && found.images[0]) || ds.localImg,
       price: found ? found.base_price : ds.price,
-      area: found ? found.area_sqm : (ds.id === 'royal' ? 53 : 28),
-      units: found ? found.total_units : (ds.id === 'royal' ? 2 : 4)
+      area: found ? found.area_sqm : ds.area,
+      units: found ? found.total_units : ds.units
     };
   });
 
   return (
-    <section className="dt-suites-sec" id="suites" data-screen-label="6 Hạng Suite Du Thuyền 5★">
+    <section className="dt-suites-sec" id="suites" data-screen-label="4 Hạng Suite Du Thuyền 5★">
       <div className="dt-suites-inner">
         <div className="dt-suites-title">
-          {LV('6 HẠNG SUITE — ĐỀU CÓ BAN CÔNG RIÊNG', '6 SUITE CATEGORIES — ALL WITH PRIVATE BALCONY')}
+          {LV('4 HẠNG SUITE — ĐỀU CÓ BAN CÔNG RIÊNG', '4 SUITE CATEGORIES — ALL WITH PRIVATE BALCONY')}
         </div>
         <div className="dt-suites-grid">
           {suites.map((st) => (
@@ -686,7 +684,7 @@ function LuxurySuitesGallery() {
             <span>{LV('suite ban công', 'balcony suites')}</span>
           </div>
           <div className="dt-suites-stat">
-            <b>6</b>
+            <b>4</b>
             <span>{LV('hạng suite', 'suite categories')}</span>
           </div>
           <div className="dt-suites-stat">
@@ -694,7 +692,7 @@ function LuxurySuitesGallery() {
             <span>{LV('hành trình', 'itinerary')}</span>
           </div>
           <div className="dt-suites-stat">
-            <b>từ 6.05tr</b>
+            <b>từ 5.0tr</b>
             <span>{LV('mỗi đêm / cabin 2 khách', 'per night / 2-guest cabin')}</span>
           </div>
         </div>
@@ -846,7 +844,7 @@ function OneHome() {
           {[
             ['18+', LV('chuyến xe & tàu mỗi ngày', 'bus & boat departures daily')],
             ['6', LV('tour du thuyền ngày', 'day cruise tours')],
-            ['32', LV('suite du thuyền 5★', '5★ cruise suites')],
+            ['30', LV('suite du thuyền 5★', '5★ cruise suites')],
             ['24/7', LV('hỗ trợ khách hàng', 'customer support')],
             ['6', LV('ngôn ngữ phục vụ', 'service languages')],
           ].map(([b, s], i) => (
@@ -866,7 +864,42 @@ function OneHome() {
             <p style={{ marginTop: 10 }}>
               {LV('Khách hàng, Tài xế, Hướng dẫn viên, Đại lý và Nhân viên — cùng đọc một kho chuyến, ghế và vé QR với website. GPS 2 chiều, quên đồ, gọi qua app/di động, chấm công GPS toàn công ty.', 'Customer, Driver, Guide, Agent and Staff — all reading the same trips, seats and QR tickets as the website. Two-way GPS, lost & found, in-app or cellular calls, company-wide GPS time clock.')}
             </p>
-            <span className="on-btn gold" style={{ marginTop: 16, cursor: 'default' }}>{LV('Sắp ra mắt trên iOS & Android', 'Coming soon on iOS & Android')}</span>
+            <div className="on-app-badges">
+              <a
+                className="on-app-badge"
+                href={(window.DAIICHI_CONFIG && window.DAIICHI_CONFIG.APP_STORE_URL) || 'https://apps.apple.com/app/id6790058777'}
+                target="_blank"
+                rel="noopener"
+                title="Tải ứng dụng Daiichi Travel trên App Store"
+              >
+                <svg width="22" height="26" viewBox="0 0 170 170" fill="currentColor">
+                  <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.58-7.71-11.65-14-5.88-9.02-10.45-19.46-13.72-31.33-3.26-11.86-4.9-23.01-4.9-33.44 0-14.46 3.65-26.4 10.96-35.81 7.31-9.41 16.5-14.22 27.56-14.44 4.58 0 9.87 1.24 15.86 3.72 6 2.48 10.02 3.78 12.08 3.9 1.83-.22 5.95-1.55 12.35-4 6.4-2.45 11.83-3.6 16.3-3.46 12.38.64 22.37 5.2 29.98 13.68-10.86 6.53-16.18 15.66-15.95 27.38.22 9.13 3.75 16.85 10.59 23.16 6.84 6.3 14.88 9.87 24.12 10.7-2.6 7.6-5.86 15.42-9.78 23.47zM119.22 31.84c0-7.72 2.76-14.92 8.28-21.6 5.53-6.68 12.36-10.74 20.5-12.18.22 1.08.33 2.17.33 3.26 0 7.6-2.82 14.82-8.47 21.66-5.65 6.85-12.63 10.9-20.93 12.16-.11-1.09-.16-2.18-.16-3.26z"/>
+                </svg>
+                <div className="txt">
+                  <span className="sub">{LV('Tải trên', 'Download on')}</span>
+                  <span className="title">App Store</span>
+                </div>
+              </a>
+
+              <a
+                className="on-app-badge"
+                href={(window.DAIICHI_CONFIG && window.DAIICHI_CONFIG.PLAY_STORE_URL) || 'https://play.google.com/store/apps/details?id=app.web.daiichitravel.twa'}
+                target="_blank"
+                rel="noopener"
+                title="Tải ứng dụng Daiichi Travel trên Google Play (CH Play)"
+              >
+                <svg width="22" height="24" viewBox="0 0 512 512">
+                  <path fill="#00D2FF" d="M47.7 13.1C39.6 21.7 35 34.6 35 50.8v410.4c0 16.2 4.6 29.1 12.7 37.7l2.1 1.9L278.4 272.2v-5.4L49.8 11.2l-2.1 1.9z"/>
+                  <path fill="#00F076" d="M358.3 352.1l-79.9-79.9v-5.4l79.9-79.9 1.8 1 94.6 53.7c27 15.3 27 40.5 0 55.9l-94.6 53.6-1.8 1z"/>
+                  <path fill="#FF3A44" d="M360.1 351.1L278.4 269.5 47.7 500.1c8.9 9.5 23.6 10.6 40 1.4l272.4-150.4z"/>
+                  <path fill="#FFC800" d="M360.1 160.9L87.7 10.5C71.3 1.3 56.6 2.4 47.7 11.9l230.7 230.6 81.7-81.6z"/>
+                </svg>
+                <div className="txt">
+                  <span className="sub">{LV('Tải trên', 'Get it on')}</span>
+                  <span className="title">CH Play</span>
+                </div>
+              </a>
+            </div>
           </div>
           <div className="on-applist">
             {[
@@ -915,11 +948,15 @@ function OneHome() {
                     day: { vi:'du-thuyen-ngay-vinh-lan-ha', en:'lan-ha-bay-day-cruise', ja:'lan-ha-day-cruise', ko:'lan-ha-day-cruise', zh:'lan-ha-day-cruise', fr:'croisiere-journee-lan-ha' },
                     lux: { vi:'du-thuyen-ngu-dem-lan-ha', en:'lan-ha-overnight-cruise', ja:'lan-ha-overnight-cruise', ko:'lan-ha-overnight-cruise', zh:'lan-ha-overnight-cruise', fr:'croisiere-nuit-lan-ha' },
                   };
-                  return [
-                    [LV('Xe Hà Nội đi Cát Bà', 'Hanoi to Cat Ba bus'), 'seo/' + lg + '/' + SL.bus[lg] + '.html'],
-                    [LV('Du thuyền ngày Lan Hạ', 'Lan Ha day cruises'), 'seo/' + lg + '/' + SL.day[lg] + '.html'],
-                    [LV('Du thuyền ngủ đêm 5★', '5★ overnight cruise'), 'seo/' + lg + '/' + SL.lux[lg] + '.html'],
-                  ].map(([lb, href]) => <li key={href}><a href={href}>{lb}</a></li>);
+                  const links = [
+                    [LV('Xe Hà Nội đi Cát Bà', 'Hanoi to Cat Ba bus'), '/' + lg + '/' + SL.bus[lg]],
+                    [LV('Du thuyền ngày Lan Hạ', 'Lan Ha day cruises'), '/' + lg + '/' + SL.day[lg]],
+                    [LV('Du thuyền ngủ đêm 5★', '5★ overnight cruise'), '/' + lg + '/' + SL.lux[lg]],
+                  ];
+                  if (lg === 'vi') {
+                    links.splice(1, 0, ['Xe Cát Bà về Hà Nội', '/vi/xe-cat-ba-ve-ha-noi']);
+                  }
+                  return links.map(([lb, href]) => <li key={href}><a href={href}>{lb}</a></li>);
                 })()}
               </ul>
             </div>

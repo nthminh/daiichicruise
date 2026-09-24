@@ -14,6 +14,10 @@ window.DAIICHI_CONFIG = {
   OFFICE_CATBA: '217 đường 1/4, thị trấn Cát Bà, Hải Phòng',
   OFFICE_HANOI: '96 Nguyễn Hữu Huân, Hoàn Kiếm, Hà Nội',
 
+  // App download links
+  APP_STORE_URL: 'https://apps.apple.com/app/id6790058777',
+  PLAY_STORE_URL: 'https://play.google.com/store/apps/details?id=app.web.daiichitravel.twa',
+
   // Deep link generators to DaiichiTravel booking engine
   getBusBookingUrl(from, to, date) {
     let url = `${this.BOOKING_BASE_URL}/?tab=book-ticket`;

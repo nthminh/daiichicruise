@@ -371,13 +371,7 @@ function ChatWidget() {
               <span style={{ position: 'absolute', right: -1, bottom: -1, width: 10, height: 10, borderRadius: '50%', background: '#22C55E', border: '2px solid #122441' }}></span>
             </div>
             <div style={{ flex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <b style={{ fontSize: 13.5, color: '#fff' }}>Daiichi Travel AI</b>
-                <span style={{ fontSize: 9.5, background: 'rgba(216, 31, 42, 0.9)', color: '#fff', padding: '1px 6px', borderRadius: 4, fontWeight: 700 }}>LIVE AI</span>
-              </div>
-              <div style={{ fontSize: 11, color: '#CBD5E1', display: 'flex', alignItems: 'center', gap: 5, marginTop: 2 }}>
-                <span>Trí tuệ nhân tạo &amp; Dữ liệu Supabase</span>
-              </div>
+              <b style={{ fontSize: 14.5, color: '#fff', fontWeight: 700, letterSpacing: '.01em' }}>Daiichi Travel AI</b>
             </div>
             <button onClick={() => setOpen(false)} style={{ background: 'none', border: 0, color: 'rgba(255,255,255,.8)', fontSize: 18, cursor: 'pointer', padding: '2px 6px' }}>✕</button>
           </div>

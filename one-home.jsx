@@ -217,21 +217,43 @@ function HomeSearch() {
   const [tab, setTab] = useState('bus');
   const [from, setFrom] = useState('HN');
   const [to, setTo] = useState('CB');
-  const [date, setDate] = useState('2026-06-15');
+  const [date, setDate] = useState(() => {
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  });
   const [ret, setRet] = useState('');
   const [pax, setPax] = useState(2);
   const L = (o) => I18N.L(o);
 
   const go = () => {
     if (tab === 'night') {
-      window.open('https://daiichitravel.com/?tab=cruise-tours', '_blank');
+      window.open(`https://daiichitravel.com/?tab=cruise-tours&date=${date}&pax=${pax}&source=daiichicruise`, '_blank');
     } else if (tab === 'day' || tab === 'tour') {
-      window.open('https://daiichitravel.com/?tab=tours&category=TOUR_SHORT', '_blank');
+      window.open(`https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&date=${date}&pax=${pax}&source=daiichicruise`, '_blank');
     } else {
       const fromName = STATIONS[from] ? (STATIONS[from].vi || from) : 'Hà Nội';
       const toName = STATIONS[to] ? (STATIONS[to].vi || to) : 'Cát Bà';
-      const url = `https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(fromName)}&to=${encodeURIComponent(toName)}&date=${date}`;
-      window.open(url, '_blank');
+      const params = new URLSearchParams({
+        tab: 'book-ticket',
+        from: fromName,
+        to: toName,
+        searchFrom: fromName,
+        searchTo: toName,
+        pickup: fromName,
+        dropoff: toName,
+        date: date,
+        travelDate: date,
+        pax: String(pax),
+        source: 'daiichicruise'
+      });
+      if (ret) {
+        params.set('returnDate', ret);
+        params.set('tripType', 'ROUND_TRIP');
+      }
+      window.open(`https://daiichitravel.com/?${params.toString()}`, '_blank');
     }
   };
 
@@ -304,12 +326,12 @@ function HomeSearch() {
 }
 
 const POPULAR_ROUTES = [
-  { fromName: 'Hà Nội', toName: 'Cát Bà', price: 270000 },
+  { fromName: 'Hà Nội', toName: 'Cát Bà', price: 250000 },
   { fromName: 'Hà Nội', toName: 'Hải Phòng', price: 140000 },
   { fromName: 'Cát Bà', toName: 'Ninh Bình', price: 250000 },
-  { fromName: 'Hạ Long', toName: 'Ninh Bình', price: 250000 },
+  { fromName: 'Hà Nội', toName: 'Ninh Bình', price: 190000 },
   { fromName: 'Cát Bà', toName: 'Hải Phòng', price: 200000 },
-  { fromName: 'Hà Nội', toName: 'Cát Bà', price: 390000, cable: true },
+  { fromName: 'Hà Nội', toName: 'Cát Bà', price: 360000, cable: true },
 ];
 
 function PopularRoutesSection() {
@@ -325,7 +347,7 @@ function PopularRoutesSection() {
       </div>
       <div className="dt-routes" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 14 }}>
         {POPULAR_ROUTES.map((r, i) => (
-          <a key={i} className="dt-route-chip" href={`https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(r.fromName)}&to=${encodeURIComponent(r.toName)}`} target="_blank" rel="noopener" style={{ display: 'flex', alignItems: 'center', gap: 14, background: '#fff', border: '1px solid var(--line)', borderRadius: 'var(--r-md)', padding: '14px 18px', textDecoration: 'none', transition: 'all .15s' }}>
+          <a key={i} className="dt-route-chip" href={`https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(r.fromName)}&to=${encodeURIComponent(r.toName)}&searchFrom=${encodeURIComponent(r.fromName)}&searchTo=${encodeURIComponent(r.toName)}&pickup=${encodeURIComponent(r.fromName)}&dropoff=${encodeURIComponent(r.toName)}&source=daiichicruise`} target="_blank" rel="noopener" style={{ display: 'flex', alignItems: 'center', gap: 14, background: '#fff', border: '1px solid var(--line)', borderRadius: 'var(--r-md)', padding: '14px 18px', textDecoration: 'none', transition: 'all .15s' }}>
             <span className="rt" style={{ fontWeight: 600, fontSize: 14.5, display: 'flex', alignItems: 'center', gap: 8, color: 'var(--navy)' }}>
               {r.fromName} {window.I && I.arrR ? <I.arrR size={14} style={{ color: 'var(--gold)' }} /> : '→'} {r.toName}{r.cable ? ' 🚡' : ''}
             </span>

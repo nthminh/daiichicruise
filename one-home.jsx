@@ -1258,10 +1258,316 @@ function LimousineConciergeSection() {
 /* ============================================================
    MAIN UNIFIED CRUISE HOMEPAGE
    ============================================================ */
+
+/* ============================================================
+   ULTRA-HD VECTOR BRAND LOGO
+   Crisp, radiant 5★ metallic yacht insignia & serif display wordmark
+   ============================================================ */
+function DaiichiUltraLogo() {
+  return (
+    <a className="lux-brand-logo" href="#" title="Daiichi Cruise — Luxury & Boutique Cruises">
+      <div className="lux-logo-emblem-wrap">
+        <svg className="lux-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="goldGradLg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFF4BD" />
+              <stop offset="50%" stopColor="#D4A648" />
+              <stop offset="100%" stopColor="#8C5C12" />
+            </linearGradient>
+            <linearGradient id="hullGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="70%" stopColor="#E2E8F0" />
+              <stop offset="100%" stopColor="#94A3B8" />
+            </linearGradient>
+            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#0EA5E9" />
+              <stop offset="50%" stopColor="#38BDF8" />
+              <stop offset="100%" stopColor="#D4A648" />
+            </linearGradient>
+          </defs>
+          {/* 5 Stars above the ship */}
+          <g fill="url(#goldGradLg)">
+            <path d="M12 9l.9 1.8 2 .3-1.4 1.4.3 2-1.8-.9-1.8.9.3-2L9.1 11l2-.3L12 9z" transform="scale(0.7) translate(-1, -1)" />
+            <path d="M18 7l1 2 2.2.3-1.6 1.6.4 2.2-2-1-2 1 .4-2.2-1.6-1.6 2.2-.3L18 7z" transform="scale(0.7) translate(3, -1)" />
+            <path d="M24 5l1.1 2.2 2.4.4-1.7 1.7.4 2.4-2.2-1.2-2.2 1.2.4-2.4-1.7-1.7 2.4-.4L24 5z" transform="scale(0.8) translate(6, 0)" />
+            <path d="M30 7l1 2 2.2.3-1.6 1.6.4 2.2-2-1-2 1 .4-2.2-1.6-1.6 2.2-.3L30 7z" transform="scale(0.7) translate(14, -1)" />
+            <path d="M36 9l.9 1.8 2 .3-1.4 1.4.3 2-1.8-.9-1.8.9.3-2L33.1 11l2-.3L36 9z" transform="scale(0.7) translate(18, -1)" />
+          </g>
+          {/* Luxury Cruise Silhouette */}
+          <path d="M10 28h28l-3.5 6.5c-.8 1.5-2.4 2.5-4.1 2.5H16.6c-1.8 0-3.4-1-4.2-2.6L10 28z" fill="url(#goldGradLg)" />
+          {/* Superstructure decks */}
+          <path d="M13 23.5h20c1.1 0 2 .9 2 2v2.5H13v-4.5z" fill="url(#hullGrad)" />
+          <path d="M16 19h14c1.1 0 2 .9 2 2v2.5H16V19z" fill="url(#goldGradLg)" opacity="0.95" />
+          <path d="M20 15h7c.8 0 1.5.7 1.5 1.5V19h-10v-2.5c0-.8.7-1.5 1.5-1.5z" fill="url(#hullGrad)" />
+          {/* Deck glass windows */}
+          <circle cx="16" cy="25.5" r="0.9" fill="#0D1C34" />
+          <circle cx="19" cy="25.5" r="0.9" fill="#0D1C34" />
+          <circle cx="22" cy="25.5" r="0.9" fill="#0D1C34" />
+          <circle cx="25" cy="25.5" r="0.9" fill="#0D1C34" />
+          <circle cx="28" cy="25.5" r="0.9" fill="#0D1C34" />
+          <circle cx="31" cy="25.5" r="0.9" fill="#0D1C34" />
+          {/* Cresting ocean waves */}
+          <path d="M6 39c4-1.5 8-1.5 12 0s8 1.5 12 0 8-1.5 12 0" stroke="url(#waveGrad)" strokeWidth="2.2" strokeLinecap="round" />
+          <path d="M10 43c3.5-1 7-1 10.5 0s7 1 10.5 0 7-1 10.5 0" stroke="url(#goldGradLg)" strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
+        </svg>
+      </div>
+      <div className="lux-brand-text">
+        <span className="lux-brand-title">
+          DAIICHI <em>CRUISE</em>
+        </span>
+        <span className="lux-brand-subtitle">
+          <span className="lux-brand-stars">★★★★★</span>
+          <span>5★ LUXURY FLEET · LAN HA BAY</span>
+        </span>
+      </div>
+    </a>
+  );
+}
+
+/* ============================================================
+   LAN HA BAY AMBIANCE & WEATHER CONTROLLER
+   ============================================================ */
+function LanHaAmbianceController({ ambiance, setAmbiance }) {
+  return (
+    <div className="lux-ambiance-bar" title="Trải nghiệm không gian & thời tiết Vịnh Lan Hạ thời gian thực">
+      <span className="lux-ambiance-label">
+        <span>🌤️</span> <span>KHÔNG GIAN VỊNH:</span>
+      </span>
+      <button
+        type="button"
+        className={`lux-ambiance-btn ${ambiance === 'sunset' ? 'active' : ''}`}
+        onClick={() => setAmbiance('sunset')}
+        title="Hoàng hôn dát vàng thơ mộng trên Vịnh Lan Hạ"
+      >
+        <span>🌅</span> <span>Hoàng Hôn Vàng</span>
+      </button>
+      <button
+        type="button"
+        className={`lux-ambiance-btn ${ambiance === 'day' ? 'active' : ''}`}
+        onClick={() => setAmbiance('day')}
+        title="Vịnh Lan Hạ ban ngày ngọc bích rực rỡ"
+      >
+        <span>☀️</span> <span>Vịnh Ngọc Bích</span>
+      </button>
+      <button
+        type="button"
+        className={`lux-ambiance-btn ${ambiance === 'night' ? 'active' : ''}`}
+        onClick={() => setAmbiance('night')}
+        title="Đêm ngàn sao huyền ảo & tiệc du thuyền lãng mạn"
+      >
+        <span>🌌</span> <span>Đêm Ngàn Sao</span>
+      </button>
+    </div>
+  );
+}
+
+/* ============================================================
+   GIANT MAJESTIC BACKGROUND CRUISE SHIP (TO, ẨN HIỆN GIỮA VỊNH)
+   ============================================================ */
+/* ============================================================
+   GIANT ATMOSPHERIC BACKGROUND CRUISE STAGE (TO, NẰM Ở BACKGROUND ẨN HIỆN)
+   ============================================================ */
+function GiantAtmosphericCruiseStage({ ambiance, mousePos }) {
+  // Smooth parallax translation from cursor movement
+  const calcX = (mousePos.x - 0.5) * 55;
+  const calcY = (mousePos.y - 0.5) * 18;
+  const calcTilt = (mousePos.x - 0.5) * 2.2;
+
+  // Dedicated 3D model render of Daiichi Luxury Cruise with golden sails
+  const shipImage = 'assets/photos/daiichi_luxury_cruise_3d.jpg';
+
+  return (
+    <div
+      className={`lux-giant-ship-backdrop ambiance-${ambiance}`}
+      style={{
+        transform: `translate3d(calc(-50% + ${calcX}px), ${calcY}px, 0) rotate(${calcTilt}deg)`
+      }}
+      aria-hidden="true"
+    >
+      {/* Mystical Ocean Aura & Golden Sunlight Behind Sails */}
+      <div className="lux-ship-celestial-aura"></div>
+
+      {/* Floating Ethereal Vessel Wrap with breathing animation */}
+      <div className="lux-ship-vessel-wrap">
+        <img
+          src={shipImage}
+          alt="Du thuyền 5★ Daiichi Luxury Cruise ẩn hiện trên Vịnh Lan Hạ"
+          className="lux-giant-ship-image"
+          loading="eager"
+        />
+
+        {/* Sea Mist & Waves drifting at the hull */}
+        <div className="lux-ship-ocean-wake-glow"></div>
+        <div className="lux-ship-drifting-mist mist-1"></div>
+        <div className="lux-ship-drifting-mist mist-2"></div>
+
+        {/* Floating Nautical Coordinate Ribbon */}
+        <div className="lux-ship-watermark-tag">
+          <span className="lux-ship-beacon"></span>
+          <span>DAIICHI LUXURY CRUISE 5★ · VỊNH LAN HẠ</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function NauticalCompassBadge() {
+  return (
+    <div className="lux-nautical-compass" title="Tọa độ Vịnh Lan Hạ · Quần đảo Cát Bà">
+      <span className="lux-compass-spin">🧭</span>
+      <span>VỊNH LAN HẠ · 20°47'N 107°03'E</span>
+    </div>
+  );
+}
+
+/* ============================================================
+   FLOATING FAST-TRANSIT BUS PORTAL
+   ============================================================ */
+function FloatingFastBusPortal({ isOpen, setIsOpen }) {
+  return (
+    <div className="lux-floating-bus-widget">
+      {!isOpen && (
+        <div className="lux-bus-badge-label" onClick={() => setIsOpen(true)} style={{ cursor: 'pointer', pointerEvents: 'auto' }}>
+          <span>🚌</span>
+          <span>ĐẶT XE BUS <strong>CHỈ 90K</strong></span>
+          <span className="bus-pulse-dot"></span>
+        </div>
+      )}
+
+      <button
+        type="button"
+        className="lux-bus-radar-trigger"
+        onClick={() => setIsOpen(!isOpen)}
+        title="Chuyển nhanh sang đặt xe bus Daiichi Travel — Tuyến Hà Nội ⇄ Hải Phòng ⇄ Cát Bà"
+        aria-label="Đặt vé xe bus nhanh"
+      >
+        <div className="lux-radar-wave"></div>
+        <div className="lux-radar-wave w2"></div>
+        <svg className="lux-bus-animated-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="5" width="18" height="13" rx="3" />
+          <path d="M3 11h18" />
+          <circle cx="7.5" cy="18.5" r="2" fill="#fff" />
+          <circle cx="16.5" cy="18.5" r="2" fill="#fff" />
+          <path d="M9.5 18.5h5" />
+        </svg>
+      </button>
+
+      {isOpen && (
+        <div className="lux-bus-popup-card">
+          <div className="lux-bus-popup-head">
+            <h4>
+              <span>⚡</span> <span>VÉ XE BUS DAIICHI TRAVEL</span>
+            </h4>
+            <button type="button" className="lux-bus-close-btn" onClick={() => setIsOpen(false)}>✕</button>
+          </div>
+
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', marginBottom: 12 }}>
+            Hệ thống xe khách & Limousine cao tốc 5B chất lượng cao của Daiichi:
+          </div>
+
+          {/* Route 1: Hà Nội - Hải Phòng 90k */}
+          <a
+            href="https://daiichitravel.com/?tab=bus"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lux-bus-route-item"
+            style={{ textDecoration: 'none' }}
+          >
+            <div>
+              <div className="lux-bus-route-title">Hà Nội ⇄ Hải Phòng</div>
+              <div className="lux-bus-route-desc">Xe Bus 45 chỗ đời mới · Cao tốc 5B</div>
+            </div>
+            <div className="lux-bus-route-price promo">
+              90.000đ
+              <span>Ưu đãi Like Page HP</span>
+            </div>
+          </a>
+
+          {/* Route 2: Hà Nội - Cát Bà */}
+          <a
+            href="https://daiichitravel.com/?tab=bus"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lux-bus-route-item"
+            style={{ textDecoration: 'none' }}
+          >
+            <div>
+              <div className="lux-bus-route-title">Hà Nội ⇄ Cát Bà</div>
+              <div className="lux-bus-route-desc">Trọn gói Bus + Tàu cao tốc riêng</div>
+            </div>
+            <div className="lux-bus-route-price">
+              150k - 250k
+              <span>Đón trả tận khách sạn</span>
+            </div>
+          </a>
+
+          {/* Route 3: Hải Phòng - Cát Bà */}
+          <a
+            href="https://daiichitravel.com/?tab=bus"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lux-bus-route-item"
+            style={{ textDecoration: 'none' }}
+          >
+            <div>
+              <div className="lux-bus-route-title">Hải Phòng ⇄ Cát Bà</div>
+              <div className="lux-bus-route-desc">Xe đón tại VP 713 Phạm Văn Đồng</div>
+            </div>
+            <div className="lux-bus-route-price">
+              170.000đ
+              <span>Chuyến chạy liên tục</span>
+            </div>
+          </a>
+
+          {/* Quick CTA Buttons */}
+          <a
+            href="https://daiichitravel.com/?tab=bus"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lux-bus-action-btn"
+          >
+            <span>🚀</span> <span>CHUYỂN ĐẾN ĐẶT VÉ BUS (1 CHẠM)</span>
+          </a>
+
+          <a
+            href="https://zalo.me/0961004709"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 6,
+              color: '#4EFA8F',
+              fontSize: 12,
+              fontWeight: 700,
+              textDecoration: 'none',
+              marginTop: 10,
+              textAlign: 'center'
+            }}
+          >
+            <span>💬</span> <span>Hoặc Chat Zalo Giữ Ghế: 0961 004 709</span>
+          </a>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
 function OneHome() {
   const [, force] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
+  const [ambiance, setAmbiance] = useState('sunset');
+  const [busPortalOpen, setBusPortalOpen] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+
+  const handleMouseMove = (e) => {
+    const normX = e.clientX / (window.innerWidth || 1);
+    const normY = e.clientY / (window.innerHeight || 1);
+    setMousePos({ x: normX, y: normY });
+  };
 
   useEffect(() => {
     const onLang = () => force((x) => x + 1);
@@ -1281,26 +1587,21 @@ function OneHome() {
       {/* HEADER */}
       <header className="on-header">
         <div className="on-header-in" style={{ position: 'relative' }}>
-          <a className="on-logo" href="#" style={{ textDecoration: 'none', color: '#fff' }}>
-            <img src="assets/brand/logo-DaiichiTravel.webp" alt="Daiichi Cruise" />
-            <b>DAIICHI <em>CRUISE</em></b>
-          </a>
+<DaiichiUltraLogo />
           <nav className="on-nav">
             <a href="#fleet">{T('nav_luxury')}</a>
             <a href="#boutique-cruise">{T('nav_boutique')}</a>
             <a href="#suites">{T('nav_suites')}</a>
-            <a href="#highlights">{T('nav_highlights')}</a>
             <a href="#itinerary">{T('nav_itinerary')}</a>
-            <a href="#day-cruises">{T('nav_day')}</a>
             <a href="#limousine">{T('nav_limo')}</a>
             <a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a>
           </nav>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <a className="on-quick-bus-btn" href="https://daiichitravel.com/?tab=bus" target="_blank" rel="noopener noreferrer" title="Chuyển nhanh sang đặt xe bus Daiichi Travel Tuyến Hà Nội ⇄ Hải Phòng ⇄ Cát Bà">
+              <span>🚌</span> <b>Bus Hải Phòng 90K</b> <span className="bus-pulse-dot"></span>
+            </a>
             <a href="tel:19009070" style={{ color: '#fff', fontSize: 13, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5, background: 'rgba(255,255,255,.12)', padding: '7px 12px', borderRadius: 20, whiteSpace: 'nowrap' }} title="Hotline 24/7">
               <span>📞</span><b>1900 9070</b>
-            </a>
-            <a href="https://zalo.me/0961004709" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', fontSize: 13, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5, background: 'rgba(0,104,255,.3)', border: '1px solid rgba(0,104,255,.6)', padding: '7px 12px', borderRadius: 20, whiteSpace: 'nowrap' }} title="Chat Zalo hỗ trợ">
-              <span>💬</span><b>Zalo</b>
             </a>
             <OneLang />
             <a className="on-cta" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener" style={{ background: 'var(--lux-gold-grad)', color: '#111E2E', fontWeight: 800 }}>
@@ -1327,13 +1628,29 @@ function OneHome() {
         </div>
       </header>
 
-      {/* LUXURY HERO BANNER */}
-      <div className="lux-hero" data-screen-label="Hero Du Thuyền Luxury">
-        <div className="lux-hero-bg" style={{ backgroundImage: `url(assets/photos/luxury-1.jpg)` }}></div>
+      {/* LUXURY HERO BANNER (WITH AMBIANCE & INTERACTIVE SHIP) */}
+      <div className={`lux-hero theme-${ambiance}`} onMouseMove={handleMouseMove} data-screen-label="Hero Du Thuyền Luxury">
+        <div className="lux-hero-bg" style={{ backgroundImage: ambiance === 'sunset' ? `url(assets/photos/daycruise-4.jpg)` : (ambiance === 'night' ? `url(assets/photos/luxury-3.jpg)` : `url(assets/photos/luxury-1.jpg)`) }}></div>
         <div className="lux-hero-overlay"></div>
+        {ambiance === 'night' && (
+          <div className="lux-celestial-canvas">
+            <div className="shooting-star"></div>
+            <div className="shooting-star s2"></div>
+          </div>
+        )}
+
+        {/* GIANT MAJESTIC BACKGROUND CRUISE SHIP ẨN HIỆN */}
+        <GiantAtmosphericCruiseStage ambiance={ambiance} mousePos={mousePos} />
         <div className="lux-hero-content">
-          <div className="lux-badge-gold">
-            ★ {T('hero_k')} ★
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
+            <div className="lux-badge-gold">
+              ★ {T('hero_k')} ★
+            </div>
+            <NauticalCompassBadge />
+          </div>
+
+          <div style={{ marginTop: 14 }}>
+            <LanHaAmbianceController ambiance={ambiance} setAmbiance={setAmbiance} />
           </div>
           <h1 className="lux-hero-title">
             {LV('Tuyệt Tác Du Thuyền Luxury & Boutique', 'Masterpiece Luxury & Boutique Cruises')} <br />
@@ -1350,6 +1667,8 @@ function OneHome() {
             <span className="lux-hl-item"><span className="icon">🍽️</span> {LV('Ẩm Thực Fine Dining 5★', 'Fine Dining Gastronomy')}</span>
             <span className="lux-hl-item"><span className="icon">🚐</span> {LV('Limousine Đón Trả Tận Cửa', 'Door-to-Door Limousine')}</span>
           </div>
+
+
         </div>
       </div>
 
@@ -1473,6 +1792,9 @@ function OneHome() {
 
       {/* POPUP MODAL CHI TIẾT PHÒNG */}
       <RoomDetailModal room={selectedRoom} onClose={() => setSelectedRoom(null)} />
+
+      {/* FLOATING FAST-TRANSIT BUS PORTAL */}
+      <FloatingFastBusPortal isOpen={busPortalOpen} setIsOpen={setBusPortalOpen} />
 
       {/* LIVE CHAT BOT WIDGET */}
       {typeof ChatWidget !== 'undefined' ? <ChatWidget /> : (window.ChatWidget && <window.ChatWidget />)}

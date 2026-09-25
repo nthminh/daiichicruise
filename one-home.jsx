@@ -1642,7 +1642,7 @@ function OneHome() {
         )}
 
         {/* GIANT MAJESTIC BACKGROUND CRUISE SHIP ẨN HIỆN */}
-        <GiantAtmosphericCruiseStage ambiance={ambiance} mousePos={mousePos} />
+        <OceanRipplingWaves />
         <div className="lux-hero-content">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
             <div className="lux-badge-gold">

@@ -17,6 +17,7 @@
     tours: [],
     vehicles: [],
     stops: [],
+    properties: [],
     roomTypes: [],
     bookings: []
   };
@@ -56,6 +57,7 @@
     SupabaseSyncState.tours = data.tours || [];
     SupabaseSyncState.vehicles = data.vehicles || [];
     SupabaseSyncState.stops = data.stops || [];
+    SupabaseSyncState.properties = data.properties || [];
     SupabaseSyncState.roomTypes = data.property_room_types || data.roomTypes || [];
     SupabaseSyncState.bookings = data.bookings || [];
     SupabaseSyncState.lastSynced = new Date();
@@ -68,6 +70,7 @@
       tours: SupabaseSyncState.tours,
       vehicles: SupabaseSyncState.vehicles,
       stops: SupabaseSyncState.stops,
+      properties: SupabaseSyncState.properties,
       roomTypes: SupabaseSyncState.roomTypes,
       bookings: SupabaseSyncState.bookings,
       syncedAt: SupabaseSyncState.lastSynced
@@ -185,12 +188,13 @@
 
     // Background refresh directly from live Supabase Cloud
     try {
-      const [routes, trips, tours, vehicles, stops, roomTypes, bookings] = await Promise.all([
+      const [routes, trips, tours, vehicles, stops, properties, roomTypes, bookings] = await Promise.all([
         fetchSupabaseTable('routes', 200),
         fetchSupabaseTable('trips', 1000),
         fetchSupabaseTable('tours', 50),
         fetchSupabaseTable('vehicles', 100),
         fetchSupabaseTable('stops', 500),
+        fetchSupabaseTable('properties', 50),
         fetchSupabaseTable('property_room_types', 50),
         fetchSupabaseTable('bookings', 1000)
       ]);
@@ -200,6 +204,7 @@
         tours,
         vehicles,
         stops,
+        properties,
         property_room_types: roomTypes,
         bookings
       });
@@ -347,6 +352,7 @@
   window.DT_SUPABASE_SYNC = {
     state: SupabaseSyncState,
     sync: initSupabaseSync,
+    fetchTable: fetchSupabaseTable,
     getTripsWithAvailability,
     buildBookingDeepLink,
     getBookedSeatCount

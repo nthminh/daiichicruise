@@ -135,7 +135,9 @@ function Shell({ role, menu, view, setView, onLogout, children }) {
         <nav className="bo-nav">
           {menu.map((m) => m.sep
             ? <div key={m.sep} className="sep">{m.sep}</div>
-            : <button key={m.id} className={view === m.id ? 'on' : ''} onClick={() => setView(m.id)}><m.Icon size={16} />{m.lb}</button>
+            : m.href
+              ? <a key={m.id} href={m.href} target="_blank" rel="noopener" style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', color: '#F59E0B', textDecoration: 'none', fontSize: 13, fontWeight: 700, borderRadius: 8 }}><m.Icon size={16} />{m.lb}</a>
+              : <button key={m.id} className={view === m.id ? 'on' : ''} onClick={() => setView(m.id)}><m.Icon size={16} />{m.lb}</button>
           )}
         </nav>
         <div className="bo-side-user">

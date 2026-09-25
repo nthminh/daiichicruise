@@ -229,6 +229,22 @@ function CruiseHomeSearch() {
    SECTION 1: THE TWO ICONIC SHIPS (LUXURY 5★ & BOUTIQUE 4★)
    ============================================================ */
 function FlagshipShipsSection() {
+  const sbProperties = window.DT_DATA?.SUPABASE?.properties || [];
+  const luxProp = sbProperties.find(p => (p.name || '').toLowerCase().includes('luxury'));
+  const bqProp = sbProperties.find(p => (p.name || '').toLowerCase().includes('boutique'));
+
+  // Custom local overrides if any
+  let customLux = [];
+  let customBq = [];
+  try {
+    const saved = JSON.parse(localStorage.getItem('dt_custom_cruise_imgs') || '{}');
+    customLux = saved['luxury-ship'] || [];
+    customBq = saved['boutique-ship'] || [];
+  } catch (e) {}
+
+  const luxImg = customLux[0] || luxProp?.images?.[0] || 'assets/photos/luxury-1.jpg';
+  const bqImg = customBq[0] || bqProp?.images?.[0] || 'assets/photos/boutique-1.jpg';
+
   return (
     <section className="lux-duo-sec" id="fleet" data-screen-label="Hạm đội Du thuyền Daiichi">
       <div className="lux-sec-header">
@@ -246,7 +262,7 @@ function FlagshipShipsSection() {
         {/* Ship 1: Daiichi Luxury Cruise 5★ */}
         <div className="lux-ship-card" id="luxury-cruise">
           <div className="lux-ship-gallery">
-            <img src="assets/photos/luxury-1.jpg" alt="Daiichi Luxury Cruise 5★" loading="lazy" />
+            <img src={luxImg} alt="Daiichi Luxury Cruise 5★" loading="lazy" />
             <div className="lux-ship-badge">★★★★★ 5-STAR LUXURY</div>
             <div className="lux-ship-price-tag">
               <span>{LV('Giá từ', 'From')}</span>
@@ -297,7 +313,7 @@ function FlagshipShipsSection() {
         {/* Ship 2: Daiichi Boutique Cruise 4★ */}
         <div className="lux-ship-card" id="boutique-cruise">
           <div className="lux-ship-gallery">
-            <img src="assets/photos/boutique-1.jpg" alt="Daiichi Boutique Cruise" loading="lazy" />
+            <img src={bqImg} alt="Daiichi Boutique Cruise" loading="lazy" />
             <div className="lux-ship-badge" style={{ background: '#78350F', color: '#FDE68A' }}>★★★★ BOUTIQUE HERITAGE</div>
             <div className="lux-ship-price-tag">
               <span>{LV('Giá từ', 'From')}</span>
@@ -580,9 +596,53 @@ function SuiteCollectionSection({ onSelectRoom }) {
     }
   ];
 
-  let filteredSuites = ALL_SUITES;
-  if (filter === 'luxury') filteredSuites = ALL_SUITES.filter(s => s.shipId === 'luxury');
-  if (filter === 'boutique') filteredSuites = ALL_SUITES.filter(s => s.shipId === 'boutique');
+  // Tự động kết nối và đồng bộ theo thời gian thực từ Supabase Cloud (Dùng chung daiichitravel)
+  const rawSbRooms = window.DT_DATA?.SUPABASE?.roomTypes || [];
+  let customImgsMap = {};
+  try {
+    customImgsMap = JSON.parse(localStorage.getItem('dt_custom_cruise_imgs') || '{}');
+  } catch (e) {}
+
+  const enrichedSuites = ALL_SUITES.map(suite => {
+    let matchedRt = null;
+    const sid = suite.id;
+    if (sid === 'royal') matchedRt = rawSbRooms.find(r => (r.name || '').toLowerCase().includes('royal'));
+    else if (sid === 'family') matchedRt = rawSbRooms.find(r => (r.name || '').toLowerCase().includes('family') || (r.name || '').toLowerCase().includes('exec'));
+    else if (sid === 'senior') matchedRt = rawSbRooms.find(r => (r.name || '').toLowerCase().includes('senior'));
+    else if (sid === 'junior') matchedRt = rawSbRooms.find(r => (r.name || '').toLowerCase().includes('trip') || (r.name || '').toLowerCase().includes('junior'));
+    else if (sid === 'btq-balcony') matchedRt = rawSbRooms.find(r => (r.name || '').toLowerCase().includes('balcony'));
+    else if (sid === 'btq-deluxe') matchedRt = rawSbRooms.find(r => (r.name || '').toLowerCase().includes('deluxe'));
+
+    const customImgs = customImgsMap[sid] || [];
+    let livePrice = suite.price;
+    let liveGallery = [...customImgs];
+
+    if (matchedRt) {
+      if (matchedRt.base_price) livePrice = matchedRt.base_price;
+      if (matchedRt.images && matchedRt.images.length > 0) {
+        liveGallery = [...liveGallery, ...matchedRt.images];
+      }
+    }
+
+    if (liveGallery.length === 0) {
+      liveGallery = suite.gallery;
+    } else {
+      liveGallery = Array.from(new Set(liveGallery));
+    }
+
+    return {
+      ...suite,
+      price: livePrice,
+      img: liveGallery[0] || suite.img,
+      gallery: liveGallery,
+      area: (matchedRt && matchedRt.area_sqm) || suite.area,
+      capacity: (matchedRt && matchedRt.capacity_adults) ? `${matchedRt.capacity_adults} người lớn` : suite.capacity,
+    };
+  });
+
+  let filteredSuites = enrichedSuites;
+  if (filter === 'luxury') filteredSuites = enrichedSuites.filter(s => s.shipId === 'luxury');
+  if (filter === 'boutique') filteredSuites = enrichedSuites.filter(s => s.shipId === 'boutique');
 
   return (
     <section className="lux-suites-sec" id="suites" data-screen-label="Bộ Sưu Tập Phòng Suite">
@@ -1400,6 +1460,7 @@ function OneHome() {
               <ul>
                 <li><a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a></li>
                 <li><a href="https://daiichitravel.com" target="_blank" rel="noopener">Daiichi Travel Portal</a></li>
+                <li><a href="admin/cruise-manager.html" target="_blank" rel="noopener" style={{ color: 'var(--gold-bright)', fontWeight: 700 }}>⚙️ Quản lý Tàu & Giá (Admin Sync)</a></li>
               </ul>
             </div>
           </div>

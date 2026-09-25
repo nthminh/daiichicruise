@@ -14,6 +14,7 @@ function BackOfficeApp() {
       { id: 'trips', lb: 'Chuyến & sơ đồ ghế', Icon: BI.seat },
       { id: 'pricing', lb: 'Giá & khuyến mãi', Icon: BI.tag },
       { id: 'cms', lb: 'Nội dung (CMS)', Icon: BI.dash },
+      { id: 'cruise_mgr', lb: '🚢 Quản lý Tàu & Giá (Live Sync)', Icon: BI.tag, href: 'cruise-manager.html' },
       { id: 'reports', lb: 'Báo cáo & đối soát', Icon: BI.chart },
       { id: 'agents', lb: 'Đại lý & công nợ', Icon: BI.users },
       { id: 'tiers', lb: 'Hạng & xếp hạng đại lý', Icon: BI.tag },

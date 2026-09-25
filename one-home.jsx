@@ -352,10 +352,86 @@ function FlagshipShipsSection() {
 /* ============================================================
    SECTION 2: SUITE COLLECTION & QUICK VIEW MODAL
    ============================================================ */
+/* Single Suite Card with In-Card Mini Image Slider */
+function SuiteCard({ st, onSelectRoom }) {
+  const [imgIdx, setImgIdx] = useState(0);
+  const images = (st.gallery && st.gallery.length > 0) ? st.gallery : [st.img];
+  const curImg = images[imgIdx] || st.img;
+
+  const nextImg = (e) => {
+    e.stopPropagation();
+    setImgIdx((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImg = (e) => {
+    e.stopPropagation();
+    setImgIdx((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="lux-room-card">
+      <div className="lux-room-thumb" onClick={() => onSelectRoom(st)}>
+        <img src={curImg} alt={st.name} loading="lazy" />
+        <span className="lux-room-badge">{st.badge}</span>
+
+        {images.length > 1 && (
+          <React.Fragment>
+            <button className="lux-card-slider-btn prev" onClick={prevImg} title="Ảnh trước">‹</button>
+            <button className="lux-card-slider-btn next" onClick={nextImg} title="Ảnh sau">›</button>
+            <div className="lux-card-dots">
+              {images.map((_, i) => (
+                <span
+                  key={i}
+                  className={'lux-card-dot' + (imgIdx === i ? ' active' : '')}
+                  onClick={(e) => { e.stopPropagation(); setImgIdx(i); }}
+                />
+              ))}
+            </div>
+          </React.Fragment>
+        )}
+
+        <button className="lux-room-quickview-btn">
+          🔍 {LV('Xem chi tiết', 'Quick view')} ({imgIdx + 1}/{images.length})
+        </button>
+      </div>
+
+      <div className="lux-room-body">
+        <div className="lux-room-ship-label">{st.shipName}</div>
+        <h3 className="lux-room-title">{st.name}</h3>
+        <div className="lux-room-params">
+          <span>📐 {st.area} m²</span>
+          <span>👥 {st.capacity}</span>
+          <span>🌅 {st.floor}</span>
+        </div>
+        <div className="lux-room-amenities">
+          {st.amenities.slice(0, 3).map((a, i) => (
+            <span key={i} className="lux-room-amenity">✓ {a}</span>
+          ))}
+        </div>
+        <div className="lux-room-foot">
+          <div className="lux-room-price">
+            <span>{LV('Giá từ', 'From')}</span>
+            <b>{st.price.toLocaleString('vi-VN')}đ</b>
+            <em>{LV('/đêm', '/night')}</em>
+          </div>
+          <div className="lux-room-actions">
+            <button className="lux-btn-outline" style={{ padding: '8px 12px', fontSize: 12.5 }} onClick={() => onSelectRoom(st)}>
+              {LV('Chi tiết & Tính giá', 'Details & Rates')}
+            </button>
+            <a className="lux-room-book-btn" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+              {LV('Đặt phòng →', 'Book →')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SuiteCollectionSection({ onSelectRoom }) {
   const [filter, setFilter] = useState('all'); // 'all' | 'luxury' | 'boutique'
 
-  // Standard comprehensive suites mapped with Supabase data & rich specs
+  // Comprehensive suites with HD gallery from Supabase WebP Storage & local assets
   const ALL_SUITES = [
     {
       id: 'royal',
@@ -368,7 +444,8 @@ function SuiteCollectionSection({ onSelectRoom }) {
         'assets/photos/suite-royal.jpg',
         'assets/photos/luxury-restaurant.jpg',
         'assets/photos/luxury-jacuzzi.jpg',
-        'assets/photos/luxury-2.jpg'
+        'assets/photos/luxury-2.jpg',
+        'assets/photos/luxury-3.jpg'
       ],
       area: 55,
       capacity: '2 người lớn',
@@ -378,8 +455,8 @@ function SuiteCollectionSection({ onSelectRoom }) {
       balcony: 'Ban công riêng siêu rộng 15m²',
       bath: 'Bồn tắm nằm sát vách kính ngắm trọn vịnh Lan Hạ',
       price: 10500000,
-      amenities: ['Ban công riêng cực đại', 'Bồn tắm view vịnh 270°', 'Khu vực tiếp khách riêng', 'Điều hòa 2 chiều', 'Smart TV & Wifi', 'Minibar & Trái cây tươi', 'Két an toàn', 'Máy sấy tóc cao cấp', 'Áo choàng & dép đi trong phòng'],
-      desc: 'Hạng phòng cao cấp và xa hoa nhất trên vịnh Lan Hạ. Vị trí đầu tàu tầng 4 mang đến tầm nhìn panorama 270 độ không giới hạn. Tận hưởng bồn tắm nằm sát kính viền vàng, ban công tắm nắng riêng biệt và đặc quyền phục vụ thượng lưu.'
+      amenities: ['Ban công riêng cực đại 15m²', 'Bồn tắm nằm sát kính view 270°', 'Khu vực tiếp khách salon cao cấp', 'Điều hòa 2 chiều âm trần', 'Smart TV & Wifi miễn phí', 'Minibar & Rượu vang chào đón', 'Két an toàn điện tử', 'Máy sấy tóc & Mỹ phẩm cao cấp', 'Áo choàng nhung & dép đi trong phòng'],
+      desc: 'Hạng phòng xa hoa và cao cấp nhất trên vịnh Lan Hạ. Tọa lạc tại vị trí mũi tàu tầng 4 mang lại tầm nhìn panorama 270 độ không giới hạn. Tận hưởng bồn tắm ngâm mình sát vách kính viền đồng, ban công tắm nắng rộng thênh thang và đặc quyền phục vụ thượng lưu.'
     },
     {
       id: 'family',
@@ -391,7 +468,8 @@ function SuiteCollectionSection({ onSelectRoom }) {
       gallery: [
         'assets/photos/suite-executive.jpg',
         'assets/photos/luxury-1.jpg',
-        'assets/photos/luxury-jacuzzi.jpg'
+        'assets/photos/luxury-jacuzzi.jpg',
+        'assets/photos/daycruise-act-2.jpg'
       ],
       area: 45,
       capacity: '2 - 4 khách',
@@ -401,8 +479,8 @@ function SuiteCollectionSection({ onSelectRoom }) {
       balcony: 'Ban công riêng ngắm vịnh',
       bath: 'Bồn tắm nằm sang trọng & Phòng tắm đứng',
       price: 6000000,
-      amenities: ['Ban công riêng view biển', 'Bồn tắm nằm thư giãn', 'Không gian gia đình rộng rãi', 'Điều hòa 2 chiều', 'Wifi tốc độ cao', 'Minibar', 'Két an toàn', 'Đồ dùng vệ sinh chuẩn 5★'],
-      desc: 'Thiết kế thông minh dành riêng cho gia đình hoặc nhóm bạn 3-4 người. Không gian ấm cúng, tràn ngập ánh sáng tự nhiên với ban công riêng rộng rãi để cả gia đình cùng ngắm nhìn vịnh biển kỳ quan.'
+      amenities: ['Ban công riêng view biển', 'Bồn tắm nằm thư giãn', 'Không gian gia đình rộng rãi 45m²', 'Điều hòa 2 chiều', 'Wifi tốc độ cao', 'Minibar & Trái cây tươi', 'Két an toàn', 'Đồ dùng vệ sinh chuẩn 5★'],
+      desc: 'Thiết kế thông minh dành riêng cho gia đình hoặc nhóm bạn 3-4 người. Không gian ấm cúng, tràn ngập ánh sáng tự nhiên với ban công riêng rộng rãi để cả gia đình cùng chiêm ngưỡng kỳ quan thiên nhiên.'
     },
     {
       id: 'senior',
@@ -414,6 +492,7 @@ function SuiteCollectionSection({ onSelectRoom }) {
       gallery: [
         'assets/photos/suite-senior.jpg',
         'assets/photos/luxury-3.jpg',
+        'assets/photos/luxury-restaurant.jpg',
         'assets/photos/daycruise-act-2.jpg'
       ],
       area: 30,
@@ -424,8 +503,8 @@ function SuiteCollectionSection({ onSelectRoom }) {
       balcony: 'Ban công riêng đón gió biển',
       bath: 'Bồn tắm nằm cạnh cửa sổ kính lớn',
       price: 5000000,
-      amenities: ['Ban công riêng', 'Bồn tắm nằm view biển', 'Cửa sổ kính sát trần', 'Điều hòa', 'Wifi', 'Két sắt', 'Khăn tắm cao cấp'],
-      desc: 'Hạng phòng được yêu thích nhất bởi các cặp đôi. Điểm nhấn là bồn tắm ngâm mình sát cửa kính lớn nhìn thẳng ra các đảo đá vôi xanh ngọc bích, kèm ban công riêng tư lãng mạn.'
+      amenities: ['Ban công riêng view biển', 'Bồn tắm nằm sát cửa kính lớn', 'Cửa sổ kính sát trần ngắm vịnh', 'Điều hòa 2 chiều', 'Wifi tốc độ cao', 'Két an toàn', 'Khăn tắm & Áo choàng cao cấp'],
+      desc: 'Hạng phòng được yêu thích nhất bởi các cặp đôi. Điểm nhấn là bồn tắm ngâm mình sát cửa sổ kính nhìn thẳng ra các đảo đá vôi xanh ngọc bích, kết hợp ban công riêng tư lãng mạn đón hoàng hôn.'
     },
     {
       id: 'junior',
@@ -435,8 +514,10 @@ function SuiteCollectionSection({ onSelectRoom }) {
       badge: 'BAN CÔNG RIÊNG · TẦNG 2',
       img: 'assets/photos/suite-junior.jpg',
       gallery: [
-        'assets/photos/suite-junior.jpg',
-        'assets/photos/luxury-1.jpg'
+        'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/77295ed4814a45158709a68c3d23fffa.webp',
+        'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/c0f0655e5c2847fe8bce876b98f70838.webp',
+        'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/3e609aa9377a485b948ec0dfd91ae732.webp',
+        'assets/photos/suite-junior.jpg'
       ],
       area: 28,
       capacity: '2 người lớn + 1 trẻ em',
@@ -446,7 +527,7 @@ function SuiteCollectionSection({ onSelectRoom }) {
       balcony: 'Ban công riêng view biển',
       bath: 'Phòng tắm đứng hiện đại vách kính',
       price: 5000000,
-      amenities: ['Ban công riêng', 'View biển trực tiếp', 'Điều hòa', 'Wifi', 'Dép đi trong phòng', 'Máy sấy tóc', 'Két an toàn'],
+      amenities: ['Ban công riêng ngắm vịnh', 'View biển trực tiếp', 'Điều hòa 2 chiều', 'Wifi miễn phí', 'Dép đi trong phòng', 'Máy sấy tóc', 'Két an toàn'],
       desc: 'Phòng ngủ phong cách hiện đại, tinh gọn và thoáng đãng. Hệ thống cửa kính ban công đón trọn ánh nắng ban mai và không khí trong lành của biển khơi Cát Bà.'
     },
     {
@@ -457,9 +538,10 @@ function SuiteCollectionSection({ onSelectRoom }) {
       badge: '100% GỖ TỰ NHIÊN · TẦNG 2',
       img: 'assets/photos/boutique-2.jpg',
       gallery: [
-        'assets/photos/boutique-2.jpg',
-        'assets/photos/boutique-1.jpg',
-        'assets/photos/daycruise-act-1.jpg'
+        'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/25ba463c97174700877aeea6b18d4f6d.webp',
+        'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/b2d82f8996af45c6b5e78d5b277a80f9.webp',
+        'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/3a178122035247a795ae65ad0ac6f5c6.webp',
+        'assets/photos/boutique-2.jpg'
       ],
       area: 25,
       capacity: '2 người lớn',
@@ -470,7 +552,7 @@ function SuiteCollectionSection({ onSelectRoom }) {
       bath: 'Phòng tắm đứng vách kính sang trọng',
       price: 6065000,
       amenities: ['100% Nội thất gỗ tự nhiên', 'Ban công riêng view vịnh', 'Điều hòa 2 chiều', 'Wifi', 'Bàn ghế salon gỗ', 'Đồ dùng vệ sinh cao cấp', 'Két sắt'],
-      desc: 'Nằm trên tầng 2 của du thuyền Boutique, cabin sở hữu ban công gỗ riêng nhìn ra biển. Toàn bộ sàn, vách và trần được làm thủ công bằng gỗ tự nhiên, mang lại hương thơm dịu nhẹ và giấc ngủ sâu.'
+      desc: 'Nằm trên tầng 2 của du thuyền Boutique, cabin sở hữu ban công gỗ riêng nhìn ra biển. Toàn bộ sàn, vách và trần được làm thủ công bằng gỗ tự nhiên, mang lại không gian ấm cúng, sang trọng và giấc ngủ sâu.'
     },
     {
       id: 'btq-deluxe',
@@ -480,8 +562,10 @@ function SuiteCollectionSection({ onSelectRoom }) {
       badge: 'CỔ ĐIỂN ẤM CÚNG · TẦNG 1',
       img: 'assets/photos/suite-deluxe.jpg',
       gallery: [
-        'assets/photos/suite-deluxe.jpg',
-        'assets/photos/boutique-1.jpg'
+        'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/150ae2005f284efa9cb715e4520cd59e.webp',
+        'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/5a1bb231216c44369c2288de36d7dd3d.webp',
+        'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/74cadd781683458da9527bea55580b8f.webp',
+        'assets/photos/suite-deluxe.jpg'
       ],
       area: 25,
       capacity: '2 - 3 người lớn',
@@ -492,7 +576,7 @@ function SuiteCollectionSection({ onSelectRoom }) {
       bath: 'Phòng tắm đứng vách kính riêng',
       price: 6318000,
       amenities: ['Gỗ tự nhiên 100%', 'Cửa sổ view biển', 'Điều hòa', 'Wifi', 'Bàn trang điểm', 'Két an toàn', 'Máy sấy tóc'],
-      desc: 'Tọa lạc tại tầng 1 với không gian tĩnh lặng, gần sát mặt biển để bạn cảm nhận tiếng sóng vỗ êm đềm. Nội thất gỗ tinh tế tạo cảm giác hoài niệm cổ điển đầy cuốn hút.'
+      desc: 'Tọa lạc tại tầng 1 với không gian tĩnh lặng, sát mặt biển để bạn cảm nhận tiếng sóng vỗ êm đềm. Nội thất gỗ tinh xảo tạo cảm giác hoài niệm cổ điển đầy cuốn hút.'
     }
   ];
 
@@ -508,8 +592,8 @@ function SuiteCollectionSection({ onSelectRoom }) {
           <h2 className="lux-sec-title" style={{ color: '#FFFFFF' }}>{LV('Không Gian Nghỉ Dưỡng Sang Trọng & Riêng Tư', 'Private Balcony Suites & Handcrafted Wooden Cabins')}</h2>
           <p className="lux-sec-sub" style={{ color: 'rgba(255,255,255,0.78)' }}>
             {LV(
-              '100% phòng nghỉ trên du thuyền đều có ban công riêng view biển, bồn tắm ngắm vịnh, cửa sổ kính toàn cảnh và hệ thống điều hòa 2 chiều hiện đại.',
-              'Every cabin boasts private balconies, panoramic ocean views, bay-facing bathtubs and bespoke amenities for the ultimate comfort.'
+              '100% phòng nghỉ trên du thuyền đều có ban công riêng view biển, bồn tắm ngắm vịnh, cửa sổ kính toàn cảnh và hệ thống điều hòa 2 chiều hiện đại. Lướt mũi tên để xem đa góc chụp thực tế.',
+              'Every cabin boasts private balconies, panoramic ocean views, bay-facing bathtubs and bespoke amenities. Use the mini-slider to preview multiple angles.'
             )}
           </p>
         </div>
@@ -528,44 +612,7 @@ function SuiteCollectionSection({ onSelectRoom }) {
 
         <div className="lux-suites-grid">
           {filteredSuites.map((st) => (
-            <div key={st.id} className="lux-room-card">
-              <div className="lux-room-thumb" onClick={() => onSelectRoom(st)}>
-                <img src={st.img} alt={st.name} loading="lazy" />
-                <span className="lux-room-badge">{st.badge}</span>
-                <button className="lux-room-quickview-btn">
-                  🔍 {LV('Xem chi tiết', 'Quick view')}
-                </button>
-              </div>
-              <div className="lux-room-body">
-                <div className="lux-room-ship-label">{st.shipName}</div>
-                <h3 className="lux-room-title">{st.name}</h3>
-                <div className="lux-room-params">
-                  <span>📐 {st.area} m²</span>
-                  <span>👥 {st.capacity}</span>
-                  <span>🌅 {st.floor}</span>
-                </div>
-                <div className="lux-room-amenities">
-                  {st.amenities.slice(0, 3).map((a, i) => (
-                    <span key={i} className="lux-room-amenity">✓ {a}</span>
-                  ))}
-                </div>
-                <div className="lux-room-foot">
-                  <div className="lux-room-price">
-                    <span>{LV('Giá từ', 'From')}</span>
-                    <b>{st.price.toLocaleString('vi-VN')}đ</b>
-                    <em>{LV('/đêm', '/night')}</em>
-                  </div>
-                  <div className="lux-room-actions">
-                    <button className="lux-btn-outline" style={{ padding: '8px 12px', fontSize: 12.5 }} onClick={() => onSelectRoom(st)}>
-                      {LV('Chi tiết', 'Details')}
-                    </button>
-                    <a className="lux-room-book-btn" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
-                      {LV('Đặt phòng →', 'Book →')}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <SuiteCard key={st.id} st={st} onSelectRoom={onSelectRoom} />
           ))}
         </div>
       </div>
@@ -574,8 +621,297 @@ function SuiteCollectionSection({ onSelectRoom }) {
 }
 
 /* ============================================================
-   SECTION 3: 6 EXCLUSIVE SIGNATURE HIGHLIGHTS
+   ADVANCED ROOM DETAIL MODAL WITH INTERACTIVE PRICE CALCULATOR
    ============================================================ */
+function RoomDetailModal({ room, onClose }) {
+  if (!room) return null;
+  const [activeImg, setActiveImg] = useState(room.img);
+
+  // Live calculator state
+  const [nights, setNights] = useState('2d1n'); // '2d1n' | '3d2n'
+  const [season, setSeason] = useState('low'); // 'low' | 'high'
+  const [adults, setAdults] = useState(2); // 1 | 2 | 3
+  const [children, setChildren] = useState(0); // 0 | 1 | 2
+  const [childAge, setChildAge] = useState('under2'); // 'under2' | '2to4' | '5to10'
+  const [transfer, setTransfer] = useState('limo'); // 'limo' | 'none'
+  const [travelDate, setTravelDate] = useState(() => {
+    const d = new Date();
+    d.setDate(d.getDate() + 3);
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  });
+
+  // Calculate pricing based on Supabase business logic
+  const basePrice = room.price || 5000000;
+  
+  // Season multiplier (High season +15%)
+  const seasonMult = season === 'high' ? 1.15 : 1.0;
+  
+  // Nights multiplier (3D2N is 1.85x)
+  const nightsMult = nights === '3d2n' ? 1.85 : 1.0;
+
+  // Occupancy base: 2 adults is standard (1.0x), 1 adult is 0.8x, 3 adults is 1.35x (extra bed)
+  let occMult = 1.0;
+  if (adults === 1) occMult = 0.8;
+  if (adults === 3) occMult = 1.35;
+
+  const roomTotal = Math.round(basePrice * seasonMult * nightsMult * occMult);
+
+  // Child fee based on age rules from Supabase
+  let childFee = 0;
+  if (children > 0) {
+    if (childAge === 'under2') childFee = 0; // free under 2
+    else if (childAge === '2to4') childFee = Math.round(roomTotal * 0.25 * children);
+    else if (childAge === '5to10') childFee = Math.round(roomTotal * 0.38 * children);
+  }
+
+  // Transfer fee: Limousine round-trip Hanoi ⇄ Boat (550.000đ/pax)
+  const transferRate = 550000;
+  const transferTotal = transfer === 'limo' ? ((adults + (children > 0 && childAge !== 'under2' ? children : 0)) * transferRate) : 0;
+
+  const grandTotal = roomTotal + childFee + transferTotal;
+
+  // Build deep link with all calculated parameters
+  const bookingLink = `https://daiichitravel.com/?tab=cruise-tours&suite=${encodeURIComponent(room.id)}&nights=${nights}&season=${season}&adults=${adults}&children=${children}&transfer=${transfer}&date=${travelDate}&source=daiichicruise_calc`;
+
+  return (
+    <div className="lux-modal-backdrop" onClick={onClose}>
+      <div className="lux-modal-box" onClick={(e) => e.stopPropagation()}>
+        <button className="lux-modal-close" onClick={onClose} title="Đóng">✕</button>
+
+        {/* Gallery with Thumbs */}
+        <div className="lux-modal-gallery">
+          <img src={activeImg} alt={room.name} />
+          {room.gallery && room.gallery.length > 1 && (
+            <div className="lux-modal-thumbs">
+              {room.gallery.map((im, idx) => (
+                <button
+                  key={idx}
+                  className={'lux-modal-thumb-btn' + (activeImg === im ? ' active' : '')}
+                  onClick={() => setActiveImg(im)}
+                >
+                  <img src={im} alt="thumb" />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="lux-modal-content">
+          <div className="lux-modal-header">
+            <div>
+              <span className="lux-room-ship-label">{room.shipName}</span>
+              <h2 className="lux-modal-title">{room.name}</h2>
+            </div>
+            <div className="lux-modal-price">
+              {room.price.toLocaleString('vi-VN')}đ<em>/đêm tiêu chuẩn 2 khách</em>
+            </div>
+          </div>
+
+          <div className="lux-modal-specs">
+            <div>
+              <span style={{ fontSize: 11, color: '#64748B' }}>Diện tích</span>
+              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>{room.area} m²</b>
+            </div>
+            <div>
+              <span style={{ fontSize: 11, color: '#64748B' }}>Sức chứa</span>
+              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>{room.capacity}</b>
+            </div>
+            <div>
+              <span style={{ fontSize: 11, color: '#64748B' }}>Vị trí</span>
+              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>{room.floor}</b>
+            </div>
+            <div>
+              <span style={{ fontSize: 11, color: '#64748B' }}>Ban công</span>
+              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>Ban công riêng view biển</b>
+            </div>
+          </div>
+
+          <p style={{ fontSize: 14.5, color: '#475569', lineHeight: 1.7, marginBottom: 22 }}>
+            {room.desc}
+          </p>
+
+          {/* ========================================================
+              INTERACTIVE LIVE PRICE CALCULATOR
+              ======================================================== */}
+          <div className="lux-calc-section">
+            <div className="lux-calc-head">
+              <h3>
+                <span>🧮</span> Bảng Tính Giá Tự Động Theo Yêu Cầu
+              </h3>
+              <span className="lux-calc-badge">⚡ Giá thời gian thực · Đã gồm VAT</span>
+            </div>
+
+            <div className="lux-calc-controls">
+              <div className="lux-calc-field">
+                <label>⏱ Gói hải trình</label>
+                <select value={nights} onChange={(e) => setNights(e.target.value)}>
+                  <option value="2d1n">2 Ngày 1 Đêm (2D1N)</option>
+                  <option value="3d2n">3 Ngày 2 Đêm (3D2N)</option>
+                </select>
+              </div>
+
+              <div className="lux-calc-field">
+                <label>📅 Mùa du lịch</label>
+                <select value={season} onChange={(e) => setSeason(e.target.value)}>
+                  <option value="low">Mùa thường / Thấp điểm</option>
+                  <option value="high">Mùa cao điểm hè (+15%)</option>
+                </select>
+              </div>
+
+              <div className="lux-calc-field">
+                <label>👥 Người lớn</label>
+                <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
+                  <option value={1}>1 người lớn (Phòng đơn)</option>
+                  <option value={2}>2 người lớn (Tiêu chuẩn)</option>
+                  <option value={3}>3 người lớn (+Kê giường phụ)</option>
+                </select>
+              </div>
+
+              <div className="lux-calc-field">
+                <label>👶 Trẻ em đi kèm</label>
+                <select value={children} onChange={(e) => setChildren(+e.target.value)}>
+                  <option value={0}>Không có trẻ em</option>
+                  <option value={1}>1 trẻ em</option>
+                  <option value={2}>2 trẻ em</option>
+                </select>
+              </div>
+
+              {children > 0 && (
+                <div className="lux-calc-field">
+                  <label>🎂 Độ tuổi trẻ em</label>
+                  <select value={childAge} onChange={(e) => setChildAge(e.target.value)}>
+                    <option value="under2">Dưới 2 tuổi (Miễn phí 100%)</option>
+                    <option value="2to4">Từ 2 – 4 tuổi (50% giá)</option>
+                    <option value="5to10">Từ 5 – 10 tuổi (75% giá)</option>
+                  </select>
+                </div>
+              )}
+
+              <div className="lux-calc-field">
+                <label>📆 Ngày khởi hành dự kiến</label>
+                <input type="date" value={travelDate} onChange={(e) => setTravelDate(e.target.value)} />
+              </div>
+            </div>
+
+            {/* Transfer Option */}
+            <div style={{ marginBottom: 8 }}>
+              <label style={{ fontSize: 11.5, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.06em', color: '#64748B', display: 'block', marginBottom: 8 }}>
+                🚐 Phương án đưa đón khách:
+              </label>
+              <div className="lux-transfer-radios">
+                <div
+                  className={'lux-transfer-option' + (transfer === 'limo' ? ' selected' : '')}
+                  onClick={() => setTransfer('limo')}
+                >
+                  <input type="radio" checked={transfer === 'limo'} onChange={() => setTransfer('limo')} />
+                  <div>
+                    <b>Phương án B: Kèm xe Limousine đưa đón 2 chiều (+550.000đ/khách)</b>
+                    <span>Đón trả tận nơi tại Phố Cổ Hà Nội thẳng đến cảng du thuyền và chiều ngược lại.</span>
+                  </div>
+                </div>
+
+                <div
+                  className={'lux-transfer-option' + (transfer === 'none' ? ' selected' : '')}
+                  onClick={() => setTransfer('none')}
+                >
+                  <input type="radio" checked={transfer === 'none'} onChange={() => setTransfer('none')} />
+                  <div>
+                    <b>Phương án A: Khách tự túc di chuyển đến cảng (+0đ)</b>
+                    <span>Check-in lúc 12:00 tại Cảng tàu Cát Bà / Tuần Châu.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Calculation Result */}
+            <div className="lux-calc-result-box">
+              <div className="lux-calc-breakdown">
+                <span>• Phòng {room.name} ({nights === '2d1n' ? '2N1Đ' : '3N2Đ'} · {adults} người lớn): <b>{roomTotal.toLocaleString('vi-VN')}đ</b></span>
+                {children > 0 && (
+                  <span>• Phụ thu {children} trẻ em ({childAge === 'under2' ? 'dưới 2 tuổi miễn phí' : childAge === '2to4' ? '2-4 tuổi' : '5-10 tuổi'}): <b>{childFee.toLocaleString('vi-VN')}đ</b></span>
+                )}
+                {transfer === 'limo' && (
+                  <span>• Xe Limousine 2 chiều Hà Nội ({adults + (children > 0 && childAge !== 'under2' ? children : 0)} vé): <b>{transferTotal.toLocaleString('vi-VN')}đ</b></span>
+                )}
+              </div>
+
+              <div className="lux-calc-total-wrap">
+                <span className="lux-calc-total-label">Tổng Chi Phí Trọn Gói Dự Kiến</span>
+                <div className="lux-calc-total-amount">
+                  {grandTotal.toLocaleString('vi-VN')}đ<em>(Đã gồm VAT)</em>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Children Policy */}
+          <div className="lux-child-policy-sec">
+            <h4 className="lux-child-policy-title">
+              <span>👶</span> Chính Sách Trẻ Em & Giường Phụ (Theo chuẩn Supabase)
+            </h4>
+            <div className="lux-child-policy-grid">
+              <div className="lux-child-policy-chip">
+                <b>Trẻ em dưới 2 tuổi</b>
+                <span>Miễn phí 100%</span> (Tối đa 1 trẻ/phòng, ngủ chung bố mẹ)
+              </div>
+              <div className="lux-child-policy-chip">
+                <b>Trẻ em từ 2 – 4 tuổi</b>
+                <span>Phụ thu 50%</span> (Ăn suất riêng, ngủ chung với bố mẹ)
+              </div>
+              <div className="lux-child-policy-chip">
+                <b>Trẻ em từ 5 – 10 tuổi</b>
+                <span>Phụ thu 75%</span> (Kê giường phụ hoặc suất tiêu chuẩn)
+              </div>
+              <div className="lux-child-policy-chip">
+                <b>Trẻ em từ 11 tuổi trở lên</b>
+                <span>Tính 100%</span> (Tính như người lớn)
+              </div>
+            </div>
+          </div>
+
+          {/* Amenities & Inclusions */}
+          <div style={{ marginBottom: 24 }}>
+            <h4 style={{ fontSize: 15, fontWeight: 700, color: 'var(--navy)', marginBottom: 12 }}>
+              Dịch vụ & Tiện nghi trọn gói trong giá phòng:
+            </h4>
+            <div className="lux-modal-amenities-grid">
+              {[
+                'Trọn gói các bữa ăn hải sản cao cấp theo hải trình',
+                'Thuyền kayak hoặc thuyền nan chèo hang Sáng Tối',
+                'Vé tham quan thắng cảnh Vịnh Lan Hạ & Làng Việt Hải',
+                'Bể sục Jacuzzi nước ấm bốn mùa trên sundeck',
+                'Cầu kính Skywalk ngắm toàn cảnh vịnh biển',
+                'Tiệc trà Sunset Party chiều & đồ uống chào mừng',
+                'Lớp học Thái Cực Quyền (Taichi) đón bình minh',
+                'Trải nghiệm câu mực đêm cùng thuyền viên',
+                'Bảo hiểm du lịch trọn gói trên vịnh'
+              ].map((item, idx) => (
+                <div key={idx} className="lux-modal-amenity-item">
+                  <span style={{ color: 'var(--lux-gold-pure)', fontWeight: 800 }}>✓</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="lux-modal-actions">
+            <button className="lux-btn-outline" onClick={onClose}>
+              Đóng lại
+            </button>
+            <a className="lux-submit-btn" style={{ textDecoration: 'none', padding: '12px 26px' }} href={bookingLink} target="_blank" rel="noopener">
+              Đặt Ngay Với Cấu Hình Này ({grandTotal.toLocaleString('vi-VN')}đ) →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CruiseHighlightsSection() {
   const HIGHLIGHTS = [
     {
@@ -857,87 +1193,7 @@ function LimousineConciergeSection() {
 /* ============================================================
    ROOM DETAIL POPUP MODAL COMPONENT
    ============================================================ */
-function RoomDetailModal({ room, onClose }) {
-  if (!room) return null;
-  const [activeImg, setActiveImg] = useState(room.img);
 
-  return (
-    <div className="lux-modal-backdrop" onClick={onClose}>
-      <div className="lux-modal-box" onClick={(e) => e.stopPropagation()}>
-        <button className="lux-modal-close" onClick={onClose}>✕</button>
-
-        <div className="lux-modal-gallery">
-          <img src={activeImg} alt={room.name} />
-          {room.gallery && room.gallery.length > 1 && (
-            <div className="lux-modal-thumbs">
-              {room.gallery.map((im, idx) => (
-                <button key={idx} className={'lux-modal-thumb-btn' + (activeImg === im ? ' active' : '')} onClick={() => setActiveImg(im)}>
-                  <img src={im} alt="thumb" />
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div className="lux-modal-content">
-          <div className="lux-modal-header">
-            <div>
-              <span className="lux-room-ship-label">{room.shipName}</span>
-              <h2 className="lux-modal-title">{room.name}</h2>
-            </div>
-            <div className="lux-modal-price">
-              {room.price.toLocaleString('vi-VN')}đ<em>/đêm (cabin 2 khách)</em>
-            </div>
-          </div>
-
-          <div className="lux-modal-specs">
-            <div>
-              <span style={{ fontSize: 11, color: '#64748B' }}>Diện tích</span>
-              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>{room.area} m²</b>
-            </div>
-            <div>
-              <span style={{ fontSize: 11, color: '#64748B' }}>Sức chứa</span>
-              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>{room.capacity}</b>
-            </div>
-            <div>
-              <span style={{ fontSize: 11, color: '#64748B' }}>Vị trí</span>
-              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>{room.floor}</b>
-            </div>
-            <div>
-              <span style={{ fontSize: 11, color: '#64748B' }}>Ban công</span>
-              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>Có ban công riêng</b>
-            </div>
-          </div>
-
-          <p style={{ fontSize: 14.5, color: '#475569', lineHeight: 1.7, marginBottom: 20 }}>
-            {room.desc}
-          </p>
-
-          <h4 style={{ fontSize: 15, fontWeight: 700, color: 'var(--navy)', marginBottom: 12 }}>
-            Tiện nghi & Dịch vụ đi kèm trong phòng:
-          </h4>
-          <div className="lux-modal-amenities-grid">
-            {room.amenities.map((am, idx) => (
-              <div key={idx} className="lux-modal-amenity-item">
-                <span style={{ color: 'var(--lux-gold-pure)', fontWeight: 800 }}>✓</span>
-                <span>{am}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="lux-modal-actions">
-            <button className="lux-btn-outline" onClick={onClose}>
-              Đóng lại
-            </button>
-            <a className="lux-submit-btn" style={{ textDecoration: 'none' }} href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
-              Đặt Hạng Phòng Này Ngay →
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ============================================================
    MAIN UNIFIED CRUISE HOMEPAGE

@@ -1,46 +1,48 @@
-/* DAIICHI ONE — unified homepage (all services + partner onboarding) */
+/* ============================================================
+   DAIICHI CRUISE — Luxury & Boutique Cruise Homepage
+   Elevated UI for daiichicruise.vn (5★ Luxury Cruise & 4★ Boutique)
+   ============================================================ */
 const { useState, useEffect } = React;
 
-/* 6-language strings for the homepage */
+/* Multi-language dictionary */
 const HD = {
-  nav_services: ['Dịch vụ', 'Services', 'サービス', '서비스', '服务', 'Services'],
-  nav_partner: ['Đối tác', 'Partners', 'パートナー', '파트너', '合作伙伴', 'Partenaires'],
-  nav_apps: ['Ứng dụng', 'Apps', 'アプリ', '앱', '应用', 'Applis'],
-  nav_portal: ['Cổng làm việc', 'Portals', 'ポータル', '포털', '工作门户', 'Portails'],
-  cta_book: ['Đặt vé ngay', 'Book now', '今すぐ予約', '지금 예약', '立即预订', 'Réserver'],
-  hero_k: ['Xác nhận tức thì · Giá niêm yết · Hoàn huỷ miễn phí trước 12h', 'Instant confirmation · Official rates · Free cancellation to 12h', '即時確定 · 公式料金', '즉시 확정 · 공식 요금', '即时确认 · 官方价格', 'Confirmation immédiate · Tarifs officiels'],
-  hero_t: ['Toàn bộ hành trình Hà Nội — Cát Bà — Lan Hạ, trong một nơi', 'Your whole Hanoi — Cat Ba — Lan Ha journey, in one place', 'ハノイ—カットバ—ランハの旅を、ひとつの場所で', '하노이—깟바—란하 여정을 한곳에서', '河内—吉婆—兰哈之旅，尽在一处', 'Tout votre voyage Hanoï — Cat Ba — Lan Ha, au même endroit'],
-  hero_p: ['Đặt xe limousine, tàu cao tốc, du thuyền ngày, du thuyền ngủ đêm 5★ và tour trọn gói — chọn ghế trực tuyến, nhận vé QR ngay, hỗ trợ 24/7 bằng 6 ngôn ngữ.', 'Book limousine buses, speedboats, day cruises, 5★ overnight cruises and package tours — pick your seat online, get your QR ticket instantly, 24/7 support in six languages.', 'リムジンバス、高速船、デイクルーズ、5つ星宿泊クルーズ、ツアー — Daiichiと認定パートナーが提供。', '리무진 버스, 쾌속선, 크루즈, 투어 — Daiichi와 인증 파트너 제공.', '豪华巴士、快艇、游轮、跟团游 — 由Daiichi及认证合作伙伴提供。', 'Bus limousine, bateaux, croisières et circuits — par Daiichi et ses partenaires vérifiés.'],
-  cta_partner: ['Trở thành đối tác', 'Become a partner', 'パートナーになる', '파트너 되기', '成为合作伙伴', 'Devenir partenaire'],
-  svc_k: ['Dịch vụ', 'Services', 'サービス', '서비스', '服务', 'Services'],
-  svc_t: ['Mọi dịch vụ của công ty — và hơn thế', 'Everything we run — and more', '当社の全サービス、そしてその先へ', '회사의 모든 서비스 — 그 이상', '公司全部服务 — 不止于此', 'Tous nos services — et plus'],
-  svc_p: ['Từ chuyến xe 140K đến đêm suite 5 sao — đặt chung một giỏ, thanh toán một lần, vé QR dùng cho cả hành trình.', 'From a 140K bus seat to a night in a 5★ suite — one basket, one checkout, one QR ticket for the whole journey.', 'Daiichi直営の6サービス＋認定パートナーのサービス。', 'Daiichi 직영 6개 서비스 + 인증 파트너 서비스.', 'Daiichi直营6大服务+认证伙伴服务。', 'Six lignes de services Daiichi, plus celles de partenaires vérifiés.'],
-  pt_k: ['Marketplace mở', 'Open marketplace', 'オープンマーケット', '오픈 마켓플레이스', '开放市场', 'Marketplace ouverte'],
-  pt_t: ['Đưa dịch vụ của bạn lên nền tảng Daiichi', 'Put your service on the Daiichi platform', 'あなたのサービスをDaiichiに', '귀하의 서비스를 Daiichi에', '将您的服务上架Daiichi平台', 'Mettez votre service sur Daiichi'],
-  portal_k: ['Cổng làm việc', 'Work portals', 'ポータル', '업무 포털', '工作门户', 'Portails'],
-  portal_t: ['Một tài khoản — đúng việc của bạn', 'One account — your exact job', '1つのアカウントで、あなたの業務へ', '하나의 계정 — 정확한 업무', '一个账号 — 各司其职', 'Un compte — votre rôle exact'],
-  apps_t: ['Một nền tảng dữ liệu —', 'One data platform —', 'ひとつのデータ基盤 —', '하나의 데이터 플랫폼 —', '一个数据平台 —', 'Une plateforme de données —'],
-  apps_em: ['5 ứng dụng di động', 'five mobile apps', '5つのアプリ', '5개의 모바일 앱', '五款移动应用', 'cinq applis mobiles'],
+  nav_luxury: ['Du thuyền 5★ Luxury', '5★ Luxury Cruise', '5つ星ラグジュアリー', '5성급 럭셔리 크루즈', '五星奢华游轮', 'Croisière 5★ Luxury'],
+  nav_boutique: ['Du thuyền Boutique', 'Boutique Cruise', 'ブティッククルーズ', '부티크 크루즈', '精品游轮', 'Croisière Boutique'],
+  nav_suites: ['Hạng phòng Suite', 'Suites Collection', 'スイート客室', '스위트 객실', '套房系列', 'Suites'],
+  nav_highlights: ['Điểm vượt trội', 'Highlights', '特徴と魅力', '특장점', '特色优势', 'Points forts'],
+  nav_itinerary: ['Hải trình', 'Itinerary', '運航日程', '운항 일정', '航程安排', 'Itinéraire'],
+  nav_day: ['Du thuyền ngày', 'Day Cruises', 'デイクルーズ', '데이 크루즈', '日间游轮', 'Croisières Journée'],
+  nav_limo: ['Xe Limousine', 'Limousine Bus', 'リムジンバス', '리무진 버스', '豪华专车', 'Limousine'],
+  cta_book: ['Đặt du thuyền ngay', 'Book cruise now', '今すぐ予約', '지금 예약', '立即预订游轮', 'Réserver'],
+  hero_k: ['TIÊU CHUẨN DU THUYỀN CAO CẤP VỊNH LAN HẠ · CÁT BÀ', 'PREMIUM LAN HA BAY LUXURY & BOUTIQUE CRUISES', 'ランハ湾プレミアムクルーズ', '란하베이 프리미엄 크루즈', '兰哈湾顶级游轮体验', 'CROISIÈRES DE LUXE EN BAIE DE LAN HA'],
+  hero_t: ['Tuyệt Tác Du Thuyền Luxury & Boutique Giữa Vịnh Lan Hạ', 'Masterpiece Luxury & Boutique Cruises in Lan Ha Bay', 'ランハ湾の息を呑む絶景と極上クルーズ', '란하베이의 비경과 함께하는 최고급 크루즈', '兰哈湾绝美秘境 顶级奢华游轮假期', 'Le Chef-d\'œuvre des Croisières en Baie de Lan Ha'],
+  hero_p: ['Nghỉ dưỡng thượng lưu trên Daiichi Luxury Cruise 5★ và Daiichi Boutique Cruise 4★. 100% phòng có ban công riêng view vịnh, cầu kính Skywalk độc nhất, bể sục Jacuzzi bốn mùa, ẩm thực Fine-Dining và đưa đón Limousine trọn gói.',
+    'Ultra-luxury voyages aboard Daiichi Luxury Cruise 5★ and Daiichi Boutique Cruise 4★. 100% private balcony suites, exclusive glass skywalk, four-season jacuzzi, fine-dining restaurant and door-to-door limousine service.',
+    '5つ星ラグジュアリー＆4つ星ブティッククルーズで過ごす極上のひととき。全室プライベートバルコニー、絶景ガラス橋、温水ジャグジー、極上海鮮料理。',
+    '다이이찌 럭셔리 5성급 & 부티크 크루즈에서 즐기는 특별한 휴식. 전 객실 전용 발코니 오션뷰, 스카이워크 유리 다리, 4계절 자쿠지, 파인다이닝.',
+    '在戴一五星奢华游轮与精品游轮上尊享非凡度假。全独立海景阳台套房、专属全景玻璃桥、四季按摩浴缸、精致饕餮盛宴及豪华专车接送。',
+    'Séjour d\'exception à bord de nos navires 5★ Luxury et 4★ Boutique. Suites avec balcon privé, passerelle de verre, jacuzzi quatre saisons et gastronomie raffinée.'],
 };
+
 const hidx = { vi: 0, en: 1, ja: 2, ko: 3, zh: 4, fr: 5 };
-const T = (k) => (HD[k] ? (HD[k][hidx[I18N.lang]] || HD[k][1] || HD[k][0]) : I18N.t(k));
-const LV = (vi, en) => (I18N.lang === 'vi' ? vi : en); /* body copy: vi/en fallback */
+const T = (k) => (HD[k] ? (HD[k][hidx[I18N.lang]] || HD[k][1] || HD[k][0]) : (I18N.t ? I18N.t(k) : k));
+const LV = (vi, en) => (I18N.lang === 'vi' ? vi : en);
 
 function OneLang() {
   const [open, setOpen] = useState(false);
-  const cur = I18N.langs.find((l) => l.code === I18N.lang);
+  const cur = I18N.langs.find((l) => l.code === I18N.lang) || I18N.langs[0];
   useEffect(() => {
     const close = () => setOpen(false);
     if (open) { document.addEventListener('click', close); return () => document.removeEventListener('click', close); }
   }, [open]);
   return (
     <div className="dt-lang" onClick={(e) => e.stopPropagation()}>
-      <button className="dt-lang-btn" onClick={() => setOpen(!open)}>
-        <span>{cur.flag}</span><span>{cur.code.toUpperCase()}</span>
+      <button className="dt-lang-btn" onClick={() => setOpen(!open)} style={{ background: 'rgba(255,255,255,.12)', borderColor: 'rgba(212,166,72,.4)' }}>
+        <span>{cur.flag}</span><span style={{ fontWeight: 700 }}>{cur.code.toUpperCase()}</span>
         <svg width="10" height="10" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" /></svg>
       </button>
       {open && (
-        <div className="dt-lang-menu">
+        <div className="dt-lang-menu" style={{ zIndex: 120 }}>
           {I18N.langs.map((l) => (
             <button key={l.code} className={l.code === I18N.lang ? 'on' : ''} onClick={() => { I18N.setLang(l.code); setOpen(false); }}>
               <span>{l.flag}</span><span>{l.label}</span>
@@ -52,686 +54,915 @@ function OneLang() {
   );
 }
 
-const CFG = () => (window.DAIICHI_CONFIG || {
-  BOOKING_BASE_URL: 'https://daiichitravel.com',
-  HOTLINE_DISPLAY: '1900 9070',
-  HOTLINE_TEL: '19009070',
-  ZALO_DISPLAY: '0961 004 709',
-  ZALO_URL: 'https://zalo.me/0961004709',
-  getBusBookingUrl: (f, t) => `https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(f || '')}&to=${encodeURIComponent(t || '')}`,
-  getTourBookingUrl: (cat) => `https://daiichitravel.com/?tab=tours&category=${encodeURIComponent(cat || 'TOUR_SHORT')}`,
-  getCruiseBookingUrl: () => 'https://daiichitravel.com/?tab=cruise-tour',
-  getMyTicketsUrl: () => 'https://daiichitravel.com/?tab=my-tickets',
-  getGeneralBookingUrl: () => 'https://daiichitravel.com/?tab=book-ticket'
-});
-
-const SERVICES = [
-  { img: 'assets/photos/limo10.jpg', tag: 'DAIICHI BUS', wide: false, href: '/vi/xe-ha-noi-di-cat-ba',
-    t: ['Xe khách & Limousine', 'Bus & Limousine'], d: ['Hà Nội ⇄ Cát Bà · Hải Phòng · Hạ Long ⇄ Ninh Bình. Bus 45, limousine 7–34 chỗ, xe điện nội đảo.', 'Hanoi ⇄ Cat Ba · Hai Phong · Ha Long ⇄ Ninh Binh. 45-seat buses, 7–34-seat limousines, island EVs.'], pr: '140.000đ' },
-  { img: 'assets/photos/speedboat.jpg', tag: 'DAIICHI BOAT', wide: false, href: 'https://daiichitravel.com/?tab=book-ticket',
-    t: ['Tàu cao tốc sang đảo', 'Island speedboats'], d: ['Tuyến nhanh nhất vào Cát Bà — kết nối liền mạch với xe limousine trong cùng một vé.', 'The fastest way into Cat Ba — seamlessly connected to your bus on a single ticket.'], pr: null },
-  { img: 'assets/photos/daycruise-1.jpg', tag: 'DAY CRUISE', wide: false, href: 'https://daiichitravel.com/?tab=tours&category=TOUR_SHORT',
-    t: ['Du thuyền ngày vịnh Lan Hạ', 'Lan Ha Bay day cruises'], d: ['6 tour: trọn ngày Việt Hải, bình minh, hoàng hôn, dinner DJ & pháo hoa — tàu 48 đến 99 chỗ.', 'Six tours: full-day Viet Hai, sunrise, sunset, dinner-DJ & fireworks — 48 to 99-pax boats.'], pr: '350.000đ' },
-  { img: 'assets/photos/luxury-1.jpg', tag: 'LUXURY CRUISE ★★★★★', wide: true, href: 'https://daiichitravel.com/?tab=cruise-tours',
-    t: ['Du thuyền ngủ đêm 5 sao', '5★ overnight cruise'], d: ['30 suite ban công riêng, 4 hạng phòng cao cấp, nhà hàng kính, spa, jacuzzi & cầu kính. Hành trình 2N1Đ – 3N2Đ trên vịnh Lan Hạ.', '30 balcony suites, 4 luxury room categories, glass restaurant, spa, jacuzzi & skywalk. 2-day and 3-day Lan Ha itineraries.'], pr: '5.000.000đ' },
-  { img: 'assets/photos/daycruise-act-1.jpg', tag: 'COMBO TOUR', wide: false, href: 'https://daiichitravel.com/?tab=tours&category=TOUR_SHORT',
-    t: ['Tour trọn gói từ Hà Nội', 'All-in tours from Hanoi'], d: ['Một vé: xe đón phố cổ + du thuyền + về trong ngày. Khởi hành mỗi sáng.', 'One ticket: Old Quarter pickup, cruise, home by night. Departs every morning.'], pr: '1.250.000đ' },
-  { img: 'assets/photos/daycruise-act-2.jpg', tag: ['DỊCH VỤ ĐỐI TÁC', 'PARTNER SERVICES'], pt: true, wide: false, href: 'https://daiichitravel.com/?tab=tours',
-    t: ['SUP, tour nhóm nhỏ & hơn nữa', 'SUP, small groups & more'], d: ['Dịch vụ của các đơn vị đối tác xác minh: SUP hoàng hôn, xe tuyến mới… Đặt & hoàn huỷ chuẩn Daiichi.', 'From verified partner operators: sunset SUP, new routes… booked under Daiichi\u2019s standards.'], pr: '350.000đ' },
-];
-
-function PartnerForm() {
-  const [sent, setSent] = useState(false);
-  const [f, setF] = useState({ name: '', kind: 'Vận tải (xe khách / limousine)', contact: '', desc: '' });
-  const ok = f.name.trim().length > 1 && f.contact.trim().length > 7;
-  if (sent) return (
-    <div className="on-form" data-comment-anchor="partner-form">
-      <div className="on-form-ok">
-        <div className="ck">✓</div>
-        <h3>{LV('Đã nhận hồ sơ!', 'Application received!')}</h3>
-        <p style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.6 }}>
-          {LV('Đội phát triển đối tác sẽ liên hệ trong 48h làm việc để thẩm định giấy phép, bảo hiểm và SLA dịch vụ.', 'Our partnerships team will contact you within 48 working hours to verify licences, insurance and service SLA.')}
-        </p>
-        <button className="on-btn ghost" style={{ marginTop: 12 }} onClick={() => setSent(false)}>{LV('Gửi hồ sơ khác', 'Submit another')}</button>
-      </div>
-    </div>
-  );
-  return (
-    <div className="on-form" data-comment-anchor="partner-form">
-      <h3>{T('cta_partner')}</h3>
-      <div className="sub">{LV('Điền thông tin — duyệt hồ sơ trong 48h', 'Tell us about your service — reviewed within 48h')}</div>
-      <div className="on-field">
-        <label>{LV('Tên đơn vị', 'Company name')} *</label>
-        <input value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} placeholder={LV('VD: Hùng Cường Express', 'e.g. Hung Cuong Express')} />
-      </div>
-      <div className="on-field">
-        <label>{LV('Loại dịch vụ', 'Service type')}</label>
-        <select value={f.kind} onChange={(e) => setF({ ...f, kind: e.target.value })}>
-          {[LV('Vận tải (xe khách / limousine)', 'Transport (bus / limousine)'), LV('Tàu / du thuyền', 'Boats / cruises'), LV('Tour & hoạt động (SUP, kayak, trekking…)', 'Tours & activities'), LV('Lưu trú (khách sạn, homestay)', 'Accommodation'), LV('Khác', 'Other')].map((x) => <option key={x}>{x}</option>)}
-        </select>
-      </div>
-      <div className="on-field">
-        <label>{LV('Người liên hệ · SĐT / Zalo', 'Contact person · phone')} *</label>
-        <input value={f.contact} onChange={(e) => setF({ ...f, contact: e.target.value })} placeholder="Nguyễn Văn A · 09xx xxx xxx" />
-      </div>
-      <div className="on-field">
-        <label>{LV('Mô tả ngắn dịch vụ', 'Short description')}</label>
-        <textarea rows="3" value={f.desc} onChange={(e) => setF({ ...f, desc: e.target.value })} placeholder={LV('Tuyến / tour, số phương tiện, giấy phép hiện có…', 'Routes/tours, fleet size, current licences…')}></textarea>
-      </div>
-      <button className="on-btn gold" style={{ width: '100%', justifyContent: 'center', opacity: ok ? 1 : .45, pointerEvents: ok ? 'auto' : 'none' }} onClick={() => setSent(true)}>
-        {LV('Gửi hồ sơ đăng ký', 'Submit application')}
-      </button>
-      <div style={{ fontSize: 11, color: 'var(--ink-3)', marginTop: 10, textAlign: 'center' }}>
-        {LV('Hoa hồng nền tảng 12–15% · đối soát kỳ 15 & 30 · không phí tham gia', 'Platform fee 12–15% · settlements on the 15th & 30th · no joining fee')}
-      </div>
-    </div>
-  );
-}
-
-function OneTick() {
-  const [, t] = useState(0);
-  useEffect(() => { const i = setInterval(() => t((x) => x + 1), 1000); return () => clearInterval(i); }, []);
-  return null;
-}
-
-const CAMP_IMG = { flash: 'assets/photos/daycruise-2.jpg', early: 'assets/photos/luxury-1.jpg', combo50: 'assets/photos/daycruise-act-1.jpg', newtour: 'assets/photos/daycruise-act-2.jpg' };
-const CAMP_BASE = { flash: 430000, early: 2860000, combo50: 1250000, newtour: 350000 };
-
-function LiveDeals() {
-  const [, force] = useState(0);
-  useEffect(() => {
-    const i = setInterval(() => force((x) => x + 1), 1000);
-    const on = () => force((x) => x + 1);
-    window.addEventListener('dt:campaigns', on);
-    window.addEventListener('storage', on);
-    return () => { clearInterval(i); window.removeEventListener('dt:campaigns', on); window.removeEventListener('storage', on); };
-  }, []);
-  const list = DT_CAMPAIGNS.active();
-  if (!list.length) return null;
-  const flash = list.find((c) => c.kind === 'flash');
-  return (
-    <section className="on-sec" id="deals" data-screen-label="Ưu đãi đang diễn ra" style={{ paddingTop: 56 }}>
-      <div className="on-sec-head" style={{ marginBottom: 20 }}>
-        <div className="k">{LV('Cập nhật liên tục', 'Updated live')}</div>
-        <h2>{LV('Ưu đãi đang diễn ra', 'Deals happening now')}</h2>
-        {flash && (
-          <p style={{ fontWeight: 700, color: 'var(--red)' }}>
-            ⚡ {flash.name} −{flash.off}% · {LV('kết thúc sau', 'ends in')} <span style={{ fontFamily: 'ui-monospace, monospace', background: 'var(--red-soft)', borderRadius: 6, padding: '2px 8px' }}>{DT_CAMPAIGNS.fmtLeft(flash.ends, I18N.lang)}</span>
-          </p>
-        )}
-      </div>
-      <div className="on-deals">
-        {list.map((c) => {
-          const base = CAMP_BASE[c.id];
-          const final = base ? DT_CAMPAIGNS.apply(base, c) : null;
-          const dealHref = c.id === 'early'
-            ? 'https://daiichitravel.com/?tab=cruise-tours'
-            : 'https://daiichitravel.com/?tab=tours&category=TOUR_SHORT';
-          return (
-            <a key={c.id} className="on-deal" href={dealHref} target="_blank" rel="noopener">
-              <span className="im" style={{ backgroundImage: `url(${CAMP_IMG[c.id] || CAMP_IMG.flash})` }}>
-                <span className="bdg" style={{ background: c.color }}>{c.kind === 'flash' ? '⚡ ' : ''}{c.name}{c.off ? ' −' + c.off + '%' : ''}</span>
-                {c.ends && <span className="cd">⏱ {DT_CAMPAIGNS.fmtLeft(c.ends, I18N.lang)}</span>}
-              </span>
-              <span className="bd">
-                <b>{I18N.L(c.desc)}</b>
-                {base && c.kind !== 'new' && (
-                  <span className="pr"><s>{base.toLocaleString('vi-VN')}đ</s> <em>{final.toLocaleString('vi-VN')}đ</em>{LV('/khách', '/pp')}</span>
-                )}
-                {c.kind === 'new' && <span className="pr"><em>{LV('từ', 'from')} {base.toLocaleString('vi-VN')}đ</em>{LV('/khách', '/pp')}</span>}
-              </span>
-            </a>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-function PartnerMini() {
-  const [open, setOpen] = useState(false);
-  return (
-    <div>
-      <div className="on-partner-mini-card">
-        <div className="tx">
-          <b>{LV('Bạn có xe, tàu hoặc tour quanh Cát Bà?', 'Run buses, boats or tours around Cat Ba?')}</b>
-          <span>
-            {LV('Trở thành đối tác vận hành trên nền tảng Daiichi — hoa hồng 12–15%, không phí tham gia, đối soát 2 kỳ/tháng.', 'Become a partner operator on the Daiichi platform — 12–15% fee, no joining cost, payouts twice a month.')}
-          </span>
-        </div>
-        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          <button className="on-btn ghost" style={{ padding: '10px 18px', fontSize: 13 }} onClick={() => setOpen(!open)}>
-            {open ? LV('Thu gọn', 'Collapse') : T('cta_partner')}
-          </button>
-          <a className="on-btn ghost" style={{ padding: '10px 18px', fontSize: 13 }} href="mailto:partner@daiichitravel.vn">{LV('Liên hệ hợp tác', 'Partnership contact')} →</a>
-        </div>
-      </div>
-      {open && <div className="on-partner-mini-form"><PartnerForm /></div>}
-    </div>
-  );
-}
-
-function HomeSearch() {
-  const t = (k) => I18N.t(k);
-  const STATIONS = (window.DT_DATA && DT_DATA.STATIONS) || {};
-  const [tab, setTab] = useState('bus');
-  const [from, setFrom] = useState('HN');
-  const [to, setTo] = useState('CB');
+/* ============================================================
+   HERO SEARCH WIDGET — CRUISE FIRST
+   ============================================================ */
+function CruiseHomeSearch() {
+  const [tab, setTab] = useState('night'); // 'night' | 'day' | 'tour' | 'bus'
+  const [cruiseType, setCruiseType] = useState('all');
+  const [itinerary, setItinerary] = useState('2d1n');
   const [date, setDate] = useState(() => {
     const d = new Date();
+    d.setDate(d.getDate() + 1);
     const yyyy = d.getFullYear();
     const mm = String(d.getMonth() + 1).padStart(2, '0');
     const dd = String(d.getDate()).padStart(2, '0');
     return `${yyyy}-${mm}-${dd}`;
   });
-  const [ret, setRet] = useState('');
   const [pax, setPax] = useState(2);
-  const L = (o) => I18N.L(o);
+  const [cabins, setCabins] = useState(1);
+  const [from, setFrom] = useState('HN');
+  const [to, setTo] = useState('CB');
+  const STATIONS = (window.DT_DATA && DT_DATA.STATIONS) || {};
 
-  const go = () => {
+  const handleSearch = () => {
     if (tab === 'night') {
-      window.open(`https://daiichitravel.com/?tab=cruise-tours&date=${date}&pax=${pax}&source=daiichicruise`, '_blank');
-    } else if (tab === 'day' || tab === 'tour') {
+      const url = `https://daiichitravel.com/?tab=cruise-tours&date=${date}&pax=${pax}&cabins=${cabins}&itinerary=${itinerary}&cruise=${cruiseType}&source=daiichicruise`;
+      window.open(url, '_blank');
+    } else if (tab === 'day') {
       window.open(`https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&date=${date}&pax=${pax}&source=daiichicruise`, '_blank');
+    } else if (tab === 'tour') {
+      window.open(`https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&type=combo&date=${date}&pax=${pax}&source=daiichicruise`, '_blank');
     } else {
       const fromName = STATIONS[from] ? (STATIONS[from].vi || from) : 'Hà Nội';
       const toName = STATIONS[to] ? (STATIONS[to].vi || to) : 'Cát Bà';
-      const params = new URLSearchParams({
-        tab: 'book-ticket',
-        from: fromName,
-        to: toName,
-        searchFrom: fromName,
-        searchTo: toName,
-        pickup: fromName,
-        dropoff: toName,
-        date: date,
-        travelDate: date,
-        pax: String(pax),
-        source: 'daiichicruise'
-      });
-      if (ret) {
-        params.set('returnDate', ret);
-        params.set('tripType', 'ROUND_TRIP');
-      }
-      window.open(`https://daiichitravel.com/?${params.toString()}`, '_blank');
+      window.open(`https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(fromName)}&to=${encodeURIComponent(toName)}&date=${date}&pax=${pax}&source=daiichicruise`, '_blank');
     }
   };
 
-  const tabs = [
-    ['bus', t('tab_bus') || 'Xe & Limousine', window.I && I.bus ? I.bus : () => <span>🚌</span>],
-    ['day', t('tab_day') || 'Du thuyền ngày', window.I && I.ship ? I.ship : () => <span>🚢</span>],
-    ['night', t('tab_night') || 'Du thuyền ngủ đêm', window.I && I.moon ? I.moon : () => <span>🌙</span>],
-    ['tour', t('tab_tour') || 'Tour combo', window.I && I.map ? I.map : () => <span>🗺️</span>],
-  ];
-
   return (
-    <div className="dt-search" data-comment-anchor="home-search" style={{ background: '#fff', borderRadius: 'var(--r-lg)', boxShadow: 'var(--shadow-2)', overflow: 'hidden' }}>
-      <div className="dt-tabs" style={{ display: 'flex', borderBottom: '1px solid var(--line)' }}>
-        {tabs.map(([id, lb, Icon]) => (
-          <button key={id} className={tab === id ? 'on' : ''} onClick={() => setTab(id)} style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9, background: 'none', border: 0, padding: '16px 10px', fontSize: 14, fontWeight: 600, color: tab === id ? 'var(--red)' : 'var(--ink-2)', borderBottom: tab === id ? '3px solid var(--red)' : '3px solid transparent', cursor: 'pointer', fontFamily: 'var(--font-ui)' }}>
-            <Icon size={17} />{lb}
-          </button>
-        ))}
+    <div className="lux-search-box" data-comment-anchor="cruise-search">
+      <div className="lux-search-tabs">
+        <button className={'lux-tab-btn' + (tab === 'night' ? ' active' : '')} onClick={() => setTab('night')}>
+          <span style={{ fontSize: 18 }}>🌙</span> {LV('Du thuyền ngủ đêm 5★ & Boutique', '5★ & Boutique Overnight Cruise')}
+        </button>
+        <button className={'lux-tab-btn' + (tab === 'day' ? ' active' : '')} onClick={() => setTab('day')}>
+          <span style={{ fontSize: 18 }}>🚢</span> {LV('Du thuyền ngày Lan Hạ', 'Lan Ha Day Cruise')}
+        </button>
+        <button className={'lux-tab-btn' + (tab === 'tour' ? ' active' : '')} onClick={() => setTab('tour')}>
+          <span style={{ fontSize: 18 }}>🗺️</span> {LV('Tour Combo trọn gói Hà Nội', 'All-in Combo from Hanoi')}
+        </button>
+        <button className={'lux-tab-btn' + (tab === 'bus' ? ' active' : '')} onClick={() => setTab('bus')}>
+          <span style={{ fontSize: 18 }}>🚐</span> {LV('Xe Limousine đưa đón', 'Limousine Transfer')}
+        </button>
       </div>
-      <div className="dt-search-body" style={{ display: 'flex', gap: 12, padding: 20, alignItems: 'flex-end', flexWrap: 'wrap' }}>
-        {tab === 'bus' && (
+
+      <div className="lux-search-form">
+        {tab === 'night' && (
           <React.Fragment>
-            <div className="dt-field" style={{ flex: 1, minWidth: 150 }}>
-              <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{t('s_from') || 'Điểm đi'}</label>
-              <select value={from} onChange={(e) => setFrom(e.target.value)} style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%' }}>
-                {Object.keys(STATIONS).map((k) => <option key={k} value={k}>{L(STATIONS[k])}</option>)}
+            <div className="lux-field">
+              <label>⚓ {LV('Du thuyền', 'Cruise Ship')}</label>
+              <select value={cruiseType} onChange={(e) => setCruiseType(e.target.value)}>
+                <option value="all">{LV('Tất cả du thuyền (Luxury & Boutique)', 'All Cruises (Luxury & Boutique)')}</option>
+                <option value="luxury">Daiichi Luxury Cruise ★★★★★</option>
+                <option value="boutique">Daiichi Boutique Cruise ★★★★</option>
               </select>
             </div>
-            <button className="dt-swap" onClick={() => { setFrom(to); setTo(from); }} title="swap" type="button" style={{ background: 'var(--ivory)', border: '1.5px solid var(--line-2)', borderRadius: '50%', width: 38, height: 38, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink-2)', marginBottom: 3, cursor: 'pointer' }}>
-              {window.I && I.swap ? <I.swap size={16} /> : '⇄'}
-            </button>
-            <div className="dt-field" style={{ flex: 1, minWidth: 150 }}>
-              <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{t('s_to') || 'Điểm đến'}</label>
-              <select value={to} onChange={(e) => setTo(e.target.value)} style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%' }}>
-                {Object.keys(STATIONS).map((k) => <option key={k} value={k}>{L(STATIONS[k])}</option>)}
+            <div className="lux-field">
+              <label>⏱ {LV('Hải trình', 'Itinerary')}</label>
+              <select value={itinerary} onChange={(e) => setItinerary(e.target.value)}>
+                <option value="2d1n">{LV('2 Ngày 1 Đêm (2D1N)', '2 Days 1 Night (2D1N)')}</option>
+                <option value="3d2n">{LV('3 Ngày 2 Đêm (3D2N)', '3 Days 2 Nights (3D2N)')}</option>
+              </select>
+            </div>
+            <div className="lux-field">
+              <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
+              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+            </div>
+            <div className="lux-field" style={{ maxWidth: 140 }}>
+              <label>👥 {LV('Số khách', 'Guests')}</label>
+              <select value={pax} onChange={(e) => setPax(+e.target.value)}>
+                {[1,2,3,4,5,6,7,8,10,15,20].map((n) => <option key={n} value={n}>{n} {LV('khách', 'guests')}</option>)}
+              </select>
+            </div>
+            <div className="lux-field" style={{ maxWidth: 130 }}>
+              <label>🚪 {LV('Số cabin', 'Cabins')}</label>
+              <select value={cabins} onChange={(e) => setCabins(+e.target.value)}>
+                {[1,2,3,4,5].map((n) => <option key={n} value={n}>{n} {LV('phòng', 'cabin(s)')}</option>)}
               </select>
             </div>
           </React.Fragment>
         )}
-        {tab !== 'bus' && (
-          <div className="dt-field" style={{ flex: 1, minWidth: 150 }}>
-            <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{t('s_from') || 'Địa điểm'}</label>
-            <select disabled value="lanha" style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%', background: '#F8FAFC' }}>
-              <option value="lanha">Vịnh Lan Hạ · Cát Bà</option>
-            </select>
-          </div>
+
+        {tab === 'day' && (
+          <React.Fragment>
+            <div className="lux-field">
+              <label>🚢 {LV('Tuyến tham quan', 'Tour Itinerary')}</label>
+              <select defaultValue="vip1">
+                <option value="vip1">{LV('Tour 1 ngày Lan Hạ – Làng Việt Hải (VIP 1)', 'Full-day Lan Ha – Viet Hai (VIP 1)')}</option>
+                <option value="sunset">{LV('Tour Hoàng hôn & Tiệc trà Sunset Cruise', 'Sunset Cruise & Tea Party')}</option>
+                <option value="dinner">{LV('Dinner Cruise DJ & Pháo hoa vịnh Lan Hạ', 'Dinner Cruise DJ & Fireworks')}</option>
+                <option value="morning">{LV('Tour Bình minh Lan Hạ & Chèo Kayak', 'Sunrise Cruise & Kayaking')}</option>
+              </select>
+            </div>
+            <div className="lux-field">
+              <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
+              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+            </div>
+            <div className="lux-field">
+              <label>👥 {LV('Hành khách', 'Guests')}</label>
+              <select value={pax} onChange={(e) => setPax(+e.target.value)}>
+                {[1,2,3,4,5,6,7,8,10,15,20].map((n) => <option key={n} value={n}>{n} {LV('khách', 'guests')}</option>)}
+              </select>
+            </div>
+          </React.Fragment>
         )}
-        <div className="dt-field" style={{ flex: 1, minWidth: 140 }}>
-          <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{tab === 'bus' ? (t('s_date') || 'Ngày đi') : (t('s_date_cruise') || 'Ngày khởi hành')}</label>
-          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%' }} />
-        </div>
+
+        {tab === 'tour' && (
+          <React.Fragment>
+            <div className="lux-field">
+              <label>🗺️ {LV('Gói Combo Tour', 'Combo Package')}</label>
+              <select defaultValue="combo-day">
+                <option value="combo-day">{LV('Combo Xe đón Hà Nội + Du thuyền ngày 5★ VIP 4', 'Hanoi Bus + 5★ VIP 4 Day Cruise')}</option>
+                <option value="combo-overnight">{LV('Combo Xe Limousine Hà Nội + Du thuyền ngủ đêm 2N1Đ', 'Hanoi Limousine + Overnight Cruise 2D1N')}</option>
+              </select>
+            </div>
+            <div className="lux-field">
+              <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
+              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+            </div>
+            <div className="lux-field">
+              <label>👥 {LV('Hành khách', 'Guests')}</label>
+              <select value={pax} onChange={(e) => setPax(+e.target.value)}>
+                {[1,2,3,4,5,6,7,8,10].map((n) => <option key={n} value={n}>{n} {LV('khách', 'guests')}</option>)}
+              </select>
+            </div>
+          </React.Fragment>
+        )}
+
         {tab === 'bus' && (
-          <div className="dt-field" style={{ flex: 1, minWidth: 140 }}>
-            <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{t('s_return') || 'Ngày về (khứ hồi)'}</label>
-            <input type="date" value={ret} min={date} onChange={(e) => setRet(e.target.value)} style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%' }} />
-          </div>
+          <React.Fragment>
+            <div className="lux-field">
+              <label>📍 {LV('Điểm đi', 'From')}</label>
+              <select value={from} onChange={(e) => setFrom(e.target.value)}>
+                {Object.keys(STATIONS).map((k) => <option key={k} value={k}>{I18N.L(STATIONS[k])}</option>)}
+              </select>
+            </div>
+            <div className="lux-field">
+              <label>📍 {LV('Điểm đến', 'To')}</label>
+              <select value={to} onChange={(e) => setTo(e.target.value)}>
+                {Object.keys(STATIONS).map((k) => <option key={k} value={k}>{I18N.L(STATIONS[k])}</option>)}
+              </select>
+            </div>
+            <div className="lux-field">
+              <label>📅 {LV('Ngày đi', 'Travel Date')}</label>
+              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+            </div>
+            <div className="lux-field" style={{ maxWidth: 130 }}>
+              <label>👥 {LV('Hành khách', 'Guests')}</label>
+              <select value={pax} onChange={(e) => setPax(+e.target.value)}>
+                {[1,2,3,4,5,6,7,8,10].map((n) => <option key={n} value={n}>{n}</option>)}
+              </select>
+            </div>
+          </React.Fragment>
         )}
-        <div className="dt-field" style={{ maxWidth: 120 }}>
-          <label style={{ fontSize: 11.5, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', color: 'var(--ink-3)' }}>{t('s_pax') || 'Hành khách'}</label>
-          <select value={pax} onChange={(e) => setPax(+e.target.value)} style={{ border: '1.5px solid var(--line-2)', borderRadius: 'var(--r-sm)', padding: '11px 12px', fontSize: 14.5, fontWeight: 500, width: '100%' }}>
-            {[1,2,3,4,5,6,7,8,9,10].map((n) => <option key={n} value={n}>{n}</option>)}
-          </select>
-        </div>
-        <button className="dt-search-btn" onClick={go} style={{ background: 'var(--red)', color: '#fff', border: 0, borderRadius: 'var(--r-sm)', padding: '12px 28px', fontSize: 15, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 9, cursor: 'pointer', fontFamily: 'var(--font-ui)' }}>
-          {window.I && I.search ? <I.search size={17} /> : '🔍'} {t('s_search') || 'Tìm chuyến'}
+
+        <button className="lux-submit-btn" onClick={handleSearch}>
+          <span>🔍</span> {LV('Tìm Chuyến & Báo Giá →', 'Find Cruise & Rates →')}
         </button>
       </div>
     </div>
   );
 }
 
-const POPULAR_ROUTES = [
-  { fromName: 'Hà Nội', toName: 'Cát Bà', price: 250000 },
-  { fromName: 'Hà Nội', toName: 'Hải Phòng', price: 140000 },
-  { fromName: 'Cát Bà', toName: 'Ninh Bình', price: 250000 },
-  { fromName: 'Hà Nội', toName: 'Ninh Bình', price: 190000 },
-  { fromName: 'Cát Bà', toName: 'Hải Phòng', price: 200000 },
-  { fromName: 'Hà Nội', toName: 'Cát Bà', price: 360000, cable: true },
-];
-
-function PopularRoutesSection() {
-  const t = (k) => I18N.t(k);
+/* ============================================================
+   SECTION 1: THE TWO ICONIC SHIPS (LUXURY 5★ & BOUTIQUE 4★)
+   ============================================================ */
+function FlagshipShipsSection() {
   return (
-    <section className="dt-section" style={{ maxWidth: 1240, margin: '0 auto', padding: '48px 24px 0' }}>
-      <div className="dt-sec-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 20 }}>
-        <div>
-          <div className="dt-kicker" style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 4 }}>DAIICHI BUS</div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 600, color: 'var(--navy)' }}>{t('popular_routes') || 'Tuyến phổ biến'}</h2>
-        </div>
-        <span className="sub" style={{ fontSize: 13, color: 'var(--ink-3)' }}>Giá đã gồm VAT · Đón trả miễn phí trung tâm</span>
+    <section className="lux-duo-sec" id="fleet" data-screen-label="Hạm đội Du thuyền Daiichi">
+      <div className="lux-sec-header">
+        <div className="lux-sec-kicker">{LV('HẠM ĐỘI DU THUYỀN BIỂU TƯỢNG VỊNH LAN HẠ', 'OUR ICONIC LAN HA BAY FLEET')}</div>
+        <h2 className="lux-sec-title">{LV('Hai Đẳng Cấp Nghỉ Dưỡng — Một Trải Nghiệm Hoàn Mỹ', 'Two Distinct Styles — One Unforgettable Voyage')}</h2>
+        <p className="lux-sec-sub">
+          {LV(
+            'Lựa chọn trải nghiệm du thuyền 5 sao siêu hiện đại với Cầu Kính & Bể sục Jacuzzi bốn mùa, hoặc cảm nhận sự ấm cúng, riêng tư tuyệt đối trên du thuyền Boutique phong cách gỗ cổ điển Á Đông.',
+            'Choose between our ultra-modern 5★ flagship with skywalk and all-weather jacuzzi, or the intimate warmth of our classic Indochina-style boutique yacht.'
+          )}
+        </p>
       </div>
-      <div className="dt-routes" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 14 }}>
-        {POPULAR_ROUTES.map((r, i) => (
-          <a key={i} className="dt-route-chip" href={`https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(r.fromName)}&to=${encodeURIComponent(r.toName)}&searchFrom=${encodeURIComponent(r.fromName)}&searchTo=${encodeURIComponent(r.toName)}&pickup=${encodeURIComponent(r.fromName)}&dropoff=${encodeURIComponent(r.toName)}&source=daiichicruise`} target="_blank" rel="noopener" style={{ display: 'flex', alignItems: 'center', gap: 14, background: '#fff', border: '1px solid var(--line)', borderRadius: 'var(--r-md)', padding: '14px 18px', textDecoration: 'none', transition: 'all .15s' }}>
-            <span className="rt" style={{ fontWeight: 600, fontSize: 14.5, display: 'flex', alignItems: 'center', gap: 8, color: 'var(--navy)' }}>
-              {r.fromName} {window.I && I.arrR ? <I.arrR size={14} style={{ color: 'var(--gold)' }} /> : '→'} {r.toName}{r.cable ? ' 🚡' : ''}
-            </span>
-            <span className="pr" style={{ marginLeft: 'auto', textAlign: 'right' }}>
-              <span style={{ display: 'block', fontSize: 11, color: 'var(--ink-3)' }}>từ</span>
-              <b style={{ color: 'var(--red)', fontSize: 15 }}>{r.price.toLocaleString('vi-VN')}đ</b>
-            </span>
-          </a>
-        ))}
-      </div>
-    </section>
-  );
-}
 
-const DAY_CRUISES = [
-  { id: 'dc1', code: 'VIP 1', name: 'Du thuyền VIP 1 · Lan Hạ – Việt Hải', time: '8h00 – 17h00', boat: 'Tàu 48 chỗ', price: 720000, img: 'assets/photos/daycruise-1.jpg' },
-  { id: 'dc2', code: 'SUNSET', name: 'Tour Hoàng hôn & Tiệc Trà vịnh Lan Hạ', time: '15h30 – 19h00', boat: 'Tàu 99 chỗ', price: 430000, img: 'assets/photos/daycruise-2.jpg' },
-  { id: 'dc3', code: 'MORNING', name: 'Tour Bình minh Lan Hạ & Chèo Kayak', time: '5h30 – 9h30', boat: 'Tàu 48 chỗ', price: 430000, img: 'assets/photos/daycruise-3.jpg' },
-  { id: 'dc4', code: 'VIP 3', name: 'Dinner Cruise & Pháo hoa DJ', time: '17h30 – 21h30', boat: 'Tàu 2 tầng', price: 590000, img: 'assets/photos/daycruise-4.jpg' },
-];
-
-function DayCruisesSection() {
-  const t = (k) => I18N.t(k);
-  return (
-    <section className="dt-section" style={{ maxWidth: 1240, margin: '0 auto', padding: '48px 24px 0' }}>
-      <div className="dt-sec-head" style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 20 }}>
-        <div>
-          <div className="dt-kicker" style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 4 }}>LAN HA BAY</div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 600, color: 'var(--navy)' }}>{t('nav_day') || 'Du thuyền ngày'}</h2>
-        </div>
-        <span className="sub" style={{ fontSize: 13, color: 'var(--ink-3)' }}>Giá đã gồm VAT</span>
-      </div>
-      <div className="dt-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 18 }}>
-        {DAY_CRUISES.map((tr) => (
-          <a key={tr.id} className="dt-card" href="https://daiichitravel.com/?tab=tours&category=TOUR_SHORT" target="_blank" rel="noopener" style={{ background: '#fff', borderRadius: 'var(--r-md)', overflow: 'hidden', border: '1px solid var(--line)', textDecoration: 'none', display: 'flex', flexDirection: 'column' }}>
-            <div className="dt-card-img" style={{ backgroundImage: `url(${tr.img})`, height: 165, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
-              <span className="dt-card-badge" style={{ position: 'absolute', top: 12, left: 12, background: 'var(--navy)', color: 'var(--gold-bright)', fontSize: 10.5, fontWeight: 700, padding: '5px 10px', borderRadius: 6 }}>{tr.code}</span>
+      <div className="lux-ships-grid">
+        {/* Ship 1: Daiichi Luxury Cruise 5★ */}
+        <div className="lux-ship-card" id="luxury-cruise">
+          <div className="lux-ship-gallery">
+            <img src="assets/photos/luxury-1.jpg" alt="Daiichi Luxury Cruise 5★" loading="lazy" />
+            <div className="lux-ship-badge">★★★★★ 5-STAR LUXURY</div>
+            <div className="lux-ship-price-tag">
+              <span>{LV('Giá từ', 'From')}</span>
+              <b>5.000.000đ</b>
+              <span>{LV('/cabin 2 khách', '/2-guest suite')}</span>
             </div>
-            <div className="dt-card-body" style={{ padding: '15px 16px', display: 'flex', flexDirection: 'column', gap: 7, flex: 1 }}>
-              <h3 style={{ fontSize: 15.5, fontWeight: 700, color: 'var(--navy)', lineHeight: 1.35, margin: 0 }}>{tr.name}</h3>
-              <div style={{ fontSize: 12, color: 'var(--ink-2)' }}>⏱ {tr.time} · {tr.boat}</div>
-              <div style={{ marginTop: 'auto', paddingTop: 6, display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                <span style={{ fontSize: 11.5, color: 'var(--ink-3)' }}>từ</span>
-                <b style={{ color: 'var(--red)', fontSize: 16 }}>{tr.price.toLocaleString('vi-VN')}đ</b>
-                <span style={{ fontSize: 11.5, color: 'var(--ink-3)' }}>/khách</span>
+          </div>
+          <div className="lux-ship-content">
+            <h3 className="lux-ship-name">Daiichi Luxury Cruise ★★★★★</h3>
+            <p className="lux-ship-desc">
+              {LV(
+                'Du thuyền 5 sao thế hệ mới 2026 với 30 Suite ban công riêng 100% view vịnh Lan Hạ. Sở hữu Cầu Kính Skywalk vươn ra biển độc nhất vô nhị, Bể sục Jacuzzi bốn mùa, nhà hàng kính Fine Dining và Sky Bar 360 độ.',
+                'The newest 2026 5-star flagship featuring 30 private balcony suites with full bay panorama. Equipped with Vietnam’s unique over-the-sea glass skywalk, all-season jacuzzi, glass fine-dining restaurant and 360° sky bar.'
+              )}
+            </p>
+            <div className="lux-ship-specs">
+              <div className="lux-spec-box">
+                <b>30 Suite</b>
+                <span>{LV('100% ban công riêng', 'All private balcony')}</span>
+              </div>
+              <div className="lux-spec-box">
+                <b>Cầu Kính & Jacuzzi</b>
+                <span>{LV('Check-in độc quyền', 'Exclusive skywalk')}</span>
+              </div>
+              <div className="lux-spec-box">
+                <b>2N1Đ · 3N2Đ</b>
+                <span>{LV('Hải trình trọn vẹn', 'Signature voyages')}</span>
               </div>
             </div>
-          </a>
-        ))}
+            <div className="lux-ship-perks">
+              <span className="lux-perk-tag">💎 {LV('100% Ban công riêng', '100% Balcony Suites')}</span>
+              <span className="lux-perk-tag">🌉 {LV('Cầu Kính Skywalk', 'Glass Skywalk')}</span>
+              <span className="lux-perk-tag">♨️ {LV('Jacuzzi bốn mùa', 'Heated Jacuzzi')}</span>
+              <span className="lux-perk-tag">🍽️ {LV('Nhà hàng Fine Dining', 'Fine Dining')}</span>
+              <span className="lux-perk-tag">🛶 {LV('Kayak & Hang Sáng Tối', 'Kayak & Caves')}</span>
+            </div>
+            <div className="lux-ship-actions">
+              <a className="lux-btn-gold" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+                {LV('Đặt Du Thuyền 5★ →', 'Book 5★ Cruise →')}
+              </a>
+              <a className="lux-btn-outline" href="#suites">
+                {LV('Xem 30 Phòng Suite', 'View All Suites')}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Ship 2: Daiichi Boutique Cruise 4★ */}
+        <div className="lux-ship-card" id="boutique-cruise">
+          <div className="lux-ship-gallery">
+            <img src="assets/photos/boutique-1.jpg" alt="Daiichi Boutique Cruise" loading="lazy" />
+            <div className="lux-ship-badge" style={{ background: '#78350F', color: '#FDE68A' }}>★★★★ BOUTIQUE HERITAGE</div>
+            <div className="lux-ship-price-tag">
+              <span>{LV('Giá từ', 'From')}</span>
+              <b>4.200.000đ</b>
+              <span>{LV('/cabin 2 khách', '/2-guest cabin')}</span>
+            </div>
+          </div>
+          <div className="lux-ship-content">
+            <h3 className="lux-ship-name">Daiichi Boutique Cruise ★★★★</h3>
+            <p className="lux-ship-desc">
+              {LV(
+                'Phong cách Á Đông cổ điển, ấm cúng và riêng tư tuyệt đối với chỉ 7 cabin giới hạn (tối đa 22 khách). Thiết kế 100% nội thất gỗ tự nhiên cao cấp, sundeck rộng 150m², ẩm thực thuần Việt với hải sản tươi sống đánh bắt tại chỗ.',
+                'Classic Indochine aesthetic offering unmatched privacy with only 7 exclusive cabins (max 22 guests). 100% premium natural wood craftsmanship, spacious 150m² sundeck and authentic Vietnamese seafood gastronomy.'
+              )}
+            </p>
+            <div className="lux-ship-specs">
+              <div className="lux-spec-box">
+                <b>7 Cabin</b>
+                <span>{LV('Giới hạn riêng tư', 'Intimate & private')}</span>
+              </div>
+              <div className="lux-spec-box">
+                <b>100% Gỗ quý</b>
+                <span>{LV('Nội thất cao cấp', 'Solid natural wood')}</span>
+              </div>
+              <div className="lux-spec-box">
+                <b>Sundeck 150m²</b>
+                <span>{LV('Toàn cảnh 360 độ', '360° Panorama deck')}</span>
+              </div>
+            </div>
+            <div className="lux-ship-perks">
+              <span className="lux-perk-tag">🪵 {LV('100% Gỗ tự nhiên', '100% Natural Wood')}</span>
+              <span className="lux-perk-tag">🌿 {LV('Không gian riêng tư', 'Max 22 Guests')}</span>
+              <span className="lux-perk-tag">🦞 {LV('Hải sản Cát Bà tươi sống', 'Fresh Bay Seafood')}</span>
+              <span className="lux-perk-tag">🚴 {LV('Đạp xe Làng Việt Hải', 'Viet Hai Cycling')}</span>
+              <span className="lux-perk-tag">🌅 {LV('Tiệc trà Sunset Tea', 'Sunset Tea Party')}</span>
+            </div>
+            <div className="lux-ship-actions">
+              <a className="lux-btn-gold" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+                {LV('Đặt Boutique Cruise →', 'Book Boutique Cruise →')}
+              </a>
+              <a className="lux-btn-outline" href="#suites">
+                {LV('Xem 7 Cabin Gỗ Quý', 'View 7 Wood Cabins')}
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-function LiveBusScheduleSection() {
-  const [vehFilter, setVehFilter] = useState('all');
-  const [sort, setSort] = useState('early');
+/* ============================================================
+   SECTION 2: SUITE COLLECTION & QUICK VIEW MODAL
+   ============================================================ */
+function SuiteCollectionSection({ onSelectRoom }) {
+  const [filter, setFilter] = useState('all'); // 'all' | 'luxury' | 'boutique'
 
-  // Standard departures matching Image 2 with real prices and seat availability
-  const initialDepartures = [
+  // Standard comprehensive suites mapped with Supabase data & rich specs
+  const ALL_SUITES = [
     {
-      id: 'hn-cb-0500-bus45',
-      time: '05:00',
-      arrTime: '08:00',
-      vehType: 'bus45',
-      vehLabel: 'Bus thường 45 chỗ',
-      badge: 'kèm tàu cao tốc',
-      duration: '3h',
-      wifi: 'WiFi · USB',
-      price: 250000,
-      availableSeats: 49
+      id: 'royal',
+      shipId: 'luxury',
+      shipName: 'Daiichi Luxury Cruise 5★',
+      name: 'Royal Suite VIP',
+      badge: 'VIP TỔNG THỐNG · TẦNG 4',
+      img: 'assets/photos/suite-royal.jpg',
+      gallery: [
+        'assets/photos/suite-royal.jpg',
+        'assets/photos/luxury-restaurant.jpg',
+        'assets/photos/luxury-jacuzzi.jpg',
+        'assets/photos/luxury-2.jpg'
+      ],
+      area: 55,
+      capacity: '2 người lớn',
+      bed: '1 Giường đôi cực lớn (King Bed)',
+      view: 'Góc vịnh toàn cảnh 270° (Panorama View)',
+      floor: 'Tầng 4 (Boong cao nhất)',
+      balcony: 'Ban công riêng siêu rộng 15m²',
+      bath: 'Bồn tắm nằm sát vách kính ngắm trọn vịnh Lan Hạ',
+      price: 10500000,
+      amenities: ['Ban công riêng cực đại', 'Bồn tắm view vịnh 270°', 'Khu vực tiếp khách riêng', 'Điều hòa 2 chiều', 'Smart TV & Wifi', 'Minibar & Trái cây tươi', 'Két an toàn', 'Máy sấy tóc cao cấp', 'Áo choàng & dép đi trong phòng'],
+      desc: 'Hạng phòng cao cấp và xa hoa nhất trên vịnh Lan Hạ. Vị trí đầu tàu tầng 4 mang đến tầm nhìn panorama 270 độ không giới hạn. Tận hưởng bồn tắm nằm sát kính viền vàng, ban công tắm nắng riêng biệt và đặc quyền phục vụ thượng lưu.'
     },
     {
-      id: 'hn-cb-0500-limo7',
-      time: '05:00',
-      arrTime: '08:00',
-      vehType: 'limo7',
-      vehLabel: 'Limo Green 7 chỗ (xe điện)',
-      badge: 'kèm tàu cao tốc',
-      duration: '3h',
-      wifi: 'WiFi · EV',
-      price: 330000,
-      availableSeats: 7
+      id: 'family',
+      shipId: 'luxury',
+      shipName: 'Daiichi Luxury Cruise 5★',
+      name: 'Executive / Family Suite',
+      badge: 'GIA ĐÌNH CAO CẤP · TẦNG 2',
+      img: 'assets/photos/suite-executive.jpg',
+      gallery: [
+        'assets/photos/suite-executive.jpg',
+        'assets/photos/luxury-1.jpg',
+        'assets/photos/luxury-jacuzzi.jpg'
+      ],
+      area: 45,
+      capacity: '2 - 4 khách',
+      bed: '1 Giường King + 1 Giường đơn (hoặc Sofa Bed)',
+      view: 'View biển trực diện',
+      floor: 'Tầng 2',
+      balcony: 'Ban công riêng ngắm vịnh',
+      bath: 'Bồn tắm nằm sang trọng & Phòng tắm đứng',
+      price: 6000000,
+      amenities: ['Ban công riêng view biển', 'Bồn tắm nằm thư giãn', 'Không gian gia đình rộng rãi', 'Điều hòa 2 chiều', 'Wifi tốc độ cao', 'Minibar', 'Két an toàn', 'Đồ dùng vệ sinh chuẩn 5★'],
+      desc: 'Thiết kế thông minh dành riêng cho gia đình hoặc nhóm bạn 3-4 người. Không gian ấm cúng, tràn ngập ánh sáng tự nhiên với ban công riêng rộng rãi để cả gia đình cùng ngắm nhìn vịnh biển kỳ quan.'
     },
     {
-      id: 'hn-cb-0500-limo34',
-      time: '05:00',
-      arrTime: '08:30',
-      vehType: 'limo34',
-      vehLabel: 'Limousine Luxury 34 ghế',
-      badge: 'kèm tàu cao tốc',
-      duration: '3h30',
-      wifi: 'WiFi · USB',
-      price: 310000,
-      availableSeats: 34
+      id: 'senior',
+      shipId: 'luxury',
+      shipName: 'Daiichi Luxury Cruise 5★',
+      name: 'Senior Suite Balcony',
+      badge: 'BỒN TẮM VIEW VỊNH · TẦNG 2',
+      img: 'assets/photos/suite-senior.jpg',
+      gallery: [
+        'assets/photos/suite-senior.jpg',
+        'assets/photos/luxury-3.jpg',
+        'assets/photos/daycruise-act-2.jpg'
+      ],
+      area: 30,
+      capacity: '2 người lớn',
+      bed: '1 Giường đôi hoặc 2 Giường đơn (Twin/Double)',
+      view: 'View vịnh Lan Hạ',
+      floor: 'Tầng 2',
+      balcony: 'Ban công riêng đón gió biển',
+      bath: 'Bồn tắm nằm cạnh cửa sổ kính lớn',
+      price: 5000000,
+      amenities: ['Ban công riêng', 'Bồn tắm nằm view biển', 'Cửa sổ kính sát trần', 'Điều hòa', 'Wifi', 'Két sắt', 'Khăn tắm cao cấp'],
+      desc: 'Hạng phòng được yêu thích nhất bởi các cặp đôi. Điểm nhấn là bồn tắm ngâm mình sát cửa kính lớn nhìn thẳng ra các đảo đá vôi xanh ngọc bích, kèm ban công riêng tư lãng mạn.'
     },
     {
-      id: 'hn-cb-0500-limo11',
-      time: '05:00',
-      arrTime: '08:00',
-      vehType: 'limo11',
-      vehLabel: 'Limousine Luxury 11 ghế',
-      badge: 'kèm tàu cao tốc',
-      duration: '3h',
-      wifi: 'WiFi · USB',
-      price: 330000,
-      availableSeats: 11
+      id: 'junior',
+      shipId: 'luxury',
+      shipName: 'Daiichi Luxury Cruise 5★',
+      name: 'Junior / Trip Suite',
+      badge: 'BAN CÔNG RIÊNG · TẦNG 2',
+      img: 'assets/photos/suite-junior.jpg',
+      gallery: [
+        'assets/photos/suite-junior.jpg',
+        'assets/photos/luxury-1.jpg'
+      ],
+      area: 28,
+      capacity: '2 người lớn + 1 trẻ em',
+      bed: '1 Giường đôi lớn hoặc 2 giường đơn',
+      view: 'View biển',
+      floor: 'Tầng 2',
+      balcony: 'Ban công riêng view biển',
+      bath: 'Phòng tắm đứng hiện đại vách kính',
+      price: 5000000,
+      amenities: ['Ban công riêng', 'View biển trực tiếp', 'Điều hòa', 'Wifi', 'Dép đi trong phòng', 'Máy sấy tóc', 'Két an toàn'],
+      desc: 'Phòng ngủ phong cách hiện đại, tinh gọn và thoáng đãng. Hệ thống cửa kính ban công đón trọn ánh nắng ban mai và không khí trong lành của biển khơi Cát Bà.'
     },
     {
-      id: 'hn-cb-0600-bus45',
-      time: '06:00',
-      arrTime: '09:00',
-      vehType: 'bus45',
-      vehLabel: 'Bus thường 45 chỗ',
-      badge: 'kèm tàu cao tốc',
-      duration: '3h',
-      wifi: 'WiFi · USB',
-      price: 250000,
-      availableSeats: 49
+      id: 'btq-balcony',
+      shipId: 'boutique',
+      shipName: 'Daiichi Boutique Cruise 4★',
+      name: 'Boutique Balcony Cabin',
+      badge: '100% GỖ TỰ NHIÊN · TẦNG 2',
+      img: 'assets/photos/boutique-2.jpg',
+      gallery: [
+        'assets/photos/boutique-2.jpg',
+        'assets/photos/boutique-1.jpg',
+        'assets/photos/daycruise-act-1.jpg'
+      ],
+      area: 25,
+      capacity: '2 người lớn',
+      bed: '1 Giường đôi Double gỗ quý',
+      view: 'View vịnh Lan Hạ',
+      floor: 'Tầng 2 Du thuyền Boutique',
+      balcony: 'Ban công gỗ riêng biệt',
+      bath: 'Phòng tắm đứng vách kính sang trọng',
+      price: 6065000,
+      amenities: ['100% Nội thất gỗ tự nhiên', 'Ban công riêng view vịnh', 'Điều hòa 2 chiều', 'Wifi', 'Bàn ghế salon gỗ', 'Đồ dùng vệ sinh cao cấp', 'Két sắt'],
+      desc: 'Nằm trên tầng 2 của du thuyền Boutique, cabin sở hữu ban công gỗ riêng nhìn ra biển. Toàn bộ sàn, vách và trần được làm thủ công bằng gỗ tự nhiên, mang lại hương thơm dịu nhẹ và giấc ngủ sâu.'
     },
     {
-      id: 'hn-cb-0700-limo34',
-      time: '07:00',
-      arrTime: '10:30',
-      vehType: 'limo34',
-      vehLabel: 'Limousine Luxury 34 ghế',
-      badge: 'kèm tàu cao tốc',
-      duration: '3h30',
-      wifi: 'WiFi · USB',
-      price: 310000,
-      availableSeats: 34
-    },
-    {
-      id: 'hn-cb-0800-limo11',
-      time: '08:00',
-      arrTime: '11:00',
-      vehType: 'limo11',
-      vehLabel: 'Limousine Luxury 11 ghế',
-      badge: 'kèm tàu cao tốc',
-      duration: '3h',
-      wifi: 'WiFi · USB',
-      price: 330000,
-      availableSeats: 11
-    },
-    {
-      id: 'hn-cb-0900-bus45',
-      time: '09:00',
-      arrTime: '12:00',
-      vehType: 'bus45',
-      vehLabel: 'Bus thường 45 chỗ',
-      badge: 'kèm tàu cao tốc',
-      duration: '3h',
-      wifi: 'WiFi · USB',
-      price: 250000,
-      availableSeats: 45
+      id: 'btq-deluxe',
+      shipId: 'boutique',
+      shipName: 'Daiichi Boutique Cruise 4★',
+      name: 'Boutique Deluxe Oceanview',
+      badge: 'CỔ ĐIỂN ẤM CÚNG · TẦNG 1',
+      img: 'assets/photos/suite-deluxe.jpg',
+      gallery: [
+        'assets/photos/suite-deluxe.jpg',
+        'assets/photos/boutique-1.jpg'
+      ],
+      area: 25,
+      capacity: '2 - 3 người lớn',
+      bed: 'Giường đôi hoặc 2 giường đơn',
+      view: 'Cửa sổ kính lớn ngắm sóng biển',
+      floor: 'Tầng 1 Du thuyền Boutique',
+      balcony: 'Cửa sổ kính view mặt biển',
+      bath: 'Phòng tắm đứng vách kính riêng',
+      price: 6318000,
+      amenities: ['Gỗ tự nhiên 100%', 'Cửa sổ view biển', 'Điều hòa', 'Wifi', 'Bàn trang điểm', 'Két an toàn', 'Máy sấy tóc'],
+      desc: 'Tọa lạc tại tầng 1 với không gian tĩnh lặng, gần sát mặt biển để bạn cảm nhận tiếng sóng vỗ êm đềm. Nội thất gỗ tinh tế tạo cảm giác hoài niệm cổ điển đầy cuốn hút.'
     }
   ];
 
-  const [trips, setTrips] = useState(initialDepartures);
-
-  // Sync real-time Supabase departures and seat availability
-  useEffect(() => {
-    const syncFromSupabase = () => {
-      if (window.DT_SUPABASE_SYNC && typeof DT_SUPABASE_SYNC.getTripsWithAvailability === 'function') {
-        const sbTrips = DT_SUPABASE_SYNC.getTripsWithAvailability('Hà Nội', 'Cát Bà');
-        if (sbTrips && sbTrips.length > 0) {
-          setTrips(sbTrips);
-        }
-      }
-    };
-
-    syncFromSupabase();
-    const interval = setInterval(syncFromSupabase, 800);
-    window.addEventListener('dt:supabase_synced', syncFromSupabase);
-    return () => {
-      clearInterval(interval);
-      window.removeEventListener('dt:supabase_synced', syncFromSupabase);
-    };
-  }, []);
-
-  // Filter by vehicle type
-  let filtered = trips;
-  if (vehFilter !== 'all') {
-    filtered = filtered.filter(t => t.vehType === vehFilter);
-  }
-
-  // Sort by time or price
-  if (sort === 'cheap') {
-    filtered = [...filtered].sort((a, b) => a.price - b.price);
-  } else {
-    filtered = [...filtered].sort((a, b) => (a.time || '').localeCompare(b.time || ''));
-  }
-
-  // Vehicle image lookup matching Image 2
-  const vehImages = {
-    bus45: 'assets/photos/bus45-interior.jpg',
-    limo7: 'assets/photos/limo7.jpg',
-    limo34: 'assets/photos/limo34.jpg',
-    limo11: 'assets/photos/limo10.jpg'
-  };
+  let filteredSuites = ALL_SUITES;
+  if (filter === 'luxury') filteredSuites = ALL_SUITES.filter(s => s.shipId === 'luxury');
+  if (filter === 'boutique') filteredSuites = ALL_SUITES.filter(s => s.shipId === 'boutique');
 
   return (
-    <section className="dt-bus-sched-sec" id="schedule" data-screen-label="Lịch chạy xe Hà Nội - Cát Bà">
-      <div className="dt-sched-head">
-        <h2>
-          Hà Nội <span style={{ color: 'var(--gold)' }}>→</span> Cát Bà
-        </h2>
-        <div className="dt-sched-filters">
-          <button className={'dt-sched-filter-btn' + (vehFilter === 'all' ? ' active' : '')} onClick={() => setVehFilter('all')}>
-            {LV('Tất cả', 'All')}
+    <section className="lux-suites-sec" id="suites" data-screen-label="Bộ Sưu Tập Phòng Suite">
+      <div className="lux-suites-inner">
+        <div className="lux-sec-header" style={{ marginBottom: 28 }}>
+          <div className="lux-sec-kicker" style={{ color: '#FDE68A' }}>{LV('BỘ SƯU TẬP PHÒNG NGHỈ THƯỢNG LƯU', 'THE SUITE COLLECTION')}</div>
+          <h2 className="lux-sec-title" style={{ color: '#FFFFFF' }}>{LV('Không Gian Nghỉ Dưỡng Sang Trọng & Riêng Tư', 'Private Balcony Suites & Handcrafted Wooden Cabins')}</h2>
+          <p className="lux-sec-sub" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            {LV(
+              '100% phòng nghỉ trên du thuyền đều có ban công riêng view biển, bồn tắm ngắm vịnh, cửa sổ kính toàn cảnh và hệ thống điều hòa 2 chiều hiện đại.',
+              'Every cabin boasts private balconies, panoramic ocean views, bay-facing bathtubs and bespoke amenities for the ultimate comfort.'
+            )}
+          </p>
+        </div>
+
+        <div className="lux-suites-nav">
+          <button className={'lux-suite-filter-btn' + (filter === 'all' ? ' active' : '')} onClick={() => setFilter('all')}>
+            {LV('Tất Cả Hạng Phòng (6)', 'All Suites (6)')}
           </button>
-          <button className={'dt-sched-filter-btn' + (vehFilter === 'bus45' ? ' active' : '')} onClick={() => setVehFilter('bus45')}>
-            Bus thường 45 chỗ
+          <button className={'lux-suite-filter-btn' + (filter === 'luxury' ? ' active' : '')} onClick={() => setFilter('luxury')}>
+            {LV('Du thuyền 5★ Daiichi Luxury (30 Suite)', '5★ Daiichi Luxury Cruise (30 Suites)')}
           </button>
-          <button className={'dt-sched-filter-btn' + (vehFilter === 'limo7' ? ' active' : '')} onClick={() => setVehFilter('limo7')}>
-            Limo Green 7 chỗ (xe điện)
-          </button>
-          <button className={'dt-sched-filter-btn' + (vehFilter === 'limo34' ? ' active' : '')} onClick={() => setVehFilter('limo34')}>
-            Limousine Luxury 34 ghế
-          </button>
-          <button className={'dt-sched-filter-btn' + (vehFilter === 'limo11' ? ' active' : '')} onClick={() => setVehFilter('limo11')}>
-            Limousine Luxury 11 ghế
-          </button>
-          <button className={'dt-sched-filter-btn' + (sort === 'early' ? ' active' : '')} onClick={() => setSort('early')}>
-            {LV('Giờ sớm nhất', 'Earliest')}
-          </button>
-          <button className={'dt-sched-filter-btn' + (sort === 'cheap' ? ' active' : '')} onClick={() => setSort('cheap')}>
-            {LV('Giá thấp nhất', 'Lowest price')}
+          <button className={'lux-suite-filter-btn' + (filter === 'boutique' ? ' active' : '')} onClick={() => setFilter('boutique')}>
+            {LV('Du thuyền 4★ Daiichi Boutique (7 Cabin Gỗ Quý)', '4★ Daiichi Boutique Cruise (7 Cabins)')}
           </button>
         </div>
-      </div>
 
-      <div className="dt-sched-cards">
-        {filtered.slice(0, 10).map((tr, idx) => {
-          const deepLink = (window.DT_SUPABASE_SYNC && typeof DT_SUPABASE_SYNC.buildBookingDeepLink === 'function')
-            ? DT_SUPABASE_SYNC.buildBookingDeepLink({
-                from: 'Hà Nội',
-                to: 'Cát Bà',
-                date: tr.date || '2026-06-25',
-                tripId: tr.id,
-                vehType: tr.vehType,
-                price: tr.price
-              })
-            : `https://daiichitravel.com/?tab=book-ticket&from=Hà%20Nội&to=Cát%20Bà`;
-
-          return (
-            <div key={idx} className="dt-sched-card">
-              <div className="dt-sched-time">
-                <div className="dep">{tr.time}</div>
-                <div className="arr">→ {tr.arrTime}</div>
+        <div className="lux-suites-grid">
+          {filteredSuites.map((st) => (
+            <div key={st.id} className="lux-room-card">
+              <div className="lux-room-thumb" onClick={() => onSelectRoom(st)}>
+                <img src={st.img} alt={st.name} loading="lazy" />
+                <span className="lux-room-badge">{st.badge}</span>
+                <button className="lux-room-quickview-btn">
+                  🔍 {LV('Xem chi tiết', 'Quick view')}
+                </button>
               </div>
-              <div className="dt-sched-thumb">
-                <img src={vehImages[tr.vehType] || 'assets/photos/limo10.jpg'} alt={tr.vehLabel} loading="lazy" />
-                <span className="dt-sched-thumb-badge">★ 5</span>
-              </div>
-              <div className="dt-sched-info">
-                <div className="dt-sched-title-row">
-                  <span className="dt-sched-name">{tr.vehLabel}</span>
-                  <span className="dt-sched-badge">{tr.badge}</span>
+              <div className="lux-room-body">
+                <div className="lux-room-ship-label">{st.shipName}</div>
+                <h3 className="lux-room-title">{st.name}</h3>
+                <div className="lux-room-params">
+                  <span>📐 {st.area} m²</span>
+                  <span>👥 {st.capacity}</span>
+                  <span>🌅 {st.floor}</span>
                 </div>
-                <div className="dt-sched-meta">
-                  <span>⏱ {tr.duration}</span>
-                  <span>📍 {LV('Đón trả miễn phí trung tâm', 'Free center pickup')}</span>
-                  <span>{tr.wifi}</span>
+                <div className="lux-room-amenities">
+                  {st.amenities.slice(0, 3).map((a, i) => (
+                    <span key={i} className="lux-room-amenity">✓ {a}</span>
+                  ))}
                 </div>
-              </div>
-              <div className="dt-sched-right">
-                <div className="dt-sched-price">
-                  {tr.price.toLocaleString('vi-VN')}đ<em>/khách</em>
+                <div className="lux-room-foot">
+                  <div className="lux-room-price">
+                    <span>{LV('Giá từ', 'From')}</span>
+                    <b>{st.price.toLocaleString('vi-VN')}đ</b>
+                    <em>{LV('/đêm', '/night')}</em>
+                  </div>
+                  <div className="lux-room-actions">
+                    <button className="lux-btn-outline" style={{ padding: '8px 12px', fontSize: 12.5 }} onClick={() => onSelectRoom(st)}>
+                      {LV('Chi tiết', 'Details')}
+                    </button>
+                    <a className="lux-room-book-btn" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+                      {LV('Đặt phòng →', 'Book →')}
+                    </a>
+                  </div>
                 </div>
-                <div className="dt-sched-seats">
-                  {tr.availableSeats} {LV('chỗ trống', 'seats left')}
-                </div>
-                <a className="dt-sched-btn" href={deepLink} target="_blank" rel="noopener">
-                  {LV('Chọn ghế', 'Select seats')}
-                </a>
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-function LuxurySuitesGallery() {
-  const [, force] = useState(0);
-  useEffect(() => {
-    const onSync = () => force(x => x + 1);
-    window.addEventListener('dt:supabase_synced', onSync);
-    return () => window.removeEventListener('dt:supabase_synced', onSync);
-  }, []);
-
-  // Sync suites from Supabase property_room_types or fallback
-  const sbRoomTypes = (window.DT_DATA && DT_DATA.SUPABASE && DT_DATA.SUPABASE.roomTypes) || [];
-
-  // 4 standard suite classes matching live Daiichi Luxury Cruise
-  const defaultSuites = [
-    { id: 'senior', name: 'Senior Suite', localImg: 'assets/photos/suite-senior.jpg', price: 5000000, units: 18, area: 30 },
-    { id: 'trip', name: 'Trip Suite', localImg: 'assets/photos/suite-junior.jpg', price: 5000000, units: 9, area: 32 },
-    { id: 'family', name: 'Family Suite', localImg: 'assets/photos/suite-executive.jpg', price: 6000000, units: 1, area: 45 },
-    { id: 'royal', name: 'Royal Suite', localImg: 'assets/photos/suite-royal.jpg', price: 10500000, units: 2, area: 55 },
+/* ============================================================
+   SECTION 3: 6 EXCLUSIVE SIGNATURE HIGHLIGHTS
+   ============================================================ */
+function CruiseHighlightsSection() {
+  const HIGHLIGHTS = [
+    {
+      icon: '🌉',
+      title: LV('Cầu Kính Skywalk Độc Nhất Vịnh Lan Hạ', 'Exclusive Ocean Glass Skywalk'),
+      desc: LV(
+        'Check-in giữa không trung trên cây cầu kính vươn dài ra mặt vịnh. Trải nghiệm bước chân trên làn nước biển trong vắt với khung cảnh núi đá vôi kỳ vĩ xung quanh.',
+        'Walk on air above the turquoise sea with our panoramic glass skywalk stretching over the bay — an extraordinary photo opportunity.'
+      )
+    },
+    {
+      icon: '♨️',
+      title: LV('Bể Sục Jacuzzi Nước Ấm Bốn Mùa', 'Four-Season Bay-View Jacuzzi'),
+      desc: LV(
+        'Bể sục Jacuzzi ngoài trời trên boong thượng. Thư giãn ngâm mình trong làn nước ấm áp, nhâm nhi ly cocktail và ngắm hoàng hôn rực rỡ buông xuống vịnh.',
+        'Outdoor heated jacuzzi on the sundeck. Soak into warm bubbling waters with a signature cocktail while watching the mesmerizing sunset.'
+      )
+    },
+    {
+      icon: '🌅',
+      title: LV('100% Suite Có Ban Công Riêng Biệt', '100% Private Balcony Suites'),
+      desc: LV(
+        'Mỗi phòng nghỉ đều có ban công riêng hướng thẳng ra kỳ quan vịnh Lan Hạ. Thức giấc đón những tia nắng đầu tiên và làn gió biển tươi mát ngay từ giường ngủ.',
+        'Every single suite opens up to a private balcony facing the bay. Wake up to fresh sea breezes and sunrise over the emerald karsts.'
+      )
+    },
+    {
+      icon: '🍽️',
+      title: LV('Nhà Hàng Kính Fine-Dining & Sky Bar', 'Glass Fine-Dining & 360° Sky Bar'),
+      desc: LV(
+        'Thưởng thức hải sản tươi sống Cát Bà (cua, tu hài, bề bề) cùng set menu Á - Âu sang trọng trong không gian nhà hàng kính tràn ngập view vịnh biển.',
+        'Indulge in fresh Cat Ba seafood and fine-dining cuisine surrounded by floor-to-ceiling glass windows and panoramic bay views.'
+      )
+    },
+    {
+      icon: '🛶',
+      title: LV('Chèo Kayak Hang Sáng Tối & Làng Việt Hải', 'Kayak Sea Caves & Viet Hai Village'),
+      desc: LV(
+        'Tự tay chèo thuyền kayak len lỏi qua vòm hang thạch nhũ kỳ bí, tắm biển tại bãi Ba Trái Đào hoang sơ và đạp xe xuyên thung lũng cổ tích làng Việt Hải.',
+        'Glide through mystical sea caverns, swim in secluded white-sand lagoons, and cycle through the untouched valley of Viet Hai village.'
+      )
+    },
+    {
+      icon: '🚐',
+      title: LV('Hệ Sinh Thái Đưa Đón Limousine Tận Nhà', 'Seamless Limousine Transfers'),
+      desc: LV(
+        'Xe Limousine đời mới đón tận nơi tại Phố Cổ Hà Nội, đưa thẳng đến bến tàu du thuyền. Hành trình trọn vẹn, thuận tiện và an tâm tuyệt đối từ cửa nhà bạn.',
+        'Luxury limousine pickup right from your Hanoi hotel doorstep straight to the embarkation lounge — seamless, punctual, worry-free.'
+      )
+    }
   ];
 
-  // Map each suite to real Supabase room type if available
-  const suites = defaultSuites.map((ds) => {
-    const found = sbRoomTypes.find(rt => (rt.name || '').toLowerCase().includes(ds.id));
-    return {
-      ...ds,
-      img: (found && found.images && found.images[0]) || ds.localImg,
-      price: found ? found.base_price : ds.price,
-      area: found ? found.area_sqm : ds.area,
-      units: found ? found.total_units : ds.units
-    };
-  });
+  return (
+    <section className="lux-highlights-sec" id="highlights" data-screen-label="Điểm Vượt Trội">
+      <div className="lux-sec-header">
+        <div className="lux-sec-kicker">{LV('ĐẶC QUYỀN ĐỈNG CAO', 'EXCLUSIVE PRIVILEGES')}</div>
+        <h2 className="lux-sec-title">{LV('Vì Sao Chọn Daiichi Cruise?', 'Why Cruise with Daiichi?')}</h2>
+        <p className="lux-sec-sub">
+          {LV(
+            'Hơn cả một chuyến tham quan, Daiichi Cruise kiến tạo hành trình nghỉ dưỡng đầy cảm xúc với những tiện ích độc quyền chưa từng có trên vịnh Lan Hạ.',
+            'Beyond an ordinary cruise, Daiichi creates a high-end emotional voyage backed by unique amenities and genuine Vietnamese hospitality.'
+          )}
+        </p>
+      </div>
+
+      <div className="lux-hl-grid">
+        {HIGHLIGHTS.map((hl, i) => (
+          <div key={i} className="lux-hl-card">
+            <div className="lux-hl-icon">{hl.icon}</div>
+            <div className="lux-hl-text">
+              <h4>{hl.title}</h4>
+              <p>{hl.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   SECTION 4: ITINERARY INTERACTIVE TIMELINE (2D1N & 3D2N)
+   ============================================================ */
+function CruiseItinerarySection() {
+  const [itin, setItin] = useState('2d1n');
+
+  const ITIN_2D1N = [
+    { time: '12:00 – 12:30', title: LV('Chào đón lên tàu & Check-in', 'Welcome Aboard & Check-in'), desc: LV('Thưởng thức đồ uống chào mừng Welcome Drink, nghe giới thiệu hải trình và nhận phòng suite sang trọng có ban công riêng.', 'Enjoy welcome drinks, cruise orientation and check into your private balcony suite.') },
+    { time: '13:00 – 14:15', title: LV('Ăn trưa Fine Dining ngắm vịnh', 'Panoramic Bay Lunch'), desc: LV('Thưởng thức bữa trưa thịnh soạn với các món hải sản tươi sống trong khi du thuyền lướt êm đềm qua Hòn Rùa, Làng Chài Cái Bèo.', 'Savor a fine seafood lunch as the ship glides past Turtle Islet and the ancient floating village of Cai Beo.') },
+    { time: '14:45 – 16:30', title: LV('Chèo Kayak & Tắm biển Ba Trái Đào', 'Kayaking & Swimming at Ba Trai Dao'), desc: LV('Khám phá làn nước ngọc bích, chèo kayak qua các hang hốc tự nhiên và đắm mình trong làn nước biển trong vắt.', 'Paddle kayaks into untouched lagoons and swim off secluded white-sand beaches.') },
+    { time: '17:00 – 18:30', title: LV('Tiệc trà Sunset Party & Ngâm bồn Jacuzzi', 'Sunset Party & Sundeck Jacuzzi'), desc: LV('Ngắm hoàng hôn tráng lệ buông xuống trên sundeck với tiệc trà chiều, hoa quả tươi miễn phí và thư giãn trong bồn sục nước ấm.', 'Complimentary tea, wine and fresh fruits at the sunset party, combined with warm jacuzzi relaxation.') },
+    { time: '19:15 – 21:00', title: LV('Bữa tối lãng mạn & Ẩm thực 5 sao', 'Gourmet Dinner Experience'), desc: LV('Thưởng thức set menu đẳng cấp trong ánh đèn ấm cúng của nhà hàng kính nhìn ra vịnh đêm tĩnh lặng.', 'Dine on exquisite seasonal delicacies prepared by our master chefs.') },
+    { time: '21:00 – 23:00', title: LV('Câu mực đêm, Sky Bar & Nghỉ ngơi', 'Squid Fishing & Starlit Sky Bar'), desc: LV('Thử tài câu mực cùng thuyền viên, thưởng thức đồ uống tại Sky Bar hoặc thư giãn ngắm sao trời trên ban công riêng.', 'Try squid fishing from the tender, sip craft cocktails under starry skies or unwind on your private balcony.') },
+    { time: '06:15 – 07:00', title: LV('Thái Cực Quyền (Taichi) đón bình minh', 'Sunrise Taichi Session'), desc: LV('Khởi đầu ngày mới tràn đầy năng lượng với bài tập Taichi trên sundeck khi bình minh ló rạng trên mặt vịnh.', 'Greet the morning sun with a rejuvenating Taichi class on the panoramic sundeck.') },
+    { time: '07:45 – 09:30', title: LV('Khám phá Làng cổ Việt Hải', 'Explore Ancient Viet Hai Village'), desc: LV('Đi xe điện hoặc đạp xe qua đường hầm xuyên núi vào ngôi làng cổ nằm giữa thung lũng rừng quốc gia Cát Bà.', 'Ride bicycles or electric cars into the secluded heritage village tucked inside Cat Ba National Park.') },
+    { time: '10:00 – 11:30', title: LV('Bữa Brunch sớm & Tàu cập bến', 'Farewell Brunch & Disembarkation'), desc: LV('Thưởng thức bữa trưa sớm Buffet trong khi tàu quay về bến. Xe Limousine đón bạn về lại Hà Nội an toàn.', 'Enjoy a buffet brunch as the ship returns to the harbor. Limousine transfers ready for your journey back.') }
+  ];
+
+  const ITIN_3D2N = [
+    { time: 'Ngày 1 (Day 1)', title: LV('Khởi hành – Check-in – Kayak & Hoàng hôn', 'Embarkation – Kayak & Sunset Party'), desc: LV('Hành trình ngày đầu trọn vẹn với welcome drink, ăn trưa ngắm vịnh, chèo kayak, tiệc trà hoàng hôn và bữa tối lãng mạn.', 'Complete first-day highlights: lunch, kayaking, sunset sundeck party and fine dining.') },
+    { time: 'Ngày 2 (Day 2)', title: LV('Khám phá sâu Vịnh Lan Hạ bằng tàu ngày cao cấp', 'Full-Day Exploration by Day Tender'), desc: LV('Chuyển sang tàu chuyên dụng đưa bạn đến Hang Sáng Tối, bãi tắm hoang sơ bí ẩn, đạp xe làng Việt Hải và thưởng thức bữa trưa riêng biệt giữa vịnh.', 'Transfer to our day boat to explore the mystical Light & Dark caves, secret lagoons, cycling and a private bay lunch.') },
+    { time: 'Ngày 3 (Day 3)', title: LV('Taichi bình minh – Check-out – Xe Limousine về Hà Nội', 'Sunrise Taichi – Farewell Brunch – Return'), desc: LV('Tập Taichi sáng sớm, thưởng thức buffet brunch thịnh soạn trước khi cập cảng và lên xe Limousine về Hà Nội.', 'Morning Taichi, farewell buffet brunch, disembarkation and seamless limousine ride home.') }
+  ];
+
+  const currentTimeline = itin === '2d1n' ? ITIN_2D1N : ITIN_3D2N;
 
   return (
-    <section className="dt-suites-sec" id="suites" data-screen-label="4 Hạng Suite Du Thuyền 5★">
-      <div className="dt-suites-inner">
-        <div className="dt-suites-title">
-          {LV('4 HẠNG SUITE — ĐỀU CÓ BAN CÔNG RIÊNG', '4 SUITE CATEGORIES — ALL WITH PRIVATE BALCONY')}
+    <section className="lux-itin-sec" id="itinerary" data-screen-label="Hải Trình Nghỉ Dưỡng">
+      <div className="lux-itin-inner">
+        <div className="lux-sec-header">
+          <div className="lux-sec-kicker">{LV('LỊCH TRÌNH CHI TIẾT', 'CURATED ITINERARIES')}</div>
+          <h2 className="lux-sec-title">{LV('Hải Trình Trọn Vẹn Cảm Xúc', 'Your Voyage Through the Wonders')}</h2>
+          <p className="lux-sec-sub">
+            {LV(
+              'Được thiết kế tỉ mỉ cân bằng giữa nghỉ dưỡng thư thái và các hoạt động trải nghiệm thiên nhiên đặc sắc nhất vịnh Lan Hạ.',
+              'Thoughtfully balanced between blissful leisure and thrilling natural excursions.'
+            )}
+          </p>
         </div>
-        <div className="dt-suites-grid">
-          {suites.map((st) => (
-            <a key={st.id} className="dt-suite-card" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
-              <img src={st.img} alt={st.name} loading="lazy" />
-              <span className="name">{st.name}</span>
+
+        <div className="lux-itin-tabs">
+          <button className={'lux-itin-tab' + (itin === '2d1n' ? ' active' : '')} onClick={() => setItin('2d1n')}>
+            ⚓ {LV('Hải trình 2 Ngày 1 Đêm (2D1N) — Phổ biến nhất', '2 Days 1 Night (2D1N) — Most Popular')}
+          </button>
+          <button className={'lux-itin-tab' + (itin === '3d2n' ? ' active' : '')} onClick={() => setItin('3d2n')}>
+            🌟 {LV('Hải trình 3 Ngày 2 Đêm (3D2N) — Trải nghiệm sâu', '3 Days 2 Nights (3D2N) — Deep Immersion')}
+          </button>
+        </div>
+
+        <div className="lux-timeline">
+          {currentTimeline.map((step, idx) => (
+            <div key={idx} className="lux-timeline-node">
+              <span className="lux-time-badge">⏱ {step.time}</span>
+              <h4 className="lux-timeline-title">{step.title}</h4>
+              <p className="lux-timeline-desc">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   SECTION 5: DAY CRUISES & COMBO TOURS
+   ============================================================ */
+function DayCruisesHighlightSection() {
+  const DAY_TOURS = [
+    {
+      id: 'vip1',
+      code: 'VIP 1',
+      name: LV('Tour 1 Ngày Lan Hạ – Làng Việt Hải', 'Lan Ha – Viet Hai Full-Day (VIP 1)'),
+      time: '08:00 – 16:30',
+      boat: LV('Tàu sắt 48 chỗ hiện đại', '48-pax Steel Boat'),
+      price: 720000,
+      img: 'assets/photos/daycruise-1.jpg',
+      perks: LV('Ăn trưa hải sản · Đạp xe Việt Hải · Kayak', 'Seafood Lunch · Cycling · Kayak')
+    },
+    {
+      id: 'sunset',
+      code: 'SUNSET TEA',
+      name: LV('Tour Hoàng Hôn Lan Hạ & Tiệc Trà Chiều', 'Lan Ha Sunset Cruise & Tea Party'),
+      time: '15:30 – 18:45',
+      boat: LV('Tàu 2 tầng ngắm vịnh', '2-Deck Panoramic Boat'),
+      price: 430000,
+      img: 'assets/photos/daycruise-2.jpg',
+      perks: LV('Tiệc trà bánh · Ngắm hoàng hôn vàng', 'Sunset Tea & Fruits · Golden Hour')
+    },
+    {
+      id: 'dinner',
+      code: 'DINNER DJ',
+      name: LV('Dinner Cruise DJ & Pháo Hoa Lan Hạ', 'Dinner Cruise DJ & Fireworks Show'),
+      time: '17:30 – 21:30',
+      boat: LV('Du thuyền 5★ 99 chỗ', '5★ 99-pax Ship'),
+      price: 850000,
+      img: 'assets/photos/daycruise-4.jpg',
+      perks: LV('Ăn tối lãng mạn · Nhạc DJ · Pháo hoa', 'Seafood Dinner · Live DJ · Fireworks')
+    },
+    {
+      id: 'combo1',
+      code: 'COMBO ALL-IN',
+      name: LV('Combo Xe Đón Hà Nội + Du Thuyền Ngày', 'All-in Hanoi Limousine + Day Cruise'),
+      time: '06:00 – 20:30',
+      boat: LV('Xe Limousine + Du thuyền', 'Limousine + Cruise'),
+      price: 1250000,
+      img: 'assets/photos/daycruise-act-1.jpg',
+      perks: LV('Đón trả phố cổ Hà Nội · Trọn gói 1 ngày', 'Hanoi Pickup & Return · Full Day')
+    }
+  ];
+
+  return (
+    <section className="lux-duo-sec" id="day-cruises" data-screen-label="Du Thuyền Ngày">
+      <div className="lux-sec-header">
+        <div className="lux-sec-kicker">{LV('TRẢI NGHIỆM TRONG NGÀY', 'DAYTIME VOYAGES')}</div>
+        <h2 className="lux-sec-title">{LV('Du Thuyền Ngày Lan Hạ & Tour Trọn Gói', 'Lan Ha Day Cruises & Day Packages')}</h2>
+        <p className="lux-sec-sub">
+          {LV(
+            'Dành cho du khách muốn khám phá trọn vẹn vẻ đẹp vịnh Lan Hạ với thời gian linh hoạt trong ngày. Khởi hành đều đặn mỗi sáng và chiều.',
+            'Perfect for travelers with limited time seeking the finest day cruise experiences, sunset tea parties and dinner spectacles.'
+          )}
+        </p>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
+        {DAY_TOURS.map((t) => (
+          <a key={t.id} className="lux-ship-card" href="https://daiichitravel.com/?tab=tours&category=TOUR_SHORT" target="_blank" rel="noopener" style={{ textDecoration: 'none' }}>
+            <div style={{ position: 'relative', height: 180, overflow: 'hidden' }}>
+              <img src={t.img} alt={t.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+              <span style={{ position: 'absolute', top: 12, left: 12, background: 'var(--navy)', color: '#FDE68A', fontSize: 11, fontWeight: 800, padding: '4px 10px', borderRadius: 6 }}>
+                {t.code}
+              </span>
+            </div>
+            <div style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+              <h3 style={{ fontSize: 17, fontWeight: 700, color: 'var(--navy)', margin: '0 0 6px', lineHeight: 1.35 }}>{t.name}</h3>
+              <div style={{ fontSize: 12.5, color: '#64748B', marginBottom: 10 }}>⏱ {t.time} · {t.boat}</div>
+              <div style={{ fontSize: 12, color: '#047857', fontWeight: 600, marginBottom: 14 }}>{t.perks}</div>
+              <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', borderTop: '1px solid #F1F5F9', paddingTop: 12 }}>
+                <div>
+                  <span style={{ fontSize: 11, color: '#64748B' }}>{LV('Giá từ', 'From')}</span>
+                  <b style={{ color: 'var(--lux-red)', fontSize: 18, display: 'block' }}>{t.price.toLocaleString('vi-VN')}đ</b>
+                </div>
+                <span style={{ background: 'var(--lux-gold-grad)', color: '#111E2E', padding: '7px 14px', borderRadius: 8, fontSize: 12.5, fontWeight: 800 }}>
+                  {LV('Đặt ngay →', 'Book →')}
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   SECTION 6: LIMOUSINE TRANSFERS (CONCIERGE ADD-ON)
+   ============================================================ */
+function LimousineConciergeSection() {
+  const ROUTES = [
+    { from: 'Hà Nội (Phố Cổ / Nội Bài)', to: 'Cát Bà (Bến tàu Du thuyền)', time: '3h00', price: 250000, desc: 'Xe Limousine + Tàu cao tốc qua đảo' },
+    { from: 'Hà Nội', to: 'Hải Phòng', time: '1h45', price: 140000, desc: 'Đón trả tận nơi nội thành' },
+    { from: 'Ninh Bình (Tràng An / Tam Cốc)', to: 'Cát Bà', time: '3h30', price: 250000, desc: 'Xe Limousine đón tại khách sạn' },
+    { from: 'Hạ Long (Tuần Châu / Bãi Cháy)', to: 'Cát Bà', time: '1h30', price: 280000, desc: 'Kết nối 2 vịnh di sản' },
+  ];
+
+  return (
+    <section className="lux-duo-sec" id="limousine" data-screen-label="Xe Limousine Đưa Đón">
+      <div style={{ background: '#FFFFFF', borderRadius: 20, padding: '36px 32px', border: '1px solid #E2E8F0', boxShadow: '0 8px 30px rgba(0,0,0,0.05)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24, flexWrap: 'wrap', gap: 14 }}>
+          <div>
+            <div className="lux-sec-kicker" style={{ textAlign: 'left' }}>DAIICHI LIMOUSINE CONCIERGE</div>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 26, color: 'var(--navy)', margin: '4px 0 0' }}>
+              {LV('Dịch Vụ Xe Limousine Đưa Đón Tận Nơi Đến Du Thuyền', 'Luxury Limousine Transfers Straight to Your Cruise')}
+            </h3>
+          </div>
+          <span style={{ fontSize: 13, color: '#16A34A', fontWeight: 700, background: '#DCFCE7', padding: '6px 14px', borderRadius: 20 }}>
+            ✓ {LV('Đón trả tận nơi Phố Cổ Hà Nội · Giá đã gồm VAT', 'Old Quarter Hotel Pickup · Official Rates')}
+          </span>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+          {ROUTES.map((r, i) => (
+            <a key={i} href={`https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(r.from)}&to=${encodeURIComponent(r.to)}`} target="_blank" rel="noopener" style={{ background: '#F8FAFC', border: '1.5px solid #E2E8F0', borderRadius: 14, padding: '16px 18px', textDecoration: 'none', transition: 'all .2s' }}>
+              <div style={{ fontSize: 14.5, fontWeight: 700, color: 'var(--navy)', marginBottom: 4 }}>
+                {r.from} → {r.to}
+              </div>
+              <div style={{ fontSize: 12, color: '#64748B', marginBottom: 10 }}>⏱ {r.time} · {r.desc}</div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <span style={{ fontSize: 11, color: '#64748B' }}>{LV('Giá chỉ từ', 'From')}</span>
+                <b style={{ color: 'var(--lux-red)', fontSize: 16 }}>{r.price.toLocaleString('vi-VN')}đ<em style={{ fontSize: 11, fontStyle: 'normal', color: '#64748B', marginLeft: 3 }}>/khách</em></b>
+              </div>
             </a>
           ))}
         </div>
-        <div className="dt-suites-stats">
-          <div className="dt-suites-stat">
-            <b>30</b>
-            <span>{LV('suite ban công', 'balcony suites')}</span>
-          </div>
-          <div className="dt-suites-stat">
-            <b>4</b>
-            <span>{LV('hạng suite', 'suite categories')}</span>
-          </div>
-          <div className="dt-suites-stat">
-            <b>2N1Đ · 3N2Đ</b>
-            <span>{LV('hành trình', 'itinerary')}</span>
-          </div>
-          <div className="dt-suites-stat">
-            <b>từ 5.0tr</b>
-            <span>{LV('mỗi đêm / cabin 2 khách', 'per night / 2-guest cabin')}</span>
-          </div>
-        </div>
-        <div className="dt-suites-actions">
-          <a className="dt-suites-btn-primary" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
-            {LV('Đặt du thuyền 5★ →', 'Book 5★ Cruise →')}
-          </a>
-          <a className="dt-suites-btn-ghost" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
-            {LV('Tham quan con tàu', 'Ship Tour')}
-          </a>
-          <a className="dt-suites-btn-ghost" href="seo/vi/du-thuyen-ngu-dem-lan-ha.html">
-            {LV('Tìm hiểu du thuyền', 'Cruise Details')}
-          </a>
-          <a className="dt-suites-btn-ghost" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
-            {LV('Tàu 4★ Daiichi Boutique', '4★ Daiichi Boutique')}
-          </a>
-        </div>
       </div>
     </section>
   );
 }
 
+/* ============================================================
+   ROOM DETAIL POPUP MODAL COMPONENT
+   ============================================================ */
+function RoomDetailModal({ room, onClose }) {
+  if (!room) return null;
+  const [activeImg, setActiveImg] = useState(room.img);
+
+  return (
+    <div className="lux-modal-backdrop" onClick={onClose}>
+      <div className="lux-modal-box" onClick={(e) => e.stopPropagation()}>
+        <button className="lux-modal-close" onClick={onClose}>✕</button>
+
+        <div className="lux-modal-gallery">
+          <img src={activeImg} alt={room.name} />
+          {room.gallery && room.gallery.length > 1 && (
+            <div className="lux-modal-thumbs">
+              {room.gallery.map((im, idx) => (
+                <button key={idx} className={'lux-modal-thumb-btn' + (activeImg === im ? ' active' : '')} onClick={() => setActiveImg(im)}>
+                  <img src={im} alt="thumb" />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="lux-modal-content">
+          <div className="lux-modal-header">
+            <div>
+              <span className="lux-room-ship-label">{room.shipName}</span>
+              <h2 className="lux-modal-title">{room.name}</h2>
+            </div>
+            <div className="lux-modal-price">
+              {room.price.toLocaleString('vi-VN')}đ<em>/đêm (cabin 2 khách)</em>
+            </div>
+          </div>
+
+          <div className="lux-modal-specs">
+            <div>
+              <span style={{ fontSize: 11, color: '#64748B' }}>Diện tích</span>
+              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>{room.area} m²</b>
+            </div>
+            <div>
+              <span style={{ fontSize: 11, color: '#64748B' }}>Sức chứa</span>
+              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>{room.capacity}</b>
+            </div>
+            <div>
+              <span style={{ fontSize: 11, color: '#64748B' }}>Vị trí</span>
+              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>{room.floor}</b>
+            </div>
+            <div>
+              <span style={{ fontSize: 11, color: '#64748B' }}>Ban công</span>
+              <b style={{ display: 'block', fontSize: 16, color: 'var(--navy)' }}>Có ban công riêng</b>
+            </div>
+          </div>
+
+          <p style={{ fontSize: 14.5, color: '#475569', lineHeight: 1.7, marginBottom: 20 }}>
+            {room.desc}
+          </p>
+
+          <h4 style={{ fontSize: 15, fontWeight: 700, color: 'var(--navy)', marginBottom: 12 }}>
+            Tiện nghi & Dịch vụ đi kèm trong phòng:
+          </h4>
+          <div className="lux-modal-amenities-grid">
+            {room.amenities.map((am, idx) => (
+              <div key={idx} className="lux-modal-amenity-item">
+                <span style={{ color: 'var(--lux-gold-pure)', fontWeight: 800 }}>✓</span>
+                <span>{am}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="lux-modal-actions">
+            <button className="lux-btn-outline" onClick={onClose}>
+              Đóng lại
+            </button>
+            <a className="lux-submit-btn" style={{ textDecoration: 'none' }} href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+              Đặt Hạng Phòng Này Ngay →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   MAIN UNIFIED CRUISE HOMEPAGE
+   ============================================================ */
 function OneHome() {
   const [, force] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedRoom, setSelectedRoom] = useState(null);
+
   useEffect(() => {
     const onLang = () => force((x) => x + 1);
+    const onSync = () => force((x) => x + 1);
     window.addEventListener('dt:lang', onLang);
-    window.addEventListener('dt:cms', onLang);
+    window.addEventListener('dt:supabase_synced', onSync);
     window.addEventListener('storage', onLang);
-    return () => { window.removeEventListener('dt:lang', onLang); window.removeEventListener('dt:cms', onLang); window.removeEventListener('storage', onLang); };
+    return () => {
+      window.removeEventListener('dt:lang', onLang);
+      window.removeEventListener('dt:supabase_synced', onSync);
+      window.removeEventListener('storage', onLang);
+    };
   }, []);
-  const L2 = (pair) => (Array.isArray(pair) ? LV(pair[0], pair[1]) : pair);
-  const heroT = window.DT_CMS ? DT_CMS.heroTitle('home') : null;
-  const heroImg = window.DT_CMS ? DT_CMS.heroImg('home') : 'luxury-1.jpg';
-  const bnews = window.DT_CMS ? DT_CMS.bannerNews() : null;
 
   return (
     <React.Fragment>
+      {/* HEADER */}
       <header className="on-header">
         <div className="on-header-in" style={{ position: 'relative' }}>
           <a className="on-logo" href="#" style={{ textDecoration: 'none', color: '#fff' }}>
@@ -739,7 +970,13 @@ function OneHome() {
             <b>DAIICHI <em>CRUISE</em></b>
           </a>
           <nav className="on-nav">
-            <a href="#services">{T('nav_services')}</a>
+            <a href="#fleet">{T('nav_luxury')}</a>
+            <a href="#boutique-cruise">{T('nav_boutique')}</a>
+            <a href="#suites">{T('nav_suites')}</a>
+            <a href="#highlights">{T('nav_highlights')}</a>
+            <a href="#itinerary">{T('nav_itinerary')}</a>
+            <a href="#day-cruises">{T('nav_day')}</a>
+            <a href="#limousine">{T('nav_limo')}</a>
             <a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a>
           </nav>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -750,7 +987,9 @@ function OneHome() {
               <span>💬</span><b>Zalo</b>
             </a>
             <OneLang />
-            <a className="on-cta" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">{T('cta_book')}</a>
+            <a className="on-cta" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener" style={{ background: 'var(--lux-gold-grad)', color: '#111E2E', fontWeight: 800 }}>
+              {T('cta_book')}
+            </a>
             <button className="on-burger" aria-label="menu" onClick={() => setMenuOpen(!menuOpen)}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 {menuOpen ? <path d="M5 5l14 14M19 5L5 19" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -759,164 +998,107 @@ function OneHome() {
           </div>
           {menuOpen && (
             <div className="on-mobile-menu" onClick={() => setMenuOpen(false)}>
-              <div style={{ padding: '8px 10px', display: 'flex', gap: 8, borderBottom: '1px solid rgba(255,255,255,.1)', marginBottom: 6 }}>
-                <a href="tel:19009070" style={{ color: 'var(--gold-bright)', fontSize: 13, fontWeight: 700, padding: 0 }}>📞 1900 9070</a>
-                <span style={{ color: 'rgba(255,255,255,.4)' }}>·</span>
-                <a href="https://zalo.me/0961004709" target="_blank" rel="noopener" style={{ color: '#60A5FA', fontSize: 13, fontWeight: 700, padding: 0 }}>💬 Zalo: 0961 004 709</a>
-              </div>
-              <a href="#deals">{LV('Ưu đãi đang diễn ra', 'Deals')}</a>
-              <a href="#services">{T('nav_services')}</a>
+              <a href="#fleet">{T('nav_luxury')}</a>
+              <a href="#boutique-cruise">{T('nav_boutique')}</a>
+              <a href="#suites">{T('nav_suites')}</a>
+              <a href="#highlights">{T('nav_highlights')}</a>
+              <a href="#itinerary">{T('nav_itinerary')}</a>
+              <a href="#day-cruises">{T('nav_day')}</a>
+              <a href="#limousine">{T('nav_limo')}</a>
               <a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a>
-              <a href="#partner">{T('cta_partner')}</a>
             </div>
           )}
         </div>
       </header>
 
-      {bnews && (
-        <div style={{ background: 'var(--gold-soft)', borderBottom: '1px solid var(--line)', color: '#6B4F1B', padding: '8px 18px', textAlign: 'center', fontSize: 12.5, fontWeight: 600 }} data-comment-anchor="home-news-bar">
-          📣 {I18N.L(bnews.title)}
-        </div>
-      )}
+      {/* LUXURY HERO BANNER */}
+      <div className="lux-hero" data-screen-label="Hero Du Thuyền Luxury">
+        <div className="lux-hero-bg" style={{ backgroundImage: `url(assets/photos/luxury-1.jpg)` }}></div>
+        <div className="lux-hero-overlay"></div>
+        <div className="lux-hero-content">
+          <div className="lux-badge-gold">
+            ★ {T('hero_k')} ★
+          </div>
+          <h1 className="lux-hero-title">
+            {LV('Tuyệt Tác Du Thuyền Luxury & Boutique', 'Masterpiece Luxury & Boutique Cruises')} <br />
+            <em>{LV('Giữa Kỳ Quan Vịnh Lan Hạ', 'In Lan Ha Bay')}</em>
+          </h1>
+          <p className="lux-hero-desc">
+            {T('hero_p')}
+          </p>
 
-      <div className="on-hero" data-screen-label="Hero trang chủ">
-        <div className="on-hero-bg" style={{ backgroundImage: `url(assets/photos/${heroImg})` }}></div>
-        <div className="on-kicker">{T('hero_k')}</div>
-        <h1>{heroT ? I18N.L(heroT) : T('hero_t')}</h1>
-        <p>{T('hero_p')}</p>
-        <div className="on-hero-actions">
-          <a className="on-btn red" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">{T('cta_book')} →</a>
-          <a className="on-btn glass" href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a>
+          <div className="lux-hero-highlights">
+            <span className="lux-hl-item"><span className="icon">💎</span> {LV('100% Suite Ban Công Riêng', '100% Balcony Suites')}</span>
+            <span className="lux-hl-item"><span className="icon">🌉</span> {LV('Cầu Kính Skywalk Độc Nhất', 'Ocean Glass Skywalk')}</span>
+            <span className="lux-hl-item"><span className="icon">♨️</span> {LV('Bể Sục Jacuzzi Bốn Mùa', 'Heated Jacuzzi')}</span>
+            <span className="lux-hl-item"><span className="icon">🍽️</span> {LV('Ẩm Thực Fine Dining 5★', 'Fine Dining Gastronomy')}</span>
+            <span className="lux-hl-item"><span className="icon">🚐</span> {LV('Limousine Đón Trả Tận Cửa', 'Door-to-Door Limousine')}</span>
+          </div>
         </div>
       </div>
 
-      <div className="dt-search-wrap" style={{ maxWidth: 1040, margin: '-78px auto 0', padding: '0 24px', position: 'relative', zIndex: 10 }}>
-        <HomeSearch />
+      {/* SEARCH BOX (CRUISE FIRST) */}
+      <div style={{ maxWidth: 1120, margin: '-90px auto 0', padding: '0 24px', position: 'relative', zIndex: 30 }}>
+        <CruiseHomeSearch />
       </div>
 
-      <PopularRoutesSection />
+      {/* SECTION 1: THE TWO ICONIC SHIPS */}
+      <FlagshipShipsSection />
 
-      <LiveBusScheduleSection />
+      {/* SECTION 2: SUITE COLLECTION SHOWCASE */}
+      <SuiteCollectionSection onSelectRoom={(room) => setSelectedRoom(room)} />
 
-      <DayCruisesSection />
+      {/* SECTION 3: 6 EXCLUSIVE SIGNATURE HIGHLIGHTS */}
+      <CruiseHighlightsSection />
 
-      <LuxurySuitesGallery />
+      {/* SECTION 4: ITINERARY INTERACTIVE TIMELINE */}
+      <CruiseItinerarySection />
 
-      <LiveDeals />
+      {/* SECTION 5: DAY CRUISES & COMBO TOURS */}
+      <DayCruisesHighlightSection />
 
-      <section className="on-sec" id="services" data-screen-label="Dịch vụ">
-        <div className="on-sec-head">
-          <div className="k">{T('svc_k')}</div>
-          <h2>{T('svc_t')}</h2>
-          <p>{T('svc_p')}</p>
+      {/* SECTION 6: LIMOUSINE CONCIERGE */}
+      <LimousineConciergeSection />
+
+      {/* LIVE DEALS & CAMPAIGNS */}
+      <div style={{ maxWidth: 1240, margin: '60px auto 0', padding: '0 24px' }}>
+        <div style={{ background: 'linear-gradient(135deg, #102A43 0%, #06182C 100%)', borderRadius: 20, padding: '30px 36px', color: '#fff', border: '1px solid rgba(212,166,72,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}>
+          <div>
+            <div style={{ color: 'var(--lux-gold-pure)', fontSize: 12, fontWeight: 800, letterSpacing: '.16em', textTransform: 'uppercase', marginBottom: 4 }}>
+              ƯU ĐÃI ĐỘC QUYỀN TRỰC TUYẾN 2026
+            </div>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 24, margin: '0 0 6px' }}>
+              Đặt Trước 30 Ngày — Giảm Ngay 12% Cho Tất Cả Hạng Suite
+            </h3>
+            <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 14, margin: 0 }}>
+              Áp dụng mã <b>EARLYBIRD12</b> khi thanh toán trực tuyến. Tặng kèm voucher đồ uống và set chèo thuyền kayak miễn phí.
+            </p>
+          </div>
+          <a className="lux-submit-btn" style={{ textDecoration: 'none' }} href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+            Săn Ưu Đãi Ngay →
+          </a>
         </div>
-        <div className="on-svc">
-          {SERVICES.map((s, i) => (
-            <a key={i} className={'on-svc-card' + (s.wide ? ' wide' : '')} href={s.href}>
-              <span className="bg" style={{ backgroundImage: `url(${s.img})` }}></span>
-              <span className="tx">
-                <span className={'tag' + (s.pt ? ' pt' : '')}>{s.pt ? '✓ ' : ''}{L2(s.tag)}</span>
-                <h3>{LV(s.t[0], s.t[1])}</h3>
-                <span className="d">{LV(s.d[0], s.d[1])}</span>
-                {s.pr && <span className="pr">{LV('từ', 'from')} {s.pr}{LV('/khách', '/person')}</span>}
-              </span>
-            </a>
-          ))}
-        </div>
-        {/* customer trust row */}
+      </div>
+
+      {/* TRUST ROW */}
+      <div style={{ maxWidth: 1240, margin: '48px auto 0', padding: '0 24px' }}>
         <div className="on-trust">
           {[
-            ['⚡', I18N.t('confirm_instant'), LV('Vé QR gửi ngay qua email / Zalo sau khi thanh toán.', 'QR ticket delivered instantly by email or Zalo.')],
-            ['🛡️', I18N.t('free_cancel'), LV('Không phí ẩn — giá đã gồm VAT và đón trả trung tâm.', 'No hidden fees — VAT and central pickup included.')],
-            ['📍', LV('Theo dõi xe GPS', 'Live GPS tracking'), LV('Biết xe đang ở đâu, đến điểm đón lúc mấy giờ.', 'See where your bus is and when it arrives.')],
-            ['💬', I18N.t('support_247'), LV('Tiếng Việt, Anh, Nhật, Hàn, Trung, Pháp.', 'Vietnamese, English, Japanese, Korean, Chinese, French.')],
+            ['⚡', I18N.t('confirm_instant'), LV('Xác nhận tức thì · Giữ chỗ ngay khi thanh toán online.', 'Instant confirmation · Guaranteed booking online.')],
+            ['🛡️', I18N.t('free_cancel'), LV('Chính sách hoàn huỷ minh bạch · Không phí ẩn · Đã gồm VAT.', 'Transparent cancellation · No hidden fees · VAT included.')],
+            ['🍽️', LV('Ẩm thực trọn gói', 'All-inclusive meals'), LV('Trọn gói các bữa ăn hải sản cao cấp theo từng hải trình.', 'Gourmet seafood meals included per itinerary.')],
+            ['💬', I18N.t('support_247'), LV('Hỗ trợ 24/7 bằng 6 thứ tiếng: Việt, Anh, Nhật, Hàn, Trung, Pháp.', '24/7 Concierge support in 6 languages.')],
           ].map(([ic, b, s], i) => (
-            <div key={i} className="on-trust-it">
-              <span className="ic">{ic}</span>
-              <span><b>{b}</b><span style={{ display: 'block' }}>{s}</span></span>
+            <div key={i} className="on-trust-it" style={{ border: '1px solid rgba(212,166,72,0.25)', borderRadius: 14 }}>
+              <span className="ic" style={{ background: 'rgba(212,166,72,0.15)', color: 'var(--lux-gold-dark)' }}>{ic}</span>
+              <span><b style={{ color: 'var(--navy)' }}>{b}</b><span style={{ display: 'block' }}>{s}</span></span>
             </div>
           ))}
         </div>
-      </section>
-
-      <div className="on-nums">
-        <div className="on-nums-in">
-          {[
-            ['18+', LV('chuyến xe & tàu mỗi ngày', 'bus & boat departures daily')],
-            ['6', LV('tour du thuyền ngày', 'day cruise tours')],
-            ['30', LV('suite du thuyền 5★', '5★ cruise suites')],
-            ['24/7', LV('hỗ trợ khách hàng', 'customer support')],
-            ['6', LV('ngôn ngữ phục vụ', 'service languages')],
-          ].map(([b, s], i) => (
-            <div key={i} className="on-num"><b>{b}</b><span>{s}</span></div>
-          ))}
-        </div>
       </div>
 
-      <div className="on-partner-mini" id="partner" data-screen-label="Đối tác (góc nhỏ)">
-        <PartnerMini />
-      </div>
-
-      <div className="on-apps">
-        <div className="on-apps-in">
-          <div>
-            <h2>{T('apps_t')} <em>{T('apps_em')}</em></h2>
-            <p style={{ marginTop: 10 }}>
-              {LV('Khách hàng, Tài xế, Hướng dẫn viên, Đại lý và Nhân viên — cùng đọc một kho chuyến, ghế và vé QR với website. GPS 2 chiều, quên đồ, gọi qua app/di động, chấm công GPS toàn công ty.', 'Customer, Driver, Guide, Agent and Staff — all reading the same trips, seats and QR tickets as the website. Two-way GPS, lost & found, in-app or cellular calls, company-wide GPS time clock.')}
-            </p>
-            <div className="on-app-badges">
-              <a
-                className="on-app-badge"
-                href={(window.DAIICHI_CONFIG && window.DAIICHI_CONFIG.APP_STORE_URL) || 'https://apps.apple.com/app/id6790058777'}
-                target="_blank"
-                rel="noopener"
-                title="Tải ứng dụng Daiichi Travel trên App Store"
-              >
-                <svg width="22" height="26" viewBox="0 0 170 170" fill="currentColor">
-                  <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.58-7.71-11.65-14-5.88-9.02-10.45-19.46-13.72-31.33-3.26-11.86-4.9-23.01-4.9-33.44 0-14.46 3.65-26.4 10.96-35.81 7.31-9.41 16.5-14.22 27.56-14.44 4.58 0 9.87 1.24 15.86 3.72 6 2.48 10.02 3.78 12.08 3.9 1.83-.22 5.95-1.55 12.35-4 6.4-2.45 11.83-3.6 16.3-3.46 12.38.64 22.37 5.2 29.98 13.68-10.86 6.53-16.18 15.66-15.95 27.38.22 9.13 3.75 16.85 10.59 23.16 6.84 6.3 14.88 9.87 24.12 10.7-2.6 7.6-5.86 15.42-9.78 23.47zM119.22 31.84c0-7.72 2.76-14.92 8.28-21.6 5.53-6.68 12.36-10.74 20.5-12.18.22 1.08.33 2.17.33 3.26 0 7.6-2.82 14.82-8.47 21.66-5.65 6.85-12.63 10.9-20.93 12.16-.11-1.09-.16-2.18-.16-3.26z"/>
-                </svg>
-                <div className="txt">
-                  <span className="sub">{LV('Tải trên', 'Download on')}</span>
-                  <span className="title">App Store</span>
-                </div>
-              </a>
-
-              <a
-                className="on-app-badge"
-                href={(window.DAIICHI_CONFIG && window.DAIICHI_CONFIG.PLAY_STORE_URL) || 'https://play.google.com/store/apps/details?id=app.web.daiichitravel.twa'}
-                target="_blank"
-                rel="noopener"
-                title="Tải ứng dụng Daiichi Travel trên Google Play (CH Play)"
-              >
-                <svg width="22" height="24" viewBox="0 0 512 512">
-                  <path fill="#00D2FF" d="M47.7 13.1C39.6 21.7 35 34.6 35 50.8v410.4c0 16.2 4.6 29.1 12.7 37.7l2.1 1.9L278.4 272.2v-5.4L49.8 11.2l-2.1 1.9z"/>
-                  <path fill="#00F076" d="M358.3 352.1l-79.9-79.9v-5.4l79.9-79.9 1.8 1 94.6 53.7c27 15.3 27 40.5 0 55.9l-94.6 53.6-1.8 1z"/>
-                  <path fill="#FF3A44" d="M360.1 351.1L278.4 269.5 47.7 500.1c8.9 9.5 23.6 10.6 40 1.4l272.4-150.4z"/>
-                  <path fill="#FFC800" d="M360.1 160.9L87.7 10.5C71.3 1.3 56.6 2.4 47.7 11.9l230.7 230.6 81.7-81.6z"/>
-                </svg>
-                <div className="txt">
-                  <span className="sub">{LV('Tải trên', 'Get it on')}</span>
-                  <span className="title">CH Play</span>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="on-applist">
-            {[
-              ['📱', LV('Khách hàng — đặt vé, GPS, quên đồ', 'Customer — booking, GPS, lost & found')],
-              ['🛞', LV('Tài xế — điều hướng, chấm công', 'Driver — navigation, time clock')],
-              ['🎤', LV('Hướng dẫn viên — liên hệ & đón khách', 'Guide — guest contact & pickup')],
-              ['🤝', LV('Đại lý — giá net, đặt hộ', 'Agent — net rates, book for clients')],
-              ['🪪', LV('Nhân viên — soát vé QR, POS', 'Staff — QR check-in, POS')],
-              ['🕐', LV('Chấm công GPS toàn công ty', 'Company-wide GPS time clock')],
-            ].map(([ic, lb], i) => (
-              <span key={i}><span style={{ fontSize: 16 }}>{ic}</span>{lb}</span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <footer className="on-footer">
+      {/* FOOTER */}
+      <footer className="on-footer" style={{ marginTop: 72 }}>
         <div className="on-footer-in">
           <div className="on-footer-grid">
             <div>
@@ -926,49 +1108,39 @@ function OneHome() {
                 <li><b>Hotline 24/7:</b> <a href="tel:19009070" style={{ color: 'var(--gold-bright)' }}>1900 9070</a></li>
                 <li><b>Zalo hỗ trợ:</b> <a href="https://zalo.me/0961004709" target="_blank" rel="noopener" style={{ color: '#60A5FA' }}>0961 004 709</a></li>
                 <li><b>Email:</b> <a href="mailto:sale@daiichitravel.com">sale@daiichitravel.com</a></li>
+                <li><b>Văn phòng:</b> 217 đường 1/4, Cát Bà, Hải Phòng</li>
                 <li><b>Đặt vé chính thức:</b> <a href="https://daiichitravel.com" target="_blank" rel="noopener" style={{ color: 'var(--gold-bright)' }}>daiichitravel.com</a></li>
               </ul>
             </div>
             <div>
-              <h4>{T('nav_services')}</h4>
+              <h4>HẠM ĐỘI DU THUYỀN</h4>
               <ul>
-                <li><a href="https://daiichitravel.com/?tab=book-ticket&from=Hà%20Nội&to=Cát%20Bà" target="_blank" rel="noopener">Daiichi Bus & Limousine</a></li>
-                <li><a href="https://daiichitravel.com/?tab=tours&category=TOUR_SHORT" target="_blank" rel="noopener">Lan Ha Day Cruises</a></li>
-                <li><a href="https://daiichitravel.com/?tab=cruise-tour" target="_blank" rel="noopener">Daiichi Luxury Cruise 5★</a></li>
-                <li><a href="https://daiichitravel.com/?tab=tours&category=TOUR_SHORT" target="_blank" rel="noopener">Combo Tours</a></li>
+                <li><a href="#fleet">Daiichi Luxury Cruise 5★</a></li>
+                <li><a href="#boutique-cruise">Daiichi Boutique Cruise 4★</a></li>
+                <li><a href="#suites">30 Hạng phòng Suite</a></li>
+                <li><a href="#day-cruises">Du thuyền ngày Lan Hạ</a></li>
+                <li><a href="#itinerary">Hải trình 2N1Đ & 3N2Đ</a></li>
               </ul>
             </div>
             <div>
-              <h4>{LV('Điểm đến & cẩm nang', 'Destinations & guides')}</h4>
+              <h4>ĐIỂM ĐẾN & CẨM NANG</h4>
               <ul>
-                {(() => {
-                  const lg = ['vi','en','ja','ko','zh','fr'].includes(I18N.lang) ? I18N.lang : 'en';
-                  const SL = {
-                    bus: { vi:'xe-ha-noi-di-cat-ba', en:'hanoi-to-cat-ba-bus', ja:'hanoi-catba-bus', ko:'hanoi-catba-bus', zh:'hanoi-catba-bus', fr:'bus-hanoi-cat-ba' },
-                    day: { vi:'du-thuyen-ngay-vinh-lan-ha', en:'lan-ha-bay-day-cruise', ja:'lan-ha-day-cruise', ko:'lan-ha-day-cruise', zh:'lan-ha-day-cruise', fr:'croisiere-journee-lan-ha' },
-                    lux: { vi:'du-thuyen-ngu-dem-lan-ha', en:'lan-ha-overnight-cruise', ja:'lan-ha-overnight-cruise', ko:'lan-ha-overnight-cruise', zh:'lan-ha-overnight-cruise', fr:'croisiere-nuit-lan-ha' },
-                  };
-                  const links = [
-                    [LV('Xe Hà Nội đi Cát Bà', 'Hanoi to Cat Ba bus'), '/' + lg + '/' + SL.bus[lg]],
-                    [LV('Du thuyền ngày Lan Hạ', 'Lan Ha day cruises'), '/' + lg + '/' + SL.day[lg]],
-                    [LV('Du thuyền ngủ đêm 5★', '5★ overnight cruise'), '/' + lg + '/' + SL.lux[lg]],
-                  ];
-                  if (lg === 'vi') {
-                    links.splice(1, 0, ['Xe Cát Bà về Hà Nội', '/vi/xe-cat-ba-ve-ha-noi']);
-                  }
-                  return links.map(([lb, href]) => <li key={href}><a href={href}>{lb}</a></li>);
-                })()}
+                <li><a href="seo/vi/du-thuyen-ngu-dem-lan-ha.html">Du thuyền ngủ đêm Lan Hạ</a></li>
+                <li><a href="/vi/du-thuyen-ngay-vinh-lan-ha">Du thuyền ngày Lan Hạ</a></li>
+                <li><a href="/vi/xe-ha-noi-di-cat-ba">Xe Hà Nội đi Cát Bà</a></li>
+                <li><a href="/vi/xe-cat-ba-ve-ha-noi">Xe Cát Bà về Hà Nội</a></li>
               </ul>
             </div>
             <div>
-              <h4>{T('nav_partner')}</h4>
+              <h4>DỊCH VỤ LIÊN KẾT</h4>
               <ul>
-                <li><a href="#partner">{T('cta_partner')}</a></li>
-                <li><a href="mailto:partner@daiichitravel.vn">partner@daiichitravel.vn</a></li>
+                <li><a href="#limousine">Xe Limousine đưa đón</a></li>
+                <li><a href="https://daiichitravel.com/?tab=tours">Tour chèo SUP & Lặn biển</a></li>
+                <li><a href="mailto:partner@daiichitravel.vn">Hợp tác đại lý & đối tác</a></li>
               </ul>
             </div>
             <div>
-              <h4>{T('nav_portal')}</h4>
+              <h4>CỔNG LÀM VIỆC</h4>
               <ul>
                 <li><a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a></li>
                 <li><a href="https://daiichitravel.com" target="_blank" rel="noopener">Daiichi Travel Portal</a></li>
@@ -976,11 +1148,16 @@ function OneHome() {
             </div>
           </div>
           <div className="on-footer-note">
-            <span>© 2026 Daiichi Cruise · Nền tảng thành viên thuộc Daiichi Travel · Hotline: 1900 9070 · Zalo: 0961 004 709 · TT Cát Bà, Hải Phòng · <a href="customer/Chính sách & Điều khoản.html" style={{ color: 'inherit' }}>{LV('Chính sách & Điều khoản', 'Policies & Terms')}</a></span>
-            <span>Hệ thống đặt vé trực tuyến vận hành bởi <a href="https://daiichitravel.com" target="_blank" rel="noopener" style={{ color: 'var(--gold-bright)' }}>DaiichiTravel.com</a></span>
+            <span>© 2026 Daiichi Cruise · Nền tảng du thuyền thành viên thuộc Daiichi Travel · Hotline: 1900 9070 · Zalo: 0961 004 709 · Cát Bà, Hải Phòng</span>
+            <span>Hệ thống đặt vé & phòng trực tuyến vận hành bởi <a href="https://daiichitravel.com" target="_blank" rel="noopener" style={{ color: 'var(--gold-bright)' }}>DaiichiTravel.com</a></span>
           </div>
         </div>
       </footer>
+
+      {/* POPUP MODAL CHI TIẾT PHÒNG */}
+      <RoomDetailModal room={selectedRoom} onClose={() => setSelectedRoom(null)} />
+
+      {/* LIVE CHAT BOT WIDGET */}
       {typeof ChatWidget !== 'undefined' ? <ChatWidget /> : (window.ChatWidget && <window.ChatWidget />)}
     </React.Fragment>
   );

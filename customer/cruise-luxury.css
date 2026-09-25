@@ -1,0 +1,1144 @@
+/* ============================================================
+   DAIICHI CRUISE — Luxury & Boutique Cruise UI Design System
+   Dedicated Styling for daiichicruise.vn
+   ============================================================ */
+
+/* Root tokens for Ultra-Luxury Cruise Aesthetic */
+:root {
+  --lux-navy-dark: #071224;
+  --lux-navy-deep: #0D1C34;
+  --lux-navy-card: #132442;
+  --lux-navy-border: rgba(212, 166, 72, 0.22);
+  --lux-gold-pure: #D4A648;
+  --lux-gold-light: #F7D788;
+  --lux-gold-dark: #A67C2E;
+  --lux-gold-grad: linear-gradient(135deg, #FDE68A 0%, #D4A648 50%, #996515 100%);
+  --lux-gold-soft: rgba(212, 166, 72, 0.12);
+  --lux-glass-bg: rgba(13, 28, 52, 0.78);
+  --lux-glass-border: rgba(255, 255, 255, 0.14);
+  --lux-red: #C5221F;
+  --lux-red-hover: #E02B27;
+  --lux-shadow-gold: 0 8px 32px rgba(212, 166, 72, 0.18);
+  --lux-shadow-card: 0 12px 36px rgba(4, 12, 24, 0.45);
+}
+
+/* Luxury Hero Banner Enhancements */
+.lux-hero {
+  position: relative;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 24px 150px;
+  overflow: hidden;
+  background: var(--lux-navy-dark);
+}
+
+.lux-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 45%;
+  transform: scale(1.02);
+  transition: transform 10s ease-out;
+}
+
+.lux-hero:hover .lux-hero-bg {
+  transform: scale(1.06);
+}
+
+.lux-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 18, 36, 0.82) 0%,
+    rgba(7, 18, 36, 0.42) 40%,
+    rgba(7, 18, 36, 0.72) 80%,
+    rgba(7, 18, 36, 0.98) 100%
+  );
+}
+
+.lux-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lux-badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(212, 166, 72, 0.15);
+  border: 1px solid rgba(212, 166, 72, 0.45);
+  border-radius: 30px;
+  color: #FDE68A;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  margin-bottom: 18px;
+}
+
+.lux-hero-title {
+  font-family: var(--font-display), 'Playfair Display', Georgia, serif;
+  font-size: clamp(34px, 5.2vw, 58px);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin: 0 0 18px;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
+}
+
+.lux-hero-title em {
+  font-style: normal;
+  background: var(--lux-gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.lux-hero-desc {
+  font-size: clamp(15px, 1.8vw, 17.5px);
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 780px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.lux-hero-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.lux-hl-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 7px 16px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.lux-hl-item span.icon {
+  font-size: 15px;
+}
+
+/* ============================================================
+   SEARCH WIDGET LUXURY REDESIGN
+   ============================================================ */
+.lux-search-box {
+  background: #FFFFFF;
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  border: 1px solid rgba(212, 166, 72, 0.3);
+  position: relative;
+  z-index: 20;
+}
+
+.lux-search-tabs {
+  display: flex;
+  background: #F8FAFC;
+  border-bottom: 1.5px solid #E2E8F0;
+  overflow-x: auto;
+}
+
+.lux-tab-btn {
+  flex: 1;
+  min-width: 170px;
+  padding: 16px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: none;
+  border: none;
+  font-family: var(--font-ui), sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  white-space: nowrap;
+}
+
+.lux-tab-btn:hover {
+  color: var(--lux-navy-deep);
+  background: rgba(212, 166, 72, 0.05);
+}
+
+.lux-tab-btn.active {
+  color: #0F172A;
+  background: #FFFFFF;
+}
+
+.lux-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1.5px;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: var(--lux-gold-pure);
+  box-shadow: 0 2px 8px rgba(212, 166, 72, 0.5);
+}
+
+.lux-search-form {
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)) auto;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.lux-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lux-field label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lux-field select,
+.lux-field input {
+  height: 48px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 10px;
+  padding: 0 14px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0F172A;
+  background: #F8FAFC;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.lux-field select:focus,
+.lux-field input:focus {
+  border-color: var(--lux-gold-pure);
+  box-shadow: 0 0 0 3px rgba(212, 166, 72, 0.15);
+  background: #fff;
+}
+
+.lux-submit-btn {
+  height: 48px;
+  padding: 0 28px;
+  background: var(--lux-gold-grad);
+  color: #111E2E;
+  font-weight: 800;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.18s, box-shadow 0.18s;
+  box-shadow: 0 6px 18px rgba(212, 166, 72, 0.35);
+  white-space: nowrap;
+}
+
+.lux-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 166, 72, 0.45);
+}
+
+/* ============================================================
+   SECTION: THE FLAGSHIP DUO (LUXURY 5★ & BOUTIQUE 4★)
+   ============================================================ */
+.lux-duo-sec {
+  max-width: 1240px;
+  margin: 68px auto 0;
+  padding: 0 24px;
+}
+
+.lux-sec-header {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.lux-sec-kicker {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lux-gold-pure);
+  margin-bottom: 8px;
+}
+
+.lux-sec-title {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(28px, 3.8vw, 42px);
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+.lux-sec-sub {
+  font-size: 15.5px;
+  color: #475569;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.lux-ships-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.lux-ship-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E2E8F0;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+
+.lux-ship-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(18, 36, 65, 0.14);
+  border-color: var(--lux-gold-pure);
+}
+
+.lux-ship-gallery {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.lux-ship-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.lux-ship-card:hover .lux-ship-gallery img {
+  transform: scale(1.05);
+}
+
+.lux-ship-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(13, 28, 52, 0.88);
+  color: #FDE68A;
+  border: 1px solid rgba(212, 166, 72, 0.4);
+  backdrop-filter: blur(8px);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.lux-ship-price-tag {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  text-align: right;
+}
+
+.lux-ship-price-tag span {
+  font-size: 11px;
+  color: #64748B;
+  display: block;
+  font-weight: 600;
+}
+
+.lux-ship-price-tag b {
+  font-size: 16px;
+  color: var(--lux-red);
+  font-weight: 800;
+}
+
+.lux-ship-content {
+  padding: 26px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.lux-ship-name {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+
+.lux-ship-desc {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.lux-ship-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: #F8FAFC;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 22px;
+  border: 1px solid #E2E8F0;
+}
+
+.lux-spec-box {
+  text-align: center;
+}
+
+.lux-spec-box b {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.lux-spec-box span {
+  font-size: 11.5px;
+  color: #64748B;
+}
+
+.lux-ship-perks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.lux-perk-tag {
+  background: rgba(212, 166, 72, 0.12);
+  color: #85581A;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lux-ship-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.lux-btn-primary {
+  flex: 1;
+  background: var(--lux-navy-deep);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.lux-btn-primary:hover {
+  background: #1B3663;
+  color: #FDE68A;
+}
+
+.lux-btn-gold {
+  flex: 1;
+  background: var(--lux-gold-grad);
+  color: #111E2E;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.lux-btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(212, 166, 72, 0.4);
+}
+
+.lux-btn-outline {
+  padding: 12px 18px;
+  border: 1.5px solid #CBD5E1;
+  background: #fff;
+  color: #334155;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13.5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lux-btn-outline:hover {
+  border-color: var(--lux-gold-pure);
+  color: var(--navy);
+  background: #F8FAFC;
+}
+
+/* ============================================================
+   SECTION: SUITE COLLECTION SHOWCASE (CARDS & MODAL)
+   ============================================================ */
+.lux-suites-sec {
+  background: #0B1729;
+  color: #FFFFFF;
+  margin-top: 80px;
+  padding: 76px 24px 84px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lux-suites-sec::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 166, 72, 0.4), transparent);
+}
+
+.lux-suites-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.lux-suites-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.lux-suite-filter-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #E2E8F0;
+  padding: 9px 22px;
+  border-radius: 24px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lux-suite-filter-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--lux-gold-pure);
+}
+
+.lux-suite-filter-btn.active {
+  background: var(--lux-gold-grad);
+  color: #0F172A;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(212, 166, 72, 0.35);
+}
+
+.lux-suites-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.lux-room-card {
+  background: #11223B;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.lux-room-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 166, 72, 0.5);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.lux-room-thumb {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.lux-room-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.lux-room-card:hover .lux-room-thumb img {
+  transform: scale(1.06);
+}
+
+.lux-room-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(13, 24, 46, 0.85);
+  border: 1px solid rgba(212, 166, 72, 0.3);
+  color: #FDE68A;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+
+.lux-room-quickview-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  opacity: 0.9;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.lux-room-quickview-btn:hover {
+  background: var(--lux-gold-pure);
+  color: #0F172A;
+  border-color: var(--lux-gold-pure);
+}
+
+.lux-room-body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.lux-room-ship-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lux-gold-pure);
+  margin-bottom: 4px;
+}
+
+.lux-room-title {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 10px;
+}
+
+.lux-room-params {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lux-room-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.lux-room-amenity {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.lux-room-foot {
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lux-room-price {
+  text-align: left;
+}
+
+.lux-room-price span {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  display: block;
+}
+
+.lux-room-price b {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--lux-gold-pure);
+}
+
+.lux-room-price em {
+  font-size: 11px;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 3px;
+}
+
+.lux-room-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.lux-room-book-btn {
+  background: var(--lux-gold-grad);
+  color: #0F172A;
+  font-weight: 800;
+  font-size: 13.5px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lux-room-book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(212, 166, 72, 0.4);
+}
+
+/* ============================================================
+   SECTION: 6 EXCLUSIVE HIGHLIGHTS (CẦU KÍNH, JACUZZI,...)
+   ============================================================ */
+.lux-highlights-sec {
+  max-width: 1240px;
+  margin: 76px auto 0;
+  padding: 0 24px;
+}
+
+.lux-hl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.lux-hl-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: flex;
+  gap: 18px;
+}
+
+.lux-hl-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(18, 36, 65, 0.1);
+  border-color: var(--lux-gold-pure);
+}
+
+.lux-hl-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(212, 166, 72, 0.14);
+  color: #B98A3C;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lux-hl-text h4 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 18.5px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 6px;
+}
+
+.lux-hl-text p {
+  font-size: 13.5px;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   SECTION: ITINERARY INTERACTIVE TIMELINE (2D1N & 3D2N)
+   ============================================================ */
+.lux-itin-sec {
+  background: #FAF8F4;
+  border-top: 1px solid #EAE5DB;
+  border-bottom: 1px solid #EAE5DB;
+  margin-top: 80px;
+  padding: 72px 24px 80px;
+}
+
+.lux-itin-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.lux-itin-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 34px;
+}
+
+.lux-itin-tab {
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  color: #334155;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lux-itin-tab.active {
+  background: var(--navy);
+  color: #FFFFFF;
+  border-color: var(--navy);
+  box-shadow: 0 4px 14px rgba(18, 36, 65, 0.25);
+}
+
+.lux-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  padding-left: 28px;
+}
+
+.lux-timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: #D4CEBF;
+}
+
+.lux-timeline-node {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E4DFD5;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.lux-timeline-node::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 20px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--lux-gold-pure);
+  border: 3px solid #FAF8F4;
+  box-shadow: 0 0 0 2px var(--lux-gold-pure);
+}
+
+.lux-time-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--lux-navy-deep);
+  background: rgba(212, 166, 72, 0.18);
+  padding: 3px 9px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.lux-timeline-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 4px;
+}
+
+.lux-timeline-desc {
+  font-size: 13.5px;
+  color: #4A5468;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ============================================================
+   ROOM DETAIL MODAL (POPUP)
+   ============================================================ */
+.lux-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 18, 36, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: luxFadeIn 0.2s ease;
+}
+
+.lux-modal-box {
+  background: #FFFFFF;
+  border-radius: 20px;
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: luxZoomIn 0.25s ease;
+}
+
+.lux-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.lux-modal-close:hover {
+  background: #000;
+}
+
+.lux-modal-gallery {
+  position: relative;
+  height: 340px;
+  background: #0A192F;
+}
+
+.lux-modal-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lux-modal-thumbs {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.lux-modal-thumb-btn {
+  width: 60px;
+  height: 42px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  flex-shrink: 0;
+}
+
+.lux-modal-thumb-btn.active {
+  border-color: var(--lux-gold-pure);
+}
+
+.lux-modal-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lux-modal-content {
+  padding: 26px 30px;
+}
+
+.lux-modal-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lux-modal-title {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+.lux-modal-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--lux-red);
+}
+
+.lux-modal-price em {
+  font-size: 13px;
+  font-style: normal;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.lux-modal-specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: #F8FAFC;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.lux-modal-amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.lux-modal-amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #334155;
+  background: #FAF8F4;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.lux-modal-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #E2E8F0;
+  padding-top: 18px;
+}
+
+@keyframes luxFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes luxZoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ============================================================
+   RESPONSIVE OPTIMIZATIONS
+   ============================================================ */
+@media (max-width: 980px) {
+  .lux-ships-grid { grid-template-columns: 1fr; }
+  .lux-suites-grid { grid-template-columns: repeat(2, 1fr); }
+  .lux-hl-grid { grid-template-columns: 1fr; }
+  .lux-search-form { grid-template-columns: 1fr; }
+  .lux-modal-specs { grid-template-columns: repeat(2, 1fr); }
+  .lux-modal-amenities-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .lux-hero { min-height: 480px; padding: 60px 16px 120px; }
+  .lux-hero-title { font-size: 28px; }
+  .lux-suites-grid { grid-template-columns: 1fr; }
+  .lux-modal-specs { grid-template-columns: 1fr 1fr; }
+  .lux-modal-amenities-grid { grid-template-columns: 1fr; }
+  .lux-ship-specs { grid-template-columns: 1fr; }
+  .lux-ship-actions { flex-direction: column; }
+  .lux-modal-gallery { height: 240px; }
+}

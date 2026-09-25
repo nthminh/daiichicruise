@@ -1815,11 +1815,11 @@ html, body {
 
 /* DYNAMIC WEATHER STATES ON HERO */
 .lux-hero.theme-sunset .lux-hero-bg {
-  background-image: url('assets/photos/daycruise-4.jpg') !important;
+  background-image: url('assets/photos/luxury-1.jpg') !important;
   filter: saturate(1.2) contrast(1.05);
 }
 .lux-hero.theme-sunset .lux-hero-overlay {
-  background: linear-gradient(180deg, rgba(38, 14, 38, 0.72) 0%, rgba(13, 28, 52, 0.45) 50%, rgba(7, 18, 36, 0.88) 100%) !important;
+  background: linear-gradient(180deg, rgba(10, 22, 42, 0.38) 0%, rgba(10, 22, 42, 0.15) 45%, rgba(7, 18, 36, 0.6) 100%) !important;
 }
 
 .lux-hero.theme-day .lux-hero-bg {
@@ -2777,4 +2777,14 @@ html, body {
   0% { opacity: 0.3; }
   50% { opacity: 0.85; stroke: rgba(255, 255, 255, 0.7); }
   100% { opacity: 0.4; }
+}
+
+
+.lux-hero-bg {
+  position: absolute !important;
+  inset: -10px !important;
+  background-size: cover !important;
+  background-position: center 55% !important;
+  animation: shipOceanFloat 12s ease-in-out infinite alternate !important;
+  will-change: transform !important;
 }

@@ -1557,6 +1557,48 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
 }
 
 
+
+/* ============================================================
+   REALISTIC OCEAN RIPPLING WAVES (MẶT NƯỚC RỢN SÓNG TỰ NHIÊN)
+   ============================================================ */
+function OceanRipplingWaves() {
+  return (
+    <div className="lux-ocean-ripples-wrap" aria-hidden="true">
+      <svg className="lux-wave-svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="oceanWaveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="rgba(8, 28, 48, 0.85)" />
+            <stop offset="50%" stopColor="rgba(14, 56, 84, 0.7)" />
+            <stop offset="100%" stopColor="rgba(8, 28, 48, 0.85)" />
+          </linearGradient>
+          <linearGradient id="oceanWaveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="rgba(212, 166, 72, 0.28)" />
+            <stop offset="50%" stopColor="rgba(78, 250, 143, 0.22)" />
+            <stop offset="100%" stopColor="rgba(212, 166, 72, 0.28)" />
+          </linearGradient>
+        </defs>
+        <path
+          className="lux-wave-path wave-slow"
+          d="M0,45 C320,85 460,10 720,50 C980,90 1140,15 1440,55 L1440,120 L0,120 Z"
+          fill="url(#oceanWaveGrad1)"
+        />
+        <path
+          className="lux-wave-path wave-fast"
+          d="M0,60 C240,25 480,75 720,35 C960,75 1200,30 1440,65 L1440,120 L0,120 Z"
+          fill="url(#oceanWaveGrad2)"
+        />
+        <path
+          className="lux-wave-crest"
+          d="M0,62 Q360,35 720,48 T1440,62"
+          fill="none"
+          stroke="rgba(255,255,255,0.45)"
+          strokeWidth="1.5"
+        />
+      </svg>
+    </div>
+  );
+}
+
 function OneHome() {
   const [, force] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -1632,7 +1674,7 @@ function OneHome() {
 
       {/* LUXURY HERO BANNER (WITH AMBIANCE & INTERACTIVE SHIP) */}
       <div className={`lux-hero theme-${ambiance}`} onMouseMove={handleMouseMove} data-screen-label="Hero Du Thuyền Luxury">
-        <div className="lux-hero-bg" style={{ backgroundImage: ambiance === 'sunset' ? `url(assets/photos/daycruise-4.jpg)` : (ambiance === 'night' ? `url(assets/photos/luxury-3.jpg)` : `url(assets/photos/luxury-1.jpg)`) }}></div>
+        <div className="lux-hero-bg" style={{ backgroundImage: ambiance === 'night' ? `url(assets/photos/luxury-3.jpg)` : `url(assets/photos/luxury-1.jpg)` }}></div>
         <div className="lux-hero-overlay"></div>
         {ambiance === 'night' && (
           <div className="lux-celestial-canvas">

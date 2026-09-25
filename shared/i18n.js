@@ -193,14 +193,41 @@
   };
 
   function detect() {
+    // 1. Check URL query param ?lang=vi|en|ja|ko|zh|fr
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get('lang');
+      if (urlLang && LANGS.some(l => l.code === urlLang.toLowerCase())) {
+        localStorage.setItem('dt_lang', urlLang.toLowerCase());
+        localStorage.setItem('dt_lang_manual', '1');
+        return urlLang.toLowerCase();
+      }
+    } catch (e) {}
+
+    // 2. Check if user previously manually selected a language
+    const isManual = localStorage.getItem('dt_lang_manual');
     const saved = localStorage.getItem('dt_lang');
-    if (saved && LANGS.some(l => l.code === saved)) return saved;
-    const navLangs = navigator.languages || [navigator.language || 'vi'];
-    for (const nl of navLangs) {
-      const p = String(nl).toLowerCase().slice(0, 2);
-      if (LANGS.some(l => l.code === p)) return p;
+    if (isManual && saved && LANGS.some(l => l.code === saved)) {
+      return saved;
     }
-    return 'vi';
+
+    // 3. Auto-detect from visitor device/browser locale
+    const navLangs = (navigator.languages && navigator.languages.length) 
+      ? navigator.languages 
+      : [navigator.language || navigator.userLanguage || ''];
+    for (const nl of navLangs) {
+      if (!nl) continue;
+      const code = String(nl).toLowerCase().slice(0, 2);
+      if (LANGS.some(l => l.code === code)) {
+        return code;
+      }
+    }
+
+    // 4. Default fallback:
+    // If device locale is Vietnamese -> 'vi'; else international English -> 'en'
+    const primaryNav = String(navigator.language || navigator.userLanguage || '').toLowerCase();
+    if (primaryNav.startsWith('vi')) return 'vi';
+    return 'en';
   }
 
   const idx = { vi: 0, en: 1, ja: 2, ko: 3, zh: 4, fr: 5 };
@@ -211,6 +238,7 @@
     setLang(code) {
       this.lang = code;
       localStorage.setItem('dt_lang', code);
+      localStorage.setItem('dt_lang_manual', '1');
       document.documentElement.lang = code;
       window.dispatchEvent(new CustomEvent('dt:lang', { detail: code }));
     },

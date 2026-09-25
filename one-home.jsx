@@ -25,8 +25,27 @@ const HD = {
 };
 
 const hidx = { vi: 0, en: 1, ja: 2, ko: 3, zh: 4, fr: 5 };
-const T = (k) => (HD[k] ? (HD[k][hidx[I18N.lang]] || HD[k][1] || HD[k][0]) : (I18N.t ? I18N.t(k) : k));
-const LV = (vi, en) => (I18N.lang === 'vi' ? vi : en);
+const T = (k) => {
+  const curLang = (window.I18N && I18N.lang) || 'vi';
+  if (HD[k]) {
+    const list = HD[k];
+    const val = list[hidx[curLang]];
+    if (val) return val;
+    return list[1] || list[0] || k;
+  }
+  if (window.I18N && I18N.t) {
+    return I18N.t(k);
+  }
+  return k;
+};
+const LV = (viOrObj, en) => {
+  const curLang = (window.I18N && I18N.lang) || 'vi';
+  if (typeof viOrObj === 'object' && viOrObj !== null) {
+    return viOrObj[curLang] || viOrObj.en || viOrObj.vi || '';
+  }
+  if (curLang === 'vi') return viOrObj;
+  return en || viOrObj;
+};
 
 function OneLang() {
   const [open, setOpen] = useState(false);
@@ -94,16 +113,24 @@ function CruiseHomeSearch() {
     <div className="lux-search-box" data-comment-anchor="cruise-search">
       <div className="lux-search-tabs">
         <button className={'lux-tab-btn' + (tab === 'night' ? ' active' : '')} onClick={() => setTab('night')}>
-          <span style={{ fontSize: 18 }}>🌙</span> {LV('Du thuyền ngủ đêm 5★ & Boutique', '5★ & Boutique Overnight Cruise')}
+          <span style={{ fontSize: 18 }}>🌙</span>
+          <span className="tab-text-full">{LV('Du thuyền ngủ đêm 5★ & Boutique', '5★ & Boutique Overnight Cruise')}</span>
+          <span className="tab-text-mobile">{LV('Du thuyền ngủ đêm', 'Overnight Cruise')}</span>
         </button>
         <button className={'lux-tab-btn' + (tab === 'day' ? ' active' : '')} onClick={() => setTab('day')}>
-          <span style={{ fontSize: 18 }}>🚢</span> {LV('Du thuyền ngày Lan Hạ', 'Lan Ha Day Cruise')}
+          <span style={{ fontSize: 18 }}>🚢</span>
+          <span className="tab-text-full">{LV('Du thuyền ngày Lan Hạ', 'Lan Ha Day Cruise')}</span>
+          <span className="tab-text-mobile">{LV('Du thuyền ngày', 'Day Cruise')}</span>
         </button>
         <button className={'lux-tab-btn' + (tab === 'tour' ? ' active' : '')} onClick={() => setTab('tour')}>
-          <span style={{ fontSize: 18 }}>🗺️</span> {LV('Tour Combo trọn gói Hà Nội', 'All-in Combo from Hanoi')}
+          <span style={{ fontSize: 18 }}>🗺️</span>
+          <span className="tab-text-full">{LV('Tour Combo trọn gói Hà Nội', 'All-in Combo from Hanoi')}</span>
+          <span className="tab-text-mobile">{LV('Tour Combo', 'Combo Tours')}</span>
         </button>
         <button className={'lux-tab-btn' + (tab === 'bus' ? ' active' : '')} onClick={() => setTab('bus')}>
-          <span style={{ fontSize: 18 }}>🚐</span> {LV('Xe Limousine đưa đón', 'Limousine Transfer')}
+          <span style={{ fontSize: 18 }}>🚐</span>
+          <span className="tab-text-full">{LV('Xe Limousine đưa đón', 'Limousine Transfer')}</span>
+          <span className="tab-text-mobile">{LV('Xe Limousine', 'Limousine')}</span>
         </button>
       </div>
 
@@ -1267,49 +1294,11 @@ function DaiichiUltraLogo() {
   return (
     <a className="lux-brand-logo" href="#" title="Daiichi Cruise — Luxury & Boutique Cruises">
       <div className="lux-logo-emblem-wrap">
-        <svg className="lux-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="goldGradLg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFF4BD" />
-              <stop offset="50%" stopColor="#D4A648" />
-              <stop offset="100%" stopColor="#8C5C12" />
-            </linearGradient>
-            <linearGradient id="hullGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFFFFF" />
-              <stop offset="70%" stopColor="#E2E8F0" />
-              <stop offset="100%" stopColor="#94A3B8" />
-            </linearGradient>
-            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#0EA5E9" />
-              <stop offset="50%" stopColor="#38BDF8" />
-              <stop offset="100%" stopColor="#D4A648" />
-            </linearGradient>
-          </defs>
-          {/* 5 Stars above the ship */}
-          <g fill="url(#goldGradLg)">
-            <path d="M12 9l.9 1.8 2 .3-1.4 1.4.3 2-1.8-.9-1.8.9.3-2L9.1 11l2-.3L12 9z" transform="scale(0.7) translate(-1, -1)" />
-            <path d="M18 7l1 2 2.2.3-1.6 1.6.4 2.2-2-1-2 1 .4-2.2-1.6-1.6 2.2-.3L18 7z" transform="scale(0.7) translate(3, -1)" />
-            <path d="M24 5l1.1 2.2 2.4.4-1.7 1.7.4 2.4-2.2-1.2-2.2 1.2.4-2.4-1.7-1.7 2.4-.4L24 5z" transform="scale(0.8) translate(6, 0)" />
-            <path d="M30 7l1 2 2.2.3-1.6 1.6.4 2.2-2-1-2 1 .4-2.2-1.6-1.6 2.2-.3L30 7z" transform="scale(0.7) translate(14, -1)" />
-            <path d="M36 9l.9 1.8 2 .3-1.4 1.4.3 2-1.8-.9-1.8.9.3-2L33.1 11l2-.3L36 9z" transform="scale(0.7) translate(18, -1)" />
-          </g>
-          {/* Luxury Cruise Silhouette */}
-          <path d="M10 28h28l-3.5 6.5c-.8 1.5-2.4 2.5-4.1 2.5H16.6c-1.8 0-3.4-1-4.2-2.6L10 28z" fill="url(#goldGradLg)" />
-          {/* Superstructure decks */}
-          <path d="M13 23.5h20c1.1 0 2 .9 2 2v2.5H13v-4.5z" fill="url(#hullGrad)" />
-          <path d="M16 19h14c1.1 0 2 .9 2 2v2.5H16V19z" fill="url(#goldGradLg)" opacity="0.95" />
-          <path d="M20 15h7c.8 0 1.5.7 1.5 1.5V19h-10v-2.5c0-.8.7-1.5 1.5-1.5z" fill="url(#hullGrad)" />
-          {/* Deck glass windows */}
-          <circle cx="16" cy="25.5" r="0.9" fill="#0D1C34" />
-          <circle cx="19" cy="25.5" r="0.9" fill="#0D1C34" />
-          <circle cx="22" cy="25.5" r="0.9" fill="#0D1C34" />
-          <circle cx="25" cy="25.5" r="0.9" fill="#0D1C34" />
-          <circle cx="28" cy="25.5" r="0.9" fill="#0D1C34" />
-          <circle cx="31" cy="25.5" r="0.9" fill="#0D1C34" />
-          {/* Cresting ocean waves */}
-          <path d="M6 39c4-1.5 8-1.5 12 0s8 1.5 12 0 8-1.5 12 0" stroke="url(#waveGrad)" strokeWidth="2.2" strokeLinecap="round" />
-          <path d="M10 43c3.5-1 7-1 10.5 0s7 1 10.5 0 7-1 10.5 0" stroke="url(#goldGradLg)" strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
-        </svg>
+        <img
+          src="assets/brand/emblem-Daiichi.png"
+          alt="Daiichi 5★ Emblem"
+          style={{ width: 34, height: 34, objectFit: 'contain' }}
+        />
       </div>
       <div className="lux-brand-text">
         <span className="lux-brand-title">
@@ -1317,7 +1306,7 @@ function DaiichiUltraLogo() {
         </span>
         <span className="lux-brand-subtitle">
           <span className="lux-brand-stars">★★★★★</span>
-          <span>5★ LUXURY FLEET · LAN HA BAY</span>
+          <span className="lux-brand-subtag">5★ LUXURY FLEET · LAN HA BAY</span>
         </span>
       </div>
     </a>
@@ -1325,41 +1314,7 @@ function DaiichiUltraLogo() {
 }
 
 /* ============================================================
-   LAN HA BAY AMBIANCE & WEATHER CONTROLLER
-   ============================================================ */
-function LanHaAmbianceController({ ambiance, setAmbiance }) {
-  return (
-    <div className="lux-ambiance-bar" title="Trải nghiệm không gian & thời tiết Vịnh Lan Hạ thời gian thực">
-      <span className="lux-ambiance-label">
-        <span>🌤️</span> <span>KHÔNG GIAN VỊNH:</span>
-      </span>
-      <button
-        type="button"
-        className={`lux-ambiance-btn ${ambiance === 'sunset' ? 'active' : ''}`}
-        onClick={() => setAmbiance('sunset')}
-        title="Hoàng hôn dát vàng thơ mộng trên Vịnh Lan Hạ"
-      >
-        <span>🌅</span> <span>Hoàng Hôn Vàng</span>
-      </button>
-      <button
-        type="button"
-        className={`lux-ambiance-btn ${ambiance === 'day' ? 'active' : ''}`}
-        onClick={() => setAmbiance('day')}
-        title="Vịnh Lan Hạ ban ngày ngọc bích rực rỡ"
-      >
-        <span>☀️</span> <span>Vịnh Ngọc Bích</span>
-      </button>
-      <button
-        type="button"
-        className={`lux-ambiance-btn ${ambiance === 'night' ? 'active' : ''}`}
-        onClick={() => setAmbiance('night')}
-        title="Đêm ngàn sao huyền ảo & tiệc du thuyền lãng mạn"
-      >
-        <span>🌌</span> <span>Đêm Ngàn Sao</span>
-      </button>
-    </div>
-  );
-}
+
 
 /* ============================================================
    GIANT MAJESTIC BACKGROUND CRUISE SHIP (TO, ẨN HIỆN GIỮA VỊNH)
@@ -1630,9 +1585,10 @@ function OneHome() {
     <React.Fragment>
       {/* HEADER */}
       <header className="on-header">
-        <div className="on-header-in" style={{ position: 'relative' }}>
-<DaiichiUltraLogo />
-          <nav className="on-nav">
+        <div className="on-header-in">
+          <DaiichiUltraLogo />
+          
+          <nav className="on-nav" aria-label="Main Navigation">
             <a href="#fleet">{T('nav_luxury')}</a>
             <a href="#boutique-cruise">{T('nav_boutique')}</a>
             <a href="#suites">{T('nav_suites')}</a>
@@ -1640,62 +1596,96 @@ function OneHome() {
             <a href="#limousine">{T('nav_limo')}</a>
             <a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a>
           </nav>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+
+          <div className="on-header-actions">
             <a className="on-quick-bus-btn" href="https://daiichitravel.com/?tab=bus" target="_blank" rel="noopener noreferrer" title="Chuyển nhanh sang đặt xe bus Daiichi Travel Tuyến Hà Nội ⇄ Hải Phòng ⇄ Cát Bà">
-              <span>🚌</span> <b>Bus Hải Phòng 90K</b> <span className="bus-pulse-dot"></span>
+              <span>🚌</span> <b>Bus 90K</b> <span className="bus-pulse-dot"></span>
             </a>
-            <a href="tel:19009070" style={{ color: '#fff', fontSize: 13, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5, background: 'rgba(255,255,255,.12)', padding: '7px 12px', borderRadius: 20, whiteSpace: 'nowrap' }} title="Hotline 24/7">
-              <span>📞</span><b>1900 9070</b>
+            <a className="on-phone-btn" href="tel:19009070" title="Hotline 24/7: 1900 9070">
+              <span className="on-phone-icon">📞</span>
+              <b className="on-phone-text">1900 9070</b>
             </a>
             <OneLang />
-            <a className="on-cta" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener" style={{ background: 'var(--lux-gold-grad)', color: '#111E2E', fontWeight: 800 }}>
+            <a className="on-cta" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
               {T('cta_book')}
             </a>
-            <button className="on-burger" aria-label="menu" onClick={() => setMenuOpen(!menuOpen)}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <button className="on-burger" aria-label="Menu" onClick={() => setMenuOpen(!menuOpen)}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
                 {menuOpen ? <path d="M5 5l14 14M19 5L5 19" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
               </svg>
             </button>
           </div>
-          {menuOpen && (
-            <div className="on-mobile-menu" onClick={() => setMenuOpen(false)}>
-              <a href="#fleet">{T('nav_luxury')}</a>
-              <a href="#boutique-cruise">{T('nav_boutique')}</a>
-              <a href="#suites">{T('nav_suites')}</a>
-              <a href="#highlights">{T('nav_highlights')}</a>
-              <a href="#itinerary">{T('nav_itinerary')}</a>
-              <a href="#day-cruises">{T('nav_day')}</a>
-              <a href="#limousine">{T('nav_limo')}</a>
-              <a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a>
-            </div>
-          )}
+
         </div>
       </header>
 
-      {/* LUXURY HERO BANNER (WITH AMBIANCE & INTERACTIVE SHIP) */}
-      <div className={`lux-hero theme-${ambiance}`} onMouseMove={handleMouseMove} data-screen-label="Hero Du Thuyền Luxury">
-        <div className="lux-hero-bg" style={{ backgroundImage: ambiance === 'night' ? `url(assets/photos/luxury-3.jpg)` : `url(assets/photos/luxury-1.jpg)` }}></div>
-        <div className="lux-hero-overlay"></div>
-        {ambiance === 'night' && (
-          <div className="lux-celestial-canvas">
-            <div className="shooting-star"></div>
-            <div className="shooting-star s2"></div>
+      {menuOpen && (
+        <div className="on-mobile-drawer-wrap" onClick={() => setMenuOpen(false)}>
+          <div className="on-mobile-drawer" onClick={(e) => e.stopPropagation()}>
+            <div className="on-drawer-header">
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <img src="assets/brand/emblem-Daiichi.png" alt="Emblem" style={{ width: 30, height: 30, objectFit: 'contain' }} />
+                <div>
+                  <div className="on-drawer-brand">DAIICHI CRUISE</div>
+                  <div className="on-drawer-stars">★★★★★ 5★ LUXURY FLEET</div>
+                </div>
+              </div>
+              <button className="on-drawer-close-btn" onClick={() => setMenuOpen(false)} aria-label="Đóng menu">✕</button>
+            </div>
+            <div className="on-drawer-nav">
+              <a href="#fleet" onClick={() => setMenuOpen(false)}><span>⚓</span> {T('nav_luxury')}</a>
+              <a href="#boutique-cruise" onClick={() => setMenuOpen(false)}><span>🚢</span> {T('nav_boutique')}</a>
+              <a href="#suites" onClick={() => setMenuOpen(false)}><span>💎</span> {T('nav_suites')}</a>
+              <a href="#highlights" onClick={() => setMenuOpen(false)}><span>✨</span> {T('nav_highlights')}</a>
+              <a href="#itinerary" onClick={() => setMenuOpen(false)}><span>⏱</span> {T('nav_itinerary')}</a>
+              <a href="#day-cruises" onClick={() => setMenuOpen(false)}><span>⛵</span> {T('nav_day')}</a>
+              <a href="#limousine" onClick={() => setMenuOpen(false)}><span>🚐</span> {T('nav_limo')}</a>
+              <a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener"><span>🎫</span> {I18N.t('nav_mybooking')}</a>
+            </div>
+            <div className="on-drawer-actions">
+              <a className="on-drawer-cta-btn" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+                {T('cta_book')} →
+              </a>
+              <a className="on-drawer-bus-btn" href="https://daiichitravel.com/?tab=bus" target="_blank" rel="noopener">
+                🚌 {LV('Xe Bus Hải Phòng ⇄ Cát Bà (90.000đ)', 'Bus Hai Phong ⇄ Cat Ba (90K)')}
+              </a>
+              <div className="on-drawer-hotline">
+                <span>{LV('Hotline hỗ trợ 24/7:', '24/7 Support Hotline:')}</span>
+                <a href="tel:19009070">📞 1900 9070</a>
+              </div>
+            </div>
           </div>
-        )}
+        </div>
+      )}
+
+      {/* LUXURY HERO BANNER (WITH FLYCAM VIDEO BACKGROUND) */}
+      <div className="lux-hero" onMouseMove={handleMouseMove} data-screen-label="Hero Du Thuyền Luxury">
+        {/* Dynamic Flycam Aerial Video Background */}
+        <div className="lux-hero-video-wrap">
+          <video
+            className="lux-hero-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="assets/photos/luxury-1.jpg"
+          >
+            <source src="assets/videos/halong-flycam.mp4" type="video/mp4" />
+            <source src="assets/videos/halong-flycam.webm" type="video/webm" />
+          </video>
+        </div>
+        <div className="lux-hero-overlay"></div>
 
         {/* GIANT MAJESTIC BACKGROUND CRUISE SHIP ẨN HIỆN */}
         <OceanRipplingWaves />
         <div className="lux-hero-content">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <div className="lux-badge-gold">
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', width: '100%' }}>
+            <div className="lux-badge-gold" style={{ margin: '0 auto' }}>
               ★ {T('hero_k')} ★
             </div>
-            <NauticalCompassBadge />
           </div>
 
-          <div style={{ marginTop: 14 }}>
-            <LanHaAmbianceController ambiance={ambiance} setAmbiance={setAmbiance} />
-          </div>
           <h1 className="lux-hero-title">
             {LV('Tuyệt Tác Du Thuyền Luxury & Boutique', 'Masterpiece Luxury & Boutique Cruises')} <br />
             <em>{LV('Giữa Kỳ Quan Vịnh Lan Hạ', 'In Lan Ha Bay')}</em>

@@ -339,7 +339,7 @@ function TicketCard({ bk }) {
           <div className="bk">{t('booking_code')}</div>
           <div className="cd">{bk.code}</div>
         </div>
-        <img src="../assets/brand/logo-DaiichiTravel.webp" alt="Daiichi Travel" style={{ height: 30, background: '#fff', borderRadius: 5, padding: '2px 5px' }} />
+        <img src="../assets/brand/logo-DaiichiTravel.webp" alt="Daiichi Travel" style={{ height: 32, objectFit: 'contain' }} />
       </div>
       <div className="dt-ticket-body">
         <div className="dt-ticket-route">

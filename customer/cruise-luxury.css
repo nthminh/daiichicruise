@@ -54,16 +54,76 @@ html, body {
   transform: scale(1.06);
 }
 
+.lux-hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.lux-hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%) scale(1.05);
+  object-fit: cover;
+  filter: brightness(1.15) contrast(1.04) saturate(1.22);
+  transition: transform 10s ease-out;
+}
+
+.lux-hero:hover .lux-hero-video {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
 .lux-hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(7, 18, 36, 0.82) 0%,
-    rgba(7, 18, 36, 0.42) 40%,
-    rgba(7, 18, 36, 0.72) 80%,
-    rgba(7, 18, 36, 0.98) 100%
+    rgba(7, 18, 36, 0.45) 0%,
+    rgba(7, 18, 36, 0.12) 36%,
+    rgba(7, 18, 36, 0.42) 75%,
+    rgba(7, 18, 36, 0.88) 100%
   );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lux-flycam-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(13, 28, 52, 0.75);
+  border: 1px solid rgba(212, 166, 72, 0.5);
+  color: var(--lux-gold-pure, #D4A648);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  margin-top: 14px;
+}
+
+.lux-flycam-badge .live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulseFlycam 2s infinite ease-in-out;
+}
+
+@keyframes pulseFlycam {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.3); opacity: 0.5; }
 }
 
 .lux-hero-content {
@@ -160,30 +220,39 @@ html, body {
 }
 
 .lux-search-tabs {
-  display: flex;
-  background: #F8FAFC;
-  border-bottom: 1.5px solid #E2E8F0;
-  overflow-x: auto;
+  display: flex !important;
+  background: #F8FAFC !important;
+  border-bottom: 1.5px solid #E2E8F0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+  width: 100% !important;
+  flex-wrap: nowrap !important;
+}
+.lux-search-tabs::-webkit-scrollbar {
+  display: none !important;
 }
 
 .lux-tab-btn {
-  flex: 1;
-  min-width: 170px;
-  padding: 16px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  background: none;
-  border: none;
-  font-family: var(--font-ui), sans-serif;
-  font-size: 14.5px;
-  font-weight: 700;
-  color: #475569;
-  cursor: pointer;
-  transition: all 0.2s;
-  position: relative;
-  white-space: nowrap;
+  flex: 0 0 auto !important; /* CRITICAL: Must NEVER shrink, otherwise text overflows onto adjacent buttons */
+  padding: 16px 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  background: none !important;
+  border: none !important;
+  font-family: var(--font-ui), sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #475569 !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  position: relative !important;
+  white-space: nowrap !important;
+  border-bottom: 3.5px solid transparent !important;
+  box-sizing: border-box !important;
 }
 
 .lux-tab-btn:hover {
@@ -192,19 +261,29 @@ html, body {
 }
 
 .lux-tab-btn.active {
-  color: #0F172A;
-  background: #FFFFFF;
+  color: #0F172A !important;
+  background: #FFFFFF !important;
+  border-bottom-color: var(--lux-gold-pure, #D4A648) !important;
 }
 
-.lux-tab-btn.active::after {
-  content: '';
-  position: absolute;
-  bottom: -1.5px;
-  left: 0;
-  right: 0;
-  height: 3.5px;
-  background: var(--lux-gold-pure);
-  box-shadow: 0 2px 8px rgba(212, 166, 72, 0.5);
+.lux-tab-btn .tab-text-mobile {
+  display: none !important;
+}
+.lux-tab-btn .tab-text-full {
+  display: inline !important;
+}
+
+@media (max-width: 768px) {
+  .lux-tab-btn {
+    padding: 13px 15px !important;
+    font-size: 13px !important;
+  }
+  .lux-tab-btn .tab-text-full {
+    display: none !important;
+  }
+  .lux-tab-btn .tab-text-mobile {
+    display: inline !important;
+  }
 }
 
 .lux-search-form {
@@ -2092,28 +2171,32 @@ html, body {
   box-sizing: border-box !important;
 }
 
-/* 2. RESPONSIVE COMPACT HEADER (ANTI-OVERFLOW) */
+/* 2. RESPONSIVE COMPACT HEADER (ANTI-OVERFLOW & ANTI-COLLISION) */
 .on-header {
   position: sticky !important;
   top: 0 !important;
-  z-index: 90 !important;
-  background: rgba(10, 20, 38, 0.95) !important;
-  backdrop-filter: blur(14px) !important;
-  border-bottom: 1px solid rgba(212, 166, 72, 0.22) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
+  z-index: 100 !important;
+  background: rgba(7, 16, 32, 0.96) !important;
+  backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(212, 166, 72, 0.25) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
   max-width: 100vw !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .on-header-in {
-  max-width: 1360px !important;
+  max-width: 1440px !important;
   margin: 0 auto !important;
-  padding: 0 16px !important;
-  height: 60px !important;
+  padding: 0 18px !important;
+  height: 64px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
   gap: 12px !important;
   box-sizing: border-box !important;
+  width: 100% !important;
+  position: relative !important;
 }
 
 .lux-brand-logo {
@@ -2122,6 +2205,8 @@ html, body {
   gap: 10px !important;
   text-decoration: none !important;
   flex-shrink: 0 !important;
+  z-index: 2 !important;
+  min-width: 0 !important;
 }
 .lux-brand-title {
   font-family: var(--font-display, Georgia, serif) !important;
@@ -2130,12 +2215,16 @@ html, body {
   letter-spacing: 0.04em !important;
   color: #fff !important;
   line-height: 1.1 !important;
+  white-space: nowrap !important;
 }
 .lux-brand-subtitle {
   font-size: 9px !important;
   letter-spacing: 0.08em !important;
   color: #D4A648 !important;
   white-space: nowrap !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
 }
 
 .on-nav {
@@ -2143,15 +2232,17 @@ html, body {
   align-items: center !important;
   gap: 4px !important;
   flex: 1 1 auto !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
+  margin: 0 16px !important;
   min-width: 0 !important;
+  overflow: hidden !important;
 }
 
 .on-nav a {
-  color: rgba(255, 255, 255, 0.82) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
   font-size: 13px !important;
   font-weight: 600 !important;
-  padding: 6px 9px !important;
+  padding: 6px 10px !important;
   border-radius: 6px !important;
   text-decoration: none !important;
   transition: all 0.15s !important;
@@ -2163,10 +2254,18 @@ html, body {
   background: rgba(255, 255, 255, 0.09) !important;
 }
 
+.on-header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+  z-index: 2 !important;
+}
+
 .on-quick-bus-btn {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 5px !important;
+  gap: 6px !important;
   background: linear-gradient(135deg, #E63946 0%, #B91C1C 100%) !important;
   color: #fff !important;
   text-decoration: none !important;
@@ -2178,6 +2277,207 @@ html, body {
   box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4) !important;
   border: 1px solid rgba(255, 255, 255, 0.25) !important;
   flex-shrink: 0 !important;
+}
+
+.on-phone-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #fff !important;
+  font-size: 13px !important;
+  text-decoration: none !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  padding: 7px 12px !important;
+  border-radius: 20px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  transition: all 0.2s !important;
+}
+.on-phone-btn:hover {
+  background: rgba(212, 166, 72, 0.25) !important;
+  border-color: rgba(212, 166, 72, 0.5) !important;
+  color: #FFD166 !important;
+}
+
+.on-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg, #FDE68A 0%, #D4A648 50%, #996515 100%) !important;
+  color: #0B1728 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  box-shadow: 0 4px 14px rgba(212, 166, 72, 0.35) !important;
+  flex-shrink: 0 !important;
+  transition: transform 0.15s, box-shadow 0.15s !important;
+}
+.on-cta:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 18px rgba(212, 166, 72, 0.5) !important;
+}
+
+.on-burger {
+  display: none !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #fff !important;
+  width: 38px !important;
+  height: 38px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  transition: background 0.15s !important;
+}
+.on-burger:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* MOBILE & TABLET DRAWER */
+.on-mobile-drawer-wrap {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(8px) !important;
+  z-index: 999999 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  animation: drawerFadeIn 0.22s ease-out !important;
+}
+@keyframes drawerFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.on-mobile-drawer {
+  width: 85% !important;
+  max-width: 380px !important;
+  height: 100% !important;
+  background: #091322 !important;
+  border-left: 1px solid rgba(212, 166, 72, 0.3) !important;
+  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.75) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto !important;
+  animation: drawerSlideIn 0.26s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+@keyframes drawerSlideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.on-drawer-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 16px 18px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+.on-drawer-brand {
+  font-family: var(--font-display, Georgia, serif) !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  color: #fff !important;
+  letter-spacing: 0.05em !important;
+}
+.on-drawer-stars {
+  font-size: 8.5px !important;
+  color: #D4A648 !important;
+  letter-spacing: 0.1em !important;
+}
+.on-drawer-close-btn {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+}
+
+.on-drawer-nav {
+  padding: 14px 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  flex: 1 1 auto !important;
+}
+.on-drawer-nav a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  color: #E2E8F0 !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  padding: 12px 14px !important;
+  border-radius: 10px !important;
+  text-decoration: none !important;
+  transition: all 0.15s !important;
+  border: 1px solid transparent !important;
+}
+.on-drawer-nav a:hover {
+  background: rgba(212, 166, 72, 0.12) !important;
+  border-color: rgba(212, 166, 72, 0.3) !important;
+  color: #FFD166 !important;
+}
+
+.on-drawer-actions {
+  padding: 18px 16px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+.on-drawer-cta-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg, #FDE68A 0%, #D4A648 50%, #996515 100%) !important;
+  color: #0B1728 !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  padding: 13px 18px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 16px rgba(212, 166, 72, 0.35) !important;
+}
+.on-drawer-bus-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(230, 57, 70, 0.15) !important;
+  border: 1px solid rgba(230, 57, 70, 0.4) !important;
+  color: #FF8A95 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  padding: 10px 14px !important;
+  border-radius: 10px !important;
+  text-decoration: none !important;
+}
+.on-drawer-hotline {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  font-size: 12px !important;
+  color: #94A3B8 !important;
+  padding-top: 4px !important;
+}
+.on-drawer-hotline a {
+  color: #FFD166 !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
 }
 
 /* 3. COMPACT LUXURY HERO BANNER (NO OVERFLOW, PERFECT FIT) */
@@ -2365,22 +2665,39 @@ html, body {
   transform-origin: bottom left !important;
 }
 
-/* 6. RESPONSIVE BREAKPOINTS (NO HORIZONTAL OVERFLOW) */
-@media (max-width: 1280px) {
-  .on-nav a { font-size: 12px !important; padding: 5px 7px !important; }
-  .on-header-in { gap: 8px !important; }
-}
-
-@media (max-width: 1100px) {
-  .on-nav a:nth-child(n+5) { display: none !important; }
+/* 6. RESPONSIVE BREAKPOINTS (NO OVERLAP, ZERO OVERFLOW) */
+@media (max-width: 1220px) {
+  .on-nav { display: none !important; }
+  .on-burger { display: flex !important; }
+  .on-quick-bus-btn { display: none !important; }
 }
 
 @media (max-width: 960px) {
-  .on-nav { display: none !important; }
-  .on-burger { display: flex !important; }
   .lux-3d-stage-container { max-width: 380px !important; }
   .lux-floating-bus-widget { bottom: 20px !important; left: 14px !important; right: auto !important; }
   .lux-bus-popup-card { width: calc(100vw - 28px) !important; left: 0 !important; right: auto !important; }
+}
+
+@media (max-width: 768px) {
+  .on-header-in { padding: 0 12px !important; height: 58px !important; }
+  .on-phone-text { display: none !important; }
+  .on-phone-btn { padding: 6px 8px !important; border-radius: 50% !important; width: 36px !important; height: 36px !important; justify-content: center !important; }
+  .lux-brand-subtag { display: none !important; }
+  .lux-brand-title { font-size: 15.5px !important; }
+  .lux-logo-emblem-wrap { width: 36px !important; height: 36px !important; }
+  .on-cta { display: none !important; }
+  .on-burger { display: flex !important; }
+}
+
+@media (max-width: 480px) {
+  .on-header-in { padding: 0 10px !important; height: 54px !important; gap: 6px !important; }
+  .on-cta { display: none !important; }
+  .on-header-actions { gap: 6px !important; }
+  .lux-brand-title { font-size: 14.5px !important; }
+  .lux-brand-subtitle { font-size: 8px !important; }
+  .lux-logo-emblem-wrap { width: 32px !important; height: 32px !important; border-radius: 10px !important; }
+  .lux-logo-emblem-wrap img { width: 24px !important; height: 24px !important; }
+  .dt-lang-btn { padding: 5px 8px !important; font-size: 11px !important; }
 }
 
 
@@ -2416,8 +2733,8 @@ html, body {
 .lux-hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 35%, rgba(5, 14, 26, 0.4) 0%, rgba(5, 14, 26, 0.85) 75%, #050E1A 100%),
-              linear-gradient(180deg, rgba(5, 14, 26, 0.7) 0%, transparent 35%, rgba(5, 14, 26, 0.6) 70%, #050E1A 100%);
+  background: radial-gradient(circle at 50% 30%, rgba(5, 14, 26, 0.12) 0%, rgba(5, 14, 26, 0.42) 75%, rgba(5, 14, 26, 0.82) 100%),
+              linear-gradient(180deg, rgba(5, 14, 26, 0.40) 0%, transparent 35%, rgba(5, 14, 26, 0.35) 70%, #050E1A 100%);
   z-index: 2;
   pointer-events: none;
 }

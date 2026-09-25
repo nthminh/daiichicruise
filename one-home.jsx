@@ -1374,7 +1374,9 @@ function GiantAtmosphericCruiseStage({ ambiance, mousePos }) {
   const calcTilt = (mousePos.x - 0.5) * 2.2;
 
   // Dedicated 3D model render of Daiichi Luxury Cruise with golden sails
-  const shipImage = 'assets/photos/daiichi_luxury_cruise_3d.jpg';
+  const shipImage = ambiance === 'night' 
+    ? 'assets/photos/luxury-3.jpg' 
+    : (ambiance === 'day' ? 'assets/photos/luxury-1.jpg' : 'assets/photos/luxury-2.jpg');
 
   return (
     <div

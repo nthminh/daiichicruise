@@ -113,12 +113,12 @@
       '遗失物品请在App"失物招领"报告或致电 +84 96 100 4709，乘务员立即查找，可柜台领取或快递。',
       'Objet oublié ? Rubrique « Objets trouvés » de l\u2019appli ou +84 96 100 4709 — l\u2019équipage vérifie immédiatement.']),
     human: () => P([
-      'Dạ, em đã chuyển tiếp yêu cầu đến nhân viên tư vấn của Daiichi Travel. Quý khách vui lòng chọn kênh liên hệ trực tiếp bên dưới để được chuyên viên hỗ trợ ngay lập tức ạ:\n\n[HUMAN_CONNECT_CARD]',
-      'I have transferred your request to our Daiichi Travel travel specialist. Please select a direct contact option below for instant live assistance:\n\n[HUMAN_CONNECT_CARD]',
-      'Daiichi Travelの担当スタッフにおつなぎいたします。以下のボタンから直接お問い合わせいただけます：\n\n[HUMAN_CONNECT_CARD]',
-      'Daiichi Travel 전문 상담원에게 연결해 드립니다. 아래 버튼을 눌러 바로 실시간 상담을 받아보세요:\n\n[HUMAN_CONNECT_CARD]',
-      '已为您转接Daiichi Travel人工客服。请点击下方按钮直接联系专员为您即时服务：\n\n[HUMAN_CONNECT_CARD]',
-      'Votre demande a été transmise à un conseiller Daiichi Travel. Veuillez choisir un canal direct ci-dessous pour une prise en charge immédiate :\n\n[HUMAN_CONNECT_CARD]']),
+      'Dạ, em chuyển tiếp anh/chị sang Fanpage Daiichi Travel để chuyên viên tư vấn trực tiếp hỗ trợ mình ngay nhé ạ! Quý khách vui lòng bấm nút bên dưới nếu trình duyệt chưa tự chuyển hướng:\n\n[HUMAN_CONNECT_CARD]',
+      'I am connecting you directly with our Daiichi Travel Facebook Fanpage live specialist! Please tap the button below if the page does not open automatically:\n\n[HUMAN_CONNECT_CARD]',
+      'Daiichi TravelのFacebookファンページへお繋ぎいたします。下のボタンからスタッフへ直接お問い合わせください：\n\n[HUMAN_CONNECT_CARD]',
+      'Daiichi Travel 페이스북 팬페이지로 연결해 드립니다. 아래 버튼을 눌러 상담원과 직접 대화하세요:\n\n[HUMAN_CONNECT_CARD]',
+      '正在为您转接至 Daiichi Travel 官方粉丝专页，请点击下方按钮直接与人工客服沟通：\n\n[HUMAN_CONNECT_CARD]',
+      'Votre demande a été transmise à notre équipe Daiichi Travel sur Facebook. Cliquez ci-dessous pour parler directement với un conseiller :\n\n[HUMAN_CONNECT_CARD]']),
     rt: () => P([
       'Vé khứ hồi được giảm thêm 5%! Chọn ô "Ngày về" trong form tìm kiếm → chọn chuyến đi + chuyến về + ghế từng chiều → hệ thống tự trừ 5% tổng hóa đơn. Vé QR ghi cả hai chiều.',
       'Round trips get an extra 5% off! Set the "Return" date in the search form → pick outbound + return trips and seats for each leg → 5% comes off the total automatically. One QR ticket covers both legs.',
@@ -202,7 +202,7 @@
       }
     },
     // Async call to real Daiichi AI Chatbot
-    human() { return P(A.human); },
+    human() { return A.human(); },
     isHuman(raw) { return match(String(raw || '').toLowerCase(), KW.human); },
     async askAI(raw, customerType = 'retail') {
       const text = String(raw || '').trim();
@@ -210,7 +210,7 @@
 
       // Ưu tiên: Nếu khách hỏi gặp nhân viên / người thật -> Phản hồi thẻ kết nối ngay lập tức không cần chờ API
       if (match(text.toLowerCase(), KW.human)) {
-        return P(A.human);
+        return A.human();
       }
 
       // If user pasted a booking code (DT26-... or DT-...), we can answer instantly or query live Supabase

@@ -322,11 +322,23 @@ function ChatWidget() {
 
   const connectHuman = () => {
     setShowQuick(false);
+    try {
+      window.open('https://m.me/109517555180906', '_blank');
+    } catch (e) {
+      console.warn('Could not auto-open fanpage:', e);
+    }
+    const fallbackMsg = v
+      ? 'Dạ em chuyển tiếp anh/chị sang Fanpage Daiichi Travel để chuyên viên tư vấn trực tiếp hỗ trợ mình ngay nhé ạ! Quý khách vui lòng bấm nút bên dưới nếu trình duyệt chưa tự chuyển hướng:\n\n[HUMAN_CONNECT_CARD]'
+      : 'I am connecting you directly with our Daiichi Travel Facebook Fanpage live specialist! Please tap the button below if the page does not open automatically:\n\n[HUMAN_CONNECT_CARD]';
+    const replyText = (typeof DT_BOT.human === 'function' ? DT_BOT.human() : null) || fallbackMsg;
     setMsgs((m) => [
       ...m,
       { me: true, tx: v ? 'Tôi muốn gặp nhân viên tư vấn trực tiếp' : 'I want to speak with a human agent' },
-      { me: false, tx: DT_BOT.human ? DT_BOT.human() : 'Dạ em kết nối nhân viên ngay ạ:\n\n[HUMAN_CONNECT_CARD]', isHuman: true }
+      { me: false, tx: replyText, isHuman: true }
     ]);
+    if (typeof DT_BOT.askAI === 'function') {
+      DT_BOT.askAI(v ? 'Tôi muốn gặp nhân viên tư vấn trực tiếp' : 'I want to speak with a human agent', custType).catch(() => {});
+    }
   };
 
   const send = async (tx) => {
@@ -335,13 +347,25 @@ function ChatWidget() {
     setShowQuick(false); // Tự động ẩn gợi ý ngay khi bắt đầu trò chuyện
     setInput('');
 
-    // Nếu khách gõ hoặc bấm chọn gặp nhân viên tư vấn -> Trả lời ngay card liên hệ không cần chờ
+    // Nếu khách gõ hoặc bấm chọn gặp nhân viên tư vấn -> Mở ngay Fanpage Daiichi Travel và hiển thị thẻ liên hệ
     if (DT_BOT.isHuman && DT_BOT.isHuman(userText)) {
+      try {
+        window.open('https://m.me/109517555180906', '_blank');
+      } catch (e) {
+        console.warn('Could not auto-open fanpage:', e);
+      }
+      const fallbackMsg = v
+        ? 'Dạ em chuyển tiếp anh/chị sang Fanpage Daiichi Travel để chuyên viên tư vấn trực tiếp hỗ trợ mình ngay nhé ạ! Quý khách vui lòng bấm nút bên dưới nếu trình duyệt chưa tự chuyển hướng:\n\n[HUMAN_CONNECT_CARD]'
+        : 'I am connecting you directly with our Daiichi Travel Facebook Fanpage live specialist! Please tap the button below if the page does not open automatically:\n\n[HUMAN_CONNECT_CARD]';
+      const replyText = (typeof DT_BOT.human === 'function' ? DT_BOT.human() : null) || fallbackMsg;
       setMsgs((m) => [
         ...m,
         { me: true, tx: userText },
-        { me: false, tx: DT_BOT.human(), isHuman: true }
+        { me: false, tx: replyText, isHuman: true }
       ]);
+      if (typeof DT_BOT.askAI === 'function') {
+        DT_BOT.askAI(userText, custType).catch(() => {});
+      }
       return;
     }
 
@@ -367,19 +391,46 @@ function ChatWidget() {
   // Component Thẻ kết nối trực tiếp với nhân viên (Zalo, Messenger, Hotline)
   const renderHumanCard = () => {
     return (
-      <div style={{ marginTop: 10, background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)', border: '1.5px solid #CBD5E1', borderRadius: 12, padding: '10px 12px', boxShadow: '0 4px 14px rgba(18, 36, 65, 0.08)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 5 }}>
+      <div style={{ marginTop: 10, background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)', border: '1.5px solid #CBD5E1', borderRadius: 12, padding: '12px 14px', boxShadow: '0 4px 14px rgba(18, 36, 65, 0.08)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
           <span style={{ fontSize: 16 }}>👨‍💼</span>
           <b style={{ fontSize: 12.5, color: '#0F172A', fontWeight: 700, letterSpacing: '.01em' }}>
-            {v ? 'KẾT NỐI CHUYÊN VIÊN TRỰC TIẾP' : 'CONNECT WITH LIVE AGENT'}
+            {v ? 'KẾT NỐI FANPAGE DAIICHI TRAVEL' : 'CONNECT VIA DAIICHI TRAVEL FANPAGE'}
           </b>
         </div>
-        <p style={{ margin: '0 0 8px', fontSize: 11.5, color: '#475569', lineHeight: 1.45 }}>
+        <p style={{ margin: '0 0 10px', fontSize: 11.5, color: '#475569', lineHeight: 1.45 }}>
           {v
-            ? 'Bấm chọn một trong các kênh bên dưới để chuyên viên Daiichi hỗ trợ mình ngay nhé:'
-            : 'Tap below to chat directly with our travel specialist:'}
+            ? 'Bấm nút bên dưới để chuyển tiếp ngay sang Fanpage Daiichi Travel và chat trực tiếp với nhân viên tư vấn:'
+            : 'Tap below to open Daiichi Travel Facebook Fanpage and chat directly with our specialist:'}
         </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+          {/* Nút Chat Fanpage Facebook - Ưu tiên hàng đầu nổi bật nhất */}
+          <a
+            href="https://m.me/109517555180906"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              background: 'linear-gradient(135deg, #0064E0 0%, #0084FF 100%)',
+              color: '#fff',
+              padding: '10px 14px',
+              borderRadius: 9,
+              textDecoration: 'none',
+              fontWeight: 700,
+              fontSize: 12.5,
+              boxShadow: '0 3px 10px rgba(0, 100, 224, 0.38)',
+              transition: 'transform .12s, box-shadow .12s'
+            }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ background: '#fff', color: '#0064E0', fontWeight: 900, fontSize: 11, padding: '2px 6px', borderRadius: 4 }}>FB</span>
+              <span>{v ? 'Chat với Nhân viên trên Fanpage Daiichi' : 'Chat on Daiichi Travel Fanpage'}</span>
+            </span>
+            <span style={{ fontSize: 11, background: 'rgba(255,255,255,0.22)', padding: '2px 8px', borderRadius: 10, fontWeight: 700 }}>Mở ngay ↗</span>
+          </a>
+
           {/* Nút Chat Zalo */}
           <a
             href="https://zalo.me/0961004709"
@@ -396,7 +447,7 @@ function ChatWidget() {
               textDecoration: 'none',
               fontWeight: 700,
               fontSize: 12,
-              boxShadow: '0 2px 6px rgba(0, 104, 255, 0.25)',
+              boxShadow: '0 2px 6px rgba(0, 104, 255, 0.22)',
               transition: 'transform .12s'
             }}
           >
@@ -405,33 +456,6 @@ function ChatWidget() {
               <span>{v ? 'Chat Zalo với Chuyên viên' : 'Chat via Zalo'}</span>
             </span>
             <span style={{ fontSize: 11, opacity: 0.9 }}>0961 004 709 ↗</span>
-          </a>
-
-          {/* Nút Chat Messenger */}
-          <a
-            href="https://m.me/109517555180906"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              background: 'linear-gradient(135deg, #00B2FF 0%, #006AFF 100%)',
-              color: '#fff',
-              padding: '8px 12px',
-              borderRadius: 8,
-              textDecoration: 'none',
-              fontWeight: 700,
-              fontSize: 12,
-              boxShadow: '0 2px 6px rgba(0, 106, 255, 0.25)',
-              transition: 'transform .12s'
-            }}
-          >
-            <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <span>💬</span>
-              <span>{v ? 'Chat qua Facebook Fanpage' : 'Facebook Messenger'}</span>
-            </span>
-            <span style={{ fontSize: 11, opacity: 0.9 }}>Fanpage ↗</span>
           </a>
 
           {/* Nút Gọi Hotline */}
@@ -448,7 +472,7 @@ function ChatWidget() {
               textDecoration: 'none',
               fontWeight: 700,
               fontSize: 12,
-              boxShadow: '0 2px 6px rgba(16, 185, 129, 0.25)',
+              boxShadow: '0 2px 6px rgba(16, 185, 129, 0.22)',
               transition: 'transform .12s'
             }}
           >
@@ -463,11 +487,12 @@ function ChatWidget() {
     );
   };
 
-  // Helper to render formatted text (bold, bullets) & Human Contact Card
+    // Helper to render formatted text (bold, bullets) & Human Contact Card
   const renderMessageContent = (text, isHuman) => {
-    if (!text) return null;
-    const hasHumanCard = isHuman || text.includes('[HUMAN_CONNECT_CARD]');
-    const cleanText = text.replace(/\[HUMAN_CONNECT_CARD\]/g, '').trim();
+    if (!text && !isHuman) return null;
+    const hasHumanCard = Boolean(isHuman || (text && text.includes('[HUMAN_CONNECT_CARD]')));
+    const rawText = text || (v ? 'Dạ, em chuyển tiếp yêu cầu đến nhân viên tư vấn của Daiichi Travel. Quý khách vui lòng chọn kênh liên hệ trực tiếp bên dưới để được chuyên viên hỗ trợ ngay lập tức ạ:' : 'I have transferred your request to our Daiichi Travel travel specialist. Please select a direct contact option below:');
+    const cleanText = rawText.replace(/\[HUMAN_CONNECT_CARD\]/g, '').trim();
 
     return (
       <div>

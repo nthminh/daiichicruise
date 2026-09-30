@@ -16,7 +16,7 @@
     day: ['tour', 'du thuyền', 'cruise', 'kayak', 'việt hải', 'hoàng hôn', 'sunset', 'sunrise', 'デイクルーズ', 'ツアー', 'クルーズ', '투어', '크루즈', '데이', '一日游', '游船', '日落', 'croisière', 'excursion'],
     sched: ['mấy giờ', 'giờ nào', 'giờ chạy', 'lịch chạy', 'schedule', 'timetable', 'what time', 'departure time', '時刻', '時間', '何時', '몇 시', '시간표', '出发时间', '几点', '班次', 'horaire', 'quelle heure'],
     bus: ['xe', 'bus', 'limousine', 'cát bà', 'cat ba', 'hải phòng', 'hai phong', 'giá', 'vé', 'price', 'fare', 'how much', 'ticket', 'バス', 'カットバ', '料金', 'いくら', '버스', '깟바', '요금', '가격', '巴士', '吉婆', '票价', '多少钱', 'prix', 'tarif', 'billet'],
-    human: ['nhân viên', 'người thật', 'tư vấn viên', 'hotline', 'gọi', 'agent', 'human', 'staff', 'operator', 'オペレーター', '担当者', '電話', '상담원', '직원', '人工', '客服', '电话', 'conseiller', 'humain'],
+    human: ['nhân viên', 'người thật', 'tư vấn viên', 'hotline', 'gọi', 'agent', 'human', 'staff', 'operator', 'gặp người', 'tư vấn trực tiếp', 'chăm sóc khách hàng', 'cskh', 'đổi vé', 'hoàn tiền', 'khiếu nại', 'hỗ trợ trực tiếp', 'liên hệ nhân viên', 'gặp cskh', 'hỗ trợ đổi vé', 'nhân viên tư vấn', 'オペレーター', '担当者', '電話', '상담원', '직원', '人工', '客服', '电话', 'conseiller', 'humain'],
     rt: ['khứ hồi', 'hai chiều', 'round trip', 'round-trip', 'return ticket', '往復', '왕복', '往返', 'aller-retour'],
     cartq: ['giỏ hàng', 'giỏ', 'nhiều dịch vụ', 'cart', 'basket', 'カート', '장바구니', '购物车', 'panier'],
     points: ['điểm thưởng', 'tích điểm', 'hạng thẻ', 'thành viên', 'loyalty', 'points', 'rewards', 'tier', 'membership', 'ポイント', '会員', '포인트', '적립', '등급', '积分', '会员', 'fidélité'],
@@ -113,12 +113,12 @@
       '遗失物品请在App"失物招领"报告或致电 +84 96 100 4709，乘务员立即查找，可柜台领取或快递。',
       'Objet oublié ? Rubrique « Objets trouvés » de l\u2019appli ou +84 96 100 4709 — l\u2019équipage vérifie immédiatement.']),
     human: () => P([
-      'Đã chuyển cho nhân viên trực — phản hồi trong ~1 phút (demo). Gấp thì gọi/Zalo 24/7: 096 100 4709 nhé!',
-      'Connecting you to a live agent — reply in ~1 minute (demo). Urgent? Call/Zalo 24/7: +84 96 100 4709.',
-      'オペレーターにおつなぎします（約1分・デモ）。お急ぎの場合は +84 96 100 4709 へ。',
-      '상담원 연결 중입니다 (~1분·데모). 급하시면 +84 96 100 4709로 전화주세요.',
-      '正在转接人工客服（约1分钟·演示）。紧急请拨 +84 96 100 4709。',
-      'Transfert vers un conseiller (~1 min, démo). Urgence : +84 96 100 4709.']),
+      'Dạ, em đã chuyển tiếp yêu cầu đến nhân viên tư vấn của Daiichi Travel. Quý khách vui lòng chọn kênh liên hệ trực tiếp bên dưới để được chuyên viên hỗ trợ ngay lập tức ạ:\n\n[HUMAN_CONNECT_CARD]',
+      'I have transferred your request to our Daiichi Travel travel specialist. Please select a direct contact option below for instant live assistance:\n\n[HUMAN_CONNECT_CARD]',
+      'Daiichi Travelの担当スタッフにおつなぎいたします。以下のボタンから直接お問い合わせいただけます：\n\n[HUMAN_CONNECT_CARD]',
+      'Daiichi Travel 전문 상담원에게 연결해 드립니다. 아래 버튼을 눌러 바로 실시간 상담을 받아보세요:\n\n[HUMAN_CONNECT_CARD]',
+      '已为您转接Daiichi Travel人工客服。请点击下方按钮直接联系专员为您即时服务：\n\n[HUMAN_CONNECT_CARD]',
+      'Votre demande a été transmise à un conseiller Daiichi Travel. Veuillez choisir un canal direct ci-dessous pour une prise en charge immédiate :\n\n[HUMAN_CONNECT_CARD]']),
     rt: () => P([
       'Vé khứ hồi được giảm thêm 5%! Chọn ô "Ngày về" trong form tìm kiếm → chọn chuyến đi + chuyến về + ghế từng chiều → hệ thống tự trừ 5% tổng hóa đơn. Vé QR ghi cả hai chiều.',
       'Round trips get an extra 5% off! Set the "Return" date in the search form → pick outbound + return trips and seats for each leg → 5% comes off the total automatically. One QR ticket covers both legs.',
@@ -174,12 +174,12 @@
     greet() { return P(A.greet); },
     quick() {
       return P([
-        ['Giá vé xe HN – Cát Bà hôm nay?', 'Tour du thuyền ngày Lan Hạ 5★?', 'Du thuyền ngủ đêm 2N1Đ?', 'Ưu đãi học sinh, sinh viên 100k?', 'Chính sách đón trả trung chuyển'],
-        ['Hanoi–Cat Ba bus fares today?', 'Lan Ha 5★ Day Cruise?', '2D1N Overnight Cruise?', 'Student discount 100k?', 'Pickup & transfer policy'],
-        ['カットバ行きの料金は？', 'ランハ湾5つ星デイクルーズ？', '2日1泊宿泊クルーズ？', '学割制度？', '送迎ポリシー'],
-        ['깟바 요금은?', '란하 5성 데이 크루즈?', '2박1일 숙박 크루즈?', '학생 할인 100k?', '픽업 및 환승 안내'],
-        ['吉婆巴士票价？', '兰哈湾五星一日游？', '2天1晚豪华过夜游轮？', '学生优惠100k？', '接送政策'],
-        ['Prix Hanoï–Cat Ba ?', 'Croisière 5★ Lan Ha ?', 'Croisière 2J1N ?', 'Réduction étudiants ?', 'Politique de ramassage']]);
+        ['👨‍💼 Gặp nhân viên tư vấn', 'Giá vé xe HN – Cát Bà hôm nay?', 'Tour du thuyền ngày Lan Hạ 5★?', 'Du thuyền ngủ đêm 2N1Đ?', 'Ưu đãi học sinh, sinh viên 100k?', 'Chính sách đón trả trung chuyển'],
+        ['👨‍💼 Live Agent / Human', 'Hanoi–Cat Ba bus fares today?', 'Lan Ha 5★ Day Cruise?', '2D1N Overnight Cruise?', 'Student discount 100k?', 'Pickup & transfer policy'],
+        ['👨‍💼 担当者とお話し', 'カットバ行きの料金は？', 'ランハ湾5つ星デイクルーズ？', '2日1泊宿泊クルーズ？', '学割制度？', '送迎ポリシー'],
+        ['👨‍💼 전문 상담원 연결', '깟바 요금은?', '란하 5성 데이 크루즈?', '2박1일 숙박 크루즈?', '학생 할인 100k?', '픽업 및 환승 안내'],
+        ['👨‍💼 转人工客服', '吉婆巴士票价？', '兰哈湾五星一日游？', '2天1晚豪华过夜游轮？', '学生优惠100k？', '接送政策'],
+        ['👨‍💼 Parler à un conseiller', 'Prix Hanoï–Cat Ba ?', 'Croisière 5★ Lan Ha ?', 'Croisière 2J1N ?', 'Réduction étudiants ?', 'Politique de ramassage']]);
     },
     bookingApi: {
       url: 'https://vfeodqmvilchsipdsxsh.supabase.co/functions/v1/chatbot-booking',
@@ -202,9 +202,16 @@
       }
     },
     // Async call to real Daiichi AI Chatbot
+    human() { return P(A.human); },
+    isHuman(raw) { return match(String(raw || '').toLowerCase(), KW.human); },
     async askAI(raw, customerType = 'retail') {
       const text = String(raw || '').trim();
       if (!text) return '';
+
+      // Ưu tiên: Nếu khách hỏi gặp nhân viên / người thật -> Phản hồi thẻ kết nối ngay lập tức không cần chờ API
+      if (match(text.toLowerCase(), KW.human)) {
+        return P(A.human);
+      }
 
       // If user pasted a booking code (DT26-... or DT-...), we can answer instantly or query live Supabase
       const code = text.match(CODE_RE);

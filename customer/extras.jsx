@@ -320,20 +320,43 @@ function ChatWidget() {
     return () => window.removeEventListener('dt:lang', onLang);
   }, []);
 
+  const connectHuman = () => {
+    setShowQuick(false);
+    setMsgs((m) => [
+      ...m,
+      { me: true, tx: v ? 'Tôi muốn gặp nhân viên tư vấn trực tiếp' : 'I want to speak with a human agent' },
+      { me: false, tx: DT_BOT.human ? DT_BOT.human() : 'Dạ em kết nối nhân viên ngay ạ:\n\n[HUMAN_CONNECT_CARD]', isHuman: true }
+    ]);
+  };
+
   const send = async (tx) => {
     if (!tx || !tx.trim()) return;
     const userText = tx.trim();
     setShowQuick(false); // Tự động ẩn gợi ý ngay khi bắt đầu trò chuyện
-    setMsgs((m) => [...m, { me: true, tx: userText }]);
     setInput('');
+
+    // Nếu khách gõ hoặc bấm chọn gặp nhân viên tư vấn -> Trả lời ngay card liên hệ không cần chờ
+    if (DT_BOT.isHuman && DT_BOT.isHuman(userText)) {
+      setMsgs((m) => [
+        ...m,
+        { me: true, tx: userText },
+        { me: false, tx: DT_BOT.human(), isHuman: true }
+      ]);
+      return;
+    }
+
+    setMsgs((m) => [...m, { me: true, tx: userText }]);
     setTyping(true);
 
     try {
       const reply = await DT_BOT.askAI(userText, custType);
-      setMsgs((m) => [...m, { me: false, tx: reply }]);
+      const isH = reply && (reply.includes('[HUMAN_CONNECT_CARD]') || DT_BOT.isHuman(reply));
+      setMsgs((m) => [...m, { me: false, tx: reply, isHuman: isH }]);
     } catch (e) {
       console.warn('Lỗi gọi AI Chatbot:', e);
-      setMsgs((m) => [...m, { me: false, tx: DT_BOT.reply(userText) }]);
+      const fallbackReply = DT_BOT.reply(userText);
+      const isH = fallbackReply && fallbackReply.includes('[HUMAN_CONNECT_CARD]');
+      setMsgs((m) => [...m, { me: false, tx: fallbackReply, isHuman: isH }]);
     } finally {
       setTyping(false);
     }
@@ -341,23 +364,130 @@ function ChatWidget() {
 
   const quick = DT_BOT.quick();
 
-  // Helper to render formatted text (bold, bullets)
-  const renderMessageContent = (text) => {
+  // Component Thẻ kết nối trực tiếp với nhân viên (Zalo, Messenger, Hotline)
+  const renderHumanCard = () => {
+    return (
+      <div style={{ marginTop: 10, background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)', border: '1.5px solid #CBD5E1', borderRadius: 12, padding: '10px 12px', boxShadow: '0 4px 14px rgba(18, 36, 65, 0.08)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 5 }}>
+          <span style={{ fontSize: 16 }}>👨‍💼</span>
+          <b style={{ fontSize: 12.5, color: '#0F172A', fontWeight: 700, letterSpacing: '.01em' }}>
+            {v ? 'KẾT NỐI CHUYÊN VIÊN TRỰC TIẾP' : 'CONNECT WITH LIVE AGENT'}
+          </b>
+        </div>
+        <p style={{ margin: '0 0 8px', fontSize: 11.5, color: '#475569', lineHeight: 1.45 }}>
+          {v
+            ? 'Bấm chọn một trong các kênh bên dưới để chuyên viên Daiichi hỗ trợ mình ngay nhé:'
+            : 'Tap below to chat directly with our travel specialist:'}
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          {/* Nút Chat Zalo */}
+          <a
+            href="https://zalo.me/0961004709"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              background: '#0068FF',
+              color: '#fff',
+              padding: '8px 12px',
+              borderRadius: 8,
+              textDecoration: 'none',
+              fontWeight: 700,
+              fontSize: 12,
+              boxShadow: '0 2px 6px rgba(0, 104, 255, 0.25)',
+              transition: 'transform .12s'
+            }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ background: '#fff', color: '#0068FF', fontWeight: 900, fontSize: 10, padding: '1px 5px', borderRadius: 4 }}>Zalo</span>
+              <span>{v ? 'Chat Zalo với Chuyên viên' : 'Chat via Zalo'}</span>
+            </span>
+            <span style={{ fontSize: 11, opacity: 0.9 }}>0961 004 709 ↗</span>
+          </a>
+
+          {/* Nút Chat Messenger */}
+          <a
+            href="https://m.me/109517555180906"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              background: 'linear-gradient(135deg, #00B2FF 0%, #006AFF 100%)',
+              color: '#fff',
+              padding: '8px 12px',
+              borderRadius: 8,
+              textDecoration: 'none',
+              fontWeight: 700,
+              fontSize: 12,
+              boxShadow: '0 2px 6px rgba(0, 106, 255, 0.25)',
+              transition: 'transform .12s'
+            }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span>💬</span>
+              <span>{v ? 'Chat qua Facebook Fanpage' : 'Facebook Messenger'}</span>
+            </span>
+            <span style={{ fontSize: 11, opacity: 0.9 }}>Fanpage ↗</span>
+          </a>
+
+          {/* Nút Gọi Hotline */}
+          <a
+            href="tel:19009070"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              background: '#10B981',
+              color: '#fff',
+              padding: '8px 12px',
+              borderRadius: 8,
+              textDecoration: 'none',
+              fontWeight: 700,
+              fontSize: 12,
+              boxShadow: '0 2px 6px rgba(16, 185, 129, 0.25)',
+              transition: 'transform .12s'
+            }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span>📞</span>
+              <span>{v ? 'Gọi Hotline khẩn cấp 24/7' : 'Call 24/7 Hotline'}</span>
+            </span>
+            <span style={{ fontSize: 11, opacity: 0.9 }}>1900 9070 ↗</span>
+          </a>
+        </div>
+      </div>
+    );
+  };
+
+  // Helper to render formatted text (bold, bullets) & Human Contact Card
+  const renderMessageContent = (text, isHuman) => {
     if (!text) return null;
-    return text.split('\n').map((line, lIdx) => {
-      // Parse **bold** parts
-      const parts = line.split(/(\*\*.*?\*\*)/g);
-      return (
-        <span key={lIdx} style={{ display: 'block', minHeight: line.trim() ? 'auto' : '8px' }}>
-          {parts.map((p, pIdx) => {
-            if (p.startsWith('**') && p.endsWith('**')) {
-              return <strong key={pIdx} style={{ color: 'var(--navy)', fontWeight: 700 }}>{p.slice(2, -2)}</strong>;
-            }
-            return p;
-          })}
-        </span>
-      );
-    });
+    const hasHumanCard = isHuman || text.includes('[HUMAN_CONNECT_CARD]');
+    const cleanText = text.replace(/\[HUMAN_CONNECT_CARD\]/g, '').trim();
+
+    return (
+      <div>
+        {cleanText.split('\n').map((line, lIdx) => {
+          // Parse **bold** parts
+          const parts = line.split(/(\*\*.*?\*\*)/g);
+          return (
+            <span key={lIdx} style={{ display: 'block', minHeight: line.trim() ? 'auto' : '8px' }}>
+              {parts.map((p, pIdx) => {
+                if (p.startsWith('**') && p.endsWith('**')) {
+                  return <strong key={pIdx} style={{ color: 'var(--navy)', fontWeight: 700 }}>{p.slice(2, -2)}</strong>;
+                }
+                return p;
+              })}
+            </span>
+          );
+        })}
+        {hasHumanCard && renderHumanCard()}
+      </div>
+    );
   };
 
   return (
@@ -365,22 +495,48 @@ function ChatWidget() {
       {open && (
         <div style={{ width: 380, maxWidth: 'calc(100vw - 32px)', height: 530, maxHeight: 'calc(100vh - 100px)', background: '#fff', borderRadius: 18, boxShadow: '0 16px 40px -8px rgba(18, 36, 65, 0.28), 0 0 0 1px rgba(18, 36, 65, 0.08)', display: 'flex', flexDirection: 'column', overflow: 'hidden', marginBottom: 12, border: '1px solid var(--line)' }} data-screen-label="Daiichi AI Chatbot">
           {/* Header */}
-          <div style={{ background: 'linear-gradient(135deg, #122441 0%, #1E3A6B 100%)', color: '#fff', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div style={{ background: 'linear-gradient(135deg, #122441 0%, #1E3A6B 100%)', color: '#fff', padding: '12px 14px', display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{ position: 'relative' }}>
               <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>🤖</div>
               <span style={{ position: 'absolute', right: -1, bottom: -1, width: 10, height: 10, borderRadius: '50%', background: '#22C55E', border: '2px solid #122441' }}></span>
             </div>
             <div style={{ flex: 1 }}>
               <b style={{ fontSize: 14.5, color: '#fff', fontWeight: 700, letterSpacing: '.01em' }}>Daiichi Travel AI</b>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)' }}>{v ? 'Trợ lý du lịch 24/7' : 'Travel Assistant 24/7'}</div>
             </div>
+            {/* Nút bấm nhanh Gặp nhân viên trực tiếp trên thanh tiêu đề */}
+            <button
+              onClick={connectHuman}
+              title={v ? 'Kết nối chuyên viên tư vấn trực tiếp' : 'Connect with human agent'}
+              style={{
+                background: 'rgba(255,255,255,0.18)',
+                border: '1px solid rgba(255,255,255,0.3)',
+                color: '#fff',
+                fontSize: 11.5,
+                fontWeight: 700,
+                borderRadius: 14,
+                padding: '4px 10px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 4,
+                transition: 'all .15s',
+                whiteSpace: 'nowrap'
+              }}
+              onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.28)'; }}
+              onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.18)'; }}
+            >
+              <span>👨‍💼</span>
+              <span>{v ? 'Gặp nhân viên' : 'Live Agent'}</span>
+            </button>
             <button onClick={() => setOpen(false)} style={{ background: 'none', border: 0, color: 'rgba(255,255,255,.8)', fontSize: 18, cursor: 'pointer', padding: '2px 6px' }}>✕</button>
           </div>
 
           {/* Messages List */}
           <div ref={boxRef} style={{ flex: 1, overflowY: 'auto', padding: '14px 12px', display: 'flex', flexDirection: 'column', gap: 10, background: 'var(--ivory)' }}>
             {msgs.map((m, i) => (
-              <div key={i} style={{ alignSelf: m.me ? 'flex-end' : 'flex-start', maxWidth: '88%', background: m.me ? 'var(--navy)' : '#fff', color: m.me ? '#fff' : 'var(--ink)', border: m.me ? 0 : '1px solid var(--line)', borderRadius: m.me ? '16px 16px 4px 16px' : '16px 16px 16px 4px', padding: '10px 14px', fontSize: 13, lineHeight: 1.6, boxShadow: m.me ? 'none' : '0 2px 5px rgba(0,0,0,0.04)' }}>
-                {renderMessageContent(m.tx)}
+              <div key={i} style={{ alignSelf: m.me ? 'flex-end' : 'flex-start', maxWidth: '90%', background: m.me ? 'var(--navy)' : '#fff', color: m.me ? '#fff' : 'var(--ink)', border: m.me ? 0 : '1px solid var(--line)', borderRadius: m.me ? '16px 16px 4px 16px' : '16px 16px 16px 4px', padding: '10px 14px', fontSize: 13, lineHeight: 1.6, boxShadow: m.me ? 'none' : '0 2px 5px rgba(0,0,0,0.04)' }}>
+                {renderMessageContent(m.tx, m.isHuman)}
               </div>
             ))}
             {typing && (

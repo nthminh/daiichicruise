@@ -21,3 +21,7 @@ scratch/
 # Raw video footage / intermediate cuts
 assets/videos/Drone_flying_over_*
 assets/videos/drone-cruise-karst.mp4
+
+# Logs
+*.log
+firebase-debug.log

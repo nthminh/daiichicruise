@@ -18,38 +18,55 @@ window.DAIICHI_CONFIG = {
   APP_STORE_URL: 'https://apps.apple.com/app/id6790058777',
   PLAY_STORE_URL: 'https://play.google.com/store/apps/details?id=app.web.daiichitravel.twa',
 
+  // Google Ads & Analytics Tracking Configuration
+  // Điền mã Google Ads của bạn vào đây (ví dụ: 'AW-11500000000')
+  GOOGLE_ADS_ID: '', 
+  GA4_MEASUREMENT_ID: '', // Mã GA4 (ví dụ: 'G-XXXXXXXXXX')
+  GOOGLE_ADS_CONVERSION_HOTLINE: '', // Nhãn chuyển đổi cuộc gọi (ví dụ: 'AW-11500000000/AbCdEfGhIjK')
+  GOOGLE_ADS_CONVERSION_ZALO: '', // Nhãn chuyển đổi Zalo
+  GOOGLE_ADS_CONVERSION_BOOKING: '', // Nhãn chuyển đổi Click đặt tour
+  GOOGLE_ADS_CONVERSION_PURCHASE: '', // Nhãn chuyển đổi Đặt thành công
+
+  // Helper to append UTM / GCLID if tracking is loaded
+  _wrapUrl(url) {
+    if (window.DaiichiTracking && typeof window.DaiichiTracking.decorateUrl === 'function') {
+      return window.DaiichiTracking.decorateUrl(url);
+    }
+    return url;
+  },
+
   // Deep link generators to DaiichiTravel booking engine
   getBusBookingUrl(from, to, date) {
     let url = `${this.BOOKING_BASE_URL}/?tab=book-ticket`;
     if (from) url += `&from=${encodeURIComponent(from)}`;
     if (to) url += `&to=${encodeURIComponent(to)}`;
     if (date) url += `&date=${encodeURIComponent(date)}`;
-    return url;
+    return this._wrapUrl(url);
   },
 
   getTourBookingUrl(category, tourId) {
     let url = `${this.BOOKING_BASE_URL}/?tab=tours`;
     if (category) url += `&category=${encodeURIComponent(category)}`;
     if (tourId) url += `&tourId=${encodeURIComponent(tourId)}`;
-    return url;
+    return this._wrapUrl(url);
   },
 
   getCruiseBookingUrl(cruiseId) {
     let url = `${this.BOOKING_BASE_URL}/?tab=cruise-tours`;
     if (cruiseId) url += `&tourId=${encodeURIComponent(cruiseId)}`;
-    return url;
+    return this._wrapUrl(url);
   },
 
   getCharterUrl() {
-    return `${this.BOOKING_BASE_URL}/?tab=charter-vehicle`;
+    return this._wrapUrl(`${this.BOOKING_BASE_URL}/?tab=charter-vehicle`);
   },
 
   getMyTicketsUrl() {
-    return `${this.BOOKING_BASE_URL}/?tab=my-tickets`;
+    return this._wrapUrl(`${this.BOOKING_BASE_URL}/?tab=my-tickets`);
   },
 
   getGeneralBookingUrl() {
-    return `${this.BOOKING_BASE_URL}/?tab=cruise-tours`;
+    return this._wrapUrl(`${this.BOOKING_BASE_URL}/?tab=cruise-tours`);
   }
 };
 

@@ -250,18 +250,17 @@
         document.head.appendChild(s);
       }
 
-        window.gtag('js', new Date());
-        window.gtag('config', tagId, {
-          send_page_view: true,
-          cookie_flags: 'SameSite=None;Secure'
-        });
+      window.gtag('js', new Date());
+      window.gtag('config', tagId, {
+        send_page_view: true,
+        cookie_flags: 'SameSite=None;Secure'
+      });
 
-        // Also config second tag if both Ads and GA4 exist
-        if (config.GOOGLE_ADS_ID && config.GA4_MEASUREMENT_ID && config.GOOGLE_ADS_ID !== config.GA4_MEASUREMENT_ID) {
-          const secondTag = tagId === config.GOOGLE_ADS_ID ? config.GA4_MEASUREMENT_ID : config.GOOGLE_ADS_ID;
-          if (secondTag.indexOf('XXXX') === -1) {
-            window.gtag('config', secondTag);
-          }
+      // Also config second tag if both Ads and GA4 exist
+      if (config.GOOGLE_ADS_ID && config.GA4_MEASUREMENT_ID && config.GOOGLE_ADS_ID !== config.GA4_MEASUREMENT_ID) {
+        const secondTag = tagId === config.GOOGLE_ADS_ID ? config.GA4_MEASUREMENT_ID : config.GOOGLE_ADS_ID;
+        if (secondTag.indexOf('XXXX') === -1) {
+          window.gtag('config', secondTag);
         }
       }
     }

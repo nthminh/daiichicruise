@@ -241,12 +241,14 @@
     const tagId = config.GOOGLE_ADS_ID || config.GA4_MEASUREMENT_ID;
 
     if (tagId && tagId.indexOf('XXXX') === -1) {
-      if (!document.getElementById('google-tag-script')) {
+      const existingScript = document.getElementById('google-tag-script') || document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+      if (!existingScript) {
         const s = document.createElement('script');
         s.id = 'google-tag-script';
         s.async = true;
         s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(tagId);
         document.head.appendChild(s);
+      }
 
         window.gtag('js', new Date());
         window.gtag('config', tagId, {

@@ -19,9 +19,9 @@ window.DAIICHI_CONFIG = {
   PLAY_STORE_URL: 'https://play.google.com/store/apps/details?id=app.web.daiichitravel.twa',
 
   // Google Ads & Analytics Tracking Configuration
-  // Điền mã Google Ads của bạn vào đây (ví dụ: 'AW-11500000000')
-  GOOGLE_ADS_ID: '', 
-  GA4_MEASUREMENT_ID: '', // Mã GA4 (ví dụ: 'G-XXXXXXXXXX')
+  // Mã Google Ads chính thức của Daiichi Cruise
+  GOOGLE_ADS_ID: 'AW-18502887757', 
+  GA4_MEASUREMENT_ID: '', // Mã GA4 (nếu có, ví dụ: 'G-XXXXXXXXXX')
   GOOGLE_ADS_CONVERSION_HOTLINE: '', // Nhãn chuyển đổi cuộc gọi (ví dụ: 'AW-11500000000/AbCdEfGhIjK')
   GOOGLE_ADS_CONVERSION_ZALO: '', // Nhãn chuyển đổi Zalo
   GOOGLE_ADS_CONVERSION_BOOKING: '', // Nhãn chuyển đổi Click đặt tour

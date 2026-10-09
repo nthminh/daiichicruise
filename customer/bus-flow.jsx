@@ -67,6 +67,9 @@ function CheckoutFlow({ ctx, onBack, onDone }) {
         created: new Date().toISOString(),
       };
       DT_STORE.save(bk);
+      if (window.DaiichiTracking && typeof window.DaiichiTracking.trackBookingSuccess === 'function') {
+        window.DaiichiTracking.trackBookingSuccess(bk.code, bk.total, [{ item_id: bk.kind || 'booking', item_name: (bk.fromLabel || '') + ' - ' + (bk.toLabel || ''), price: bk.total }]);
+      }
       onDone(bk);
     }, 900);
   };

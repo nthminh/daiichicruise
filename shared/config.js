@@ -25,7 +25,7 @@ window.DAIICHI_CONFIG = {
   GOOGLE_ADS_CONVERSION_HOTLINE: '', // Nhãn chuyển đổi cuộc gọi (ví dụ: 'AW-11500000000/AbCdEfGhIjK')
   GOOGLE_ADS_CONVERSION_ZALO: '', // Nhãn chuyển đổi Zalo
   GOOGLE_ADS_CONVERSION_BOOKING: '', // Nhãn chuyển đổi Click đặt tour
-  GOOGLE_ADS_CONVERSION_PURCHASE: '', // Nhãn chuyển đổi Đặt thành công
+  GOOGLE_ADS_CONVERSION_PURCHASE: 'AW-18502887757/GrapCIj6t5YdEM3S7vZE', // Nhãn chuyển đổi Mua hàng / Đặt thành công
 
   // Helper to append UTM / GCLID if tracking is loaded
   _wrapUrl(url) {

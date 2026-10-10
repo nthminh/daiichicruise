@@ -22,8 +22,9 @@ window.DAIICHI_CONFIG = {
   // Mã Google Ads chính thức của Daiichi Cruise
   GOOGLE_ADS_ID: 'AW-18502887757', 
   GA4_MEASUREMENT_ID: '', // Mã GA4 (nếu có, ví dụ: 'G-XXXXXXXXXX')
-  GOOGLE_ADS_CONVERSION_HOTLINE: '', // Nhãn chuyển đổi cuộc gọi (ví dụ: 'AW-11500000000/AbCdEfGhIjK')
-  GOOGLE_ADS_CONVERSION_ZALO: '', // Nhãn chuyển đổi Zalo
+  GOOGLE_ADS_CONVERSION_HOTLINE: '', // Nhãn chuyển đổi cuộc gọi (ví dụ: 'AW-18502887757/AbCdEfGhIjK')
+  GOOGLE_ADS_CONVERSION_ZALO: '', // Nhãn chuyển đổi Zalo (ví dụ: 'AW-18502887757/AbCdEfGhIjK')
+  GOOGLE_ADS_CONVERSION_CHATBOT: '', // Nhãn chuyển đổi Chat AI / Tư vấn trực tiếp
   GOOGLE_ADS_CONVERSION_BOOKING: '', // Nhãn chuyển đổi Click đặt tour
   GOOGLE_ADS_CONVERSION_PURCHASE: 'AW-18502887757/GrapCIj6t5YdEM3S7vZE', // Nhãn chuyển đổi Mua hàng / Đặt thành công
 

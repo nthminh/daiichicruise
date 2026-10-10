@@ -187,10 +187,17 @@
 
     // Track Chatbot Interaction
     trackChatbot: function (action) {
+      console.info('[DaiichiTracking] Track Chatbot Interaction:', action);
       window.gtag('event', 'chatbot_interaction', {
         event_category: 'Chatbot',
         event_label: action || 'open'
       });
+
+      if (window.DAIICHI_CONFIG && window.DAIICHI_CONFIG.GOOGLE_ADS_CONVERSION_CHATBOT) {
+        window.gtag('event', 'conversion', {
+          send_to: window.DAIICHI_CONFIG.GOOGLE_ADS_CONVERSION_CHATBOT
+        });
+      }
     }
   };
 

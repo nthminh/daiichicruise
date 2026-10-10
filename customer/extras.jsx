@@ -322,6 +322,9 @@ function ChatWidget() {
 
   const connectHuman = () => {
     setShowQuick(false);
+    if (window.DaiichiTracking && typeof window.DaiichiTracking.trackChatbot === 'function') {
+      window.DaiichiTracking.trackChatbot('connect_human');
+    }
     try {
       window.open('https://m.me/109517555180906', '_blank');
     } catch (e) {
@@ -346,6 +349,10 @@ function ChatWidget() {
     const userText = tx.trim();
     setShowQuick(false); // Tự động ẩn gợi ý ngay khi bắt đầu trò chuyện
     setInput('');
+
+    if (window.DaiichiTracking && typeof window.DaiichiTracking.trackChatbot === 'function') {
+      window.DaiichiTracking.trackChatbot('message_sent');
+    }
 
     // Nếu khách gõ hoặc bấm chọn gặp nhân viên tư vấn -> Mở ngay Fanpage Daiichi Travel và hiển thị thẻ liên hệ
     if (DT_BOT.isHuman && DT_BOT.isHuman(userText)) {
@@ -633,7 +640,20 @@ function ChatWidget() {
         </a>
 
         {/* Floating Chat Bubble */}
-        <button onClick={() => setOpen(!open)} aria-label="chat" title="Hỏi trợ lý ảo AI Daiichi" style={{ width: 54, height: 54, borderRadius: '50%', background: 'linear-gradient(135deg, var(--red) 0%, #B7121D 100%)', color: '#fff', border: '2px solid rgba(255,255,255,0.3)', boxShadow: '0 8px 24px -4px rgba(216, 31, 42, 0.45)', fontSize: 24, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform .15s' }} onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.94)'} onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+        <button
+          onClick={() => {
+            const next = !open;
+            setOpen(next);
+            if (next && window.DaiichiTracking && typeof window.DaiichiTracking.trackChatbot === 'function') {
+              window.DaiichiTracking.trackChatbot('open');
+            }
+          }}
+          aria-label="chat"
+          title="Hỏi trợ lý ảo AI Daiichi"
+          style={{ width: 54, height: 54, borderRadius: '50%', background: 'linear-gradient(135deg, var(--red) 0%, #B7121D 100%)', color: '#fff', border: '2px solid rgba(255,255,255,0.3)', boxShadow: '0 8px 24px -4px rgba(216, 31, 42, 0.45)', fontSize: 24, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform .15s' }}
+          onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.94)'}
+          onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
+        >
           {open ? '✕' : '💬'}
         </button>
       </div>

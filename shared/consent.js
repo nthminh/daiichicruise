@@ -6,13 +6,14 @@
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) {}
 
-  /* Google Consent Mode v2 — mặc định denied trước khi khách chọn; no-op khi trang chưa cài gtag (nguyên mẫu) */
+  /* Google Consent Mode v2 — mặc định granted để Google Ads & Tag Assistant hoạt động ngay, trừ khi khách bấm từ chối ('necessary') */
   function gtagConsent(cmd, granted) {
     if (typeof window.gtag !== 'function') return;
     var g = granted ? 'granted' : 'denied';
     window.gtag('consent', cmd, { analytics_storage: g, ad_storage: g, ad_user_data: g, ad_personalization: g });
   }
-  gtagConsent('default', saved === 'granted');
+  var isGranted = saved !== 'necessary';
+  gtagConsent('default', isGranted);
 
   window.DT_CONSENT = {
     get status() { try { return localStorage.getItem(KEY); } catch (e) { return null; } },

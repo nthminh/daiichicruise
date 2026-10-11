@@ -95,18 +95,26 @@ function CruiseHomeSearch() {
   const STATIONS = (window.DT_DATA && DT_DATA.STATIONS) || {};
 
   const handleSearch = () => {
+    const wrap = (u) => (window.DAIICHI_CONFIG && typeof DAIICHI_CONFIG._wrapUrl === 'function' ? DAIICHI_CONFIG._wrapUrl(u) : (window.DaiichiTracking && typeof DaiichiTracking.decorateUrl === 'function' ? DaiichiTracking.decorateUrl(u) : u));
+    let targetUrl = '';
+    let searchLabel = 'cruise_search_' + tab;
+
     if (tab === 'night') {
-      const url = `https://daiichitravel.com/?tab=cruise-tours&date=${date}&pax=${pax}&cabins=${cabins}&itinerary=${itinerary}&cruise=${cruiseType}&source=daiichicruise`;
-      window.open(url, '_blank');
+      targetUrl = `https://daiichitravel.com/?tab=cruise-tours&date=${date}&pax=${pax}&cabins=${cabins}&itinerary=${itinerary}&cruise=${cruiseType}&source=daiichicruise`;
     } else if (tab === 'day') {
-      window.open(`https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&date=${date}&pax=${pax}&source=daiichicruise`, '_blank');
+      targetUrl = `https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&date=${date}&pax=${pax}&source=daiichicruise`;
     } else if (tab === 'tour') {
-      window.open(`https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&type=combo&date=${date}&pax=${pax}&source=daiichicruise`, '_blank');
+      targetUrl = `https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&type=combo&date=${date}&pax=${pax}&source=daiichicruise`;
     } else {
       const fromName = STATIONS[from] ? (STATIONS[from].vi || from) : 'Hà Nội';
       const toName = STATIONS[to] ? (STATIONS[to].vi || to) : 'Cát Bà';
-      window.open(`https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(fromName)}&to=${encodeURIComponent(toName)}&date=${date}&pax=${pax}&source=daiichicruise`, '_blank');
+      targetUrl = `https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(fromName)}&to=${encodeURIComponent(toName)}&date=${date}&pax=${pax}&source=daiichicruise`;
     }
+
+    if (window.DaiichiTracking && typeof DaiichiTracking.trackBookingClick === 'function') {
+      DaiichiTracking.trackBookingClick(searchLabel, tab, 0);
+    }
+    window.open(wrap(targetUrl), '_blank');
   };
 
   return (

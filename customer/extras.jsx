@@ -311,6 +311,8 @@ function ChatWidget() {
   const [input, setInput] = useState('');
   const [custType, setCustType] = useState('retail'); // 'retail' (B2C) | 'agent' (B2B)
   const [showQuick, setShowQuick] = useState(true);
+  const [copiedNotice, setCopiedNotice] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
   const boxRef = useRef(null);
 
   useEffect(() => { if (boxRef.current) boxRef.current.scrollTop = boxRef.current.scrollHeight; }, [msgs, open, typing, showQuick]);
@@ -320,19 +322,73 @@ function ChatWidget() {
     return () => window.removeEventListener('dt:lang', onLang);
   }, []);
 
-  const connectHuman = () => {
+  const buildChatSummary = () => {
+    const dialog = [];
+    (msgs || []).forEach((m) => {
+      const raw = (m.tx || '').replace(/\[HUMAN_CONNECT_CARD\]/g, '').trim();
+      if (!raw) return;
+      if (m.me) {
+        dialog.push(v ? `• Khách hỏi: "${raw}"` : `• Guest asked: "${raw}"`);
+      } else {
+        const shortReply = raw.length > 100 ? raw.slice(0, 100) + '…' : raw;
+        dialog.push(v ? `• Bot đáp: "${shortReply}"` : `• Bot replied: "${shortReply}"`);
+      }
+    });
+
+    const pageTitle = typeof document !== 'undefined' ? (document.title || '').split('—')[0].trim() : 'Daiichi Travel';
+    const lines = [
+      v ? `[HỖ TRỢ DAIICHI TRAVEL — TỪ WEBSITE]` : `[DAIICHI TRAVEL SUPPORT — FROM WEBSITE]`,
+      v ? `📍 Trang đang xem: ${pageTitle}` : `📍 Viewing: ${pageTitle}`
+    ];
+    if (dialog.length > 0) {
+      lines.push(v ? `💬 Trao đổi vừa qua với AI Bot:` : `💬 Recent chat with AI Bot:`);
+      lines.push(...dialog.slice(-6));
+    }
+    lines.push(v ? `👉 Nhờ chuyên viên hỗ trợ chi tiết giúp tôi.` : `👉 Please connect me with a specialist for further assistance.`);
+    return lines.join('\n');
+  };
+
+  const copyChatToClipboard = async () => {
+    const text = buildChatSummary();
+    let ok = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        ok = true;
+      } else {
+        throw new Error('Fallback needed');
+      }
+    } catch (e) {
+      try {
+        const el = document.createElement('textarea');
+        el.value = text;
+        el.style.position = 'fixed';
+        el.style.left = '-9999px';
+        el.style.top = '-9999px';
+        document.body.appendChild(el);
+        el.focus();
+        el.select();
+        ok = document.execCommand('copy');
+        document.body.removeChild(el);
+      } catch (err) {
+        console.warn('Copy error:', err);
+      }
+    }
+    if (window._dt_copy_timer) clearTimeout(window._dt_copy_timer);
+    window._dt_copy_timer = setTimeout(() => setCopiedNotice(false), 7000);
+    setCopiedNotice(true);
+    return ok;
+  };
+
+  const connectHuman = async () => {
     setShowQuick(false);
     if (window.DaiichiTracking && typeof window.DaiichiTracking.trackChatbot === 'function') {
       window.DaiichiTracking.trackChatbot('connect_human');
     }
-    try {
-      window.open('https://m.me/109517555180906', '_blank');
-    } catch (e) {
-      console.warn('Could not auto-open fanpage:', e);
-    }
+    await copyChatToClipboard();
     const fallbackMsg = v
-      ? 'Dạ em chuyển tiếp anh/chị sang Fanpage Daiichi Travel để chuyên viên tư vấn trực tiếp hỗ trợ mình ngay nhé ạ! Quý khách vui lòng bấm nút bên dưới nếu trình duyệt chưa tự chuyển hướng:\n\n[HUMAN_CONNECT_CARD]'
-      : 'I am connecting you directly with our Daiichi Travel Facebook Fanpage live specialist! Please tap the button below if the page does not open automatically:\n\n[HUMAN_CONNECT_CARD]';
+      ? 'Dạ em chuyển tiếp anh/chị sang Fanpage hoặc Zalo Daiichi Travel để chuyên viên tư vấn trực tiếp hỗ trợ mình ngay nhé ạ! Nội dung trao đổi vừa qua đã được tự động sao chép, quý khách chọn kênh liên hệ bên dưới:\n\n[HUMAN_CONNECT_CARD]'
+      : 'I am connecting you with our Daiichi Travel specialist! Your chat summary has been copied, please choose your preferred channel below:\n\n[HUMAN_CONNECT_CARD]';
     const replyText = (typeof DT_BOT.human === 'function' ? DT_BOT.human() : null) || fallbackMsg;
     setMsgs((m) => [
       ...m,
@@ -354,16 +410,12 @@ function ChatWidget() {
       window.DaiichiTracking.trackChatbot('message_sent');
     }
 
-    // Nếu khách gõ hoặc bấm chọn gặp nhân viên tư vấn -> Mở ngay Fanpage Daiichi Travel và hiển thị thẻ liên hệ
+    // Nếu khách gõ hoặc bấm chọn gặp nhân viên tư vấn -> Tự động copy tóm tắt và hiển thị thẻ liên hệ
     if (DT_BOT.isHuman && DT_BOT.isHuman(userText)) {
-      try {
-        window.open('https://m.me/109517555180906', '_blank');
-      } catch (e) {
-        console.warn('Could not auto-open fanpage:', e);
-      }
+      await copyChatToClipboard();
       const fallbackMsg = v
-        ? 'Dạ em chuyển tiếp anh/chị sang Fanpage Daiichi Travel để chuyên viên tư vấn trực tiếp hỗ trợ mình ngay nhé ạ! Quý khách vui lòng bấm nút bên dưới nếu trình duyệt chưa tự chuyển hướng:\n\n[HUMAN_CONNECT_CARD]'
-        : 'I am connecting you directly with our Daiichi Travel Facebook Fanpage live specialist! Please tap the button below if the page does not open automatically:\n\n[HUMAN_CONNECT_CARD]';
+        ? 'Dạ em chuyển tiếp anh/chị sang Fanpage hoặc Zalo Daiichi Travel để chuyên viên tư vấn trực tiếp hỗ trợ mình ngay nhé ạ! Nội dung trao đổi vừa qua đã được tự động sao chép, quý khách chọn kênh liên hệ bên dưới:\n\n[HUMAN_CONNECT_CARD]'
+        : 'I am connecting you with our Daiichi Travel specialist! Your chat summary has been copied, please choose your preferred channel below:\n\n[HUMAN_CONNECT_CARD]';
       const replyText = (typeof DT_BOT.human === 'function' ? DT_BOT.human() : null) || fallbackMsg;
       setMsgs((m) => [
         ...m,
@@ -382,11 +434,13 @@ function ChatWidget() {
     try {
       const reply = await DT_BOT.askAI(userText, custType);
       const isH = reply && (reply.includes('[HUMAN_CONNECT_CARD]') || DT_BOT.isHuman(reply));
+      if (isH) await copyChatToClipboard();
       setMsgs((m) => [...m, { me: false, tx: reply, isHuman: isH }]);
     } catch (e) {
       console.warn('Lỗi gọi AI Chatbot:', e);
       const fallbackReply = DT_BOT.reply(userText);
       const isH = fallbackReply && fallbackReply.includes('[HUMAN_CONNECT_CARD]');
+      if (isH) await copyChatToClipboard();
       setMsgs((m) => [...m, { me: false, tx: fallbackReply, isHuman: isH }]);
     } finally {
       setTyping(false);
@@ -402,20 +456,86 @@ function ChatWidget() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
           <span style={{ fontSize: 16 }}>👨‍💼</span>
           <b style={{ fontSize: 12.5, color: '#0F172A', fontWeight: 700, letterSpacing: '.01em' }}>
-            {v ? 'KẾT NỐI FANPAGE DAIICHI TRAVEL' : 'CONNECT VIA DAIICHI TRAVEL FANPAGE'}
+            {v ? 'KẾT NỐI CHUYÊN VIÊN DAIICHI TRAVEL' : 'CONNECT WITH DAIICHI SPECIALIST'}
           </b>
         </div>
         <p style={{ margin: '0 0 10px', fontSize: 11.5, color: '#475569', lineHeight: 1.45 }}>
           {v
-            ? 'Bấm nút bên dưới để chuyển tiếp ngay sang Fanpage Daiichi Travel và chat trực tiếp với nhân viên tư vấn:'
-            : 'Tap below to open Daiichi Travel Facebook Fanpage and chat directly with our specialist:'}
+            ? 'Chọn kênh liên hệ bên dưới để chat trực tiếp với nhân viên tư vấn:'
+            : 'Select a channel below to chat directly with our travel specialist:'}
         </p>
+
+        {/* Banner Hướng dẫn Sao chép & Dán tự động vào tin nhắn */}
+        <div style={{
+          background: copiedNotice ? '#ECFDF5' : '#EFF6FF',
+          border: `1.5px solid ${copiedNotice ? '#10B981' : '#93C5FD'}`,
+          borderRadius: 9,
+          padding: '8px 10px',
+          marginBottom: 10,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 5
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 5, fontWeight: 700, fontSize: 11.5, color: copiedNotice ? '#065F46' : '#1E40AF' }}>
+              <span>{copiedNotice ? '✅' : '📋'}</span>
+              <span>{copiedNotice ? (v ? 'Đã sao chép nội dung trao đổi!' : 'Chat summary copied!') : (v ? 'Tự động chép câu hỏi của bạn' : 'Auto-copied your inquiry')}</span>
+            </div>
+            <button
+              onClick={async (e) => { e.preventDefault(); await copyChatToClipboard(); }}
+              style={{
+                background: copiedNotice ? '#059669' : '#2563EB',
+                color: '#fff',
+                border: 0,
+                borderRadius: 5,
+                padding: '3px 8px',
+                fontSize: 10.5,
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              {copiedNotice ? (v ? 'Chép lại 📋' : 'Copy again') : (v ? 'Sao chép 📋' : 'Copy now')}
+            </button>
+          </div>
+          <div style={{ fontSize: 11, color: copiedNotice ? '#047857' : '#1E3A8A', lineHeight: 1.4 }}>
+            {v
+              ? '👉 Quý khách chỉ cần bấm Dán (Paste) vào tin nhắn Zalo / Fanpage để nhân viên nắm trọn thông tin ngay nhé!'
+              : '👉 Just paste into Zalo or Fanpage so the agent can see your inquiry immediately!'}
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', marginTop: 1 }}>
+            <button
+              onClick={(e) => { e.preventDefault(); setShowPreview(!showPreview); }}
+              style={{ background: 'none', border: 0, color: copiedNotice ? '#065F46' : '#1D4ED8', fontSize: 10, textDecoration: 'underline', cursor: 'pointer', padding: 0 }}
+            >
+              {showPreview ? (v ? 'Thu gọn ▲' : 'Hide summary ▲') : (v ? 'Xem trước nội dung đã chép 👁️' : 'View copied text 👁️')}
+            </button>
+          </div>
+          {showPreview && (
+            <pre style={{
+              margin: '3px 0 0',
+              padding: '6px 8px',
+              background: '#fff',
+              border: '1px dashed #CBD5E1',
+              borderRadius: 6,
+              fontSize: 10,
+              lineHeight: 1.35,
+              whiteSpace: 'pre-wrap',
+              color: '#334155',
+              maxHeight: 110,
+              overflowY: 'auto'
+            }}>
+              {buildChatSummary()}
+            </pre>
+          )}
+        </div>
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
           {/* Nút Chat Fanpage Facebook - Ưu tiên hàng đầu nổi bật nhất */}
           <a
             href="https://m.me/109517555180906"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={async () => { await copyChatToClipboard(); }}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -443,6 +563,7 @@ function ChatWidget() {
             href="https://zalo.me/0961004709"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={async () => { await copyChatToClipboard(); }}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -635,7 +756,18 @@ function ChatWidget() {
         </a>
 
         {/* Zalo 0961 004 709 */}
-        <a href="https://zalo.me/0961004709" target="_blank" rel="noopener noreferrer" title="Chat Zalo 0961 004 709" style={{ width: 48, height: 48, borderRadius: '50%', background: '#0068FF', color: '#fff', boxShadow: '0 6px 18px rgba(0, 104, 255, 0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontWeight: 800, fontSize: 13, border: '2px solid rgba(255,255,255,0.4)', transition: 'transform .15s' }}>
+        <a
+          href="https://zalo.me/0961004709"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Chat Zalo 0961 004 709"
+          onClick={async () => {
+            if (msgs && msgs.length > 1) {
+              await copyChatToClipboard();
+            }
+          }}
+          style={{ width: 48, height: 48, borderRadius: '50%', background: '#0068FF', color: '#fff', boxShadow: '0 6px 18px rgba(0, 104, 255, 0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', fontWeight: 800, fontSize: 13, border: '2px solid rgba(255,255,255,0.4)', transition: 'transform .15s' }}
+        >
           Zalo
         </a>
 
@@ -657,6 +789,33 @@ function ChatWidget() {
           {open ? '✕' : '💬'}
         </button>
       </div>
+
+      {/* Floating Toast Notice khi sao chép thành công */}
+      {copiedNotice && !open && (
+        <div style={{
+          position: 'fixed',
+          bottom: 90,
+          right: 24,
+          background: '#064E3B',
+          color: '#ECFDF5',
+          padding: '10px 14px',
+          borderRadius: 10,
+          boxShadow: '0 10px 25px rgba(0,0,0,0.25)',
+          fontSize: 12,
+          fontWeight: 600,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          zIndex: 1001,
+          maxWidth: 320
+        }}>
+          <span>✅</span>
+          <span style={{ flex: 1, lineHeight: 1.4 }}>
+            {v ? 'Đã sao chép nội dung trao đổi! Hãy bấm Dán (Paste) vào Zalo nhé.' : 'Chat summary copied! Please paste it into Zalo.'}
+          </span>
+          <button onClick={() => setCopiedNotice(false)} style={{ background: 'none', border: 0, color: '#A7F3D0', fontSize: 13, cursor: 'pointer', padding: '0 2px' }}>✕</button>
+        </div>
+      )}
     </div>
   );
 }

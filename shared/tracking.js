@@ -165,21 +165,23 @@
     },
 
     // Track Successful Order Submission (Purchase)
-    trackBookingSuccess: function (orderId, totalValue, items) {
+    trackBookingSuccess: function (orderId, totalValue, items, currency) {
       console.info('[DaiichiTracking] Track Booking Success:', orderId, totalValue);
+      const curr = currency || (window.DAIICHI_CONFIG && window.DAIICHI_CONFIG.CURRENCY) || 'VND';
+      const numVal = parseFloat(totalValue) || 1.0;
 
       window.gtag('event', 'purchase', {
         transaction_id: orderId,
-        value: totalValue || 0,
-        currency: 'VND',
+        value: numVal,
+        currency: curr,
         items: items || []
       });
 
       if (window.DAIICHI_CONFIG && window.DAIICHI_CONFIG.GOOGLE_ADS_CONVERSION_PURCHASE) {
         window.gtag('event', 'conversion', {
           send_to: window.DAIICHI_CONFIG.GOOGLE_ADS_CONVERSION_PURCHASE,
-          value: totalValue || 0,
-          currency: 'VND',
+          value: numVal,
+          currency: curr,
           transaction_id: orderId
         });
       }
@@ -204,8 +206,28 @@
   /* ------------------------------------------------------------
      4. AUTO-ATTACH EVENT LISTENERS (Clicks on Tel / Zalo / Booking)
      ------------------------------------------------------------ */
+  function checkUrlConversion() {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const orderId = urlParams.get('order_id') || urlParams.get('booking_code') || urlParams.get('code') || urlParams.get('vnp_TxnRef');
+      const isSuccess = urlParams.get('status') === 'success' || urlParams.get('payment') === 'success' || urlParams.get('vnp_ResponseCode') === '00' || urlParams.get('paid') === '1';
+
+      if (orderId && isSuccess) {
+        const trackedKey = 'daiichi_tracked_' + orderId;
+        if (!sessionStorage.getItem(trackedKey)) {
+          sessionStorage.setItem(trackedKey, '1');
+          const rawAmount = parseFloat(urlParams.get('amount') || urlParams.get('total') || urlParams.get('vnp_Amount') || '0');
+          const total = urlParams.get('vnp_Amount') ? rawAmount / 100 : rawAmount;
+          const curr = urlParams.get('currency') || 'VND';
+          DaiichiTracking.trackBookingSuccess(orderId, total || 1.0, [], curr);
+        }
+      }
+    } catch (e) { /* ignore */ }
+  }
+
   function initAutoTracking() {
     captureAttribution();
+    checkUrlConversion();
 
     document.addEventListener('click', function (e) {
       const target = e.target.closest('a, button');

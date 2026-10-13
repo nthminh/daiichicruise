@@ -38,22 +38,76 @@ const T = (k) => {
   }
   return k;
 };
-const LV = (viOrObj, en) => {
+
+/* Curated dictionary for high-frequency Cruise UI phrases */
+const CRUISE_PHRASES = {
+  // Search box & tabs
+  'Du thuyền ngủ đêm 5★ & Boutique': { en: '5★ & Boutique Overnight Cruise', ja: '5つ星＆ブティック宿泊クルーズ', ko: '5성급 & 부티크 1박 크루즈', zh: '五星与精品过夜游轮', fr: 'Croisière de nuit 5★ & Boutique' },
+  'Du thuyền ngủ đêm': { en: 'Overnight Cruise', ja: '宿泊クルーズ', ko: '1박 크루즈', zh: '过夜游轮', fr: 'Croisière de nuit' },
+  'Du thuyền ngày Lan Hạ': { en: 'Lan Ha Day Cruise', ja: 'ランハ湾デイクルーズ', ko: '란하베이 데이 크루즈', zh: '兰哈湾日间游船', fr: 'Croisière journée Lan Ha' },
+  'Du thuyền ngày': { en: 'Day Cruise', ja: 'デイクルーズ', ko: '데이 크루즈', zh: '日间游轮', fr: 'Croisière journée' },
+  'Tour Combo trọn gói Hà Nội': { en: 'All-in Combo from Hanoi', ja: 'ハノイ発パッケージコンボツアー', ko: '하노이 출발 올인원 콤보 투어', zh: '河内出发全包组合套餐', fr: 'Circuit combiné depuis Hanoï' },
+  'Tour Combo': { en: 'Combo Tours', ja: 'コンボツアー', ko: '콤보 투어', zh: '组合套餐', fr: 'Circuits combinés' },
+  'Xe Limousine đưa đón': { en: 'Limousine Transfer', ja: 'リムジン専用送迎', ko: '리무진 픽업/샌딩', zh: '豪华专车接送', fr: 'Transfert limousine' },
+  'Xe Limousine': { en: 'Limousine', ja: 'リムジンバス', ko: '리무진', zh: '豪华专车', fr: 'Limousine' },
+  'Du thuyền': { en: 'Cruise Ship', ja: 'クルーズ船', ko: '크루즈선', zh: '游轮', fr: 'Navire de croisière' },
+  'Tất cả du thuyền (Luxury & Boutique)': { en: 'All Cruises (Luxury & Boutique)', ja: 'すべてのクルーズ（5つ星＆ブティック）', ko: '모든 크루즈 (럭셔리 & 부티크)', zh: '全部游轮（奢华与精品）', fr: 'Toutes les croisières' },
+  'Hải trình': { en: 'Itinerary', ja: '運航日程', ko: '운항 일정', zh: '航程安排', fr: 'Itinéraire' },
+  '2 Ngày 1 Đêm (2D1N)': { en: '2 Days 1 Night (2D1N)', ja: '1泊2日（2D1N）', ko: '1박 2일 (2D1N)', zh: '两天一夜（2D1N）', fr: '2 jours 1 nuit (2D1N)' },
+  '3 Ngày 2 Đêm (3D2N)': { en: '3 Days 2 Nights (3D2N)', ja: '2泊3日（3D2N）', ko: '2박 3일 (3D2N)', zh: '三天两夜（3D2N）', fr: '3 jours 2 nuits (3D2N)' },
+  'Ngày khởi hành': { en: 'Departure Date', ja: '乗船日', ko: '출발일', zh: '出发日期', fr: 'Date de départ' },
+  'Số khách': { en: 'Guests', ja: '人数', ko: '인원', zh: '人数', fr: 'Passagers' },
+  'Số phòng': { en: 'Cabins', ja: '客室数', ko: '객실 수', zh: '房间数', fr: 'Cabines' },
+  'Tìm Chuyến Ngay': { en: 'Search Cruises', ja: 'クルーズを検索', ko: '크루즈 검색', zh: '立即搜索', fr: 'Rechercher' },
+  'Điểm đón': { en: 'Pickup', ja: '出発地', ko: '출발지', zh: '上车点', fr: 'Départ' },
+  'Điểm đến': { en: 'Drop-off', ja: '目的地', ko: '도착지', zh: '目的地', fr: 'Arrivée' },
+  'Tìm Vé Xe': { en: 'Find Bus Tickets', ja: 'バスを検索', ko: '버스 검색', zh: '查询车票', fr: 'Trouver un bus' },
+  'Cầu Kính Skywalk Độc Nhất Vịnh Lan Hạ': { en: 'Exclusive Ocean Glass Skywalk', ja: 'ランハ湾唯一の海上ガラススカイウォーク', ko: '란하베이 유일의 오션 스카이워크 유리 다리', zh: '兰哈湾独家全景海空玻璃桥', fr: 'Passerelle de verre suspendue exclusive' },
+  'Bể Sục Jacuzzi Nước Ấm Bốn Mùa': { en: 'Four-Season Bay-View Jacuzzi', ja: '絶景を望む屋外温水ジャグジー（通年利用可）', ko: '사계절 온수 오션뷰 자쿠지 풀', zh: '四季温水全景露天水疗按摩池', fr: 'Jacuzzi chauffé quatre saisons face à la baie' },
+  '100% Suite Có Ban Công Riêng Biệt': { en: '100% Private Balcony Suites', ja: '全室オーシャンビュー＆専用バルコニー付', ko: '전 객실 프라이빗 오션뷰 발코니 완비', zh: '100%全独立私享海景阳台套房', fr: '100 % des suites avec balcon privé vue mer' },
+  'Nhà Hàng Kính Fine-Dining & Sky Bar': { en: 'Glass Fine-Dining & 360° Sky Bar', ja: 'ガラス張りファインダイニング＆360度スカイバー', ko: '통유리 파인다이닝 레스토랑 & 360° 스카이 바', zh: '全景玻璃落座高级餐厅与360°星空酒吧', fr: 'Restaurant gastronomique panoramique & Sky Bar' },
+  'Chèo Kayak Hang Sáng Tối & Làng Việt Hải': { en: 'Kayak Sea Caves & Viet Hai Village', ja: '明暗の洞窟カヤック＆秘境ベトハイ村サイクリング', ko: '다크&라이트 동굴 카약 및 비엣하이 생태마을', zh: '划皮划艇探秘明暗洞与探访越海原生态古村', fr: 'Kayak dans la grotte Sombre & Lumineuse et village Viet Hai' },
+  'Đóng lại': { en: 'Close', ja: '閉じる', ko: '닫기', zh: '关闭', fr: 'Fermer' },
+  'Xem chi tiết': { en: 'View Details', ja: '詳細を見る', ko: '상세 보기', zh: '查看详情', fr: 'Voir détails' },
+  'Đặt Ngay': { en: 'Book Now', ja: '予約する', ko: '예약하기', zh: '立即预订', fr: 'Réserver' },
+  'Giá từ': { en: 'From', ja: '料金', ko: '요금', zh: '起价', fr: 'Dès' },
+  'Đã bao gồm VAT & các tiện ích cao cấp': { en: 'VAT & premium amenities included', ja: '税込・最高級アメニティ込み', ko: 'VAT 및 프리미엄 편의시설 포함', zh: '含税及全套高级礼遇', fr: 'TVA et équipements de luxe inclus' },
+  'Chính sách trẻ em': { en: 'Child Policy', ja: '子供料金ポリシー', ko: '어린이 정책', zh: '儿童政策', fr: 'Politique enfants' },
+  'Hoàn hủy miễn phí trước 7 ngày': { en: 'Free cancellation up to 7 days before', ja: '7日前まで無料キャンセル', ko: '출발 7일 전 무료 취소', zh: '出发前7天免费取消', fr: 'Annulation gratuite jusqu\'à 7 jours avant' },
+  'Hotline hỗ trợ 24/7:': { en: '24/7 Support Hotline:', ja: '24時間対応ホットライン:', ko: '24시간 고객센터:', zh: '24小时中文客服电话:', fr: 'Assistance 24/7 :' },
+  'Xe Bus Hải Phòng ⇄ Cát Bà (90.000đ)': { en: 'Bus Hai Phong ⇄ Cat Ba (90,000₫)', ja: 'ハイフォン〜カットバ間バス（90,000VND）', ko: '하이퐁 ⇄ 깟바 버스 (90,000동)', zh: '海防 ⇄ 吉婆直通巴士（9万盾）', fr: 'Bus Hai Phong ⇄ Cat Ba (90 000₫)' },
+};
+
+const LV = (viOrObj, en, ja, ko, zh, fr) => {
   const curLang = (window.I18N && I18N.lang) || 'vi';
   if (typeof viOrObj === 'object' && viOrObj !== null) {
     return viOrObj[curLang] || viOrObj.en || viOrObj.vi || '';
   }
   if (curLang === 'vi') return viOrObj;
+
+  // Check if explicit argument passed
+  if (curLang === 'ja' && ja) return ja;
+  if (curLang === 'ko' && ko) return ko;
+  if (curLang === 'zh' && zh) return zh;
+  if (curLang === 'fr' && fr) return fr;
+
+  // Check CRUISE_PHRASES dictionary
+  const key = String(viOrObj || '').trim();
+  if (CRUISE_PHRASES[key] && CRUISE_PHRASES[key][curLang]) {
+    return CRUISE_PHRASES[key][curLang];
+  }
+
   return en || viOrObj;
 };
 
 function OneLang() {
   const [open, setOpen] = useState(false);
-  const cur = I18N.langs.find((l) => l.code === I18N.lang) || I18N.langs[0];
+  const cur = (window.I18N && I18N.getCurrentLangInfo) ? I18N.getCurrentLangInfo() : (I18N.langs.find((l) => l.code === I18N.lang) || I18N.langs[0]);
   useEffect(() => {
     const close = () => setOpen(false);
     if (open) { document.addEventListener('click', close); return () => document.removeEventListener('click', close); }
   }, [open]);
+
   return (
     <div className="dt-lang" onClick={(e) => e.stopPropagation()}>
       <button className="dt-lang-btn" onClick={() => setOpen(!open)} style={{ background: 'rgba(255,255,255,.12)', borderColor: 'rgba(212,166,72,.4)' }}>
@@ -61,10 +115,21 @@ function OneLang() {
         <svg width="10" height="10" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" /></svg>
       </button>
       {open && (
-        <div className="dt-lang-menu" style={{ zIndex: 120 }}>
+        <div className="dt-lang-menu" style={{ zIndex: 120, width: 230, maxHeight: 380, overflowY: 'auto' }}>
+          <div style={{ fontSize: 10.5, fontWeight: 700, color: 'var(--ink-3)', padding: '6px 10px 2px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            {LV('Ngôn ngữ chính thức', 'Official Languages')}
+          </div>
           {I18N.langs.map((l) => (
-            <button key={l.code} className={l.code === I18N.lang ? 'on' : ''} onClick={() => { I18N.setLang(l.code); setOpen(false); }}>
+            <button key={l.code} className={(!I18N.activeExtLang && l.code === I18N.lang) ? 'on' : ''} onClick={() => { I18N.setLang(l.code); setOpen(false); }}>
               <span>{l.flag}</span><span>{l.label}</span>
+            </button>
+          ))}
+          <div style={{ margin: '6px 0', borderTop: '1px solid var(--line)', paddingTop: 6, fontSize: 10.5, fontWeight: 700, color: 'var(--gold)', paddingLeft: 10, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            🌐 {LV('Tự động dịch đa quốc gia', 'Auto Translate (100+)')}
+          </div>
+          {(I18N.extLangs || []).map((el) => (
+            <button key={el.code} className={I18N.activeExtLang === el.code ? 'on' : ''} onClick={() => { I18N.setExtLang(el.code); setOpen(false); }}>
+              <span>{el.flag}</span><span>{el.label}</span>
             </button>
           ))}
         </div>

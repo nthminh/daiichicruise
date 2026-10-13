@@ -56,7 +56,7 @@ function QRBox({ code, size = 132 }) {
 /* language switcher */
 function LangSwitcher() {
   const [open, setOpen] = useState(false);
-  const cur = I18N.langs.find((l) => l.code === I18N.lang);
+  const cur = (window.I18N && I18N.getCurrentLangInfo) ? I18N.getCurrentLangInfo() : (I18N.langs.find((l) => l.code === I18N.lang) || I18N.langs[0]);
   useEffect(() => {
     const close = () => setOpen(false);
     if (open) { document.addEventListener('click', close); return () => document.removeEventListener('click', close); }
@@ -68,11 +68,23 @@ function LangSwitcher() {
         <svg width="10" height="10" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" /></svg>
       </button>
       {open && (
-        <div className="dt-lang-menu">
+        <div className="dt-lang-menu" style={{ zIndex: 120, width: 220, maxHeight: 360, overflowY: 'auto' }}>
+          <div style={{ fontSize: 10.5, fontWeight: 700, color: 'var(--ink-3)', padding: '6px 10px 2px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            {I18N.lang === 'vi' ? 'Ngôn ngữ chính thức' : 'Official Languages'}
+          </div>
           {I18N.langs.map((l) => (
-            <button key={l.code} className={l.code === I18N.lang ? 'on' : ''}
+            <button key={l.code} className={(!I18N.activeExtLang && l.code === I18N.lang) ? 'on' : ''}
               onClick={() => { I18N.setLang(l.code); setOpen(false); }}>
               <span>{l.flag}</span><span>{l.label}</span>
+            </button>
+          ))}
+          <div style={{ margin: '6px 0', borderTop: '1px solid var(--line)', paddingTop: 6, fontSize: 10.5, fontWeight: 700, color: 'var(--gold)', paddingLeft: 10, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            🌐 {I18N.lang === 'vi' ? 'Tự động dịch đa quốc gia' : 'Auto Translate (100+)'}
+          </div>
+          {(I18N.extLangs || []).map((el) => (
+            <button key={el.code} className={I18N.activeExtLang === el.code ? 'on' : ''}
+              onClick={() => { I18N.setExtLang(el.code); setOpen(false); }}>
+              <span>{el.flag}</span><span>{el.label}</span>
             </button>
           ))}
         </div>

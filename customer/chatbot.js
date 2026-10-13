@@ -2,9 +2,31 @@
    (DT_DATA prices/schedules, DT_CAMPAIGNS active promos, DT_STORE bookings) */
 (function () {
   const idx = { vi: 0, en: 1, ja: 2, ko: 3, zh: 4, fr: 5 };
-  const P = (arr) => arr[idx[I18N.lang]] || arr[1] || arr[0];
+  let _detectedUserLang = null;
+  const currentLang = () => _detectedUserLang || (window.I18N && I18N.lang) || 'vi';
+  const P = (arr) => arr[idx[currentLang()]] || arr[1] || arr[0];
   const F = (n) => I18N.fmtPrice(n);
-  const Lz = (o) => I18N.L(o);
+  const Lz = (o) => (typeof o === 'object' && o !== null ? (o[currentLang()] || o.en || o.vi || '') : (o || ''));
+
+  function detectTextLang(text) {
+    if (!text || typeof text !== 'string') return null;
+    const s = text.trim();
+    if (!s) return null;
+    // Korean: Hangul syllables or jamo
+    if (/[\uac00-\ud7af\u1100-\u11ff]/.test(s)) return 'ko';
+    // Japanese: Hiragana or Katakana
+    if (/[\u3040-\u30ff]/.test(s)) return 'ja';
+    // Chinese: Hanzi characters
+    if (/[\u4e00-\u9fa5]/.test(s)) return 'zh';
+    // Vietnamese: Distinct diacritics
+    if (/[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i.test(s)) return 'vi';
+    // French: accents or common French keywords
+    if (/[éèêëàâçîïôùûüÿœæ]/i.test(s) || /\b(bonjour|merci|croisière|s'il|combien|horaire|réserv|billet|bateau|nuit|prix|départ)\b/i.test(s)) return 'fr';
+    // English keywords
+    if (/\b(hello|hi|please|price|cost|how much|book|booking|cruise|bus|ticket|schedule|cancel|refund|where|when|route)\b/i.test(s)) return 'en';
+    return null;
+  }
+
 
   /* ---- intent keywords (all languages, lowercase substrings) ---- */
   const KW = {
@@ -208,6 +230,12 @@
       const text = String(raw || '').trim();
       if (!text) return '';
 
+      // Tự động nhận diện ngôn ngữ của người dùng qua câu hỏi
+      const detected = detectTextLang(text);
+      if (detected) {
+        _detectedUserLang = detected;
+      }
+
       // Ưu tiên: Nếu khách hỏi gặp nhân viên / người thật -> Phản hồi thẻ kết nối ngay lập tức không cần chờ API
       if (match(text.toLowerCase(), KW.human)) {
         return A.human();
@@ -249,7 +277,8 @@
               message: text,
               session_id: window._dt_chat_session,
               engine: 'hybrid',
-              customer_type: customerType || 'retail'
+              customer_type: customerType || 'retail',
+              lang: detected || currentLang()
             }),
             signal: controller.signal
           });
@@ -271,6 +300,10 @@
       return this.reply(text);
     },
     reply(raw) {
+      const detected = detectTextLang(raw);
+      if (detected) {
+        _detectedUserLang = detected;
+      }
       const text = String(raw || '').toLowerCase();
       const code = text.match(CODE_RE);
       if (code) return bookingReply(code[0]);

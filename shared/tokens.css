@@ -81,3 +81,28 @@ html[data-theme="en"] .dt-hero h1, html[data-theme="en"] .on-hero h1 { font-weig
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 8px; border: 2px solid var(--ivory); }
 ::-webkit-scrollbar-track { background: transparent; }
+
+/* Google Translate styling — keep header and layout pristine */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+body {
+  top: 0px !important;
+  position: static !important;
+}
+#goog-gt-tt, .goog-te-balloon-frame {
+  display: none !important;
+}
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+font {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+

@@ -12,6 +12,22 @@
     { code: 'fr', label: 'Français', flag: '🇫🇷' },
   ];
 
+  const EXT_LANGS = [
+    { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
+    { code: 'es', label: 'Español', flag: '🇪🇸' },
+    { code: 'ru', label: 'Русский', flag: '🇷🇺' },
+    { code: 'it', label: 'Italiano', flag: '🇮🇹' },
+    { code: 'th', label: 'ไทย', flag: '🇹🇭' },
+    { code: 'id', label: 'Bahasa Indonesia', flag: '🇮🇩' },
+    { code: 'ms', label: 'Bahasa Melayu', flag: '🇲🇾' },
+    { code: 'pt', label: 'Português', flag: '🇵🇹' },
+    { code: 'nl', label: 'Nederlands', flag: '🇳🇱' },
+    { code: 'ar', label: 'العربية', flag: '🇸🇦' },
+    { code: 'pl', label: 'Polski', flag: '🇵🇱' },
+    { code: 'hi', label: 'हिन्दी', flag: '🇮🇳' },
+  ];
+
+
   // key: [vi, en, ja, ko, zh, fr]
   const D = {
     brand_tagline: ['Một nền tảng — Xe · Tàu · Du thuyền · Tour', 'One platform — Bus · Boat · Cruise · Tours', 'ワンプラットフォーム — バス・船・クルーズ・ツアー', '하나의 플랫폼 — 버스 · 보트 · 크루즈 · 투어', '一个平台 — 巴士·船·游轮·旅游', 'Une plateforme — Bus · Bateau · Croisière · Circuits'],
@@ -192,23 +208,113 @@
     apply_done: ['✓ Đã nhận hồ sơ! Bộ phận nhân sự sẽ liên hệ trong 3 ngày làm việc.', '✓ Application received! HR will contact you within 3 working days.', '✓ 応募を受け付けました！3営業日以内にご連絡します。', '✓ 접수되었습니다! 3영업일 내 연락드립니다.', '✓ 已收到申请！3个工作日内联系您。', '✓ Candidature reçue ! Réponse sous 3 jours ouvrés.'],
   };
 
+  function getCookie(name) {
+    const v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return v ? decodeURIComponent(v[2]) : null;
+  }
+  function setGoogTrans(targetCode) {
+    const host = window.location.hostname;
+    const cookieVal = '/auto/' + targetCode;
+    document.cookie = 'googtrans=' + cookieVal + '; path=/;';
+    document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=' + host + ';';
+    const parts = host.split('.');
+    if (parts.length > 2) {
+      const root = '.' + parts.slice(-2).join('.');
+      document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=' + root + ';';
+    }
+  }
+  function clearGoogTrans() {
+    const host = window.location.hostname;
+    const exp = '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'googtrans' + exp;
+    document.cookie = 'googtrans' + exp + ' domain=' + host + ';';
+    const parts = host.split('.');
+    if (parts.length > 2) {
+      const root = '.' + parts.slice(-2).join('.');
+      document.cookie = 'googtrans' + exp + ' domain=' + root + ';';
+    }
+  }
+  function getGoogleTransLang() {
+    const c = getCookie('googtrans');
+    if (!c) return null;
+    const m = c.match(/\/([^/]+)$/);
+    return m ? m[1].toLowerCase() : null;
+  }
+  function loadGoogleTranslate() {
+    if (window._gt_injected || document.getElementById('google-translate-script')) return;
+    window._gt_injected = true;
+    if (!document.getElementById('google_translate_element')) {
+      const el = document.createElement('div');
+      el.id = 'google_translate_element';
+      el.style.display = 'none';
+      if (document.body) {
+        document.body.appendChild(el);
+      } else {
+        document.addEventListener('DOMContentLoaded', () => document.body && document.body.appendChild(el));
+      }
+    }
+    window.googleTranslateElementInit = function () {
+      try {
+        new google.translate.TranslateElement({
+          pageLanguage: 'auto',
+          autoDisplay: false,
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      } catch (e) {}
+    };
+    const s = document.createElement('script');
+    s.id = 'google-translate-script';
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    s.async = true;
+    document.head.appendChild(s);
+  }
+
   function detect() {
-    // 1. Check URL query param ?lang=vi|en|ja|ko|zh|fr
+    // 1. Check URL query param ?lang=vi|en|ja|ko|zh|fr or extended lang
     try {
       const urlParams = new URLSearchParams(window.location.search);
-      const urlLang = urlParams.get('lang');
-      if (urlLang && LANGS.some(l => l.code === urlLang.toLowerCase())) {
-        localStorage.setItem('dt_lang', urlLang.toLowerCase());
-        localStorage.setItem('dt_lang_manual', '1');
-        return urlLang.toLowerCase();
+      const urlLang = (urlParams.get('lang') || '').toLowerCase();
+      if (urlLang) {
+        if (LANGS.some(l => l.code === urlLang)) {
+          clearGoogTrans();
+          localStorage.setItem('dt_lang', urlLang);
+          localStorage.removeItem('dt_ext_lang');
+          localStorage.setItem('dt_lang_manual', '1');
+          return urlLang;
+        }
+        if (EXT_LANGS.some(l => l.code === urlLang) || urlLang.length === 2) {
+          setGoogTrans(urlLang);
+          loadGoogleTranslate();
+          localStorage.setItem('dt_lang', 'en');
+          localStorage.setItem('dt_ext_lang', urlLang);
+          localStorage.setItem('dt_lang_manual', '1');
+          return 'en';
+        }
       }
     } catch (e) {}
 
     // 2. Check if user previously manually selected a language
     const isManual = localStorage.getItem('dt_lang_manual');
     const saved = localStorage.getItem('dt_lang');
-    if (isManual && saved && LANGS.some(l => l.code === saved)) {
-      return saved;
+    const savedExt = localStorage.getItem('dt_ext_lang');
+    if (isManual) {
+      if (savedExt) {
+        setGoogTrans(savedExt);
+        loadGoogleTranslate();
+        return 'en';
+      }
+      if (saved && LANGS.some(l => l.code === saved)) {
+        clearGoogTrans();
+        return saved;
+      }
+    }
+
+    // Check existing googtrans cookie
+    const gt = getGoogleTransLang();
+    if (gt && gt !== 'vi' && gt !== 'auto') {
+      loadGoogleTranslate();
+      if (LANGS.some(l => l.code === gt)) return gt;
+      return 'en';
     }
 
     // 3. Auto-detect from visitor device/browser locale
@@ -219,12 +325,17 @@
       if (!nl) continue;
       const code = String(nl).toLowerCase().slice(0, 2);
       if (LANGS.some(l => l.code === code)) {
+        clearGoogTrans();
         return code;
+      }
+      if (EXT_LANGS.some(l => l.code === code) || ['de', 'es', 'ru', 'it', 'th', 'id', 'ms', 'pt', 'nl', 'ar', 'pl', 'hi'].includes(code)) {
+        setGoogTrans(code);
+        setTimeout(loadGoogleTranslate, 50);
+        return 'en';
       }
     }
 
     // 4. Default fallback:
-    // If device locale is Vietnamese -> 'vi'; else international English -> 'en'
     const primaryNav = String(navigator.language || navigator.userLanguage || '').toLowerCase();
     if (primaryNav.startsWith('vi')) return 'vi';
     return 'en';
@@ -234,14 +345,54 @@
 
   const I18N = {
     langs: LANGS,
+    extLangs: EXT_LANGS,
     lang: detect(),
+    activeExtLang: getGoogleTransLang(),
     setLang(code) {
       this.lang = code;
+      this.activeExtLang = null;
+      clearGoogTrans();
       localStorage.setItem('dt_lang', code);
+      localStorage.removeItem('dt_ext_lang');
       localStorage.setItem('dt_lang_manual', '1');
       document.documentElement.lang = code;
       window.dispatchEvent(new CustomEvent('dt:lang', { detail: code }));
+      const combo = document.querySelector('.goog-te-combo');
+      if (combo && combo.value) {
+        combo.value = '';
+        combo.dispatchEvent(new Event('change'));
+      }
     },
+    setExtLang(extCode) {
+      this.lang = 'en';
+      this.activeExtLang = extCode;
+      setGoogTrans(extCode);
+      loadGoogleTranslate();
+      localStorage.setItem('dt_lang', 'en');
+      localStorage.setItem('dt_ext_lang', extCode);
+      localStorage.setItem('dt_lang_manual', '1');
+      document.documentElement.lang = extCode;
+      window.dispatchEvent(new CustomEvent('dt:lang', { detail: extCode }));
+      const combo = document.querySelector('.goog-te-combo');
+      if (combo) {
+        combo.value = extCode;
+        combo.dispatchEvent(new Event('change'));
+      } else {
+        setTimeout(() => {
+          const c2 = document.querySelector('.goog-te-combo');
+          if (c2) { c2.value = extCode; c2.dispatchEvent(new Event('change')); }
+        }, 600);
+      }
+    },
+    getCurrentLangInfo() {
+      if (this.activeExtLang) {
+        const foundExt = EXT_LANGS.find(l => l.code === this.activeExtLang);
+        if (foundExt) return foundExt;
+        return { code: this.activeExtLang, label: this.activeExtLang.toUpperCase(), flag: '🌍' };
+      }
+      return LANGS.find(l => l.code === this.lang) || LANGS[0];
+    },
+    loadGoogleTranslate,
     t(key) {
       const row = D[key];
       if (!row) return key;
@@ -271,14 +422,23 @@
     },
     /* approximate foreign-currency display for international guests */
     approx(n) {
-      const map = { en: ['$', 25400, 0], ja: ['¥', 165, 0], ko: ['₩', 18.5, 0], zh: ['¥', 3500, 0], fr: ['€', 27500, 0] };
-      const m = map[this.lang];
+      const map = { en: ['$', 25400, 0], ja: ['¥', 165, 0], ko: ['₩', 18.5, 0], zh: ['¥', 3500, 0], fr: ['€', 27500, 0], de: ['€', 27500, 0], it: ['€', 27500, 0], es: ['€', 27500, 0], ru: ['₽', 260, 0], th: ['฿', 710, 0] };
+      const cur = this.activeExtLang || this.lang;
+      const m = map[cur] || map[this.lang];
       if (!m) return '';
       const v = n / m[1];
       const s = v >= 100 ? Math.round(v).toLocaleString('en-US') : v.toFixed(v >= 10 ? 0 : 1);
       return '≈ ' + m[0] + s;
     },
   };
-  document.documentElement.lang = I18N.lang;
+  document.documentElement.lang = I18N.activeExtLang || I18N.lang;
   window.I18N = I18N;
+  if (I18N.activeExtLang) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadGoogleTranslate);
+    } else {
+      loadGoogleTranslate();
+    }
+  }
 })();
+

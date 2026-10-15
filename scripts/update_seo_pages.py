@@ -68,7 +68,7 @@ def update_file(filepath, lang):
         "    <a href=\"../../index.html\" style=\"font-weight:700;\">DAIICHI CRUISE</a>\n"
         "    <span style=\"font-size:12px;color:rgba(255,255,255,.8);display:inline-flex;gap:12px;\">\n"
         "      <span>📞 Hotline: <a href=\"tel:19009070\" style=\"color:var(--gold);text-decoration:none;font-weight:700;\">1900 9070</a></span>\n"
-        "      <span>💬 Zalo: <a href=\"https://zalo.me/0961004709\" target=\"_blank\" rel=\"noopener\" style=\"color:#60A5FA;text-decoration:none;font-weight:700;\">0961 004 709</a></span>\n"
+        "      <span>💬 Zalo: <a href=\"https://zalo.me/633406871869836720\" target=\"_blank\" rel=\"noopener\" style=\"color:#60A5FA;text-decoration:none;font-weight:700;\">0961 004 709</a></span>\n"
         "    </span>\n"
         "  </div>"
     )
@@ -79,7 +79,7 @@ def update_file(filepath, lang):
     footer_new = (
         "<footer>\n"
         "  <p><b>Daiichi Cruise</b> — Chuyên du thuyền Lan Hạ & Vận tải du lịch Cát Bà. Hệ thống đặt vé & giữ chỗ trực tuyến bởi <a href=\"https://daiichitravel.com\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--navy);font-weight:700;\">DaiichiTravel.com</a>.</p>\n"
-        "  <p>Hotline 24/7: <a href=\"tel:19009070\">1900 9070</a> · Zalo: <a href=\"https://zalo.me/0961004709\" target=\"_blank\" rel=\"noopener\">0961 004 709</a> · Email: <a href=\"mailto:sale@daiichitravel.com\">sale@daiichitravel.com</a></p>\n"
+        "  <p>Hotline 24/7: <a href=\"tel:19009070\">1900 9070</a> · Zalo: <a href=\"https://zalo.me/633406871869836720\" target=\"_blank\" rel=\"noopener\">0961 004 709</a> · Email: <a href=\"mailto:sale@daiichitravel.com\">sale@daiichitravel.com</a></p>\n"
         "</footer>"
     )
     content = re.sub(footer_pattern, footer_new, content, flags=re.DOTALL)

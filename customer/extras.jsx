@@ -558,9 +558,9 @@ function ChatWidget() {
             <span style={{ fontSize: 11, background: 'rgba(255,255,255,0.22)', padding: '2px 8px', borderRadius: 10, fontWeight: 700 }}>Mở ngay ↗</span>
           </a>
 
-          {/* Nút Chat Zalo */}
+          {/* Nút Chat Zalo OA */}
           <a
-            href="https://zalo.me/0961004709"
+            href="https://zalo.me/633406871869836720"
             target="_blank"
             rel="noopener noreferrer"
             onClick={async () => { await copyChatToClipboard(); }}
@@ -581,9 +581,9 @@ function ChatWidget() {
           >
             <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
               <span style={{ background: '#fff', color: '#0068FF', fontWeight: 900, fontSize: 10, padding: '1px 5px', borderRadius: 4 }}>Zalo</span>
-              <span>{v ? 'Chat Zalo với Chuyên viên' : 'Chat via Zalo'}</span>
+              <span>{v ? 'Chat Zalo OA Daiichi Travel' : 'Chat via Zalo OA'}</span>
             </span>
-            <span style={{ fontSize: 11, opacity: 0.9 }}>0961 004 709 ↗</span>
+            <span style={{ fontSize: 11, opacity: 0.9 }}>Mở OA ↗</span>
           </a>
 
           {/* Nút Gọi Hotline */}
@@ -755,12 +755,12 @@ function ChatWidget() {
           📞
         </a>
 
-        {/* Zalo 0961 004 709 */}
+        {/* Zalo OA */}
         <a
-          href="https://zalo.me/0961004709"
+          href="https://zalo.me/633406871869836720"
           target="_blank"
           rel="noopener noreferrer"
-          title="Chat Zalo 0961 004 709"
+          title="Chat Zalo OA Daiichi Travel"
           onClick={async () => {
             if (msgs && msgs.length > 1) {
               await copyChatToClipboard();

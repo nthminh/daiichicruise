@@ -1560,7 +1560,7 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
           </a>
 
           <a
-            href="https://zalo.me/0961004709"
+            href="https://zalo.me/633406871869836720"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -1848,7 +1848,7 @@ function OneHome() {
               <ul>
                 <li>{I18N.t('footer_co')}</li>
                 <li><b>Hotline 24/7:</b> <a href="tel:19009070" style={{ color: 'var(--gold-bright)' }}>1900 9070</a></li>
-                <li><b>Zalo hỗ trợ:</b> <a href="https://zalo.me/0961004709" target="_blank" rel="noopener" style={{ color: '#60A5FA' }}>0961 004 709</a></li>
+                <li><b>Zalo hỗ trợ:</b> <a href="https://zalo.me/633406871869836720" target="_blank" rel="noopener" style={{ color: '#60A5FA' }}>0961 004 709</a></li>
                 <li><b>Email:</b> <a href="mailto:sale@daiichitravel.com">sale@daiichitravel.com</a></li>
                 <li><b>Văn phòng:</b> 217 đường 1/4, Cát Bà, Hải Phòng</li>
                 <li><b>Đặt vé chính thức:</b> <a href="https://daiichitravel.com" target="_blank" rel="noopener" style={{ color: 'var(--gold-bright)' }}>daiichitravel.com</a></li>

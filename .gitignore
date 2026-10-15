@@ -25,3 +25,7 @@ assets/videos/drone-cruise-karst.mp4
 # Logs
 *.log
 firebase-debug.log
+
+# Build output
+dist/
+

@@ -68,7 +68,13 @@ function CheckoutFlow({ ctx, onBack, onDone }) {
       };
       DT_STORE.save(bk);
       if (window.DaiichiTracking && typeof window.DaiichiTracking.trackBookingSuccess === 'function') {
-        window.DaiichiTracking.trackBookingSuccess(bk.code, bk.total, [{ item_id: bk.kind || 'booking', item_name: (bk.fromLabel || '') + ' - ' + (bk.toLabel || ''), price: bk.total }]);
+        window.DaiichiTracking.trackBookingSuccess(
+          bk.code,
+          bk.total,
+          [{ item_id: bk.kind || 'booking', item_name: (bk.fromLabel || '') + ' - ' + (bk.toLabel || ''), price: bk.total }],
+          'VND',
+          { email: bk.email, phone_number: bk.phone, name: bk.name }
+        );
       }
       onDone(bk);
     }, 900);

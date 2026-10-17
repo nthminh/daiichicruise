@@ -889,6 +889,9 @@ function CharterPage({ nav }) {
       reqs.push({ ...f, at: new Date().toISOString() });
       localStorage.setItem('dt_charter', JSON.stringify(reqs));
     } catch (e) {}
+    if (window.DaiichiTracking && typeof window.DaiichiTracking.trackContact === 'function') {
+      window.DaiichiTracking.trackContact({ phone: f.phone, name: f.name }, 'charter_request', f.veh);
+    }
     setSent(true);
   };
   return (
@@ -933,6 +936,9 @@ function CareerPage({ nav }) {
       a.push({ ...f, at: new Date().toISOString() });
       localStorage.setItem('dt_applicants', JSON.stringify(a));
     } catch (e) {}
+    if (window.DaiichiTracking && typeof window.DaiichiTracking.trackContact === 'function') {
+      window.DaiichiTracking.trackContact({ phone: f.phone, name: f.name }, 'career_application', f.pos);
+    }
     setSent(true);
   };
   return (

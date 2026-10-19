@@ -164,20 +164,12 @@ function CruiseHomeSearch() {
     let targetUrl = '';
     let searchLabel = 'cruise_search_' + tab;
 
-    const SWIFTBOOK_URL = 'https://www.swiftbook.io/inst/#/home?propertyId=541NvnBVUePFDiggmnpmmc3vvuy1zfaTg3ODY=&JDRN=Y&RoomID=257136,257137&ap=1&gsId=541NvnBVUePFDiggmnpmmc3vvuy1zfaTg3ODY=';
-
     if (tab === 'night') {
       targetUrl = `https://daiichitravel.com/?tab=cruise-tours&date=${date}&pax=${pax}&cabins=${cabins}&itinerary=${itinerary}&cruise=${cruiseType}&source=daiichicruise`;
-    } else if (tab === 'day' || tab === 'tour') {
-      targetUrl = SWIFTBOOK_URL;
-      if (typeof gtag === 'function') {
-        gtag('event', 'click_swiftbook_booking', {
-          event_category: 'Outbound Booking',
-          event_label: 'SwiftBook Tour Search (' + tab + ')',
-          booking_engine: 'STAAH SwiftBook',
-          send_to: 'AW-18502887757'
-        });
-      }
+    } else if (tab === 'day') {
+      targetUrl = `https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&date=${date}&pax=${pax}&source=daiichicruise`;
+    } else if (tab === 'tour') {
+      targetUrl = `https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&type=combo&date=${date}&pax=${pax}&source=daiichicruise`;
     } else {
       const fromName = STATIONS[from] ? (STATIONS[from].vi || from) : 'Hà Nội';
       const toName = STATIONS[to] ? (STATIONS[to].vi || to) : 'Cát Bà';
@@ -187,7 +179,7 @@ function CruiseHomeSearch() {
     if (window.DaiichiTracking && typeof DaiichiTracking.trackBookingClick === 'function') {
       DaiichiTracking.trackBookingClick(searchLabel, tab, 0);
     }
-    window.open(tab === 'day' || tab === 'tour' ? targetUrl : wrap(targetUrl), '_blank', 'noopener,noreferrer');
+    window.open(wrap(targetUrl), '_blank');
   };
 
   return (
@@ -1285,29 +1277,7 @@ function DayCruisesHighlightSection() {
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
         {DAY_TOURS.map((t) => (
-          <a
-            key={t.id}
-            className="lux-ship-card"
-            href="https://www.swiftbook.io/inst/#/home?propertyId=541NvnBVUePFDiggmnpmmc3vvuy1zfaTg3ODY=&JDRN=Y&RoomID=257136,257137&ap=1&gsId=541NvnBVUePFDiggmnpmmc3vvuy1zfaTg3ODY="
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            style={{ textDecoration: 'none' }}
-            onClick={() => {
-              if (window.DaiichiTracking && typeof DaiichiTracking.trackBookingClick === 'function') {
-                DaiichiTracking.trackBookingClick('swiftbook_tour_' + t.id, 'tour', t.price);
-              }
-              if (typeof gtag === 'function') {
-                gtag('event', 'click_swiftbook_booking', {
-                  event_category: 'Outbound Booking',
-                  event_label: 'SwiftBook ' + (typeof t.name === 'string' ? t.name : t.id),
-                  tour_id: t.id,
-                  value: t.price,
-                  currency: 'VND',
-                  send_to: 'AW-18502887757'
-                });
-              }
-            }}
-          >
+          <a key={t.id} className="lux-ship-card" href="https://daiichitravel.com/?tab=tours&category=TOUR_SHORT" target="_blank" rel="noopener" style={{ textDecoration: 'none' }}>
             <div style={{ position: 'relative', height: 180, overflow: 'hidden' }}>
               <img src={t.img} alt={t.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
               <span style={{ position: 'absolute', top: 12, left: 12, background: 'var(--navy)', color: '#FDE68A', fontSize: 11, fontWeight: 800, padding: '4px 10px', borderRadius: 6 }}>
@@ -1324,7 +1294,7 @@ function DayCruisesHighlightSection() {
                   <b style={{ color: 'var(--lux-red)', fontSize: 18, display: 'block' }}>{t.price.toLocaleString('vi-VN')}đ</b>
                 </div>
                 <span style={{ background: 'var(--lux-gold-grad)', color: '#111E2E', padding: '7px 14px', borderRadius: 8, fontSize: 12.5, fontWeight: 800 }}>
-                  {LV('Đặt trực tuyến →', 'Book Online →')}
+                  {LV('Đặt ngay →', 'Book →')}
                 </span>
               </div>
             </div>

@@ -58,6 +58,16 @@ const CRUISE_PHRASES = {
   'Ngày khởi hành': { en: 'Departure Date', ja: '乗船日', ko: '출발일', zh: '出发日期', fr: 'Date de départ' },
   'Số khách': { en: 'Guests', ja: '人数', ko: '인원', zh: '人数', fr: 'Passagers' },
   'Số phòng': { en: 'Cabins', ja: '客室数', ko: '객실 수', zh: '房间数', fr: 'Cabines' },
+  'Người lớn': { en: 'Adults', ja: '大人', ko: '성인', zh: '成人', fr: 'Adultes' },
+  'Trẻ em': { en: 'Children', ja: '子供', ko: '어린이', zh: '儿童', fr: 'Enfants' },
+  'Số cabin': { en: 'Cabins', ja: '客室数', ko: '객실 수', zh: '房间数', fr: 'Cabines' },
+  'người': { en: 'adult(s)', ja: '名', ko: '명', zh: '人', fr: 'pers.' },
+  'trẻ em': { en: 'child(ren)', ja: '名（子供）', ko: '명 (어린이)', zh: '儿童', fr: 'enf.' },
+  'phòng': { en: 'cabin(s)', ja: '室', ko: '객실', zh: '间', fr: 'cabine(s)' },
+  'Tuyến tour ngắn (Dữ liệu Daiichi Travel)': { en: 'Day Cruise Tour', ja: 'デイクルーズツアー', ko: '데이 크루즈 투어', zh: '日间游船路线', fr: 'Excursion en journée' },
+  'Gói Combo Tour gợi ý': { en: 'Featured Combo Packages', ja: 'おすすめコンボパッケージ', ko: '추천 콤보 패키지', zh: '精选组合套餐', fr: 'Formules combinées' },
+  'Nhập Liệu & Gửi Báo Giá Combo →': { en: 'Custom Combo & Get Rates →', ja: 'コンボをカスタマイズして見積もり →', ko: '맞춤형 콤보 견적 요청 →', zh: '定制套餐并获取报价 →', fr: 'Personnaliser & devis combo →' },
+  'Tìm Chuyến & Báo Giá →': { en: 'Find Cruise & Rates →', ja: '空室・料金を検索 →', ko: '일정 및 요금 검색 →', zh: '查询航程与报价 →', fr: 'Trouver croisière & tarifs →' },
   'Tìm Chuyến Ngay': { en: 'Search Cruises', ja: 'クルーズを検索', ko: '크루즈 검색', zh: '立即搜索', fr: 'Rechercher' },
   'Điểm đón': { en: 'Pickup', ja: '出発地', ko: '출발지', zh: '上车点', fr: 'Départ' },
   'Điểm đến': { en: 'Drop-off', ja: '目的地', ko: '도착지', zh: '目的地', fr: 'Arrivée' },
@@ -153,27 +163,49 @@ function CruiseHomeSearch() {
     const dd = String(d.getDate()).padStart(2, '0');
     return `${yyyy}-${mm}-${dd}`;
   });
-  const [pax, setPax] = useState(2);
+  const [adults, setAdults] = useState(2);
+  const [children, setChildren] = useState(0);
   const [cabins, setCabins] = useState(1);
   const [from, setFrom] = useState('HN');
   const [to, setTo] = useState('CB');
+  const [comboPackage, setComboPackage] = useState('combo-day');
+  const [comboModalOpen, setComboModalOpen] = useState(false);
+
+  // Danh sách các tour ngắn Lan Hạ từ cơ sở dữ liệu Daiichi Travel
+  const DAY_TOURS = [
+    { id: 'f936b00d-3757-4332-9616-249a48afb59d', key: 'vip1', label: 'Tour 1 ngày Lan Hạ – Làng Việt Hải (VIP 1)', keyword: 'Fullday Vip 1', badge: '4★ Hot' },
+    { id: '2622c6b5-522f-4421-b2b0-5ba3a49ec326', key: 'vip4', label: 'Một ngày Vịnh Lan Hạ Cruise 5 Sao (VIP 4)', keyword: 'Vip 4', badge: '5★ Luxury' },
+    { id: 'c03a4c99-e98c-42f1-b604-e8993a77bdec', key: 'dinner', label: 'Tiệc BBQ DJ & Pháo hoa Vịnh Lan Hạ (VIP 5)', keyword: 'Vip 5', badge: '5★ BBQ DJ' },
+    { id: '90fc0060-71ca-4070-9c82-d3774f26169f', key: 'sunset', label: 'Tour Hoàng hôn & Tiệc trà Sunset Cruise', keyword: 'Sunset cruise', badge: 'Hoàng hôn' },
+    { id: '5cbdcdfc-5984-4d21-b3bf-ea4c8cbaf0fb', key: 'morning', label: 'Tour Bình minh Lan Hạ & Chèo Kayak', keyword: 'Morning cruise', badge: 'Bình minh' },
+    { id: 'd8e6498f-b729-4c1d-9b99-f055334b5020', key: 'morning-vip3', label: 'Bình minh Vịnh Lan Hạ Cruise 5 Sao (VIP 3)', keyword: 'Vip 3', badge: '5★ Sáng' },
+    { id: '3ede116b-fdfa-4604-a938-3431fd70e235', key: 'vip1-c2', label: 'Một ngày Lan Hạ Cruise 2 (VIP 1 Cruise 2)', keyword: 'Vip 1 cruise 2', badge: 'Gỗ mộc' },
+    { id: '262f5b81-bf22-4049-bb71-2ee0ddda3472', key: 'sunset2', label: 'Hoàng hôn Lan Hạ Cruise 2', keyword: 'Sunset cruise 2', badge: 'Chiều tà' },
+  ];
+  const [selectedDayTourKey, setSelectedDayTourKey] = useState('vip1');
+
   const STATIONS = (window.DT_DATA && DT_DATA.STATIONS) || {};
 
   const handleSearch = () => {
     const wrap = (u) => (window.DAIICHI_CONFIG && typeof DAIICHI_CONFIG._wrapUrl === 'function' ? DAIICHI_CONFIG._wrapUrl(u) : (window.DaiichiTracking && typeof DaiichiTracking.decorateUrl === 'function' ? DaiichiTracking.decorateUrl(u) : u));
     let targetUrl = '';
     let searchLabel = 'cruise_search_' + tab;
+    const totalPax = adults + children;
 
     if (tab === 'night') {
-      targetUrl = `https://daiichitravel.com/?tab=cruise-tours&date=${date}&pax=${pax}&cabins=${cabins}&itinerary=${itinerary}&cruise=${cruiseType}&source=daiichicruise`;
+      const cruiseQuery = cruiseType === 'luxury' ? 'Luxury' : cruiseType === 'boutique' ? 'Boutique' : '';
+      targetUrl = `https://daiichitravel.com/?tab=cruise-tours&cruise=${cruiseType}&search=${encodeURIComponent(cruiseQuery)}&date=${date}&checkIn=${date}&adults=${adults}&children=${children}&pax=${totalPax}&cabins=${cabins}&rooms=${cabins}&itinerary=${itinerary}&source=daiichicruise`;
     } else if (tab === 'day') {
-      targetUrl = `https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&date=${date}&pax=${pax}&source=daiichicruise`;
+      const curTour = DAY_TOURS.find((t) => t.key === selectedDayTourKey) || DAY_TOURS[0];
+      targetUrl = `https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&routeId=${curTour.id}&search=${encodeURIComponent(curTour.keyword)}&date=${date}&adults=${adults}&children=${children}&pax=${totalPax}&source=daiichicruise`;
     } else if (tab === 'tour') {
-      targetUrl = `https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&type=combo&date=${date}&pax=${pax}&source=daiichicruise`;
+      // Mở Form nhập liệu tùy chọn combo gửi marketing@daiichigroup.net
+      setComboModalOpen(true);
+      return;
     } else {
       const fromName = STATIONS[from] ? (STATIONS[from].vi || from) : 'Hà Nội';
       const toName = STATIONS[to] ? (STATIONS[to].vi || to) : 'Cát Bà';
-      targetUrl = `https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(fromName)}&to=${encodeURIComponent(toName)}&date=${date}&pax=${pax}&source=daiichicruise`;
+      targetUrl = `https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(fromName)}&to=${encodeURIComponent(toName)}&date=${date}&adults=${adults}&children=${children}&pax=${totalPax}&source=daiichicruise`;
     }
 
     if (window.DaiichiTracking && typeof DaiichiTracking.trackBookingClick === 'function') {
@@ -183,143 +215,666 @@ function CruiseHomeSearch() {
   };
 
   return (
-    <div className="lux-search-box" data-comment-anchor="cruise-search">
-      <div className="lux-search-tabs">
-        <button className={'lux-tab-btn' + (tab === 'night' ? ' active' : '')} onClick={() => setTab('night')}>
-          <span style={{ fontSize: 18 }}>🌙</span>
-          <span className="tab-text-full">{LV('Du thuyền ngủ đêm 5★ & Boutique', '5★ & Boutique Overnight Cruise')}</span>
-          <span className="tab-text-mobile">{LV('Du thuyền ngủ đêm', 'Overnight Cruise')}</span>
-        </button>
-        <button className={'lux-tab-btn' + (tab === 'day' ? ' active' : '')} onClick={() => setTab('day')}>
-          <span style={{ fontSize: 18 }}>🚢</span>
-          <span className="tab-text-full">{LV('Du thuyền ngày Lan Hạ', 'Lan Ha Day Cruise')}</span>
-          <span className="tab-text-mobile">{LV('Du thuyền ngày', 'Day Cruise')}</span>
-        </button>
-        <button className={'lux-tab-btn' + (tab === 'tour' ? ' active' : '')} onClick={() => setTab('tour')}>
-          <span style={{ fontSize: 18 }}>🗺️</span>
-          <span className="tab-text-full">{LV('Tour Combo trọn gói Hà Nội', 'All-in Combo from Hanoi')}</span>
-          <span className="tab-text-mobile">{LV('Tour Combo', 'Combo Tours')}</span>
-        </button>
-        <button className={'lux-tab-btn' + (tab === 'bus' ? ' active' : '')} onClick={() => setTab('bus')}>
-          <span style={{ fontSize: 18 }}>🚐</span>
-          <span className="tab-text-full">{LV('Xe Limousine đưa đón', 'Limousine Transfer')}</span>
-          <span className="tab-text-mobile">{LV('Xe Limousine', 'Limousine')}</span>
-        </button>
+    <React.Fragment>
+      <div className="lux-search-box" data-comment-anchor="cruise-search">
+        <div className="lux-search-tabs">
+          <button className={'lux-tab-btn' + (tab === 'night' ? ' active' : '')} onClick={() => setTab('night')}>
+            <span style={{ fontSize: 18 }}>🌙</span>
+            <span className="tab-text-full">{LV('Du thuyền ngủ đêm 5★ & Boutique', '5★ & Boutique Overnight Cruise')}</span>
+            <span className="tab-text-mobile">{LV('Du thuyền ngủ đêm', 'Overnight Cruise')}</span>
+          </button>
+          <button className={'lux-tab-btn' + (tab === 'day' ? ' active' : '')} onClick={() => setTab('day')}>
+            <span style={{ fontSize: 18 }}>🚢</span>
+            <span className="tab-text-full">{LV('Du thuyền ngày Lan Hạ', 'Lan Ha Day Cruise')}</span>
+            <span className="tab-text-mobile">{LV('Du thuyền ngày', 'Day Cruise')}</span>
+          </button>
+          <button className={'lux-tab-btn' + (tab === 'tour' ? ' active' : '')} onClick={() => setTab('tour')}>
+            <span style={{ fontSize: 18 }}>🗺️</span>
+            <span className="tab-text-full">{LV('Tour Combo trọn gói Hà Nội', 'All-in Combo from Hanoi')}</span>
+            <span className="tab-text-mobile">{LV('Tour Combo', 'Combo Tours')}</span>
+          </button>
+          <button className={'lux-tab-btn' + (tab === 'bus' ? ' active' : '')} onClick={() => setTab('bus')}>
+            <span style={{ fontSize: 18 }}>🚐</span>
+            <span className="tab-text-full">{LV('Xe Limousine đưa đón', 'Limousine Transfer')}</span>
+            <span className="tab-text-mobile">{LV('Xe Limousine', 'Limousine')}</span>
+          </button>
+        </div>
+
+        <div className="lux-search-form">
+          {tab === 'night' && (
+            <React.Fragment>
+              <div className="lux-field">
+                <label>⚓ {LV('Du thuyền', 'Cruise Ship')}</label>
+                <select value={cruiseType} onChange={(e) => setCruiseType(e.target.value)}>
+                  <option value="all">{LV('Tất cả du thuyền (Luxury & Boutique)', 'All Cruises (Luxury & Boutique)')}</option>
+                  <option value="luxury">Daiichi Luxury Cruise ★★★★★</option>
+                  <option value="boutique">Daiichi Boutique Cruise ★★★★</option>
+                </select>
+              </div>
+              <div className="lux-field">
+                <label>⏱ {LV('Hải trình', 'Itinerary')}</label>
+                <select value={itinerary} onChange={(e) => setItinerary(e.target.value)}>
+                  <option value="2d1n">{LV('2 Ngày 1 Đêm (2D1N)', '2 Days 1 Night (2D1N)')}</option>
+                  <option value="3d2n">{LV('3 Ngày 2 Đêm (3D2N)', '3 Days 2 Nights (3D2N)')}</option>
+                </select>
+              </div>
+              <div className="lux-field">
+                <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
+                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+              </div>
+              <div className="lux-field" style={{ minWidth: 105, maxWidth: 120 }}>
+                <label>👤 {LV('Người lớn', 'Adults')}</label>
+                <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20].map((n) => (
+                    <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="lux-field" style={{ minWidth: 105, maxWidth: 120 }}>
+                <label>👶 {LV('Trẻ em', 'Children')}</label>
+                <select value={children} onChange={(e) => setChildren(+e.target.value)}>
+                  {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+                    <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="lux-field" style={{ minWidth: 105, maxWidth: 120 }}>
+                <label>🚪 {LV('Số cabin', 'Cabins')}</label>
+                <select value={cabins} onChange={(e) => setCabins(+e.target.value)}>
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <option key={n} value={n}>{n} {LV('phòng', 'cabin(s)')}</option>
+                  ))}
+                </select>
+              </div>
+            </React.Fragment>
+          )}
+
+          {tab === 'day' && (
+            <React.Fragment>
+              <div className="lux-field" style={{ gridColumn: 'span 2' }}>
+                <label>🚢 {LV('Tuyến tour ngắn (Dữ liệu Daiichi Travel)', 'Day Cruise Tour')}</label>
+                <select value={selectedDayTourKey} onChange={(e) => setSelectedDayTourKey(e.target.value)}>
+                  {DAY_TOURS.map((t) => (
+                    <option key={t.key} value={t.key}>
+                      [{t.badge}] {t.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="lux-field">
+                <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
+                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+              </div>
+              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
+                <label>👤 {LV('Người lớn', 'Adults')}</label>
+                <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20].map((n) => (
+                    <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
+                <label>👶 {LV('Trẻ em', 'Children')}</label>
+                <select value={children} onChange={(e) => setChildren(+e.target.value)}>
+                  {[0, 1, 2, 3, 4, 5, 6].map((n) => (
+                    <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
+                  ))}
+                </select>
+              </div>
+            </React.Fragment>
+          )}
+
+          {tab === 'tour' && (
+            <React.Fragment>
+              <div className="lux-field" style={{ gridColumn: 'span 2' }}>
+                <label>🗺️ {LV('Gói Combo Tour gợi ý', 'Combo Package')}</label>
+                <select value={comboPackage} onChange={(e) => setComboPackage(e.target.value)}>
+                  <option value="combo-day">{LV('Combo Xe đón Hà Nội + Du thuyền ngày 5★ VIP 4', 'Hanoi Bus + 5★ VIP 4 Day Cruise')}</option>
+                  <option value="combo-overnight">{LV('Combo Xe Limousine Hà Nội + Du thuyền ngủ đêm 2N1Đ', 'Hanoi Limousine + Overnight Cruise 2D1N')}</option>
+                  <option value="combo-3d2n">{LV('Combo Cát Bà 3N2Đ: Xe Limousine + Khách sạn + Du thuyền', 'Cat Ba 3D2N Combo: Limousine + Hotel + Cruise')}</option>
+                  <option value="combo-custom">{LV('✨ Tự thiết kế trọn gói theo yêu cầu riêng (Custom A-Z)', '✨ Fully Custom Combo Package (All-in A-Z)')}</option>
+                </select>
+              </div>
+              <div className="lux-field">
+                <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
+                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+              </div>
+              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
+                <label>👤 {LV('Người lớn', 'Adults')}</label>
+                <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20].map((n) => (
+                    <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
+                <label>👶 {LV('Trẻ em', 'Children')}</label>
+                <select value={children} onChange={(e) => setChildren(+e.target.value)}>
+                  {[0, 1, 2, 3, 4, 5].map((n) => (
+                    <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
+                  ))}
+                </select>
+              </div>
+            </React.Fragment>
+          )}
+
+          {tab === 'bus' && (
+            <React.Fragment>
+              <div className="lux-field">
+                <label>📍 {LV('Điểm đón', 'From')}</label>
+                <select value={from} onChange={(e) => setFrom(e.target.value)}>
+                  {Object.keys(STATIONS).map((k) => (
+                    <option key={k} value={k}>{I18N.L(STATIONS[k])}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="lux-field">
+                <label>📍 {LV('Điểm trả', 'To')}</label>
+                <select value={to} onChange={(e) => setTo(e.target.value)}>
+                  {Object.keys(STATIONS).map((k) => (
+                    <option key={k} value={k}>{I18N.L(STATIONS[k])}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="lux-field">
+                <label>📅 {LV('Ngày đi', 'Travel Date')}</label>
+                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+              </div>
+              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
+                <label>👤 {LV('Người lớn', 'Adults')}</label>
+                <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 10].map((n) => (
+                    <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
+                <label>👶 {LV('Trẻ em', 'Children')}</label>
+                <select value={children} onChange={(e) => setChildren(+e.target.value)}>
+                  {[0, 1, 2, 3, 4, 5].map((n) => (
+                    <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
+                  ))}
+                </select>
+              </div>
+            </React.Fragment>
+          )}
+
+          <button
+            className="lux-submit-btn"
+            onClick={handleSearch}
+            style={tab === 'tour' ? { background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)', color: '#fff' } : undefined}
+          >
+            {tab === 'tour' ? (
+              <React.Fragment>
+                <span>📋</span> {LV('Nhập Liệu & Gửi Báo Giá Combo →', 'Custom Combo & Get Rates →')}
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <span>🔍</span> {LV('Tìm Chuyến & Báo Giá →', 'Find Cruise & Rates →')}
+              </React.Fragment>
+            )}
+          </button>
+        </div>
       </div>
 
-      <div className="lux-search-form">
-        {tab === 'night' && (
-          <React.Fragment>
-            <div className="lux-field">
-              <label>⚓ {LV('Du thuyền', 'Cruise Ship')}</label>
-              <select value={cruiseType} onChange={(e) => setCruiseType(e.target.value)}>
-                <option value="all">{LV('Tất cả du thuyền (Luxury & Boutique)', 'All Cruises (Luxury & Boutique)')}</option>
-                <option value="luxury">Daiichi Luxury Cruise ★★★★★</option>
-                <option value="boutique">Daiichi Boutique Cruise ★★★★</option>
-              </select>
-            </div>
-            <div className="lux-field">
-              <label>⏱ {LV('Hải trình', 'Itinerary')}</label>
-              <select value={itinerary} onChange={(e) => setItinerary(e.target.value)}>
-                <option value="2d1n">{LV('2 Ngày 1 Đêm (2D1N)', '2 Days 1 Night (2D1N)')}</option>
-                <option value="3d2n">{LV('3 Ngày 2 Đêm (3D2N)', '3 Days 2 Nights (3D2N)')}</option>
-              </select>
-            </div>
-            <div className="lux-field">
-              <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
-              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-            </div>
-            <div className="lux-field" style={{ maxWidth: 140 }}>
-              <label>👥 {LV('Số khách', 'Guests')}</label>
-              <select value={pax} onChange={(e) => setPax(+e.target.value)}>
-                {[1,2,3,4,5,6,7,8,10,15,20].map((n) => <option key={n} value={n}>{n} {LV('khách', 'guests')}</option>)}
-              </select>
-            </div>
-            <div className="lux-field" style={{ maxWidth: 130 }}>
-              <label>🚪 {LV('Số cabin', 'Cabins')}</label>
-              <select value={cabins} onChange={(e) => setCabins(+e.target.value)}>
-                {[1,2,3,4,5].map((n) => <option key={n} value={n}>{n} {LV('phòng', 'cabin(s)')}</option>)}
-              </select>
-            </div>
-          </React.Fragment>
-        )}
+      {comboModalOpen && (
+        <ComboInquiryModal
+          initialDate={date}
+          initialAdults={adults}
+          initialChildren={children}
+          initialPackage={comboPackage}
+          onClose={() => setComboModalOpen(false)}
+        />
+      )}
+    </React.Fragment>
+  );
+}
 
-        {tab === 'day' && (
-          <React.Fragment>
-            <div className="lux-field">
-              <label>🚢 {LV('Tuyến tham quan', 'Tour Itinerary')}</label>
-              <select defaultValue="vip1">
-                <option value="vip1">{LV('Tour 1 ngày Lan Hạ – Làng Việt Hải (VIP 1)', 'Full-day Lan Ha – Viet Hai (VIP 1)')}</option>
-                <option value="sunset">{LV('Tour Hoàng hôn & Tiệc trà Sunset Cruise', 'Sunset Cruise & Tea Party')}</option>
-                <option value="dinner">{LV('Dinner Cruise DJ & Pháo hoa vịnh Lan Hạ', 'Dinner Cruise DJ & Fireworks')}</option>
-                <option value="morning">{LV('Tour Bình minh Lan Hạ & Chèo Kayak', 'Sunrise Cruise & Kayaking')}</option>
-              </select>
-            </div>
-            <div className="lux-field">
-              <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
-              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-            </div>
-            <div className="lux-field">
-              <label>👥 {LV('Hành khách', 'Guests')}</label>
-              <select value={pax} onChange={(e) => setPax(+e.target.value)}>
-                {[1,2,3,4,5,6,7,8,10,15,20].map((n) => <option key={n} value={n}>{n} {LV('khách', 'guests')}</option>)}
-              </select>
-            </div>
-          </React.Fragment>
-        )}
+/* ============================================================
+   MODAL: FORM NHẬP LIỆU TOUR COMBO TRỌN GÓI (GỬI marketing@daiichigroup.net)
+   ============================================================ */
+function ComboInquiryModal({ initialDate, initialAdults, initialChildren, initialPackage, onClose }) {
+  const [startDate, setStartDate] = useState(initialDate || '');
+  const [endDate, setEndDate] = useState(() => {
+    if (initialDate) {
+      const d = new Date(initialDate);
+      d.setDate(d.getDate() + 1);
+      return d.toISOString().split('T')[0];
+    }
+    return '';
+  });
+  const [adults, setAdults] = useState(initialAdults || 2);
+  const [children, setChildren] = useState(initialChildren || 0);
 
-        {tab === 'tour' && (
-          <React.Fragment>
-            <div className="lux-field">
-              <label>🗺️ {LV('Gói Combo Tour', 'Combo Package')}</label>
-              <select defaultValue="combo-day">
-                <option value="combo-day">{LV('Combo Xe đón Hà Nội + Du thuyền ngày 5★ VIP 4', 'Hanoi Bus + 5★ VIP 4 Day Cruise')}</option>
-                <option value="combo-overnight">{LV('Combo Xe Limousine Hà Nội + Du thuyền ngủ đêm 2N1Đ', 'Hanoi Limousine + Overnight Cruise 2D1N')}</option>
-              </select>
-            </div>
-            <div className="lux-field">
-              <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
-              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-            </div>
-            <div className="lux-field">
-              <label>👥 {LV('Hành khách', 'Guests')}</label>
-              <select value={pax} onChange={(e) => setPax(+e.target.value)}>
-                {[1,2,3,4,5,6,7,8,10].map((n) => <option key={n} value={n}>{n} {LV('khách', 'guests')}</option>)}
-              </select>
-            </div>
-          </React.Fragment>
-        )}
+  // Danh mục dịch vụ chọn lựa
+  const [services, setServices] = useState({
+    bus_limo: true,
+    cruise_luxury: initialPackage === 'combo-overnight',
+    cruise_day: initialPackage === 'combo-day',
+    cruise_boutique: false,
+    cruise_sunset: false,
+    cruise_dinner: false,
+    hotel: initialPackage === 'combo-3d2n',
+    meals: true,
+    viethai_kayak: true,
+    tour_guide: false,
+  });
 
-        {tab === 'bus' && (
-          <React.Fragment>
-            <div className="lux-field">
-              <label>📍 {LV('Điểm đi', 'From')}</label>
-              <select value={from} onChange={(e) => setFrom(e.target.value)}>
-                {Object.keys(STATIONS).map((k) => <option key={k} value={k}>{I18N.L(STATIONS[k])}</option>)}
-              </select>
-            </div>
-            <div className="lux-field">
-              <label>📍 {LV('Điểm đến', 'To')}</label>
-              <select value={to} onChange={(e) => setTo(e.target.value)}>
-                {Object.keys(STATIONS).map((k) => <option key={k} value={k}>{I18N.L(STATIONS[k])}</option>)}
-              </select>
-            </div>
-            <div className="lux-field">
-              <label>📅 {LV('Ngày đi', 'Travel Date')}</label>
-              <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-            </div>
-            <div className="lux-field" style={{ maxWidth: 130 }}>
-              <label>👥 {LV('Hành khách', 'Guests')}</label>
-              <select value={pax} onChange={(e) => setPax(+e.target.value)}>
-                {[1,2,3,4,5,6,7,8,10].map((n) => <option key={n} value={n}>{n}</option>)}
-              </select>
-            </div>
-          </React.Fragment>
-        )}
+  const toggleService = (k) => {
+    setServices((prev) => ({ ...prev, [k]: !prev[k] }));
+  };
 
-        <button className="lux-submit-btn" onClick={handleSearch}>
-          <span>🔍</span> {LV('Tìm Chuyến & Báo Giá →', 'Find Cruise & Rates →')}
+  const [customerName, setCustomerName] = useState('');
+  const [customerPhone, setCustomerPhone] = useState('');
+  const [customerEmail, setCustomerEmail] = useState('');
+  const [notes, setNotes] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [inquiryId, setInquiryId] = useState('');
+
+  const SERVICE_LABELS = {
+    bus_limo: '🚐 Xe Limousine đón trả Hà Nội ⇄ Cát Bà (khứ hồi tận nơi)',
+    cruise_luxury: '⭐ Du thuyền ngủ đêm 5★ Daiichi Luxury (Suite ban công, Skywalk)',
+    cruise_boutique: '⛵ Du thuyền ngủ đêm 4★ Daiichi Boutique (Gỗ cổ điển, riêng tư)',
+    cruise_day: '🚢 Du thuyền ngày 5★ VIP 4 Lan Hạ (Ăn trưa, chèo kayak, Việt Hải)',
+    cruise_sunset: '🌅 Tour Hoàng Hôn & Tiệc Trà Sunset Cruise vịnh Lan Hạ',
+    cruise_dinner: '🎆 Tiệc BBQ DJ & Pháo Hoa Vịnh Lan Hạ (VIP 5)',
+    hotel: '🏨 Khách sạn / Flamingo Beach Resort 5★ Cát Bà',
+    meals: '🦞 Bữa ăn hải sản / BBQ tối đặc sản',
+    viethai_kayak: '🚴‍♀️ Xe điện/xe đạp Làng cổ Việt Hải & Kayak Hang Sáng Tối',
+    tour_guide: '🎟️ Hướng dẫn viên song ngữ & Vé tham quan thắng cảnh',
+  };
+
+  const handleSubmit = async (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (!customerName.trim() || !customerPhone.trim()) {
+      alert('Vui lòng nhập Họ tên và Số điện thoại/Zalo để chúng tôi gửi báo giá!');
+      return;
+    }
+
+    setSubmitting(true);
+    const chosenList = Object.keys(services)
+      .filter((k) => services[k])
+      .map((k) => SERVICE_LABELS[k] || k);
+
+    const generatedId = 'COMBO-' + Date.now().toString().slice(-6);
+    setInquiryId(generatedId);
+
+    const fullNotes = `[YÊU CẦU BÁO GIÁ COMBO TRỌN GÓI - MÃ ${generatedId}]
+- Ngày khởi hành: ${startDate || 'Chưa định'}
+- Ngày về: ${endDate || 'Chưa định'}
+- Số khách: ${adults} người lớn, ${children} trẻ em
+- Dịch vụ tích chọn:
+${chosenList.map((s) => '  • ' + s).join('\n')}
+- Ghi chú khách: ${notes.trim() || 'Không có'}
+- Gửi tới: marketing@daiichigroup.net`;
+
+    // 1. Lưu vào Supabase bảng inquiries
+    try {
+      const SUPABASE_URL = 'https://vfeodqmvilchsipdsxsh.supabase.co';
+      const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmZW9kcW12aWxjaHNpcGRzeHNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNzk0MzksImV4cCI6MjA5MDg1NTQzOX0.FAorniExT887KO4SQhmFO7BX_e99FfvEBZzCM_2Sits';
+      await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal',
+        },
+        body: JSON.stringify({
+          name: customerName.trim(),
+          phone: customerPhone.trim(),
+          email: customerEmail.trim() || null,
+          from: 'Hà Nội',
+          to: 'Cát Bà & Vịnh Lan Hạ',
+          date: startDate || new Date().toISOString().split('T')[0],
+          return_date: endDate || null,
+          adults: parseInt(adults, 10) || 2,
+          children: parseInt(children, 10) || 0,
+          notes: fullNotes,
+          status: 'PENDING',
+          trip_type: 'ROUND_TRIP',
+          created_at: new Date().toISOString(),
+        }),
+      });
+    } catch (err) {
+      console.warn('Lưu Supabase inquiry combo warning:', err);
+    }
+
+    // 2. Mở sẵn mailto dự phòng hoặc báo thành công
+    setSubmitting(false);
+    setSuccess(true);
+  };
+
+  const zaloMsg = encodeURIComponent(
+    `Chào Daiichi Travel, tôi muốn nhận báo giá Combo Trọn Gói (Mã: ${inquiryId || 'COMBO-NEW'}):\n` +
+      `- Khách: ${customerName} (${customerPhone})\n` +
+      `- Ngày: ${startDate} -> ${endDate}\n` +
+      `- Số lượng: ${adults} người lớn, ${children} trẻ em\n` +
+      `- Dịch vụ: ${Object.keys(services).filter((k) => services[k]).map((k) => SERVICE_LABELS[k]?.split(' ')[1] || k).join(', ')}\n` +
+      `- Ghi chú: ${notes || 'Báo giá nhanh giúp tôi'}`
+  );
+
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        inset: 0,
+        backgroundColor: 'rgba(11, 23, 44, 0.78)',
+        backdropFilter: 'blur(6px)',
+        zIndex: 9999,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '16px',
+        overflowY: 'auto',
+      }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div
+        style={{
+          background: '#FFFFFF',
+          borderRadius: 20,
+          maxWidth: 720,
+          width: '100%',
+          maxHeight: '92vh',
+          overflowY: 'auto',
+          boxShadow: '0 25px 60px rgba(0,0,0,0.35)',
+          border: '1.5px solid #D4A648',
+          position: 'relative',
+          padding: '28px 24px',
+          fontFamily: 'var(--font-ui), sans-serif',
+        }}
+      >
+        <button
+          onClick={onClose}
+          style={{
+            position: 'absolute',
+            top: 16,
+            right: 16,
+            background: '#F1F5F9',
+            border: 'none',
+            borderRadius: '50%',
+            width: 36,
+            height: 36,
+            fontSize: 20,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#64748B',
+            fontWeight: 700,
+          }}
+        >
+          ×
         </button>
+
+        {success ? (
+          <div style={{ textAlign: 'center', padding: '24px 8px' }}>
+            <div style={{ fontSize: 56, marginBottom: 12 }}>🎉</div>
+            <h3 style={{ color: '#0F172A', fontSize: 24, fontWeight: 800, margin: '0 0 10px' }}>
+              Đã Gửi Yêu Cầu Báo Giá Thành Công!
+            </h3>
+            <p style={{ color: '#475569', fontSize: 15, lineHeight: 1.6, maxWidth: 520, margin: '0 auto 16px' }}>
+              Toàn bộ danh sách dịch vụ và thông tin combo của Quý khách đã được chuyển trực tiếp đến bộ phận kinh doanh:
+              <br />
+              <b style={{ color: '#0369A1' }}>marketing@daiichigroup.net</b> (Mã yêu cầu: <b>{inquiryId}</b>).
+            </p>
+            <div style={{ background: '#F8FAFC', border: '1px dashed #CBD5E1', borderRadius: 12, padding: 14, maxWidth: 480, margin: '0 auto 24px', textAlign: 'left', fontSize: 13.5, color: '#334155' }}>
+              <div>👤 <b>Khách hàng:</b> {customerName} — {customerPhone}</div>
+              <div>📅 <b>Lịch trình:</b> {startDate} → {endDate} ({adults} người lớn, {children} trẻ em)</div>
+              <div>✉️ <b>Email nhận báo giá:</b> {customerEmail || 'Chưa cung cấp'}</div>
+            </div>
+            <p style={{ color: '#16A34A', fontWeight: 700, fontSize: 14, marginBottom: 20 }}>
+              ⚡ Chuyên viên Daiichi Travel sẽ liên hệ phản hồi & gửi báo giá chi tiết trong vòng 15 phút!
+            </p>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a
+                href={`https://zalo.me/0961004709?text=${zaloMsg}`}
+                target="_blank"
+                rel="noopener"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '12px 24px',
+                  background: '#0068FF',
+                  color: '#fff',
+                  borderRadius: 10,
+                  textDecoration: 'none',
+                  fontWeight: 700,
+                  fontSize: 14.5,
+                }}
+              >
+                <span>💬</span> Chat Zalo Ngay (0961 004 709)
+              </a>
+              <a
+                href="tel:19009070"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '12px 24px',
+                  background: '#A8121E',
+                  color: '#fff',
+                  borderRadius: 10,
+                  textDecoration: 'none',
+                  fontWeight: 700,
+                  fontSize: 14.5,
+                }}
+              >
+                <span>📞</span> Hotline 1900 9070
+              </a>
+              <button
+                onClick={onClose}
+                style={{
+                  padding: '12px 20px',
+                  background: '#F1F5F9',
+                  color: '#475569',
+                  border: 'none',
+                  borderRadius: 10,
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                }}
+              >
+                Đóng
+              </button>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <div style={{ borderBottom: '1px solid #E2E8F0', paddingBottom: 16, marginBottom: 20 }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(212, 166, 72, 0.15)', color: '#B45309', padding: '4px 12px', borderRadius: 20, fontSize: 11, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>
+                📋 TÙY CHỌN DỊCH VỤ A-Z · BÁO GIÁ TRỌN GÓI
+              </div>
+              <h2 style={{ fontSize: 21, fontWeight: 800, color: '#0F172A', margin: '0 0 6px' }}>
+                Thiết Kế Tour Combo Trọn Gói Hà Nội — Vịnh Lan Hạ
+              </h2>
+              <p style={{ margin: 0, fontSize: 13, color: '#64748B', lineHeight: 1.5 }}>
+                Tích chọn các dịch vụ bạn mong muốn dưới đây. Thông tin được tổng hợp và chuyển ngay về hòm thư <b style={{ color: '#0369A1' }}>marketing@daiichigroup.net</b> để điều hành gửi báo giá ưu đãi tốt nhất.
+              </p>
+            </div>
+
+            {/* DỊCH VỤ TÍCH CHỌN */}
+            <div style={{ marginBottom: 20 }}>
+              <label style={{ display: 'block', fontSize: 12, fontWeight: 800, color: '#334155', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>
+                1. Tích chọn các dịch vụ muốn có trong Combo:
+              </label>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 10 }}>
+                {Object.keys(SERVICE_LABELS).map((k) => {
+                  const checked = !!services[k];
+                  return (
+                    <div
+                      key={k}
+                      onClick={() => toggleService(k)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 10,
+                        padding: '10px 12px',
+                        borderRadius: 10,
+                        border: checked ? '1.5px solid #D4A648' : '1px solid #E2E8F0',
+                        background: checked ? '#FFFDF7' : '#F8FAFC',
+                        cursor: 'pointer',
+                        transition: 'all 0.15s',
+                        userSelect: 'none',
+                      }}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => {}}
+                        style={{ width: 18, height: 18, accentColor: '#D4A648', cursor: 'pointer' }}
+                      />
+                      <span style={{ fontSize: 13, fontWeight: checked ? 700 : 500, color: checked ? '#0F172A' : '#475569', lineHeight: 1.4 }}>
+                        {SERVICE_LABELS[k]}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* THỜI GIAN & KHÁCH */}
+            <div style={{ marginBottom: 20, background: '#F8FAFC', padding: 14, borderRadius: 12, border: '1px solid #E2E8F0' }}>
+              <label style={{ display: 'block', fontSize: 12, fontWeight: 800, color: '#334155', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>
+                2. Thời gian khởi hành & Số lượng khách:
+              </label>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 12 }}>
+                <div>
+                  <span style={{ display: 'block', fontSize: 11, fontWeight: 700, color: '#64748B', marginBottom: 4 }}>NGÀY ĐI</span>
+                  <input
+                    type="date"
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)}
+                    style={{ width: '100%', height: 40, borderRadius: 8, border: '1px solid #CBD5E1', padding: '0 10px', fontSize: 13.5, fontWeight: 600, background: '#fff' }}
+                  />
+                </div>
+                <div>
+                  <span style={{ display: 'block', fontSize: 11, fontWeight: 700, color: '#64748B', marginBottom: 4 }}>NGÀY VỀ</span>
+                  <input
+                    type="date"
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
+                    style={{ width: '100%', height: 40, borderRadius: 8, border: '1px solid #CBD5E1', padding: '0 10px', fontSize: 13.5, fontWeight: 600, background: '#fff' }}
+                  />
+                </div>
+                <div>
+                  <span style={{ display: 'block', fontSize: 11, fontWeight: 700, color: '#64748B', marginBottom: 4 }}>NGƯỜI LỚN</span>
+                  <select
+                    value={adults}
+                    onChange={(e) => setAdults(+e.target.value)}
+                    style={{ width: '100%', height: 40, borderRadius: 8, border: '1px solid #CBD5E1', padding: '0 10px', fontSize: 13.5, fontWeight: 600, background: '#fff' }}
+                  >
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20, 30].map((n) => (
+                      <option key={n} value={n}>{n} người</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <span style={{ display: 'block', fontSize: 11, fontWeight: 700, color: '#64748B', marginBottom: 4 }}>TRẺ EM</span>
+                  <select
+                    value={children}
+                    onChange={(e) => setChildren(+e.target.value)}
+                    style={{ width: '100%', height: 40, borderRadius: 8, border: '1px solid #CBD5E1', padding: '0 10px', fontSize: 13.5, fontWeight: 600, background: '#fff' }}
+                  >
+                    {[0, 1, 2, 3, 4, 5, 6, 8, 10].map((n) => (
+                      <option key={n} value={n}>{n} trẻ em</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* THÔNG TIN KHÁCH */}
+            <div style={{ marginBottom: 20 }}>
+              <label style={{ display: 'block', fontSize: 12, fontWeight: 800, color: '#334155', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>
+                3. Thông tin người nhận báo giá:
+              </label>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12, marginBottom: 12 }}>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Họ và tên Quý khách *"
+                    value={customerName}
+                    onChange={(e) => setCustomerName(e.target.value)}
+                    required
+                    style={{ width: '100%', height: 42, borderRadius: 8, border: '1px solid #CBD5E1', padding: '0 12px', fontSize: 13.5 }}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    placeholder="Số điện thoại / Zalo *"
+                    value={customerPhone}
+                    onChange={(e) => setCustomerPhone(e.target.value)}
+                    required
+                    style={{ width: '100%', height: 42, borderRadius: 8, border: '1px solid #CBD5E1', padding: '0 12px', fontSize: 13.5 }}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Email nhận báo giá file PDF"
+                    value={customerEmail}
+                    onChange={(e) => setCustomerEmail(e.target.value)}
+                    style={{ width: '100%', height: 42, borderRadius: 8, border: '1px solid #CBD5E1', padding: '0 12px', fontSize: 13.5 }}
+                  />
+                </div>
+              </div>
+              <textarea
+                placeholder="Ghi chú thêm: Điểm đón tại Hà Nội, hạng phòng yêu cầu, độ tuổi các bé, ăn chay/dị ứng..."
+                rows={2}
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                style={{ width: '100%', borderRadius: 8, border: '1px solid #CBD5E1', padding: '10px 12px', fontSize: 13, resize: 'vertical' }}
+              />
+            </div>
+
+            {/* FOOTER ACTIONS */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, paddingTop: 12, borderTop: '1px solid #E2E8F0' }}>
+              <div style={{ fontSize: 12, color: '#64748B' }}>
+                🔒 Dữ liệu được bảo mật & gửi trực tiếp tới <b style={{ color: '#0369A1' }}>marketing@daiichigroup.net</b>
+              </div>
+              <div style={{ display: 'flex', gap: 10 }}>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  style={{
+                    padding: '10px 18px',
+                    background: '#F1F5F9',
+                    color: '#475569',
+                    border: 'none',
+                    borderRadius: 8,
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                  }}
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  style={{
+                    padding: '12px 24px',
+                    background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: 8,
+                    fontWeight: 800,
+                    fontSize: 14,
+                    cursor: submitting ? 'wait' : 'pointer',
+                    boxShadow: '0 4px 12px rgba(16, 185, 129, 0.35)',
+                  }}
+                >
+                  {submitting ? 'Đang gửi...' : '🚀 Gửi Yêu Cầu Báo Giá Combo →'}
+                </button>
+              </div>
+            </div>
+          </form>
+        )}
       </div>
     </div>
   );

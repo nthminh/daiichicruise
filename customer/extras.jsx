@@ -615,7 +615,88 @@ function ChatWidget() {
     );
   };
 
-    // Helper to render formatted text (bold, bullets) & Human Contact Card
+    // Helper to render inline text with URLs, Markdown links & Payment buttons
+  const renderFormattedPart = (textPart, pIdx) => {
+    if (!textPart) return null;
+    if (textPart.startsWith('**') && textPart.endsWith('**')) {
+      return <strong key={pIdx} style={{ color: 'var(--navy)', fontWeight: 700 }}>{textPart.slice(2, -2)}</strong>;
+    }
+
+    // Match markdown links [text](url) OR raw URLs https?://...
+    const urlPattern = /(\[[^\]]+\]\(https?:\/\/[^\s\)]+\)|https?:\/\/[^\s\)\],]+)/g;
+    const subParts = textPart.split(urlPattern);
+    if (subParts.length <= 1) return textPart;
+
+    return (
+      <React.Fragment key={pIdx}>
+        {subParts.map((sub, sIdx) => {
+          if (!sub) return null;
+          let targetUrl = '';
+          let linkLabel = '';
+
+          const mdMatch = sub.match(/^\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)$/);
+          if (mdMatch) {
+            linkLabel = mdMatch[1];
+            targetUrl = mdMatch[2];
+          } else if (/^https?:\/\/[^\s\)\],]+$/i.test(sub)) {
+            targetUrl = sub;
+            linkLabel = sub;
+          } else {
+            return sub;
+          }
+
+          const isPaymentLink = targetUrl.includes('daiichitravel.web.app/pay/');
+          if (isPaymentLink) {
+            return (
+              <span key={sIdx} style={{ display: 'block', margin: '8px 0' }}>
+                <a
+                  href={targetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
+                    color: '#ffffff',
+                    padding: '8px 16px',
+                    borderRadius: 8,
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    fontSize: 12.5,
+                    boxShadow: '0 3px 10px rgba(2, 132, 199, 0.35)',
+                    wordBreak: 'break-all'
+                  }}
+                >
+                  <span>💳 {v ? 'Thanh toán trực tuyến ngay' : 'Pay Online Now'}</span>
+                  <span style={{ fontSize: 11 }}>↗</span>
+                </a>
+              </span>
+            );
+          }
+
+          return (
+            <a
+              key={sIdx}
+              href={targetUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#0284c7',
+                textDecoration: 'underline',
+                fontWeight: 600,
+                wordBreak: 'break-all'
+              }}
+            >
+              {linkLabel}
+            </a>
+          );
+        })}
+      </React.Fragment>
+    );
+  };
+
+  // Helper to render formatted text (bold, bullets, links, payment buttons) & Human Contact Card
   const renderMessageContent = (text, isHuman) => {
     if (!text && !isHuman) return null;
     const hasHumanCard = Boolean(isHuman || (text && text.includes('[HUMAN_CONNECT_CARD]')));
@@ -629,12 +710,7 @@ function ChatWidget() {
           const parts = line.split(/(\*\*.*?\*\*)/g);
           return (
             <span key={lIdx} style={{ display: 'block', minHeight: line.trim() ? 'auto' : '8px' }}>
-              {parts.map((p, pIdx) => {
-                if (p.startsWith('**') && p.endsWith('**')) {
-                  return <strong key={pIdx} style={{ color: 'var(--navy)', fontWeight: 700 }}>{p.slice(2, -2)}</strong>;
-                }
-                return p;
-              })}
+              {parts.map((p, pIdx) => renderFormattedPart(p, pIdx))}
             </span>
           );
         })}

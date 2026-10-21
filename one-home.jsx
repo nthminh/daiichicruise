@@ -171,8 +171,8 @@ function CruiseHomeSearch() {
   const [comboPackage, setComboPackage] = useState('combo-day');
   const [comboModalOpen, setComboModalOpen] = useState(false);
 
-  // Danh sách các tour ngắn Lan Hạ từ cơ sở dữ liệu Daiichi Travel
-  const DAY_TOURS = [
+  // Danh sách đầy đủ các tour ngắn (Vịnh Lan Hạ & Ninh Bình) từ cơ sở dữ liệu Daiichi Travel
+  const LAN_HA_DAY_TOURS = [
     { id: 'f936b00d-3757-4332-9616-249a48afb59d', key: 'vip1', label: 'Tour 1 ngày Lan Hạ – Làng Việt Hải (VIP 1)', keyword: 'Fullday Vip 1', badge: '4★ Hot' },
     { id: '2622c6b5-522f-4421-b2b0-5ba3a49ec326', key: 'vip4', label: 'Một ngày Vịnh Lan Hạ Cruise 5 Sao (VIP 4)', keyword: 'Vip 4', badge: '5★ Luxury' },
     { id: 'c03a4c99-e98c-42f1-b604-e8993a77bdec', key: 'dinner', label: 'Tiệc BBQ DJ & Pháo hoa Vịnh Lan Hạ (VIP 5)', keyword: 'Vip 5', badge: '5★ BBQ DJ' },
@@ -182,6 +182,23 @@ function CruiseHomeSearch() {
     { id: '3ede116b-fdfa-4604-a938-3431fd70e235', key: 'vip1-c2', label: 'Một ngày Lan Hạ Cruise 2 (VIP 1 Cruise 2)', keyword: 'Vip 1 cruise 2', badge: 'Gỗ mộc' },
     { id: '262f5b81-bf22-4049-bb71-2ee0ddda3472', key: 'sunset2', label: 'Hoàng hôn Lan Hạ Cruise 2', keyword: 'Sunset cruise 2', badge: 'Chiều tà' },
   ];
+
+  const NINH_BINH_DAY_TOURS = [
+    { id: 'ff7f599e-92e7-4583-9922-149413e162df', key: 'nb-baidinh-trangan', label: 'Ninh Bình 1 ngày: Bái Đính – Tràng An – Hang Múa (Xe điện)', keyword: 'Trang An', badge: '1 Ngày' },
+    { id: '4b1a1a89-3d35-45a7-a561-8319d83d085a', key: 'nb-hoalu-tamcoc', label: 'Ninh Bình 1 ngày: Hoa Lư – Tam Cốc – Đạp xe', keyword: 'Tam Coc', badge: '1 Ngày' },
+    { id: '0066fdf7-8c1a-4bc3-8745-9bd0c3154e35', key: 'nb-jeep-1day', label: 'Ninh Bình Back Road Tour 1 ngày bằng Army Jeep độc đáo', keyword: 'Jeep', badge: 'Jeep Tour' },
+    { id: '2e5781c5-672b-4f6d-9a4e-2bc07d312628', key: 'nb-jeep-half', label: 'Ninh Bình Half Day Jeep Tour: Bích Động – Tràng An – Hang Múa', keyword: 'Jeep', badge: 'Jeep 1/2' },
+    { id: '51218861-eb3d-4fe6-b095-13a5f934123b', key: 'nb-ebike', label: 'Ninh Bình Ebike Tour: Thung Sen – Thái Vi – Thung Nắng', keyword: 'Ebike', badge: 'Xe đạp điện' },
+    { id: '1b8482dd-8100-4b92-869d-54f348a6400c', key: 'nb-sunset-moto', label: 'Sunset Motorbike Tour Hang Múa – Phố đi bộ Hoa Lư', keyword: 'Sunset', badge: 'Hoàng hôn' },
+    { id: '8e9223ab-22b0-43f7-85f2-0ee6500aa1e8', key: 'nb-cucphuong-1d', label: 'Ninh Bình 1 ngày: Khám phá VQG Cúc Phương', keyword: 'Cuc Phuong', badge: 'VQG Cúc Phương' },
+    { id: '651bafc6-332e-4b37-9f6e-c092f9c126a1', key: 'nb-2d1n-tamcoc', label: 'Ninh Bình 2N1Đ Bungalow: Hoa Lư – Tam Cốc – Hang Múa – Tràng An', keyword: 'Ninh Binh 2 days', badge: '2N1Đ' },
+    { id: 'b40643bc-7a64-4589-8f5c-31b642169cdf', key: 'nb-2d1n-cucphuong', label: 'Ninh Bình 2N1Đ Bungalow: Hoa Lư – Tam Cốc – Cúc Phương', keyword: 'Cuc Phuong', badge: '2N1Đ' },
+    { id: '19904a2a-7eb9-4607-a6b4-528a01d72ecc', key: 'nb-2d1n-thungnham', label: 'Ninh Bình 2N1Đ Bungalow: Tam Cốc – Thung Nham – Bích Động', keyword: 'Thung Nham', badge: '2N1Đ' },
+    { id: 'dfb5d727-2883-47b3-b11d-190c41f17019', key: 'nb-3d2n-trangan', label: 'Ninh Bình 3N2Đ Nghỉ Dưỡng: Hoa Lư – Tam Cốc – Thung Nham – Tràng An', keyword: 'Ninh Binh 3 days', badge: '3N2Đ' },
+    { id: 'bf097bd1-7c6f-4af8-801f-7ee3ddcdd1a7', key: 'nb-3d2n-cucphuong', label: 'Ninh Bình 3N2Đ Nghỉ Dưỡng: Hoa Lư – Tam Cốc – Cúc Phương – Tràng An', keyword: 'Cuc Phuong', badge: '3N2Đ' },
+  ];
+
+  const ALL_SHORT_TOURS = [...LAN_HA_DAY_TOURS, ...NINH_BINH_DAY_TOURS];
   const [selectedDayTourKey, setSelectedDayTourKey] = useState('vip1');
 
   const STATIONS = (window.DT_DATA && DT_DATA.STATIONS) || {};
@@ -196,7 +213,7 @@ function CruiseHomeSearch() {
       const cruiseQuery = cruiseType === 'luxury' ? 'Luxury' : cruiseType === 'boutique' ? 'Boutique' : '';
       targetUrl = `https://daiichitravel.com/?tab=cruise-tours&cruise=${cruiseType}&search=${encodeURIComponent(cruiseQuery)}&date=${date}&checkIn=${date}&adults=${adults}&children=${children}&pax=${totalPax}&cabins=${cabins}&rooms=${cabins}&itinerary=${itinerary}&source=daiichicruise`;
     } else if (tab === 'day') {
-      const curTour = DAY_TOURS.find((t) => t.key === selectedDayTourKey) || DAY_TOURS[0];
+      const curTour = ALL_SHORT_TOURS.find((t) => t.key === selectedDayTourKey) || ALL_SHORT_TOURS[0];
       targetUrl = `https://daiichitravel.com/?tab=tours&category=TOUR_SHORT&routeId=${curTour.id}&search=${encodeURIComponent(curTour.keyword)}&date=${date}&adults=${adults}&children=${children}&pax=${totalPax}&source=daiichicruise`;
     } else if (tab === 'tour') {
       // Mở Form nhập liệu tùy chọn combo gửi marketing@daiichigroup.net
@@ -225,8 +242,8 @@ function CruiseHomeSearch() {
           </button>
           <button className={'lux-tab-btn' + (tab === 'day' ? ' active' : '')} onClick={() => setTab('day')}>
             <span style={{ fontSize: 18 }}>🚢</span>
-            <span className="tab-text-full">{LV('Du thuyền ngày Lan Hạ', 'Lan Ha Day Cruise')}</span>
-            <span className="tab-text-mobile">{LV('Du thuyền ngày', 'Day Cruise')}</span>
+            <span className="tab-text-full">{LV('Du thuyền ngày & Tour ngắn', 'Day Cruise & Short Tours')}</span>
+            <span className="tab-text-mobile">{LV('Tour ngày', 'Day Tours')}</span>
           </button>
           <button className={'lux-tab-btn' + (tab === 'tour' ? ' active' : '')} onClick={() => setTab('tour')}>
             <span style={{ fontSize: 18 }}>🗺️</span>
@@ -294,11 +311,20 @@ function CruiseHomeSearch() {
               <div className="lux-field" style={{ gridColumn: 'span 2' }}>
                 <label>🚢 {LV('Tuyến tour ngắn (Dữ liệu Daiichi Travel)', 'Day Cruise Tour')}</label>
                 <select value={selectedDayTourKey} onChange={(e) => setSelectedDayTourKey(e.target.value)}>
-                  {DAY_TOURS.map((t) => (
-                    <option key={t.key} value={t.key}>
-                      [{t.badge}] {t.label}
-                    </option>
-                  ))}
+                  <optgroup label={LV('⚓ Du thuyền ngày Vịnh Lan Hạ (Cát Bà)', '⚓ Lan Ha Bay Day Cruises')}>
+                    {LAN_HA_DAY_TOURS.map((t) => (
+                      <option key={t.key} value={t.key}>
+                        [{t.badge}] {t.label}
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label={LV('🌾 Tour ngắn khám phá Ninh Bình', '🌾 Ninh Binh Short Tours')}>
+                    {NINH_BINH_DAY_TOURS.map((t) => (
+                      <option key={t.key} value={t.key}>
+                        [{t.badge}] {t.label}
+                      </option>
+                    ))}
+                  </optgroup>
                 </select>
               </div>
               <div className="lux-field">
@@ -537,8 +563,31 @@ ${chosenList.map((s) => '  • ' + s).join('\n')}
           created_at: new Date().toISOString(),
         }),
       });
+
+      // 2. Gửi email thông báo trực tiếp tới marketing@daiichigroup.net qua Edge Function
+      await fetch(`${SUPABASE_URL}/functions/v1/notify-inquiry`, {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          inquiryId: generatedId,
+          name: customerName.trim(),
+          phone: customerPhone.trim(),
+          email: customerEmail.trim() || 'Chưa cung cấp',
+          from: 'Hà Nội',
+          to: 'Cát Bà & Vịnh Lan Hạ / Ninh Bình',
+          date: startDate || new Date().toISOString().split('T')[0],
+          returnDate: endDate || '',
+          adults: parseInt(adults, 10) || 2,
+          children: parseInt(children, 10) || 0,
+          notes: fullNotes,
+        }),
+      });
     } catch (err) {
-      console.warn('Lưu Supabase inquiry combo warning:', err);
+      console.warn('Lưu Supabase inquiry combo hoặc gửi email notify warning:', err);
     }
 
     // 2. Mở sẵn mailto dự phòng hoặc báo thành công

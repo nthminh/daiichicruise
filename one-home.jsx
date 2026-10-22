@@ -543,36 +543,10 @@ ${chosenList.map((s) => '  • ' + s).join('\n')}
 - Ghi chú khách: ${notes.trim() || 'Không có'}
 - Gửi tới: marketing@daiichigroup.net`;
 
-    // 1. Lưu vào Supabase bảng inquiries
+    // Gửi thông báo trực tiếp tới marketing@daiichigroup.net và lưu yêu cầu vào hệ thống
     try {
       const SUPABASE_URL = 'https://vfeodqmvilchsipdsxsh.supabase.co';
       const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmZW9kcW12aWxjaHNpcGRzeHNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNzk0MzksImV4cCI6MjA5MDg1NTQzOX0.FAorniExT887KO4SQhmFO7BX_e99FfvEBZzCM_2Sits';
-      await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
-        method: 'POST',
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`,
-          'Content-Type': 'application/json',
-          Prefer: 'return=minimal',
-        },
-        body: JSON.stringify({
-          name: customerName.trim(),
-          phone: customerPhone.trim(),
-          email: customerEmail.trim() || null,
-          from: 'Hà Nội',
-          to: 'Cát Bà & Vịnh Lan Hạ',
-          date: startDate || new Date().toISOString().split('T')[0],
-          return_date: endDate || null,
-          adults: parseInt(adults, 10) || 2,
-          children: parseInt(children, 10) || 0,
-          notes: fullNotes,
-          status: 'PENDING',
-          trip_type: 'ROUND_TRIP',
-          created_at: new Date().toISOString(),
-        }),
-      });
-
-      // 2. Gửi email thông báo trực tiếp tới marketing@daiichigroup.net qua Edge Function
       await fetch(`${SUPABASE_URL}/functions/v1/notify-inquiry`, {
         method: 'POST',
         headers: {
@@ -595,7 +569,7 @@ ${chosenList.map((s) => '  • ' + s).join('\n')}
         }),
       });
     } catch (err) {
-      console.warn('Lưu Supabase inquiry combo hoặc gửi email notify warning:', err);
+      console.warn('Gửi inquiry combo notify warning:', err);
     }
 
     // 2. Mở sẵn mailto dự phòng hoặc báo thành công

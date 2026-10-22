@@ -279,29 +279,31 @@ function CruiseHomeSearch() {
                 <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
                 <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
               </div>
-              <div className="lux-field" style={{ minWidth: 105, maxWidth: 120 }}>
-                <label>👤 {LV('Người lớn', 'Adults')}</label>
-                <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20].map((n) => (
-                    <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="lux-field" style={{ minWidth: 105, maxWidth: 120 }}>
-                <label>👶 {LV('Trẻ em', 'Children')}</label>
-                <select value={children} onChange={(e) => setChildren(+e.target.value)}>
-                  {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                    <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="lux-field" style={{ minWidth: 105, maxWidth: 120 }}>
-                <label>🚪 {LV('Số cabin', 'Cabins')}</label>
-                <select value={cabins} onChange={(e) => setCabins(+e.target.value)}>
-                  {[1, 2, 3, 4, 5].map((n) => (
-                    <option key={n} value={n}>{n} {LV('phòng', 'cabin(s)')}</option>
-                  ))}
-                </select>
+              <div className="lux-pax-row">
+                <div className="lux-field">
+                  <label>👤 {LV('Người lớn', 'Adults')}</label>
+                  <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20].map((n) => (
+                      <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="lux-field">
+                  <label>👶 {LV('Trẻ em', 'Children')}</label>
+                  <select value={children} onChange={(e) => setChildren(+e.target.value)}>
+                    {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+                      <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="lux-field">
+                  <label>🚪 {LV('Số cabin', 'Cabins')}</label>
+                  <select value={cabins} onChange={(e) => setCabins(+e.target.value)}>
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <option key={n} value={n}>{n} {LV('phòng', 'cabin(s)')}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </React.Fragment>
           )}
@@ -331,21 +333,23 @@ function CruiseHomeSearch() {
                 <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
                 <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
               </div>
-              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
-                <label>👤 {LV('Người lớn', 'Adults')}</label>
-                <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20].map((n) => (
-                    <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
-                <label>👶 {LV('Trẻ em', 'Children')}</label>
-                <select value={children} onChange={(e) => setChildren(+e.target.value)}>
-                  {[0, 1, 2, 3, 4, 5, 6].map((n) => (
-                    <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
-                  ))}
-                </select>
+              <div className="lux-pax-row-2">
+                <div className="lux-field">
+                  <label>👤 {LV('Người lớn', 'Adults')}</label>
+                  <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20].map((n) => (
+                      <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="lux-field">
+                  <label>👶 {LV('Trẻ em', 'Children')}</label>
+                  <select value={children} onChange={(e) => setChildren(+e.target.value)}>
+                    {[0, 1, 2, 3, 4, 5, 6].map((n) => (
+                      <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </React.Fragment>
           )}
@@ -365,21 +369,23 @@ function CruiseHomeSearch() {
                 <label>📅 {LV('Ngày khởi hành', 'Departure Date')}</label>
                 <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
               </div>
-              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
-                <label>👤 {LV('Người lớn', 'Adults')}</label>
-                <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20].map((n) => (
-                    <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
-                <label>👶 {LV('Trẻ em', 'Children')}</label>
-                <select value={children} onChange={(e) => setChildren(+e.target.value)}>
-                  {[0, 1, 2, 3, 4, 5].map((n) => (
-                    <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
-                  ))}
-                </select>
+              <div className="lux-pax-row-2">
+                <div className="lux-field">
+                  <label>👤 {LV('Người lớn', 'Adults')}</label>
+                  <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 20].map((n) => (
+                      <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="lux-field">
+                  <label>👶 {LV('Trẻ em', 'Children')}</label>
+                  <select value={children} onChange={(e) => setChildren(+e.target.value)}>
+                    {[0, 1, 2, 3, 4, 5].map((n) => (
+                      <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </React.Fragment>
           )}
@@ -406,21 +412,23 @@ function CruiseHomeSearch() {
                 <label>📅 {LV('Ngày đi', 'Travel Date')}</label>
                 <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
               </div>
-              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
-                <label>👤 {LV('Người lớn', 'Adults')}</label>
-                <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 10].map((n) => (
-                    <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="lux-field" style={{ minWidth: 105, maxWidth: 125 }}>
-                <label>👶 {LV('Trẻ em', 'Children')}</label>
-                <select value={children} onChange={(e) => setChildren(+e.target.value)}>
-                  {[0, 1, 2, 3, 4, 5].map((n) => (
-                    <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
-                  ))}
-                </select>
+              <div className="lux-pax-row-2">
+                <div className="lux-field">
+                  <label>👤 {LV('Người lớn', 'Adults')}</label>
+                  <select value={adults} onChange={(e) => setAdults(+e.target.value)}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 10].map((n) => (
+                      <option key={n} value={n}>{n} {LV('người', 'adults')}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="lux-field">
+                  <label>👶 {LV('Trẻ em', 'Children')}</label>
+                  <select value={children} onChange={(e) => setChildren(+e.target.value)}>
+                    {[0, 1, 2, 3, 4, 5].map((n) => (
+                      <option key={n} value={n}>{n} {LV('trẻ em', 'children')}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </React.Fragment>
           )}
@@ -2082,7 +2090,7 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
       {!isOpen && (
         <div className="lux-bus-badge-label" onClick={() => setIsOpen(true)} style={{ cursor: 'pointer', pointerEvents: 'auto' }}>
           <span>🚌</span>
-          <span>ĐẶT XE BUS <strong>CHỈ 90K</strong></span>
+          <span>ĐẶT XE BUS <strong>CHỈ TỪ 90K</strong></span>
           <span className="bus-pulse-dot"></span>
         </div>
       )}
@@ -2118,9 +2126,9 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
             Hệ thống xe khách & Limousine cao tốc 5B chất lượng cao của Daiichi:
           </div>
 
-          {/* Route 1: Hà Nội - Hải Phòng 90k */}
+          {/* Route 1: Hà Nội - Hải Phòng */}
           <a
-            href="https://daiichitravel.com/?tab=bus"
+            href="https://daiichitravel.com/?tab=book-ticket&from=H%C3%A0%20N%E1%BB%99i&to=H%E1%BA%A3i%20Ph%C3%B2ng&source=daiichicruise"
             target="_blank"
             rel="noopener noreferrer"
             className="lux-bus-route-item"
@@ -2131,14 +2139,14 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
               <div className="lux-bus-route-desc">Xe Bus 45 chỗ đời mới · Cao tốc 5B</div>
             </div>
             <div className="lux-bus-route-price promo">
-              90.000đ
+              Từ 90.000đ
               <span>Ưu đãi Like Page HP</span>
             </div>
           </a>
 
           {/* Route 2: Hà Nội - Cát Bà */}
           <a
-            href="https://daiichitravel.com/?tab=bus"
+            href="https://daiichitravel.com/?tab=book-ticket&from=H%C3%A0%20N%E1%BB%99i&to=C%C3%A1t%20B%C3%A0&source=daiichicruise"
             target="_blank"
             rel="noopener noreferrer"
             className="lux-bus-route-item"
@@ -2149,14 +2157,14 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
               <div className="lux-bus-route-desc">Trọn gói Bus + Tàu cao tốc riêng</div>
             </div>
             <div className="lux-bus-route-price">
-              150k - 250k
+              Từ 150k - 250k
               <span>Đón trả tận khách sạn</span>
             </div>
           </a>
 
           {/* Route 3: Hải Phòng - Cát Bà */}
           <a
-            href="https://daiichitravel.com/?tab=bus"
+            href="https://daiichitravel.com/?tab=book-ticket&from=H%E1%BA%A3i%20Ph%C3%B2ng&to=C%C3%A1t%20B%C3%A0&source=daiichicruise"
             target="_blank"
             rel="noopener noreferrer"
             className="lux-bus-route-item"
@@ -2167,14 +2175,14 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
               <div className="lux-bus-route-desc">Xe đón tại VP 713 Phạm Văn Đồng</div>
             </div>
             <div className="lux-bus-route-price">
-              170.000đ
+              Từ 170.000đ
               <span>Chuyến chạy liên tục</span>
             </div>
           </a>
 
           {/* Quick CTA Buttons */}
           <a
-            href="https://daiichitravel.com/?tab=bus"
+            href="https://daiichitravel.com/?tab=book-ticket&from=H%C3%A0%20N%E1%BB%99i&to=C%C3%A1t%20B%C3%A0&source=daiichicruise"
             target="_blank"
             rel="noopener noreferrer"
             className="lux-bus-action-btn"

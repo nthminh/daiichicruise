@@ -300,6 +300,32 @@ html, body {
   gap: 6px;
 }
 
+.lux-pax-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  min-width: 310px;
+}
+
+.lux-pax-row-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  min-width: 210px;
+}
+
+@media (max-width: 640px) {
+  .lux-pax-row,
+  .lux-pax-row-2 {
+    min-width: 0;
+    width: 100%;
+  }
+  .lux-pax-row .lux-field select {
+    padding: 0 6px;
+    font-size: 13.5px;
+  }
+}
+
 .lux-field label {
   font-size: 11px;
   font-weight: 700;

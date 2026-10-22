@@ -688,16 +688,35 @@ ${chosenList.map((s) => '  • ' + s).join('\n')}
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 8,
-                  padding: '12px 24px',
+                  padding: '12px 22px',
                   background: '#0068FF',
                   color: '#fff',
                   borderRadius: 10,
                   textDecoration: 'none',
                   fontWeight: 700,
-                  fontSize: 14.5,
+                  fontSize: 14,
                 }}
               >
-                <span>💬</span> Chat Zalo Ngay (0961 004 709)
+                <span>💬</span> Chat Zalo (0961 004 709)
+              </a>
+              <a
+                href={`https://wa.me/84961004709?text=${encodeURIComponent(`Hi Daiichi Travel, I requested Combo Inquiry (${inquiryId || 'COMBO'}):\n- Guest: ${customerName} (${customerPhone})\n- Travel: ${startDate} -> ${endDate}\n- Pax: ${adults} adults, ${children} children`)}`}
+                target="_blank"
+                rel="noopener"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '12px 22px',
+                  background: '#25D366',
+                  color: '#fff',
+                  borderRadius: 10,
+                  textDecoration: 'none',
+                  fontWeight: 700,
+                  fontSize: 14,
+                }}
+              >
+                <span>💬</span> WhatsApp (+84 961 004 709)
               </a>
               <a
                 href="tel:19009070"
@@ -2453,6 +2472,7 @@ function OneHome() {
                 <li>{I18N.t('footer_co')}</li>
                 <li><b>Hotline 24/7:</b> <a href="tel:19009070" style={{ color: 'var(--gold-bright)' }}>1900 9070</a></li>
                 <li><b>Zalo hỗ trợ:</b> <a href="https://zalo.me/633406871869836720" target="_blank" rel="noopener" style={{ color: '#60A5FA' }}>0961 004 709</a></li>
+                <li><b>WhatsApp:</b> <a href="https://wa.me/84961004709" target="_blank" rel="noopener" style={{ color: '#25D366', fontWeight: 700 }}>+84 961 004 709</a></li>
                 <li><b>Email:</b> <a href="mailto:sale@daiichitravel.com">sale@daiichitravel.com</a></li>
                 <li><b>Văn phòng:</b> 217 đường 1/4, Cát Bà, Hải Phòng</li>
                 <li><b>Đặt vé chính thức:</b> <a href="https://daiichitravel.com" target="_blank" rel="noopener" style={{ color: 'var(--gold-bright)' }}>daiichitravel.com</a></li>
@@ -2495,7 +2515,7 @@ function OneHome() {
             </div>
           </div>
           <div className="on-footer-note">
-            <span>© 2026 Daiichi Cruise · Nền tảng du thuyền thành viên thuộc Daiichi Travel · Hotline: 1900 9070 · Zalo: 0961 004 709 · Cát Bà, Hải Phòng</span>
+            <span>© 2026 Daiichi Cruise · Nền tảng du thuyền thành viên thuộc Daiichi Travel · Hotline: 1900 9070 · Zalo / WhatsApp: +84 961 004 709 · Cát Bà, Hải Phòng</span>
             <span>Hệ thống đặt vé & phòng trực tuyến vận hành bởi <a href="https://daiichitravel.com" target="_blank" rel="noopener" style={{ color: 'var(--gold-bright)' }}>DaiichiTravel.com</a></span>
           </div>
         </div>

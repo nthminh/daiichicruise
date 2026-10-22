@@ -232,6 +232,28 @@
       }
     },
 
+    // Track WhatsApp click kèm Enhanced Conversions
+    trackWhatsApp: function (position, customUserData) {
+      const pos = position || 'unknown';
+      console.info('[DaiichiTracking] Track WhatsApp Click:', pos);
+
+      const effectiveUser = (customUserData && saveStoredUserData(customUserData)) || getStoredUserData();
+
+      window.gtag('event', 'contact_whatsapp', {
+        event_category: 'Engagement',
+        event_label: pos,
+        value: 1
+      });
+
+      // Google Ads specific conversion (use Zalo/Contact conversion tag)
+      const convTag = (window.DAIICHI_CONFIG && (window.DAIICHI_CONFIG.GOOGLE_ADS_CONVERSION_WHATSAPP || window.DAIICHI_CONFIG.GOOGLE_ADS_CONVERSION_ZALO));
+      if (convTag) {
+        const payload = { send_to: convTag };
+        if (effectiveUser) payload.user_data = effectiveUser;
+        window.gtag('event', 'conversion', payload);
+      }
+    },
+
     // Track biểu mẫu liên hệ / tư vấn / thuê xe kèm Enhanced Conversions
     trackContact: function (userData, contactType, details) {
       console.info('[DaiichiTracking] Track Contact Form:', contactType, details);
@@ -428,6 +450,13 @@
       if (href.includes('zalo.me')) {
         const position = target.getAttribute('data-track-pos') || target.className || 'zalo_link';
         DaiichiTracking.trackZalo(position);
+        return;
+      }
+
+      // WhatsApp click
+      if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+        const position = target.getAttribute('data-track-pos') || target.className || 'whatsapp_link';
+        DaiichiTracking.trackWhatsApp(position);
         return;
       }
 

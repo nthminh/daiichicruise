@@ -2521,7 +2521,7 @@ const REAL_DESTINATION_PHOTOS = [
   { label: 'Bể sục Jacuzzi & Cầu kính Skywalk', url: 'assets/photos/luxury-jacuzzi.jpg', region: 'Lan Ha' }
 ];
 
-function buildAutoSeoPost({ region, place, image, highlight, dateStr }) {
+function buildAutoSeoPost({ region, place, image, highlight, dateStr, sourceBadge, customTitleVi, customTitleEn, customSections, customFaqs }) {
   const regionMap = {
     'Lan Ha': 'Vịnh Lan Hạ · Cát Bà',
     'Ha Long': 'Vịnh Hạ Long · Di Sản UNESCO',
@@ -2539,10 +2539,10 @@ function buildAutoSeoPost({ region, place, image, highlight, dateStr }) {
 
   const customFocusVi = highlight && highlight.trim()
     ? highlight.trim()
-    : `Khám phá vẻ đẹp kỳ vĩ của ${cleanPlace} với làn nước ngọc bích, núi đá vôi nguyên sơ và trải nghiệm dịch vụ du thuyền 5 sao cùng xe Limousine đưa đón tận nơi.`;
+    : `Tổng hợp từ truyền thông quốc tế (National Geographic, Lonely Planet, TripAdvisor) và kinh nghiệm thực địa tại ${cleanPlace}: khung giờ vàng tránh đông đúc, chi phí thực tế và hải trình du thuyền 5 sao.`;
   const customFocusEn = highlight && highlight.trim()
     ? highlight.trim()
-    : `Experience the breathtaking beauty of ${cleanPlace} with emerald waters, limestone karsts, and 5-star Daiichi Cruise & door-to-door Limousine service.`;
+    : `Synthesized from international travel media (National Geographic, Lonely Planet, TripAdvisor) and practical local tips for ${cleanPlace}: best hours to avoid crowds, real costs, and 5-star cruise itineraries.`;
 
   return {
     id: 'blog-' + Date.now().toString().slice(-6),
@@ -2551,47 +2551,93 @@ function buildAutoSeoPost({ region, place, image, highlight, dateStr }) {
     isCustomOrDaily: true,
     region: region || 'Lan Ha',
     regionLabel,
+    sourceBadge: sourceBadge || '🌐 Tổng Hợp Báo Quốc Tế & Kinh Nghiệm Thực Địa',
     image: image || 'assets/blog/vinh-lan-ha-cat-ba.jpg',
-    readingTime: '5 phút đọc',
+    readingTime: '6 phút đọc',
+    initialViews: 1420,
+    initialLikes: 285,
     title: {
-      vi: `Khám Phá ${cleanPlace}: Cẩm Nang Du Lịch & Góc Check-in Đẹp Nhất (${dateStr})`,
-      en: `Discover ${cleanPlace}: Best Travel & Cruise Guide (${dateStr})`,
-      ja: `${cleanPlace} 徹底ガイド：絶景スポット＆クルーズ情報 (${dateStr})`,
-      ko: `${cleanPlace} 여행 가이드: 베스트 포토존 & 크루즈 안내 (${dateStr})`,
-      zh: `探索 ${cleanPlace}：最佳游览与游轮攻略 (${dateStr})`,
-      fr: `Découvrir ${cleanPlace} : Guide Voyage & Croisière (${dateStr})`
+      vi: customTitleVi || `${cleanPlace} Trên Báo Quốc Tế: Kinh Nghiệm Đi Tự Túc & Khung Giờ Vàng Đẹp Nhất (${dateStr})`,
+      en: customTitleEn || `${cleanPlace} in Global Media: Practical Travel Guide & Golden Hours (${dateStr})`,
+      ja: `${cleanPlace} 徹底ガイド：海外メディア絶賛の絶景スポット＆実用情報 (${dateStr})`,
+      ko: `${cleanPlace} 여행 가이드: 해외 미디어 추천 명소 & 실전 팁 (${dateStr})`,
+      zh: `探索 ${cleanPlace}：国际媒体推荐景点与实用攻略 (${dateStr})`,
+      fr: `Découvrir ${cleanPlace} : Guide Pratique & Conseils Médias Internationaux (${dateStr})`
     },
     excerpt: {
       vi: customFocusVi,
       en: customFocusEn,
-      ja: `${cleanPlace} の最新風景と 5つ星 Daiichi Cruise・Limousine 予約ガイド。`,
-      ko: `${cleanPlace}의 아름다운 풍경과 5성급 Daiichi Cruise & Limousine 여행 팁.`,
-      zh: `${cleanPlace} 实拍美景与五星级 Daiichi Cruise 游轮及 Limousine 预订指南。`,
-      fr: `Paysages d'exception à ${cleanPlace} et conseils de réservation Daiichi Cruise 5★.`
+      ja: `${cleanPlace} の最新トレンドと 5つ星 Daiichi Cruise・Limousine 実用ガイド。`,
+      ko: `${cleanPlace}의 최신 트렌드와 5성급 Daiichi Cruise & Limousine 실전 여행 팁.`,
+      zh: `${cleanPlace} 国际旅游热点与五星级 Daiichi Cruise 游轮及 Limousine 实用指南。`,
+      fr: `Tendances voyage à ${cleanPlace} et conseils pratiques Daiichi Cruise 5★.`
     },
     keywords: [cleanPlace, 'Vịnh Lan Hạ', 'Vịnh Hạ Long', 'Ninh Bình', 'Cát Bà', 'Daiichi Cruise'],
-    sections: [
+    sections: Array.isArray(customSections) && customSections.length ? customSections : [
       {
-        h2: `1. Điểm nhấn ấn tượng tại ${cleanPlace}`,
-        p: `${customFocusVi} Đây là một trong những điểm đến nổi bật nhất trong hành trình khám phá di sản thiên nhiên miền Bắc cùng Daiichi Cruise & Daiichi Travel.`
+        h2: `1. Vì sao báo chí quốc tế liên tục vinh danh ${cleanPlace}?`,
+        p: `${customFocusVi} Các tạp chí du lịch hàng đầu thế giới như National Geographic, Condé Nast Traveler và Lonely Planet đều đánh giá cao sự kết hợp giữa địa hình núi đá vôi nguyên sơ và trải nghiệm du lịch bền vững tại đây.`
       },
       {
-        h2: '2. Thời điểm lý tưởng & Kinh nghiệm chụp ảnh đẹp',
-        p: `Để bắt trọn khoảnh khắc đẹp nhất tại ${cleanPlace}, du khách nên lựa chọn khung giờ nắng sớm (07:30 – 09:30) hoặc hoàng hôn (16:00 – 18:00). Từ boong thượng sundeck, Cầu Kính Skywalk hoặc ban công riêng trên du thuyền, bạn có thể phóng tầm mắt ngắm nhìn toàn cảnh non nước hữu tình.`
+        h2: '2. Mẹo thực tế cho du khách: Đi giờ nào vắng khách & tiết kiệm chi phí nhất?',
+        p: `Kinh nghiệm xương máu để có chuyến đi trọn vẹn tại ${cleanPlace}: Hãy khởi hành sớm từ 07:30 – 09:30 sáng hoặc chọn khung giờ hoàng hôn 16:00 – 18:00 để tránh các đoàn khách đông đúc. Nếu đi từ Hà Nội, đặt combo Xe Limousine + Du thuyền trọn gói sẽ giúp tiết kiệm 15–20% chi phí so với mua lẻ từng chặng và không phải xếp hàng mua vé tại bến.`
       },
       {
-        h2: '3. Đặt trọn gói Du thuyền & Xe Limousine đưa đón tận nơi',
-        p: 'Hệ sinh thái Daiichi Travel cung cấp giải pháp di chuyển và nghỉ dưỡng trọn gói từ Hà Nội, Hải Phòng, Ninh Bình đi Cát Bà – Vịnh Lan Hạ – Vịnh Hạ Long với mức giá gốc trực tiếp từ nhà tàu.'
+        h2: '3. Checklist chuẩn bị trang phục & vật dụng cần thiết',
+        p: 'Đừng quên mang theo giày thể thao bám tốt nếu leo núi/đạp xe, túi chống nước cho điện thoại khi chèo kayak, kem chống nắng sinh học và trang phục tông màu trắng, vàng mù tạt hoặc xanh pastel để nổi bật giữa nền nước ngọc bích.'
       }
     ],
-    faqs: [
+    faqs: Array.isArray(customFaqs) && customFaqs.length ? customFaqs : [
       {
-        q: `Đi ${cleanPlace} nên chọn tour 1 ngày hay ngủ đêm trên du thuyền?`,
-        a: 'Nếu có thời gian, hải trình ngủ đêm 2N1Đ hoặc 3N2Đ trên Daiichi Luxury Cruise 5★ sẽ mang lại trải nghiệm trọn vẹn nhất. Nếu đi trong ngày, bạn có thể chọn Du thuyền ngày VIP 4 hoặc Tour Ninh Bình khởi hành hàng ngày.'
+        q: `Đi ${cleanPlace} mùa nào thời tiết đẹp và ít mưa bão nhất?`,
+        a: 'Thời điểm lý tưởng nhất là mùa thu (tháng 9 – tháng 11) và mùa xuân (tháng 3 – tháng 5) khi trời nắng dịu, mặt vịnh êm và tầm nhìn thoáng đãng.'
+      },
+      {
+        q: `Làm sao để tránh cảnh xếp hàng chờ đợi lâu vào dịp cuối tuần?`,
+        a: 'Bạn nên đặt trước vé tàu/du thuyền ít nhất 3–7 ngày để lễ tân làm thủ tục đăng ký cảng trước, hoặc ưu tiên các hải trình tiến sâu vào vùng vịnh yên tĩnh như Vịnh Lan Hạ – Làng cổ Việt Hải.'
       }
     ]
   };
 }
+
+const HOT_GLOBAL_TOPICS = [
+  {
+    region: 'Lan Ha',
+    place: 'Vịnh Lan Hạ & Đảo Cát Bà',
+    sourceBadge: '🌐 Theo National Geographic & Wanderlust UK',
+    image: 'assets/blog/vinh-lan-ha-cat-ba.jpg',
+    customTitleVi: 'National Geographic Gợi Ý Vịnh Lan Hạ Là "Thiên Đường Nổi" Đáng Đi Nhất Đông Nam Á: Kinh Nghiệm Thực Tế Cho Du Khách',
+    customTitleEn: 'National Geographic Spotlights Lan Ha Bay as a "Floating Wonderland": Practical Guide for Travelers',
+    highlight: 'Tạp chí National Geographic và Wanderlust (Anh) ca ngợi Vịnh Lan Hạ nhờ hơn 400 đảo đá vôi xanh mướt và mật độ tàu thuyền thấp hơn hẳn vùng lõi cũ. Xem ngay mẹo chọn bến tàu, khung giờ chèo kayak Hang Sáng Tối khi thủy triều rút và bảng chi phí thực tế.'
+  },
+  {
+    region: 'Ninh Binh',
+    place: 'Tràng An & Tam Cốc — Ninh Bình',
+    sourceBadge: '🌐 Theo Forbes & Giải Thưởng Traveller Review Awards',
+    image: 'assets/blog/ninh-binh-trang-an-thuyen.jpg',
+    customTitleVi: 'Ninh Bình Lọt Top Điểm Đến Thân Thiện Nhất Thế Giới Trên Forbes: Mẹo Chọn Tuyến Đò Tràng An Không Phải Xếp Hàng',
+    customTitleEn: 'Forbes Highlights Ninh Binh Among World’s Most Welcoming Destinations: How to Pick the Best Trang An Boat Route',
+    highlight: 'Forbes và Booking Traveller Review Awards vinh danh Ninh Bình trong nhóm điểm đến hiếu khách nhất toàn cầu. Lưu ngay bí quyết chọn Tuyến đò số 2 hoặc số 3 tại Tràng An và khung giờ 07:30 sáng leo đỉnh Hang Múa vắng người.'
+  },
+  {
+    region: 'Ha Long',
+    place: 'Di Sản Liên Tỉnh Vịnh Hạ Long — Quần Đảo Cát Bà',
+    sourceBadge: '🌐 Theo UNESCO & Lonely Planet',
+    image: 'assets/blog/vinh-ha-long-real.jpg',
+    customTitleVi: 'Lonely Planet Xếp Hạng Hải Trình Liên Tuyến Vịnh Hạ Long – Cát Bà: Nên Đi Tàu Ngày Hay Ngủ Đêm Trên Vịnh?',
+    customTitleEn: 'Lonely Planet Ranks the Ha Long Bay – Cat Ba Heritage Route: Day Cruise vs Overnight Cruise Comparison',
+    highlight: 'Sau khi UNESCO công nhận Di sản Thiên nhiên Thế giới liên tỉnh Vịnh Hạ Long – Quần đảo Cát Bà, Lonely Planet đánh giá đây là hải trình biển đảo đẹp nhất miền Bắc. Phân tích chi tiết ưu nhược điểm tàu ngày 7 tiếng và tàu ngủ đêm 2N1Đ để bạn chọn đúng nhu cầu.'
+  },
+  {
+    region: 'Lan Ha',
+    place: 'Làng Cổ Việt Hải & Vườn Quốc Gia Cát Bà',
+    sourceBadge: '🌐 Theo Euronews Travel & Xu Hướng Du Lịch Xanh',
+    image: 'assets/blog/lang-co-viet-hai-cat-ba.jpg',
+    customTitleVi: 'Xu Hướng "Du Lịch Chữa Lành" Trên Báo Châu Âu: Một Ngày Đạp Xe Xuyên Rừng Nguyên Sinh Vào Làng Cổ Việt Hải',
+    customTitleEn: 'Slow Travel Trend in European Media: Cycling Through Primeval Rainforest to Viet Hai Ancient Village',
+    highlight: 'Báo chí châu Âu (Euronews, Le Figaro) đặc biệt ấn tượng với trải nghiệm đạp xe xuyên rừng mưa nhiệt đới Cát Bà vào ngôi làng biệt lập Việt Hải và ngâm chân suối cá tự nhiên miễn phí.'
+  }
+];
 
 const DEFAULT_ENGAGEMENT = {
   'kinh-nghiem-du-thuyen-vinh-lan-ha-cat-ba-tu-a-z': { views: 1840, likes: 312, ctaClicks: 94 },
@@ -2601,6 +2647,17 @@ const DEFAULT_ENGAGEMENT = {
   'lich-trinh-3-ngay-2-dem-ha-noi-ninh-binh-ha-long-lan-ha': { views: 980, likes: 174, ctaClicks: 52 },
   'lang-co-viet-hai-vien-ngoc-xanh-giua-vuon-quoc-gia-cat-ba': { views: 890, likes: 156, ctaClicks: 45 },
 };
+
+function getPostEngagement(post, engMap) {
+  if (!post) return { views: 320, likes: 54, ctaClicks: 16 };
+  const saved = engMap && engMap[post.slug];
+  if (saved) return saved;
+  return {
+    views: post.initialViews || 940,
+    likes: post.initialLikes || 186,
+    ctaClicks: 42
+  };
+}
 
 function getEngagementScore(stat) {
   if (!stat) return 100;
@@ -2613,14 +2670,8 @@ function loadMergedBlogPosts() {
   const allMerged = [...base];
   const hasToday = allMerged.some((p) => p.date === today);
   if (!hasToday) {
-    const dailyRotate = [
-      { region: 'Lan Ha', place: 'Hang Sáng Tối — Vịnh Lan Hạ', image: 'assets/photos/daycruise-2.jpg', highlight: 'Chèo thuyền kayak xuyên hang nước ngầm kỳ bí giữa lòng Vịnh Lan Hạ và chiêm ngưỡng thung lũng đá vôi xanh ngọc bích.' },
-      { region: 'Ha Long', place: 'Kỳ Quan Vịnh Hạ Long & Vịnh Lan Hạ', image: 'assets/blog/vinh-ha-long-real.jpg', highlight: 'Hải trình du thuyền 5 sao kết nối ranh giới thiên nhiên kỳ vĩ giữa Vịnh Hạ Long và Vịnh Lan Hạ với 100% phòng Suite ban công riêng.' },
-      { region: 'Ninh Binh', place: 'Tràng An & Hang Múa — Ninh Bình', image: 'assets/blog/ninh-binh-tam-coc-hang-mua.jpg', highlight: 'Ngồi thuyền nan xuôi dòng nước biếc Tràng An – Tam Cốc và chinh phục đỉnh Ngọa Long trên Hang Múa ngắm trọn non nước Ninh Bình.' },
-      { region: 'Lan Ha', place: 'Bãi Tắm Ba Trái Đào — Vịnh Lan Hạ', image: 'assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg', highlight: 'Đắm mình trong làn nước biển trong vắt tại bãi tắm hoang sơ Ba Trái Đào trên hải trình du thuyền Daiichi Cruise.' }
-    ];
     const dayNumber = Math.floor(Date.now() / 86400000);
-    const pick = dailyRotate[dayNumber % dailyRotate.length];
+    const pick = HOT_GLOBAL_TOPICS[dayNumber % HOT_GLOBAL_TOPICS.length];
     const autoTodayPost = buildAutoSeoPost({ ...pick, dateStr: today });
     allMerged.unshift(autoTodayPost);
   }
@@ -2697,7 +2748,8 @@ function SeoBlogSection() {
   const recordInteraction = (slug, field, delta = 1) => {
     if (!slug) return;
     setEngMap((prev) => {
-      const cur = prev[slug] || { views: 240, likes: 38, ctaClicks: 12 };
+      const matchedPost = posts.find((p) => p.slug === slug);
+      const cur = prev[slug] || getPostEngagement(matchedPost, prev);
       const next = {
         ...prev,
         [slug]: {
@@ -2894,8 +2946,8 @@ function SeoBlogSection() {
       if (sortBy === 'latest') {
         return String(b.date || '').localeCompare(String(a.date || ''));
       }
-      const scoreA = getEngagementScore(engMap[a.slug]);
-      const scoreB = getEngagementScore(engMap[b.slug]);
+      const scoreA = getEngagementScore(getPostEngagement(a, engMap));
+      const scoreB = getEngagementScore(getPostEngagement(b, engMap));
       return scoreB - scoreA;
     });
 
@@ -2928,7 +2980,20 @@ function SeoBlogSection() {
             <span style={{ color: '#34D399' }}>🔓 Chế độ Quản trị viên ({adminSession.user}):</span>
             <span style={{ color: '#CBD5E1', fontWeight: 500 }}>Bấm nút <b>"✏️ Sửa bài"</b> trên bất kỳ bài viết nào để chỉnh sửa ảnh, tiêu đề hoặc nội dung.</span>
           </div>
-          <div style={{ display: 'flex', gap: 8 }}>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              onClick={(e) => {
+                const today = new Date().toISOString().split('T')[0];
+                const pick = HOT_GLOBAL_TOPICS[Math.floor(Math.random() * HOT_GLOBAL_TOPICS.length)];
+                const newDraft = buildAutoSeoPost({ ...pick, dateStr: today });
+                newDraft.isNewDraft = true;
+                startEditPost(newDraft, e);
+              }}
+              style={{ background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)', color: '#FFFFFF', border: 'none', padding: '7px 14px', borderRadius: 8, fontWeight: 800, fontSize: 12.5, cursor: 'pointer' }}
+            >
+              🌐 Săn Sự Kiện Hot Quốc Tế & Tạo Bài
+            </button>
             <button
               type="button"
               onClick={(e) => {
@@ -3030,7 +3095,7 @@ function SeoBlogSection() {
       {/* Chỉ hiển thị gọn 3 bài viết nổi bật nhất trên mỗi trang */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 22 }}>
         {visiblePosts.map((post, idx) => {
-          const stat = engMap[post.slug] || { views: 260, likes: 42, ctaClicks: 14 };
+          const stat = getPostEngagement(post, engMap);
           const isLiked = !!likedMap[post.slug];
           const isTop = sortBy === 'popular' && safePage === 1 && idx < 2;
 
@@ -3126,7 +3191,7 @@ function SeoBlogSection() {
                       color: '#fff',
                       fontSize: 11,
                       fontWeight: 600,
-                      padding: '3px 9px',
+                      padding: '4px 10px',
                       borderRadius: 12
                     }}
                   >
@@ -3135,23 +3200,30 @@ function SeoBlogSection() {
                   <button
                     type="button"
                     onClick={(e) => toggleLike(e, post.slug)}
+                    title={LV('Bấm Thích nếu bài viết mang lại thông tin hữu ích cho bạn', 'Click Like if you find this article helpful')}
                     style={{
-                      background: isLiked ? '#FEE2E2' : 'rgba(0,0,0,0.65)',
-                      color: isLiked ? '#DC2626' : '#fff',
-                      border: isLiked ? '1px solid #FCA5A5' : 'none',
-                      fontSize: 11,
-                      fontWeight: 700,
-                      padding: '3px 10px',
-                      borderRadius: 12,
-                      cursor: 'pointer'
+                      background: isLiked ? '#DC2626' : 'rgba(15, 23, 42, 0.82)',
+                      color: '#fff',
+                      border: isLiked ? '1px solid #FCA5A5' : '1px solid rgba(255,255,255,0.28)',
+                      fontSize: 11.5,
+                      fontWeight: 800,
+                      padding: '4px 11px',
+                      borderRadius: 14,
+                      cursor: 'pointer',
+                      transition: 'all .15s'
                     }}
                   >
-                    {isLiked ? '❤️' : '🤍'} {stat.likes || 0} {LV('Hữu ích', 'Helpful')}
+                    {isLiked ? '❤️' : '🤍'} {stat.likes || 0} {LV('Thích', 'Likes')}
                   </button>
                 </div>
               </div>
 
-              <div style={{ padding: '20px 22px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+              <div style={{ padding: '18px 22px 20px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                {post.sourceBadge && (
+                  <div style={{ fontSize: 11, fontWeight: 800, color: '#1D4ED8', background: '#EFF6FF', border: '1px solid #BFDBFE', padding: '3px 9px', borderRadius: 8, alignSelf: 'flex-start', marginBottom: 8 }}>
+                    {post.sourceBadge}
+                  </div>
+                )}
                 <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px', lineHeight: 1.38, fontFamily: 'var(--font-display)' }}>
                   {LV(post.title)}
                 </h3>
@@ -3159,13 +3231,35 @@ function SeoBlogSection() {
                   {LV(post.excerpt)}
                 </p>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 12, borderTop: '1px solid #F1F5F9' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 12, borderTop: '1px solid #F1F5F9', gap: 8 }}>
                   <span style={{ fontSize: 12.5, fontWeight: 800, color: 'var(--lux-red)' }}>
                     {LV('Đọc chi tiết →', 'Read More →')}
                   </span>
-                  <span style={{ fontSize: 11.5, color: '#64748B', fontWeight: 600 }}>
-                    📅 {post.date}
-                  </span>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <button
+                      type="button"
+                      onClick={(e) => toggleLike(e, post.slug)}
+                      style={{
+                        background: isLiked ? '#FEE2E2' : '#FFF1F2',
+                        color: '#E11D48',
+                        border: isLiked ? '1.5px solid #FB7185' : '1px solid #FECDD3',
+                        borderRadius: 16,
+                        padding: '4px 11px',
+                        fontSize: 11.5,
+                        fontWeight: 800,
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 4
+                      }}
+                    >
+                      {isLiked ? '❤️' : '🤍'} {isLiked ? LV('Đã thích', 'Liked') : LV('Thích', 'Like')} ({stat.likes || 0})
+                    </button>
+                    <span style={{ fontSize: 11.5, color: '#64748B', fontWeight: 600 }}>
+                      📅 {post.date}
+                    </span>
+                  </div>
                 </div>
               </div>
             </article>
@@ -3229,6 +3323,11 @@ function SeoBlogSection() {
                 <span className="notranslate" translate="no" style={{ background: 'var(--navy)', color: '#FDE68A', padding: '5px 12px', borderRadius: 20, fontSize: 11.5, fontWeight: 800 }}>
                   📍 {activePost.regionLabel}
                 </span>
+                {activePost.sourceBadge && (
+                  <span style={{ background: '#EFF6FF', color: '#1E40AF', padding: '5px 12px', borderRadius: 20, fontSize: 11.5, fontWeight: 800 }}>
+                    {activePost.sourceBadge}
+                  </span>
+                )}
                 <span style={{ background: 'rgba(0,0,0,0.7)', color: '#fff', padding: '5px 12px', borderRadius: 20, fontSize: 11.5, fontWeight: 600 }}>
                   📅 {activePost.date}
                 </span>
@@ -3251,7 +3350,7 @@ function SeoBlogSection() {
               ))}
 
               {activePost.faqs && activePost.faqs.length > 0 && (
-                <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: 14, padding: '18px 20px', marginTop: 24, marginBottom: 24 }}>
+                <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: 14, padding: '18px 20px', marginTop: 24, marginBottom: 20 }}>
                   <h4 style={{ margin: '0 0 12px', color: 'var(--navy)', fontSize: 16 }}>
                     💡 {LV('Câu Hỏi Thường Gặp', 'Frequently Asked Questions')}
                   </h4>
@@ -3264,15 +3363,60 @@ function SeoBlogSection() {
                 </div>
               )}
 
+              {/* Hộp thả tim / Like bài viết nổi bật dành cho độc giả */}
+              <div
+                style={{
+                  background: '#FFF1F2',
+                  border: '1px solid #FECDD3',
+                  borderRadius: 14,
+                  padding: '16px 20px',
+                  marginBottom: 24,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: 12
+                }}
+              >
+                <div>
+                  <div style={{ fontWeight: 800, color: '#881337', fontSize: 15 }}>
+                    {LV('Bài viết này có mang lại kinh nghiệm hữu ích cho bạn không?', 'Did you find this travel guide helpful?')}
+                  </div>
+                  <div style={{ fontSize: 13, color: '#9F1239', marginTop: 2 }}>
+                    {LV('Hãy bấm Thích để bài viết lên đầu bảng xếp hạng giúp nhiều du khách khác dễ tìm thấy hơn nhé!', 'Click Like to help fellow travelers discover this practical guide!')}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={(e) => toggleLike(e, activePost.slug)}
+                  style={{
+                    background: likedMap[activePost.slug] ? '#E11D48' : '#FFFFFF',
+                    color: likedMap[activePost.slug] ? '#FFFFFF' : '#E11D48',
+                    border: '2px solid #E11D48',
+                    padding: '10px 20px',
+                    borderRadius: 99,
+                    fontWeight: 800,
+                    fontSize: 14,
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    boxShadow: '0 4px 12px rgba(225,29,72,0.15)',
+                    transition: 'all .15s'
+                  }}
+                >
+                  <span>{likedMap[activePost.slug] ? '❤️' : '🤍'}</span>
+                  <span>
+                    {likedMap[activePost.slug]
+                      ? LV('Đã thích bài viết', 'Liked')
+                      : LV('Thích bài viết này', 'Like this article')}{' '}
+                    ({getPostEngagement(activePost, engMap).likes || 0})
+                  </span>
+                </button>
+              </div>
+
               <div className="lux-modal-actions" style={{ justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
                 <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
-                  <button
-                    type="button"
-                    className="lux-btn-outline"
-                    onClick={(e) => toggleLike(e, activePost.slug)}
-                  >
-                    {likedMap[activePost.slug] ? '❤️' : '🤍'} {LV('Hữu ích', 'Helpful')} ({(engMap[activePost.slug]?.likes || 0)})
-                  </button>
                   {!activePost.isCustomOrDaily && (
                     <a
                       className="lux-btn-outline"

@@ -434,7 +434,7 @@
       const wrap = document.createElement('span');
       wrap.setAttribute('data-dt-pn-wrap', '1');
       for (let i = 0; i < parts.length; i++) {
-        const part = parts[i];
+        let part = parts[i];
         if (!part) continue;
         if (i % 2 === 1) {
           const pn = document.createElement('span');
@@ -443,6 +443,9 @@
           pn.textContent = part;
           wrap.appendChild(pn);
         } else {
+          // Preserve spaces adjacent to proper nouns so Google Translate never collapses them
+          if (i > 0 && part.startsWith(' ')) part = '\u00A0' + part.slice(1);
+          if (i < parts.length - 1 && part.endsWith(' ')) part = part.slice(0, -1) + '\u00A0';
           wrap.appendChild(document.createTextNode(part));
         }
       }
@@ -469,7 +472,9 @@
   function scheduleProtectProperNouns(delay = 80) {
     if (_pnTimer) clearTimeout(_pnTimer);
     _pnTimer = setTimeout(() => {
-      protectProperNounsInDOM(document.getElementById('root') || document.body);
+      if (window.I18N && window.I18N.activeExtLang) {
+        protectProperNounsInDOM(document.getElementById('root') || document.body);
+      }
     }, delay);
   }
 
@@ -686,6 +691,8 @@
       localStorage.removeItem('dt_ext_lang');
       localStorage.setItem('dt_lang_manual', '1');
       document.documentElement.lang = code;
+      document.documentElement.setAttribute('translate', 'no');
+      document.documentElement.classList.add('notranslate');
 
       if (wasExt) {
         // Cleanest way to strip Google Translate's injected <font> DOM mutations
@@ -702,7 +709,6 @@
       }
 
       window.dispatchEvent(new CustomEvent('dt:lang', { detail: code }));
-      scheduleProtectProperNouns(80);
     },
     setExtLang(extCode) {
       unwrapProperNouns();
@@ -713,6 +719,8 @@
       localStorage.setItem('dt_ext_lang', extCode);
       localStorage.setItem('dt_lang_manual', '1');
       document.documentElement.lang = extCode;
+      document.documentElement.removeAttribute('translate');
+      document.documentElement.classList.remove('notranslate');
       window.dispatchEvent(new CustomEvent('dt:lang', { detail: extCode }));
       setTimeout(() => {
         protectProperNounsInDOM(document.getElementById('root') || document.body);
@@ -769,6 +777,13 @@
     },
   };
   document.documentElement.lang = I18N.activeExtLang || I18N.lang;
+  if (!I18N.activeExtLang) {
+    document.documentElement.setAttribute('translate', 'no');
+    document.documentElement.classList.add('notranslate');
+  } else {
+    document.documentElement.removeAttribute('translate');
+    document.documentElement.classList.remove('notranslate');
+  }
   window.I18N = I18N;
   injectGoogleTranslateStyles();
 

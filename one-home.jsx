@@ -80,7 +80,7 @@ const CRUISE_PHRASES = {
   'người': { en: 'adult(s)', ja: '名', ko: '명', zh: '人', fr: 'pers.' },
   'trẻ em': { en: 'child(ren)', ja: '名（子供）', ko: '명 (어린이)', zh: '儿童', fr: 'enf.' },
   'phòng': { en: 'cabin(s)', ja: '室', ko: '객실', zh: '间', fr: 'cabine(s)' },
-  'Tuyến tour ngắn (Dữ liệu Daiichi Travel)': { en: 'Short Tours (Daiichi Travel)', ja: 'ショートツアー（Daiichi Travel）', ko: '단기 투어 (Daiichi Travel)', zh: '短途游路线（Daiichi Travel）', fr: 'Excursions à la journée (Daiichi Travel)' },
+  'Tuyến tour trong ngày': { en: 'Day Tours', ja: 'ショートツアー', ko: '단기 투어', zh: '短途游路线', fr: 'Excursions à la journée' },
   '⚓ Du thuyền ngày Vịnh Lan Hạ (Cát Bà)': { en: '⚓ Lan Ha Bay Day Cruises (Cat Ba)', ja: '⚓ Lan Ha 湾デイクルーズ（Cat Ba）', ko: '⚓ Lan Ha 베이 데이 크루즈 (Cat Ba)', zh: '⚓ Lan Ha 湾日间游船（Cat Ba）', fr: '⚓ Croisières de jour Baie de Lan Ha (Cat Ba)' },
   '🌾 Tour ngắn khám phá Ninh Bình': { en: '🌾 Ninh Binh Short Tours', ja: '🌾 Ninh Binh ショートツアー', ko: '🌾 Ninh Binh 단기 투어', zh: '🌾 Ninh Binh 短途探索游', fr: '🌾 Excursions découvertes à Ninh Binh' },
   'Gói Combo Tour gợi ý': { en: 'Featured Combo Packages', ja: 'おすすめコンボパッケージ', ko: '추천 콤보 패키지', zh: '精选组合套餐', fr: 'Formules combinées' },
@@ -431,11 +431,6 @@ const CRUISE_PHRASES = {
   'Kết nối 2 vịnh di sản': { en: 'Connecting the 2 heritage bays', ja: '2つの世界遺産湾を直結', ko: '두 세계유산 베이를 연결', zh: '无缝连接两大世界遗产海湾', fr: 'Connexion directe entre les 2 baies' },
 
   // Live Deals & Trust Row & Footer
-  'ƯU ĐÃI ĐỘC QUYỀN TRỰC TUYẾN 2026': { en: 'EXCLUSIVE ONLINE OFFER 2026', ja: '2026年オンライン限定特典', ko: '2026 온라인 단독 프로모션', zh: '2026 线上预订专属礼遇', fr: 'OFFRE EXCLUSIVE EN LIGNE 2026' },
-  'Đặt Trước 30 Ngày — Giảm Ngay 12% Cho Tất Cả Hạng Suite': { en: 'Book 30 Days Ahead — Save 12% on All Suites', ja: '30日前までの早期予約で全 Suite が 12% OFF', ko: '30일 전 사전 예약 시 전 Suite 객실 12% 즉시 할인', zh: '提前 30 天预订 — 全部 Suite 房型立享 88 折优惠', fr: 'Réservez 30 Jours à l\'Avance — −12 % sur Toutes les Suites' },
-  'Áp dụng mã': { en: 'Use promo code', ja: 'クーポンコード', ko: '온라인 결제 시 프로모션 코드', zh: '在线支付输入优惠码', fr: 'Utilisez le code' },
-  'khi thanh toán trực tuyến. Tặng kèm voucher đồ uống và set chèo thuyền kayak miễn phí.': { en: 'at online checkout. Includes complimentary drink vouchers and kayaking.', ja: 'をオンライン決済時に入力。ドリンクバウチャー＆無料カヤック特典付き。', ko: '입력. 무료 음료 바ウ처 및 카약 체험권 증정.', zh: '即可享优惠，并赠饮品券与免费皮划艇体验。', fr: 'lors du paiement en ligne. Cocktail de bienvenue et kayak offerts.' },
-  'Săn Ưu Đãi Ngay →': { en: 'Claim Offer Now →', ja: '特典を今すぐ利用 →', ko: '할인 혜택 받기 →', zh: '立即领取优惠 →', fr: 'Profiter de l\'offre →' },
   'Xác nhận tức thì · Giữ chỗ ngay khi thanh toán online.': { en: 'Instant confirmation · Guaranteed booking online.', ja: 'オンライン決済で即時確定・空室保証。', ko: '온라인 결제 즉시 확정 및 객실 보장.', zh: '在线支付即时确认 · 100% 锁定舱位。', fr: 'Confirmation immédiate · Réservation garantie en ligne.' },
   'Chính sách hoàn huỷ minh bạch · Không phí ẩn · Đã gồm VAT.': { en: 'Transparent cancellation · No hidden fees · VAT included.', ja: '明確なキャンセル規定・隠れ費用なし・税込価格。', ko: '투명한 취소 정책 · 숨겨진 비용 없음 · 부가세 포함.', zh: '退改政策透明 · 绝无隐形消费 · 价格含税。', fr: 'Annulation transparente · Sans frais cachés · TVA incluse.' },
   'Ẩm thực trọn gói': { en: 'All-inclusive meals', ja: '全食事インクルーシブ', ko: '전 일정 식사 포함', zh: '全包星级餐饮', fr: 'Pension complète incluse' },
@@ -474,7 +469,7 @@ const CRUISE_PHRASES = {
   'Tour chèo SUP & Lặn biển': { en: 'SUP & Snorkeling Tours', ja: 'SUP＆シュノーケリングツアー', ko: 'SUP & 스노클링 투어', zh: 'SUP 桨板与浮潜之旅', fr: 'Excursions SUP & Plongée' },
   'Hợp tác đại lý & đối tác': { en: 'B2B Agent & Partner Portal', ja: '代理店・パートナー提携', ko: '대리점 및 파트너 제휴', zh: '代理商与合作伙伴加盟', fr: 'Partenariats & Agences B2B' },
   'CỔNG LÀM VIỆC': { en: 'PORTALS', ja: 'ポータル', ko: '업무 포털', zh: '服务门户', fr: 'PORTAILS' },
-  '⚙️ Quản lý Tàu & Giá (Admin Sync)': { en: '⚙️ Fleet & Rate Manager (Admin)', ja: '⚙️ 船舶・料金管理 (Admin)', ko: '⚙️ 선박 및 요금 관리 (Admin)', zh: '⚙️ 船队与价格管理 (Admin)', fr: '⚙️ Gestion Flotte & Tarifs (Admin)' },
+  '🔒 Quản trị viên (Admin)': { en: '🔒 Admin Login', ja: '🔒 管理者ログイン (Admin)', ko: '🔒 관리자 로그인 (Admin)', zh: '🔒 管理员登录 (Admin)', fr: '🔒 Espace Admin' },
 
   // General & Modal UI
   'Đóng lại': { en: 'Close', ja: '閉じる', ko: '닫기', zh: '关闭', fr: 'Fermer' },
@@ -554,7 +549,7 @@ const CRUISE_PHRASES = {
   'Check-in lúc 12:00 tại Cảng tàu Cát Bà / Tuần Châu.': { en: 'Check-in at 12:00 at Cat Ba / Tuan Chau harbor.', ja: '12:00に Cat Ba / Tuan Chau 港にてチェックイン。', ko: '12:00에 Cat Ba / Tuan Chau 선착장에서 체크인.', zh: '12:00 于 Cat Ba / Tuan Chau 码头办理登船入住。', fr: 'Enregistrement à 12h00 au port de Cat Ba / Tuan Chau.' },
   'Tổng Chi Phí Trọn Gói Dự Kiến': { en: 'Estimated Total Package Rate', ja: 'お見積り合計金額（オールインクルーシブ）', ko: '예상 총 패키지 요금', zh: '预计全包套餐总价', fr: 'Montant total estimé tout compris' },
   '(Đã gồm VAT)': { en: '(VAT included)', ja: '（税込）', ko: '(VAT 포함)', zh: '（含税）', fr: '(TVA incluse)' },
-  'Chính Sách Trẻ Em & Giường Phụ (Theo chuẩn Supabase)': { en: 'Child & Extra Bed Policy', ja: '子供料金＆エキストラベッド規定', ko: '어린이 및 엑스트라 베드 규정', zh: '儿童与加床政策', fr: 'Politique enfants et lit supplémentaire' },
+  'Chính Sách Trẻ Em & Giường Phụ': { en: 'Child & Extra Bed Policy', ja: '子供料金＆エキストラベッド規定', ko: '어린이 및 엑스트라 베드 규정', zh: '儿童与加床政策', fr: 'Politique enfants et lit supplémentaire' },
   'Trẻ em dưới 2 tuổi': { en: 'Under 2 years old', ja: '2歳未満のお子様', ko: '2세 미만 유아', zh: '2岁以下婴幼儿', fr: 'Enfants de moins de 2 ans' },
   'Miễn phí 100%': { en: '100% Free', ja: '100% 無料', ko: '100% 무료', zh: '100% 免费', fr: '100% Gratuit' },
   '(Tối đa 1 trẻ/phòng, ngủ chung bố mẹ)': { en: '(Max 1 child/suite, sharing bed)', ja: '（1室最大1名、添い寝）', ko: '(객실당 최대 1명, 부모와 동반 취침)', zh: '（每间限1名，与父母同住）', fr: '(Max 1 enfant/suite, partageant le lit)' },
@@ -572,33 +567,31 @@ const CRUISE_PHRASES = {
   'Hà Nội': { en: 'Ha Noi', ja: 'Ha Noi', ko: 'Ha Noi', zh: 'Ha Noi', fr: 'Ha Noi' },
   'Hải Phòng': { en: 'Hai Phong', ja: 'Hai Phong', ko: 'Hai Phong', zh: 'Hai Phong', fr: 'Hai Phong' },
   'Cát Bà': { en: 'Cat Ba', ja: 'Cat Ba', ko: 'Cat Ba', zh: 'Cat Ba', fr: 'Cat Ba' },
-  'Áp dụng mã EARLYBIRD12 khi thanh toán trực tuyến. Tặng kèm voucher đồ uống và set chèo thuyền kayak miễn phí.': { en: 'Use code EARLYBIRD12 when booking online. Includes complimentary drink voucher and free kayaking.', ja: 'オンライン決済時にコード EARLYBIRD12 を適用。無料ドリンクバウチャー＆カヤック体験プレゼント。', ko: '온라인 결제 시 EARLYBIRD12 코드 적용. 무료 음료 바우처 및 카약 체험 증정.', zh: '在线预订付款时使用代码 EARLYBIRD12，即赠免费饮品券及皮划艇体验。', fr: 'Utilisez le code EARLYBIRD12 lors de la réservation en ligne. Bon boisson et kayak gratuits inclus.' },
   'Nền tảng du thuyền thành viên thuộc Daiichi Travel': { en: 'Official Cruise Platform of Daiichi Travel', ja: 'Daiichi Travel 公式クルーズ予約プラットフォーム', ko: 'Daiichi Travel 공식 크루즈 예약 플랫폼', zh: 'Daiichi Travel 旗下官方游轮预订平台', fr: 'Plateforme officielle de croisières du groupe Daiichi Travel' },
   'Hệ thống đặt vé & phòng trực tuyến vận hành bởi': { en: 'Online booking system powered by', ja: 'オンライン予約システム運営：', ko: '온라인 예약 시스템 운영:', zh: '在线票务与客房预订系统由以下平台提供支持：', fr: 'Système de réservation en ligne opéré par' },
 
-  // Section 7: SEO Blog & Daily Auto-Journal (Lan Ha · Ha Long · Ninh Binh)
-  'Cẩm Nang': { en: 'Travel Blog', ja: '旅行ガイド', ko: '여행 블로그', zh: '旅游攻略', fr: 'Blog & Guides' },
-  'CẨM NANG & BLOG KHÁM PHÁ DI SẢN (TỰ ĐỘNG CẬP NHẬT MỖI NGÀY)': { en: 'HERITAGE TRAVEL JOURNAL (AUTO-UPDATED DAILY)', ja: '世界遺産トラベルジャーナル（毎日自動更新）', ko: '세계유산 트래블 저널 (매일 자동 업데이트)', zh: '世界遗产旅行志（每日自动更新）', fr: 'JOURNAL DE VOYAGE PATRIMOINE (MIS À JOUR QUOTIDIENNEMENT)' },
+  // Section 7: Travel Journal & Guides (Lan Ha · Ha Long · Ninh Binh)
+  'Cẩm Nang': { en: 'Travel Guide', ja: '旅行ガイド', ko: '여행 가이드', zh: '旅游指南', fr: 'Guide Voyage' },
+  'CẨM NANG & KINH NGHIỆM DU LỊCH': { en: 'TRAVEL GUIDE & INSIGHTS', ja: 'トラベルガイド＆旅の知恵', ko: '트래블 가이드 & 여행 팁', zh: '旅行指南与实用攻略', fr: 'GUIDE DE VOYAGE & CONSEILS' },
   'Khám Phá Vịnh Lan Hạ, Vịnh Hạ Long & Ninh Bình': { en: 'Discover Lan Ha Bay, Ha Long Bay & Ninh Binh', ja: 'Lan Ha 湾・Ha Long 湾・Ninh Binh の魅力を発見', ko: 'Lan Ha 만, Ha Long 만 & Ninh Binh 완벽 가이드', zh: '探索 Lan Ha 湾、Ha Long 湾与 Ninh Binh 奇观', fr: 'Découvrez la Baie de Lan Ha, la Baie de Ha Long & Ninh Binh' },
-  'Mỗi ngày hệ thống tự động cập nhật hình ảnh thực tế và bài viết chuyên sâu về kinh nghiệm du thuyền Vịnh Lan Hạ, Vịnh Hạ Long, đảo Cát Bà và danh thắng Ninh Bình.': { en: 'Every day our system automatically publishes new photography and in-depth guides covering Lan Ha Bay, Ha Long Bay, Cat Ba Island, and Ninh Binh.', ja: '毎日、Lan Ha 湾・Ha Long 湾・Cat Ba 島・Ninh Binh の最新写真と徹底ガイド記事を自動配信しています。', ko: '매일 Lan Ha 만, Ha Long 만, Cat Ba 섬, Ninh Binh의 생생한 사진과 심층 여행 가이드를 자동으로 업데이트합니다.', zh: '系统每日自动更新关于 Lan Ha 湾、Ha Long 湾、Cat Ba 岛及 Ninh Binh 的实拍美图与深度游玩攻略。', fr: 'Chaque jour, notre système publie automatiquement de nouvelles photos et des guides détaillés sur la baie de Lan Ha, la baie de Ha Long, Cat Ba et Ninh Binh.' },
-  'Tất Cả Bài Viết': { en: 'All Articles', ja: 'すべての記事', ko: '전체 글', zh: '全部文章', fr: 'Tous les articles' },
+  'Tổng hợp kinh nghiệm đi du thuyền, lịch trình tham quan và những góc chụp ảnh đẹp nhất tại Vịnh Lan Hạ, Vịnh Hạ Long, đảo Cát Bà và danh thắng Ninh Bình.': { en: 'Curated cruise tips, itineraries, and the best photo spots across Lan Ha Bay, Ha Long Bay, Cat Ba Island, and Ninh Binh.', ja: 'Lan Ha 湾・Ha Long 湾・Cat Ba 島・Ninh Binh のクルーズ体験談、モデルコース、絶景フォトスポットをご案内します。', ko: 'Lan Ha 만, Ha Long 만, Cat Ba 섬, Ninh Binh의 크루즈 여행 팁과 추천 코스, 베스트 포토존을 소개합니다.', zh: '汇集 Lan Ha 湾、Ha Long 湾、Cat Ba 岛及 Ninh Binh 的游轮出行经验、路线规划与绝佳拍照机位。', fr: 'Conseils de croisière, itinéraires et plus beaux spots photo dans la baie de Lan Ha, la baie de Ha Long, Cat Ba et Ninh Binh.' },
+  'Tất Cả': { en: 'All', ja: 'すべて', ko: '전체', zh: '全部', fr: 'Tout' },
   'Vịnh Lan Hạ & Cát Bà': { en: 'Lan Ha Bay & Cat Ba', ja: 'Lan Ha 湾 & Cat Ba', ko: 'Lan Ha 만 & Cat Ba', zh: 'Lan Ha 湾 & Cat Ba', fr: 'Baie de Lan Ha & Cat Ba' },
   'Vịnh Hạ Long': { en: 'Ha Long Bay', ja: 'Ha Long 湾', ko: 'Ha Long 만', zh: 'Ha Long 湾', fr: 'Baie de Ha Long' },
   'Ninh Bình (Tràng An · Tam Cốc)': { en: 'Ninh Binh (Trang An · Tam Coc)', ja: 'Ninh Binh (Trang An · Tam Coc)', ko: 'Ninh Binh (Trang An · Tam Coc)', zh: 'Ninh Binh (Trang An · Tam Coc)', fr: 'Ninh Binh (Trang An · Tam Coc)' },
-  '✨ + Thêm Ảnh & Tự Viết Bài SEO': { en: '✨ + Add Photo & Auto-Write SEO Post', ja: '✨ + 写真追加＆SEO記事自動作成', ko: '✨ + 사진 추가 & SEO 글 자동 작성', zh: '✨ + 添加图片并自动撰写 SEO 文章', fr: '✨ + Ajouter Photo & Rédiger Article SEO' },
-  '🤖 Tự động đăng 1 ảnh & bài viết mới lúc 07:00 sáng mỗi ngày': { en: '🤖 Auto-publishes 1 new photo & SEO article daily at 07:00 AM', ja: '🤖 毎日朝07:00に新しい写真とSEO記事を1本自動公開', ko: '🤖 매일 아침 07:00 새 사진 및 SEO 아티클 자동 발행', zh: '🤖 每日早上 07:00 自动发布 1 张新图与 SEO 攻略文章', fr: '🤖 Publie automatiquement 1 photo et 1 article SEO chaque jour à 07h00' },
-  'Đọc bài viết →': { en: 'Read Article →', ja: '記事を読む →', ko: '글 읽기 →', zh: '阅读全文 →', fr: 'Lire l\'article →' },
-  'Trang SEO riêng ↗': { en: 'SEO Page ↗', ja: 'SEOページ ↗', ko: 'SEO 페이지 ↗', zh: '独立 SEO 页 ↗', fr: 'Page SEO ↗' },
-  'Mở Trang SEO Chuẩn Google ↗': { en: 'Open Standalone SEO Page ↗', ja: 'Google SEO専用ページを開く ↗', ko: '구글 SEO 전용 페이지 열기 ↗', zh: '打开 Google 标准独立 SEO 页面 ↗', fr: 'Ouvrir la page SEO dédiée ↗' },
-  'Câu Hỏi Thường Gặp (FAQ Chuẩn SEO)': { en: 'Frequently Asked Questions (SEO FAQ)', ja: 'よくある質問 (SEO FAQ)', ko: '자주 묻는 질문 (SEO FAQ)', zh: '常见问题解答 (SEO FAQ)', fr: 'Questions Fréquentes (FAQ SEO)' },
+  '🔥 Tương tác cao nhất': { en: '🔥 Most Popular', ja: '🔥 人気順', ko: '🔥 인기순', zh: '🔥 最受关注', fr: '🔥 Les plus populaires' },
+  '🆕 Mới nhất': { en: '🆕 Latest', ja: '🆕 新着順', ko: '🆕 최신순', zh: '🆕 最新发布', fr: '🆕 Plus récents' },
+  'Tìm điểm đến, kinh nghiệm...': { en: 'Search destination, tips...', ja: 'スポット・キーワード検索...', ko: '여행지, 키워드 검색...', zh: '搜索景点或攻略...', fr: 'Rechercher une destination...' },
+  'lượt xem': { en: 'views', ja: '閲覧', ko: '조회', zh: '次阅读', fr: 'vues' },
+  'Hữu ích': { en: 'Helpful', ja: '参考になった', ko: '도움됨', zh: '有帮助', fr: 'Utile' },
+  '🔥 Xem nhiều': { en: '🔥 Popular', ja: '🔥 人気', ko: '🔥 인기', zh: '🔥 热门', fr: '🔥 Populaire' },
+  'Đọc chi tiết →': { en: 'Read More →', ja: '詳しく読む →', ko: '자세히 보기 →', zh: '阅读详情 →', fr: 'Lire la suite →' },
+  'Mở bài viết đầy đủ ↗': { en: 'Open Full Article ↗', ja: '記事ページを開く ↗', ko: '전체 글 페이지 열기 ↗', zh: '打开完整文章页 ↗', fr: 'Ouvrir l\'article complet ↗' },
+  'Câu Hỏi Thường Gặp': { en: 'Frequently Asked Questions', ja: 'よくある質問', ko: '자주 묻는 질문', zh: '常见问题解答', fr: 'Questions Fréquentes' },
   'Đặt Du Thuyền & Xe Limousine Ngay →': { en: 'Book Cruise & Limousine Now →', ja: 'クルーズ＆Limousineを今すぐ予約 →', ko: '크루즈 & Limousine 지금 예약 →', zh: '立即预订游轮与 Limousine →', fr: 'Réserver Croisière & Limousine →' },
-  'Tạo Bài Viết SEO Tự Động Từ Hình Ảnh': { en: 'Auto-Generate SEO Article from Photo', ja: '写真からSEO記事を自動生成', ko: '사진으로 SEO 블로그 글 자동 생성', zh: '根据图片自动生成 SEO 文章', fr: 'Générer automatiquement un article SEO à partir d\'une photo' },
-  'Chọn vùng địa danh': { en: 'Select Destination Region', ja: 'エリアを選択', ko: '지역 선택', zh: '选择目的地', fr: 'Choisir la région' },
-  'Tên địa điểm / Chủ đề bức ảnh *': { en: 'Place Name / Photo Subject *', ja: 'スポット名・写真のテーマ *', ko: '장소명 / 사진 주제 *', zh: '景点名称 / 图片主题 *', fr: 'Nom du lieu / Sujet de la photo *' },
-  'Chọn ảnh có sẵn hoặc tải ảnh lên từ máy': { en: 'Choose preset photo or upload from your device', ja: '既存の写真を選択するか端末からアップロード', ko: '기본 사진 선택 또는 기기에서 업로드', zh: '选择预设美图或从本地上传照片', fr: 'Choisir une photo ou téléverser depuis votre appareil' },
-  'Tải ảnh từ máy tính / điện thoại': { en: 'Upload photo from device', ja: '端末から写真をアップロード', ko: '기기에서 사진 업로드', zh: '从电脑/手机上传照片', fr: 'Téléverser une photo' },
-  'Điểm nhấn muốn viết trong bài (Tùy chọn)': { en: 'Key highlights to include (Optional)', ja: '記事に含めたいポイント（任意）', ko: '포함할 핵심 내용 (선택사항)', zh: '希望突出的亮点内容（可选）', fr: 'Points clés à inclure (Optionnel)' },
-  '⚡ Tự Động Viết Bài & Đăng Ngay →': { en: '⚡ Auto-Write & Publish Now →', ja: '⚡ 自動執筆して今すぐ公開 →', ko: '⚡ 자동 작성 및 즉시 게시 →', zh: '⚡ 自动撰写并立即发布 →', fr: '⚡ Rédiger et publier maintenant →' },
+  '← Trước': { en: '← Prev', ja: '← 前へ', ko: '← 이전', zh: '← 上一页', fr: '← Préc.' },
+  'Tiếp →': { en: 'Next →', ja: '次へ →', ko: '다음 →', zh: '下一页 →', fr: 'Suiv. →' },
+  'Trang': { en: 'Page', ja: 'ページ', ko: '페이지', zh: '第', fr: 'Page' },
 };
 
 const LV = (viOrObj, en, ja, ko, zh, fr) => {
@@ -824,7 +817,7 @@ function CruiseHomeSearch() {
           {tab === 'day' && (
             <React.Fragment>
               <div className="lux-field" style={{ gridColumn: 'span 2' }}>
-                <label>🚢 {LV('Tuyến tour ngắn (Dữ liệu Daiichi Travel)', 'Day Cruise Tour')}</label>
+                <label>🚢 {LV('Tuyến tour trong ngày', 'Day Cruise Tour')}</label>
                 <select value={selectedDayTourKey} onChange={(e) => setSelectedDayTourKey(e.target.value)}>
                   <optgroup label={LV('⚓ Du thuyền ngày Vịnh Lan Hạ (Cát Bà)', '⚓ Lan Ha Bay Day Cruises')}>
                     {LAN_HA_DAY_TOURS.map((t) => (
@@ -2128,7 +2121,7 @@ function RoomDetailModal({ room, onClose }) {
           {/* Children Policy */}
           <div className="lux-child-policy-sec">
             <h4 className="lux-child-policy-title">
-              <span>👶</span> {LV('Chính Sách Trẻ Em & Giường Phụ (Theo chuẩn Supabase)', 'Child & Extra Bed Policy')}
+              <span>👶</span> {LV('Chính Sách Trẻ Em & Giường Phụ', 'Child & Extra Bed Policy')}
             </h4>
             <div className="lux-child-policy-grid">
               <div className="lux-child-policy-chip">
@@ -2469,9 +2462,65 @@ function LimousineConciergeSection() {
 }
 
 /* ============================================================
+/* ============================================================
    SECTION 7: AUTO DAILY SEO BLOG & PHOTO JOURNAL
    (VỊNH LAN HẠ · VỊNH HẠ LONG · CÁT BÀ · NINH BÌNH)
    ============================================================ */
+const ADMIN_AUTH_HASHES = [
+  { user: 'chutich', roleLabel: 'Chủ tịch', userPassHash: '841ea5779dced2697b69a37afc969f7cf5f0d563722e4b8dac7a5caa6ba6b7b3', passOnlyHash: 'b3c7aa6eeea16bb7ef5decffe39ee4e0df8527236caee877c81bc3bd79168277' },
+  { user: 'giamdoc', roleLabel: 'Ban giám đốc', userPassHash: '73ad6fa28aaaf9ad0eb216545ba9ddeba6964c9e141a1a352520acec3d7e5e25', passOnlyHash: 'af108b1a8b16737109c2385197e00f803b07c62d67653de4154c15ee1c6089ba' },
+  { user: 'quanly', roleLabel: 'Giám đốc kinh doanh', userPassHash: '130af408060101230ea3f282eee93dcee71a2f3aa46f9834199696d0d782ccc0', passOnlyHash: 'e069b2625492a56e65dc1890309f3d4f12d1e0930671b2e85201d59d387af800' },
+  { user: 'ketoan', roleLabel: 'Kế toán', userPassHash: 'cfb757b1bb57193ee36c4f04ab1e49e6afa1edf28624cceae6b6524cead89d76', passOnlyHash: '2f93270fdc52580dbcf92783e5508c089fa779ee3d552e8c20f0c0f8e3eaf0aa' },
+  { user: 'quay1', roleLabel: 'POS quầy vé', userPassHash: 'f3c73f78273f121e8e242faf9ca607c2a1d3725efbe5ddf6614e27d3665ccbce', passOnlyHash: 'e57ceef1e77e1ad10a20faf909d0f6148da0d5882958f53784c6c12b7ddcf3fa' },
+  { user: 'marketing', roleLabel: 'Marketing & CMS', userPassHash: '4b22e9ac4d42ddacf2bbe41b81394004c3c73168b6cff2727bdefe18de64ad9d', passOnlyHash: 'b41adb4042fa23ba01875d9ec0f6740c2b0f227ff71f887a1e47420b7c338ef1' }
+];
+
+async function sha256Hex(str) {
+  const buf = new TextEncoder().encode(str);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hashBuffer)).map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function verifyDaiichiAdmin(username, password) {
+  const cleanUser = String(username || '').trim().toLowerCase();
+  const cleanPass = String(password || '').trim();
+  if (!cleanPass) return null;
+  if (cleanUser) {
+    const h = await sha256Hex(cleanUser + ':' + cleanPass);
+    const found = ADMIN_AUTH_HASHES.find((a) => a.userPassHash === h);
+    if (found) return { user: found.user, roleLabel: found.roleLabel, ts: Date.now() };
+  }
+  const passHash = await sha256Hex('daiichi_salt:' + cleanPass);
+  const foundByPass = ADMIN_AUTH_HASHES.find((a) => a.passOnlyHash === passHash);
+  if (foundByPass) return { user: foundByPass.user, roleLabel: foundByPass.roleLabel, ts: Date.now() };
+  return null;
+}
+
+function getSavedAdminSession() {
+  try {
+    const raw = sessionStorage.getItem('dt_admin_auth_v1') || localStorage.getItem('dt_admin_auth_v1');
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (parsed && parsed.user && Date.now() - (parsed.ts || 0) < 12 * 3600 * 1000) {
+      return parsed;
+    }
+  } catch (e) {}
+  return null;
+}
+
+const REAL_DESTINATION_PHOTOS = [
+  { label: 'Tam Cốc & Hang Múa (Ninh Bình)', url: 'assets/blog/ninh-binh-tam-coc-hang-mua.jpg', region: 'Ninh Binh' },
+  { label: 'Danh thắng Tràng An (Ninh Bình)', url: 'assets/blog/ninh-binh-trang-an.jpg', region: 'Ninh Binh' },
+  { label: 'Vịnh Hạ Long (Đảo đá vôi)', url: 'assets/blog/vinh-ha-long-real.jpg', region: 'Ha Long' },
+  { label: 'Kỳ quan Vịnh Hạ Long', url: 'assets/blog/vinh-ha-long-dao-da.jpg', region: 'Ha Long' },
+  { label: 'Vịnh Lan Hạ & Cát Bà', url: 'assets/blog/vinh-lan-ha-cat-ba.jpg', region: 'Lan Ha' },
+  { label: 'Vườn Quốc gia Cát Bà — Việt Hải', url: 'assets/blog/vuon-quoc-gia-cat-ba-viet-hai.jpg', region: 'Lan Ha' },
+  { label: 'Bãi tắm Vịnh Lan Hạ — Cát Bà', url: 'assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg', region: 'Lan Ha' },
+  { label: 'Chèo Kayak Hang Sáng Tối (Lan Hạ)', url: 'assets/photos/daycruise-2.jpg', region: 'Lan Ha' },
+  { label: 'Du thuyền 5★ Daiichi Luxury', url: 'assets/photos/luxury-1.jpg', region: 'Lan Ha' },
+  { label: 'Bể sục Jacuzzi & Cầu kính Skywalk', url: 'assets/photos/luxury-jacuzzi.jpg', region: 'Lan Ha' }
+];
+
 function buildAutoSeoPost({ region, place, image, highlight, dateStr }) {
   const regionMap = {
     'Lan Ha': 'Vịnh Lan Hạ · Cát Bà',
@@ -2502,7 +2551,7 @@ function buildAutoSeoPost({ region, place, image, highlight, dateStr }) {
     isCustomOrDaily: true,
     region: region || 'Lan Ha',
     regionLabel,
-    image: image || 'assets/photos/luxury-1.jpg',
+    image: image || 'assets/blog/vinh-lan-ha-cat-ba.jpg',
     readingTime: '5 phút đọc',
     title: {
       vi: `Khám Phá ${cleanPlace}: Cẩm Nang Du Lịch & Góc Check-in Đẹp Nhất (${dateStr})`,
@@ -2532,7 +2581,7 @@ function buildAutoSeoPost({ region, place, image, highlight, dateStr }) {
       },
       {
         h2: '3. Đặt trọn gói Du thuyền & Xe Limousine đưa đón tận nơi',
-        p: 'Hệ sinh thái Daiichi Travel cung cấp giải pháp di chuyển và nghỉ dưỡng trọn gói từ Hà Nội, Hải Phòng, Ninh Bình đi Cát Bà – Vịnh Lan Hạ – Vịnh Hạ Long. Đặt trực tuyến sớm trước 30 ngày với mã EARLYBIRD12 để nhận ngay ưu đãi giảm 12%.'
+        p: 'Hệ sinh thái Daiichi Travel cung cấp giải pháp di chuyển và nghỉ dưỡng trọn gói từ Hà Nội, Hải Phòng, Ninh Bình đi Cát Bà – Vịnh Lan Hạ – Vịnh Hạ Long với mức giá gốc trực tiếp từ nhà tàu.'
       }
     ],
     faqs: [
@@ -2544,38 +2593,265 @@ function buildAutoSeoPost({ region, place, image, highlight, dateStr }) {
   };
 }
 
+const DEFAULT_ENGAGEMENT = {
+  'kinh-nghiem-du-thuyen-vinh-lan-ha-cat-ba-tu-a-z': { views: 1840, likes: 312, ctaClicks: 94 },
+  'so-sanh-vinh-ha-long-va-vinh-lan-ha-nen-di-dau': { views: 1520, likes: 268, ctaClicks: 81 },
+  'kham-pha-ninh-binh-trang-an-tam-coc-hang-mua-1-ngay': { views: 1390, likes: 245, ctaClicks: 73 },
+  'cau-kinh-skywalk-va-be-suc-jacuzzi-tren-du-thuyen-5-sao-lan-ha': { views: 1210, likes: 219, ctaClicks: 68 },
+  'lich-trinh-3-ngay-2-dem-ha-noi-ninh-binh-ha-long-lan-ha': { views: 980, likes: 174, ctaClicks: 52 },
+  'lang-co-viet-hai-vien-ngoc-xanh-giua-vuon-quoc-gia-cat-ba': { views: 890, likes: 156, ctaClicks: 45 },
+};
+
+function getEngagementScore(stat) {
+  if (!stat) return 100;
+  return (stat.views || 0) + (stat.likes || 0) * 5 + (stat.ctaClicks || 0) * 10;
+}
+
+function loadMergedBlogPosts() {
+  const base = Array.isArray(window.DT_BLOG_POSTS) ? [...window.DT_BLOG_POSTS] : [];
+  const today = new Date().toISOString().split('T')[0];
+  const allMerged = [...base];
+  const hasToday = allMerged.some((p) => p.date === today);
+  if (!hasToday) {
+    const dailyRotate = [
+      { region: 'Lan Ha', place: 'Hang Sáng Tối — Vịnh Lan Hạ', image: 'assets/photos/daycruise-2.jpg', highlight: 'Chèo thuyền kayak xuyên hang nước ngầm kỳ bí giữa lòng Vịnh Lan Hạ và chiêm ngưỡng thung lũng đá vôi xanh ngọc bích.' },
+      { region: 'Ha Long', place: 'Kỳ Quan Vịnh Hạ Long & Vịnh Lan Hạ', image: 'assets/blog/vinh-ha-long-real.jpg', highlight: 'Hải trình du thuyền 5 sao kết nối ranh giới thiên nhiên kỳ vĩ giữa Vịnh Hạ Long và Vịnh Lan Hạ với 100% phòng Suite ban công riêng.' },
+      { region: 'Ninh Binh', place: 'Tràng An & Hang Múa — Ninh Bình', image: 'assets/blog/ninh-binh-tam-coc-hang-mua.jpg', highlight: 'Ngồi thuyền nan xuôi dòng nước biếc Tràng An – Tam Cốc và chinh phục đỉnh Ngọa Long trên Hang Múa ngắm trọn non nước Ninh Bình.' },
+      { region: 'Lan Ha', place: 'Bãi Tắm Ba Trái Đào — Vịnh Lan Hạ', image: 'assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg', highlight: 'Đắm mình trong làn nước biển trong vắt tại bãi tắm hoang sơ Ba Trái Đào trên hải trình du thuyền Daiichi Cruise.' }
+    ];
+    const dayNumber = Math.floor(Date.now() / 86400000);
+    const pick = dailyRotate[dayNumber % dailyRotate.length];
+    const autoTodayPost = buildAutoSeoPost({ ...pick, dateStr: today });
+    allMerged.unshift(autoTodayPost);
+  }
+
+  // Áp dụng các chỉnh sửa / bài thêm mới / bài đã xóa của Admin từ localStorage
+  try {
+    const overrides = JSON.parse(localStorage.getItem('dt_blog_overrides_v1') || '{}');
+    const deletedSlugs = Array.isArray(overrides.deletedSlugs) ? overrides.deletedSlugs : [];
+    const editedBySlug = overrides.editedBySlug || {};
+    const addedPosts = Array.isArray(overrides.addedPosts) ? overrides.addedPosts : [];
+
+    const combined = [...addedPosts];
+    for (const p of allMerged) {
+      if (!combined.some((x) => x.slug === p.slug)) {
+        combined.push(p);
+      }
+    }
+    return combined
+      .filter((p) => !deletedSlugs.includes(p.slug))
+      .map((p) => (editedBySlug[p.slug] ? { ...p, ...editedBySlug[p.slug] } : p));
+  } catch (e) {
+    return allMerged;
+  }
+}
+
 function SeoBlogSection() {
   const [regionFilter, setRegionFilter] = useState('all');
+  const [sortBy, setSortBy] = useState('popular'); // 'popular' | 'latest'
+  const [searchQuery, setSearchQuery] = useState('');
+  const [page, setPage] = useState(1);
   const [activePost, setActivePost] = useState(null);
-  const [studioOpen, setStudioOpen] = useState(false);
+  const [posts, setPosts] = useState(loadMergedBlogPosts);
+  const PAGE_SIZE = 3; // Chỉ hiển thị gọn 1 hàng 3 bài nổi bật nhất trên trang chủ
 
-  const [posts, setPosts] = useState(() => {
-    const base = Array.isArray(window.DT_BLOG_POSTS) ? [...window.DT_BLOG_POSTS] : [];
-    let custom = [];
+  // Admin state để chỉnh sửa các bài viết tự động
+  const [adminSession, setAdminSession] = useState(getSavedAdminSession);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authUser, setAuthUser] = useState('giamdoc');
+  const [authPass, setAuthPass] = useState('');
+  const [authError, setAuthError] = useState('');
+  const [pendingEditPost, setPendingEditPost] = useState(null);
+  const [editingPost, setEditingPost] = useState(null);
+
+  useEffect(() => {
+    const syncPosts = () => {
+      setPosts(loadMergedBlogPosts());
+      setAdminSession(getSavedAdminSession());
+    };
+    window.addEventListener('storage', syncPosts);
+    window.addEventListener('dt:blog_updated', syncPosts);
+    return () => {
+      window.removeEventListener('storage', syncPosts);
+      window.removeEventListener('dt:blog_updated', syncPosts);
+    };
+  }, []);
+
+  // Lưu trữ & cập nhật điểm tương tác thực tế của khách hàng (lượt đọc, yêu thích, bấm đặt tàu)
+  const [engMap, setEngMap] = useState(() => {
+    let saved = {};
     try {
-      custom = JSON.parse(localStorage.getItem('dt_custom_seo_blogs_v1') || '[]');
+      saved = JSON.parse(localStorage.getItem('dt_blog_engagement_v1') || '{}');
     } catch (e) {}
-
-    // Tự động kiểm tra nếu hôm nay chưa có bài viết mới trên trình duyệt thì tự sinh 1 bài của ngày hôm nay
-    const today = new Date().toISOString().split('T')[0];
-    const allMerged = [...custom, ...base];
-    const hasToday = allMerged.some((p) => p.date === today);
-    if (!hasToday) {
-      const dailyRotate = [
-        { region: 'Lan Ha', place: 'Hang Sáng Tối — Vịnh Lan Hạ', image: 'assets/photos/daycruise-2.jpg', highlight: 'Chèo thuyền kayak xuyên hang nước ngầm kỳ bí giữa lòng Vịnh Lan Hạ và chiêm ngưỡng thung lũng đá vôi xanh ngọc bích.' },
-        { region: 'Ha Long', place: 'Kỳ Quan Vịnh Hạ Long & Vịnh Lan Hạ', image: 'assets/photos/luxury-2.jpg', highlight: 'Hải trình du thuyền 5 sao kết nối ranh giới thiên nhiên kỳ vĩ giữa Vịnh Hạ Long và Vịnh Lan Hạ với 100% phòng Suite ban công riêng.' },
-        { region: 'Ninh Binh', place: 'Tràng An & Hang Múa — Ninh Bình', image: 'assets/photos/daycruise-act-1.jpg', highlight: 'Ngồi thuyền nan xuôi dòng nước biếc Tràng An – Tam Cốc và chinh phục đỉnh Ngọa Long trên Hang Múa ngắm trọn non nước Ninh Bình.' },
-        { region: 'Lan Ha', place: 'Bãi Tắm Ba Trái Đào — Vịnh Lan Hạ', image: 'assets/photos/daycruise-3.jpg', highlight: 'Đắm mình trong làn nước biển trong vắt tại bãi tắm hoang sơ Ba Trái Đào trên hải trình du thuyền Daiichi Cruise.' }
-      ];
-      const dayNumber = Math.floor(Date.now() / 86400000);
-      const pick = dailyRotate[dayNumber % dailyRotate.length];
-      const autoTodayPost = buildAutoSeoPost({ ...pick, dateStr: today });
-      allMerged.unshift(autoTodayPost);
-    }
-    return allMerged;
+    return { ...DEFAULT_ENGAGEMENT, ...saved };
   });
 
-  // Bơm Schema.org Blog JSON-LD động vào <head> để Googlebot & Google Ads nhận diện nội dung mới mỗi ngày
+  const [likedMap, setLikedMap] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('dt_blog_liked_v1') || '{}');
+    } catch (e) {
+      return {};
+    }
+  });
+
+  const recordInteraction = (slug, field, delta = 1) => {
+    if (!slug) return;
+    setEngMap((prev) => {
+      const cur = prev[slug] || { views: 240, likes: 38, ctaClicks: 12 };
+      const next = {
+        ...prev,
+        [slug]: {
+          ...cur,
+          [field]: Math.max(0, (cur[field] || 0) + delta)
+        }
+      };
+      try {
+        localStorage.setItem('dt_blog_engagement_v1', JSON.stringify(next));
+      } catch (e) {}
+      return next;
+    });
+  };
+
+  const toggleLike = (e, slug) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const already = !!likedMap[slug];
+    setLikedMap((prev) => {
+      const next = { ...prev, [slug]: !already };
+      try {
+        localStorage.setItem('dt_blog_liked_v1', JSON.stringify(next));
+      } catch (err) {}
+      return next;
+    });
+    recordInteraction(slug, 'likes', already ? -1 : 1);
+  };
+
+  const startEditPost = (post, e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const draft = {
+      ...post,
+      titleVi: typeof post.title === 'object' ? post.title.vi || '' : String(post.title || ''),
+      titleEn: typeof post.title === 'object' ? post.title.en || '' : String(post.title || ''),
+      excerptVi: typeof post.excerpt === 'object' ? post.excerpt.vi || '' : String(post.excerpt || ''),
+      excerptEn: typeof post.excerpt === 'object' ? post.excerpt.en || '' : String(post.excerpt || ''),
+      sections: Array.isArray(post.sections) && post.sections.length
+        ? post.sections.map((s) => ({ h2: s.h2 || '', p: s.p || '' }))
+        : [{ h2: '1. Điểm nổi bật', p: '' }],
+      faqs: Array.isArray(post.faqs)
+        ? post.faqs.map((f) => ({ q: f.q || '', a: f.a || '' }))
+        : []
+    };
+
+    if (adminSession) {
+      setEditingPost(draft);
+    } else {
+      setPendingEditPost(draft);
+      setAuthError('');
+      setAuthPass('');
+      setAuthModalOpen(true);
+    }
+  };
+
+  const handleAdminLoginSubmit = async (e) => {
+    e.preventDefault();
+    const verified = await verifyDaiichiAdmin(authUser, authPass);
+    if (!verified) {
+      setAuthError('Sai tài khoản hoặc mật khẩu Quản trị viên!');
+      return;
+    }
+    sessionStorage.setItem('dt_admin_auth_v1', JSON.stringify(verified));
+    localStorage.setItem('dt_admin_auth_v1', JSON.stringify(verified));
+    setAdminSession(verified);
+    setAuthModalOpen(false);
+    setAuthPass('');
+    if (pendingEditPost) {
+      setEditingPost(pendingEditPost);
+      setPendingEditPost(null);
+    }
+  };
+
+  const handleSaveEditedPost = (e) => {
+    e.preventDefault();
+    if (!editingPost) return;
+    const regionMap = {
+      'Lan Ha': 'Vịnh Lan Hạ · Cát Bà',
+      'Ha Long': 'Vịnh Hạ Long · Di Sản UNESCO',
+      'Ninh Binh': 'Ninh Bình · Tràng An · Tam Cốc'
+    };
+    const updatedPost = {
+      ...editingPost,
+      regionLabel: editingPost.regionLabel || regionMap[editingPost.region] || 'Vịnh Lan Hạ · Cát Bà',
+      title: {
+        ...(typeof editingPost.title === 'object' ? editingPost.title : {}),
+        vi: editingPost.titleVi.trim(),
+        en: (editingPost.titleEn || editingPost.titleVi).trim()
+      },
+      excerpt: {
+        ...(typeof editingPost.excerpt === 'object' ? editingPost.excerpt : {}),
+        vi: editingPost.excerptVi.trim(),
+        en: (editingPost.excerptEn || editingPost.excerptVi).trim()
+      },
+      sections: (editingPost.sections || []).filter((s) => s.h2.trim() || s.p.trim()),
+      faqs: (editingPost.faqs || []).filter((f) => f.q.trim() || f.a.trim())
+    };
+    delete updatedPost.titleVi;
+    delete updatedPost.titleEn;
+    delete updatedPost.excerptVi;
+    delete updatedPost.excerptEn;
+
+    try {
+      const overrides = JSON.parse(localStorage.getItem('dt_blog_overrides_v1') || '{}');
+      overrides.editedBySlug = overrides.editedBySlug || {};
+      overrides.addedPosts = Array.isArray(overrides.addedPosts) ? overrides.addedPosts : [];
+      overrides.deletedSlugs = Array.isArray(overrides.deletedSlugs) ? overrides.deletedSlugs : [];
+
+      if (editingPost.isNewDraft) {
+        delete updatedPost.isNewDraft;
+        overrides.addedPosts.unshift(updatedPost);
+      } else {
+        overrides.editedBySlug[updatedPost.slug] = updatedPost;
+      }
+      localStorage.setItem('dt_blog_overrides_v1', JSON.stringify(overrides));
+      window.dispatchEvent(new CustomEvent('dt:blog_updated'));
+    } catch (err) {
+      console.error(err);
+    }
+
+    setPosts(loadMergedBlogPosts());
+    if (activePost && activePost.slug === updatedPost.slug) {
+      setActivePost(updatedPost);
+    }
+    setEditingPost(null);
+  };
+
+  const handleDeletePost = (slug) => {
+    if (!slug) return;
+    try {
+      const overrides = JSON.parse(localStorage.getItem('dt_blog_overrides_v1') || '{}');
+      overrides.deletedSlugs = Array.isArray(overrides.deletedSlugs) ? overrides.deletedSlugs : [];
+      if (!overrides.deletedSlugs.includes(slug)) {
+        overrides.deletedSlugs.push(slug);
+      }
+      localStorage.setItem('dt_blog_overrides_v1', JSON.stringify(overrides));
+      window.dispatchEvent(new CustomEvent('dt:blog_updated'));
+    } catch (err) {}
+    setPosts(loadMergedBlogPosts());
+    setEditingPost(null);
+    if (activePost && activePost.slug === slug) setActivePost(null);
+  };
+
+  const handleUploadBlogPhoto = (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      if (ev.target && ev.target.result) {
+        setEditingPost((prev) => ({ ...prev, image: ev.target.result }));
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  // Bơm dữ liệu cấu trúc ngầm trong <head> cho công cụ tìm kiếm
   useEffect(() => {
     const scriptId = 'dt-dynamic-blog-schema';
     let el = document.getElementById(scriptId);
@@ -2602,41 +2878,89 @@ function SeoBlogSection() {
     el.textContent = JSON.stringify(schemaData);
   }, [posts]);
 
-  const handleAddAutoPost = (newPost) => {
-    setPosts((prev) => {
-      const updated = [newPost, ...prev];
-      try {
-        const customOnly = JSON.parse(localStorage.getItem('dt_custom_seo_blogs_v1') || '[]');
-        localStorage.setItem('dt_custom_seo_blogs_v1', JSON.stringify([newPost, ...customOnly].slice(0, 30)));
-      } catch (e) {}
-      return updated;
+  // Lọc theo vùng + từ khóa tìm kiếm, sau đó sắp xếp ưu tiên bài có tương tác cao nhất lên đầu
+  const processedPosts = posts
+    .filter((p) => (regionFilter === 'all' ? true : p.region === regionFilter))
+    .filter((p) => {
+      if (!searchQuery.trim()) return true;
+      const q = searchQuery.toLowerCase().trim();
+      const t = String(LV(p.title) || '').toLowerCase();
+      const ex = String(LV(p.excerpt) || '').toLowerCase();
+      const rg = String(p.regionLabel || '').toLowerCase();
+      return t.includes(q) || ex.includes(q) || rg.includes(q);
+    })
+    .slice()
+    .sort((a, b) => {
+      if (sortBy === 'latest') {
+        return String(b.date || '').localeCompare(String(a.date || ''));
+      }
+      const scoreA = getEngagementScore(engMap[a.slug]);
+      const scoreB = getEngagementScore(engMap[b.slug]);
+      return scoreB - scoreA;
     });
-    setStudioOpen(false);
-    setActivePost(newPost);
+
+  const totalPages = Math.max(1, Math.ceil(processedPosts.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages);
+  const visiblePosts = processedPosts.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+
+  const openArticle = (post) => {
+    recordInteraction(post.slug, 'views', 1);
+    setActivePost(post);
   };
 
-  const filteredPosts = regionFilter === 'all'
-    ? posts
-    : posts.filter((p) => p.region === regionFilter);
-
   return (
-    <section className="lux-duo-sec" id="blog" data-screen-label="Cẩm Nang & Blog SEO">
+    <section className="lux-duo-sec" id="blog" data-screen-label="Cẩm Nang Du Lịch">
       <div className="lux-sec-header" style={{ marginBottom: 24 }}>
-        <div className="lux-sec-kicker">{LV('CẨM NANG & BLOG KHÁM PHÁ DI SẢN (TỰ ĐỘNG CẬP NHẬT MỖI NGÀY)', 'HERITAGE TRAVEL JOURNAL (AUTO-UPDATED DAILY)')}</div>
+        <div className="lux-sec-kicker">{LV('CẨM NANG & KINH NGHIỆM DU LỊCH', 'TRAVEL GUIDE & INSIGHTS')}</div>
         <h2 className="lux-sec-title">{LV('Khám Phá Vịnh Lan Hạ, Vịnh Hạ Long & Ninh Bình', 'Discover Lan Ha Bay, Ha Long Bay & Ninh Binh')}</h2>
         <p className="lux-sec-sub">
           {LV(
-            'Mỗi ngày hệ thống tự động cập nhật hình ảnh thực tế và bài viết chuyên sâu về kinh nghiệm du thuyền Vịnh Lan Hạ, Vịnh Hạ Long, đảo Cát Bà và danh thắng Ninh Bình.',
-            'Every day our system automatically publishes new photography and in-depth guides covering Lan Ha Bay, Ha Long Bay, Cat Ba Island, and Ninh Binh.'
+            'Tổng hợp kinh nghiệm đi du thuyền, lịch trình tham quan và những góc chụp ảnh đẹp nhất tại Vịnh Lan Hạ, Vịnh Hạ Long, đảo Cát Bà và danh thắng Ninh Bình.',
+            'Curated cruise tips, itineraries, and the best photo spots across Lan Ha Bay, Ha Long Bay, Cat Ba Island, and Ninh Binh.'
           )}
         </p>
       </div>
 
-      {/* Filter Bar & Auto-Post Action */}
+      {/* Thanh Quản trị viên (Chỉ hiện khi Admin đã đăng nhập mật khẩu) */}
+      {adminSession && (
+        <div style={{ background: '#0F172A', color: '#F8FAFC', padding: '12px 18px', borderRadius: 14, marginBottom: 18, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, border: '1px solid #D4A648' }}>
+          <div style={{ fontSize: 13, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ color: '#34D399' }}>🔓 Chế độ Quản trị viên ({adminSession.user}):</span>
+            <span style={{ color: '#CBD5E1', fontWeight: 500 }}>Bấm nút <b>"✏️ Sửa bài"</b> trên bất kỳ bài viết nào để chỉnh sửa ảnh, tiêu đề hoặc nội dung.</span>
+          </div>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button
+              type="button"
+              onClick={(e) => {
+                const today = new Date().toISOString().split('T')[0];
+                const newDraft = buildAutoSeoPost({ region: 'Lan Ha', place: 'Điểm Đến Mới Vịnh Lan Hạ', image: 'assets/blog/vinh-lan-ha-cat-ba.jpg', highlight: '', dateStr: today });
+                newDraft.isNewDraft = true;
+                startEditPost(newDraft, e);
+              }}
+              style={{ background: 'var(--lux-gold-grad)', color: '#0A192F', border: 'none', padding: '7px 14px', borderRadius: 8, fontWeight: 800, fontSize: 12.5, cursor: 'pointer' }}
+            >
+              + Viết Bài Mới
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                sessionStorage.removeItem('dt_admin_auth_v1');
+                localStorage.removeItem('dt_admin_auth_v1');
+                setAdminSession(null);
+              }}
+              style={{ background: 'rgba(255,255,255,0.1)', color: '#F8FAFC', border: '1px solid rgba(255,255,255,0.2)', padding: '7px 12px', borderRadius: 8, fontWeight: 600, fontSize: 12, cursor: 'pointer' }}
+            >
+              Đóng chế độ sửa
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Thanh phân loại địa danh + Sắp xếp theo độ tương tác + Tìm kiếm nhanh */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: 24 }}>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {[
-            { id: 'all', label: LV('Tất Cả Bài Viết', 'All Articles') },
+            { id: 'all', label: LV('Tất Cả', 'All') },
             { id: 'Lan Ha', label: LV('Vịnh Lan Hạ & Cát Bà', 'Lan Ha Bay & Cat Ba') },
             { id: 'Ha Long', label: LV('Vịnh Hạ Long', 'Ha Long Bay') },
             { id: 'Ninh Binh', label: LV('Ninh Bình (Tràng An · Tam Cốc)', 'Ninh Binh (Trang An · Tam Coc)') }
@@ -2644,7 +2968,7 @@ function SeoBlogSection() {
             <button
               key={tab.id}
               type="button"
-              onClick={() => setRegionFilter(tab.id)}
+              onClick={() => { setRegionFilter(tab.id); setPage(1); }}
               style={{
                 padding: '9px 16px',
                 borderRadius: 24,
@@ -2663,108 +2987,236 @@ function SeoBlogSection() {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-          <span style={{ fontSize: 12, color: '#047857', background: '#ECFDF5', border: '1px solid #A7F3D0', padding: '6px 12px', borderRadius: 20, fontWeight: 700 }}>
-            {LV('🤖 Tự động đăng 1 ảnh & bài viết mới lúc 07:00 sáng mỗi ngày', '🤖 Auto-publishes 1 new photo & SEO article daily at 07:00 AM')}
-          </span>
-          <button
-            type="button"
-            onClick={() => setStudioOpen(true)}
+          <div style={{ position: 'relative' }}>
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }}
+              placeholder={'🔍 ' + LV('Tìm điểm đến, kinh nghiệm...', 'Search destination, tips...')}
+              style={{
+                height: 38,
+                padding: '0 14px',
+                borderRadius: 20,
+                border: '1px solid #CBD5E1',
+                fontSize: 13,
+                minWidth: 210,
+                background: '#FFFFFF',
+                color: '#1E293B'
+              }}
+            />
+          </div>
+
+          <select
+            value={sortBy}
+            onChange={(e) => { setSortBy(e.target.value); setPage(1); }}
             style={{
-              padding: '9px 16px',
+              height: 38,
+              padding: '0 14px',
               borderRadius: 20,
               border: '1.5px solid #D4A648',
-              background: 'linear-gradient(135deg, #F3C969 0%, #D4A648 100%)',
-              color: '#0A192F',
-              fontWeight: 800,
-              fontSize: 12.5,
-              cursor: 'pointer',
-              boxShadow: '0 4px 12px rgba(212,166,72,0.28)'
+              background: '#FFFDF7',
+              color: 'var(--navy)',
+              fontWeight: 700,
+              fontSize: 13,
+              cursor: 'pointer'
             }}
           >
-            {LV('✨ + Thêm Ảnh & Tự Viết Bài SEO', '✨ + Add Photo & Auto-Write SEO Post')}
-          </button>
+            <option value="popular">{LV('🔥 Tương tác cao nhất', '🔥 Most Popular')}</option>
+            <option value="latest">{LV('🆕 Mới nhất', '🆕 Latest')}</option>
+          </select>
         </div>
       </div>
 
-      {/* Blog Cards Grid */}
+      {/* Chỉ hiển thị gọn 3 bài viết nổi bật nhất trên mỗi trang */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 22 }}>
-        {filteredPosts.slice(0, 6).map((post) => (
-          <article
-            key={post.id || post.slug}
-            className="lux-ship-card"
-            style={{ display: 'flex', flexDirection: 'column', cursor: 'pointer', overflow: 'hidden' }}
-            onClick={() => setActivePost(post)}
-          >
-            <div style={{ position: 'relative', height: 210, overflow: 'hidden' }}>
-              <img
-                src={post.image}
-                alt={LV(post.title)}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .4s' }}
-                loading="lazy"
-              />
-              <span
-                className="notranslate"
-                translate="no"
-                style={{
-                  position: 'absolute',
-                  top: 12,
-                  left: 12,
-                  background: 'rgba(10, 25, 47, 0.88)',
-                  color: '#FDE68A',
-                  fontSize: 11,
-                  fontWeight: 800,
-                  padding: '5px 11px',
-                  borderRadius: 20,
-                  border: '1px solid rgba(212,166,72,0.4)'
-                }}
-              >
-                📍 {post.regionLabel}
-              </span>
-              <span
-                style={{
-                  position: 'absolute',
-                  bottom: 10,
-                  right: 12,
-                  background: 'rgba(0,0,0,0.65)',
-                  color: '#fff',
-                  fontSize: 11,
-                  fontWeight: 600,
-                  padding: '3px 9px',
-                  borderRadius: 12
-                }}
-              >
-                📅 {post.date}
-              </span>
-            </div>
+        {visiblePosts.map((post, idx) => {
+          const stat = engMap[post.slug] || { views: 260, likes: 42, ctaClicks: 14 };
+          const isLiked = !!likedMap[post.slug];
+          const isTop = sortBy === 'popular' && safePage === 1 && idx < 2;
 
-            <div style={{ padding: '20px 22px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-              <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px', lineHeight: 1.38, fontFamily: 'var(--font-display)' }}>
-                {LV(post.title)}
-              </h3>
-              <p style={{ fontSize: 13.5, color: '#475569', lineHeight: 1.6, margin: '0 0 16px', flex: 1 }}>
-                {LV(post.excerpt)}
-              </p>
-
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 12, borderTop: '1px solid #F1F5F9' }}>
-                <span style={{ fontSize: 12.5, fontWeight: 800, color: 'var(--lux-red)' }}>
-                  {LV('Đọc bài viết →', 'Read Article →')}
+          return (
+            <article
+              key={post.id || post.slug}
+              className="lux-ship-card"
+              style={{ display: 'flex', flexDirection: 'column', cursor: 'pointer', overflow: 'hidden' }}
+              onClick={() => openArticle(post)}
+            >
+              <div style={{ position: 'relative', height: 210, overflow: 'hidden' }}>
+                <img
+                  src={post.image}
+                  alt={LV(post.title)}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .4s' }}
+                  loading="lazy"
+                />
+                <span
+                  className="notranslate"
+                  translate="no"
+                  style={{
+                    position: 'absolute',
+                    top: 12,
+                    left: 12,
+                    background: 'rgba(10, 25, 47, 0.88)',
+                    color: '#FDE68A',
+                    fontSize: 11,
+                    fontWeight: 800,
+                    padding: '5px 11px',
+                    borderRadius: 20,
+                    border: '1px solid rgba(212,166,72,0.4)'
+                  }}
+                >
+                  📍 {post.regionLabel}
                 </span>
-                {!post.isCustomOrDaily && (
-                  <a
-                    href={`seo/blog/${post.slug}.html`}
-                    target="_blank"
-                    rel="noopener"
-                    onClick={(e) => e.stopPropagation()}
-                    style={{ fontSize: 12, color: '#0369A1', fontWeight: 700, textDecoration: 'none' }}
+
+                {isTop && (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      top: 12,
+                      right: 12,
+                      background: 'linear-gradient(135deg, #DC2626 0%, #991B1B 100%)',
+                      color: '#fff',
+                      fontSize: 11,
+                      fontWeight: 800,
+                      padding: '4px 10px',
+                      borderRadius: 20,
+                      boxShadow: '0 4px 10px rgba(220,38,38,0.35)'
+                    }}
                   >
-                    {LV('Trang SEO riêng ↗', 'SEO Page ↗')}
-                  </a>
+                    {LV('🔥 Xem nhiều', '🔥 Popular')}
+                  </span>
                 )}
+
+                {adminSession && (
+                  <button
+                    type="button"
+                    onClick={(e) => startEditPost(post, e)}
+                    style={{
+                      position: 'absolute',
+                      top: 44,
+                      right: 12,
+                      background: '#F59E0B',
+                      color: '#0A192F',
+                      border: 'none',
+                      fontSize: 11.5,
+                      fontWeight: 800,
+                      padding: '5px 11px',
+                      borderRadius: 20,
+                      cursor: 'pointer',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.35)'
+                    }}
+                  >
+                    ✏️ Sửa bài
+                  </button>
+                )}
+
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: 10,
+                    left: 12,
+                    right: 12,
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                  }}
+                >
+                  <span
+                    style={{
+                      background: 'rgba(0,0,0,0.65)',
+                      color: '#fff',
+                      fontSize: 11,
+                      fontWeight: 600,
+                      padding: '3px 9px',
+                      borderRadius: 12
+                    }}
+                  >
+                    👁 {(stat.views || 0).toLocaleString('vi-VN')} {LV('lượt xem', 'views')}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={(e) => toggleLike(e, post.slug)}
+                    style={{
+                      background: isLiked ? '#FEE2E2' : 'rgba(0,0,0,0.65)',
+                      color: isLiked ? '#DC2626' : '#fff',
+                      border: isLiked ? '1px solid #FCA5A5' : 'none',
+                      fontSize: 11,
+                      fontWeight: 700,
+                      padding: '3px 10px',
+                      borderRadius: 12,
+                      cursor: 'pointer'
+                    }}
+                  >
+                    {isLiked ? '❤️' : '🤍'} {stat.likes || 0} {LV('Hữu ích', 'Helpful')}
+                  </button>
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+
+              <div style={{ padding: '20px 22px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--navy)', margin: '0 0 10px', lineHeight: 1.38, fontFamily: 'var(--font-display)' }}>
+                  {LV(post.title)}
+                </h3>
+                <p style={{ fontSize: 13.5, color: '#475569', lineHeight: 1.6, margin: '0 0 16px', flex: 1 }}>
+                  {LV(post.excerpt)}
+                </p>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 12, borderTop: '1px solid #F1F5F9' }}>
+                  <span style={{ fontSize: 12.5, fontWeight: 800, color: 'var(--lux-red)' }}>
+                    {LV('Đọc chi tiết →', 'Read More →')}
+                  </span>
+                  <span style={{ fontSize: 11.5, color: '#64748B', fontWeight: 600 }}>
+                    📅 {post.date}
+                  </span>
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
+
+      {/* Phân trang gọn gàng để trang chủ không bao giờ bị kéo dài khi số bài viết tăng lên hàng trăm bài */}
+      {totalPages > 1 && (
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 24 }}>
+          <button
+            type="button"
+            disabled={safePage <= 1}
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            style={{
+              padding: '8px 16px',
+              borderRadius: 20,
+              border: '1px solid #CBD5E1',
+              background: safePage <= 1 ? '#F1F5F9' : '#FFFFFF',
+              color: safePage <= 1 ? '#94A3B8' : 'var(--navy)',
+              fontWeight: 700,
+              fontSize: 12.5,
+              cursor: safePage <= 1 ? 'default' : 'pointer'
+            }}
+          >
+            {LV('← Trước', '← Prev')}
+          </button>
+
+          <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--navy)', padding: '0 8px' }}>
+            {LV('Trang', 'Page')} {safePage} / {totalPages}
+          </span>
+
+          <button
+            type="button"
+            disabled={safePage >= totalPages}
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            style={{
+              padding: '8px 16px',
+              borderRadius: 20,
+              border: '1px solid #CBD5E1',
+              background: safePage >= totalPages ? '#F1F5F9' : '#FFFFFF',
+              color: safePage >= totalPages ? '#94A3B8' : 'var(--navy)',
+              fontWeight: 700,
+              fontSize: 12.5,
+              cursor: safePage >= totalPages ? 'default' : 'pointer'
+            }}
+          >
+            {LV('Tiếp →', 'Next →')}
+          </button>
+        </div>
+      )}
 
       {/* Article Reader Modal */}
       {activePost && (
@@ -2801,7 +3253,7 @@ function SeoBlogSection() {
               {activePost.faqs && activePost.faqs.length > 0 && (
                 <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: 14, padding: '18px 20px', marginTop: 24, marginBottom: 24 }}>
                   <h4 style={{ margin: '0 0 12px', color: 'var(--navy)', fontSize: 16 }}>
-                    💡 {LV('Câu Hỏi Thường Gặp (FAQ Chuẩn SEO)', 'Frequently Asked Questions (SEO FAQ)')}
+                    💡 {LV('Câu Hỏi Thường Gặp', 'Frequently Asked Questions')}
                   </h4>
                   {activePost.faqs.map((f, i) => (
                     <div key={i} style={{ marginBottom: i < activePost.faqs.length - 1 ? 12 : 0 }}>
@@ -2813,22 +3265,47 @@ function SeoBlogSection() {
               )}
 
               <div className="lux-modal-actions" style={{ justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-                {!activePost.isCustomOrDaily ? (
-                  <a
+                <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+                  <button
+                    type="button"
                     className="lux-btn-outline"
-                    href={`seo/blog/${activePost.slug}.html`}
-                    target="_blank"
-                    rel="noopener"
-                    style={{ textDecoration: 'none' }}
+                    onClick={(e) => toggleLike(e, activePost.slug)}
                   >
-                    {LV('Mở Trang SEO Chuẩn Google ↗', 'Open Standalone SEO Page ↗')}
-                  </a>
-                ) : <span />}
+                    {likedMap[activePost.slug] ? '❤️' : '🤍'} {LV('Hữu ích', 'Helpful')} ({(engMap[activePost.slug]?.likes || 0)})
+                  </button>
+                  {!activePost.isCustomOrDaily && (
+                    <a
+                      className="lux-btn-outline"
+                      href={`seo/blog/${activePost.slug}.html`}
+                      target="_blank"
+                      rel="noopener"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      {LV('Mở bài viết đầy đủ ↗', 'Open Full Article ↗')}
+                    </a>
+                  )}
+                  <button
+                    type="button"
+                    className="lux-btn-outline"
+                    onClick={(e) => startEditPost(activePost, e)}
+                    title="Dành cho Quản trị viên chỉnh sửa nội dung & hình ảnh bài viết"
+                    style={{ borderColor: '#D4A648', color: '#92400E', background: '#FFFBEB' }}
+                  >
+                    ✏️ {LV('Chỉnh sửa bài', 'Edit Post')}
+                  </button>
+                </div>
                 <div style={{ display: 'flex', gap: 10 }}>
                   <button className="lux-btn-outline" onClick={() => setActivePost(null)}>
                     {LV('Đóng lại', 'Close')}
                   </button>
-                  <a className="lux-submit-btn" style={{ textDecoration: 'none', padding: '11px 22px' }} href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
+                  <a
+                    className="lux-submit-btn"
+                    style={{ textDecoration: 'none', padding: '11px 22px' }}
+                    href="https://daiichitravel.com/?tab=cruise-tours"
+                    target="_blank"
+                    rel="noopener"
+                    onClick={() => recordInteraction(activePost.slug, 'ctaClicks', 1)}
+                  >
                     {LV('Đặt Du Thuyền & Xe Limousine Ngay →', 'Book Cruise & Limousine Now →')}
                   </a>
                 </div>
@@ -2838,147 +3315,297 @@ function SeoBlogSection() {
         </div>
       )}
 
-      {/* Auto-Generate SEO Post from Photo Studio Modal */}
-      {studioOpen && (
-        <AutoSeoStudioModal
-          onClose={() => setStudioOpen(false)}
-          onPublish={handleAddAutoPost}
-        />
+      {/* Modal xác thực mật khẩu Admin khi bấm Chỉnh sửa bài viết */}
+      {authModalOpen && (
+        <div className="lux-modal-backdrop" onClick={() => setAuthModalOpen(false)}>
+          <div className="lux-modal-box" style={{ maxWidth: 420 }} onClick={(e) => e.stopPropagation()}>
+            <button className="lux-modal-close" onClick={() => setAuthModalOpen(false)}>✕</button>
+            <div className="lux-modal-content" style={{ padding: '28px 28px' }}>
+              <div style={{ fontSize: 12, fontWeight: 800, color: '#B45309', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 4 }}>
+                🔒 BẢO MẬT QUẢN TRỊ VIÊN
+              </div>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 24, color: 'var(--navy)', margin: '0 0 8px' }}>
+                Đăng Nhập Để Chỉnh Sửa Bài Viết
+              </h3>
+              <p style={{ fontSize: 13, color: '#64748B', margin: '0 0 18px' }}>
+                Chỉ Quản trị viên có mật khẩu mới được phép chỉnh sửa nội dung và hình ảnh các bài viết.
+              </p>
+
+              <form onSubmit={handleAdminLoginSubmit}>
+                <div style={{ marginBottom: 12 }}>
+                  <label style={{ display: 'block', fontSize: 11.5, fontWeight: 700, color: '#334155', marginBottom: 5 }}>TÀI KHOẢN QUẢN TRỊ</label>
+                  <input
+                    type="text"
+                    value={authUser}
+                    onChange={(e) => setAuthUser(e.target.value)}
+                    placeholder="Ví dụ: giamdoc, quanly, marketing..."
+                    style={{ width: '100%', padding: '10px 12px', borderRadius: 8, border: '1.5px solid #CBD5E1', fontSize: 14 }}
+                  />
+                </div>
+                <div style={{ marginBottom: 14 }}>
+                  <label style={{ display: 'block', fontSize: 11.5, fontWeight: 700, color: '#334155', marginBottom: 5 }}>MẬT KHẨU BẢO MẬT *</label>
+                  <input
+                    type="password"
+                    required
+                    autoFocus
+                    value={authPass}
+                    onChange={(e) => setAuthPass(e.target.value)}
+                    placeholder="Nhập mật khẩu Admin..."
+                    style={{ width: '100%', padding: '10px 12px', borderRadius: 8, border: '1.5px solid #CBD5E1', fontSize: 14 }}
+                  />
+                </div>
+                {authError && (
+                  <div style={{ color: '#DC2626', background: '#FEF2F2', padding: '8px 12px', borderRadius: 8, fontSize: 12.5, fontWeight: 700, marginBottom: 12 }}>
+                    ⚠️ {authError}
+                  </div>
+                )}
+                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10 }}>
+                  <button type="button" className="lux-btn-outline" onClick={() => setAuthModalOpen(false)}>Hủy</button>
+                  <button type="submit" className="lux-submit-btn" style={{ padding: '10px 20px' }}>Xác nhận & Mở trình sửa →</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal Chỉnh Sửa Bài Viết (Cho phép sửa Tiêu đề, Ảnh thật, Đoạn trích, Nội dung các mục & Câu hỏi thường gặp) */}
+      {editingPost && (
+        <div className="lux-modal-backdrop" onClick={() => setEditingPost(null)}>
+          <div className="lux-modal-box" style={{ maxWidth: 820, maxHeight: '90vh', overflowY: 'auto' }} onClick={(e) => e.stopPropagation()}>
+            <button className="lux-modal-close" onClick={() => setEditingPost(null)}>✕</button>
+            <div className="lux-modal-content" style={{ padding: '26px 30px' }}>
+              <div style={{ fontSize: 12, fontWeight: 800, color: '#059669', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 4 }}>
+                ✏️ TRÌNH CHỈNH SỬA BÀI VIẾT QUẢN TRỊ VIÊN
+              </div>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 25, color: 'var(--navy)', margin: '0 0 18px' }}>
+                {editingPost.isNewDraft ? 'Thêm Bài Viết Mới' : 'Chỉnh Sửa Nội Dung & Hình Ảnh Bài Viết'}
+              </h3>
+
+              <form onSubmit={handleSaveEditedPost}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 14 }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: 11.5, fontWeight: 700, color: '#334155', marginBottom: 5 }}>CHUYÊN MỤC ĐỊA DANH</label>
+                    <select
+                      value={editingPost.region || 'Lan Ha'}
+                      onChange={(e) => {
+                        const rg = e.target.value;
+                        const mapLb = { 'Lan Ha': 'Vịnh Lan Hạ · Cát Bà', 'Ha Long': 'Vịnh Hạ Long · Di Sản UNESCO', 'Ninh Binh': 'Ninh Bình · Tràng An · Tam Cốc' };
+                        setEditingPost((prev) => ({ ...prev, region: rg, regionLabel: mapLb[rg] || prev.regionLabel }));
+                      }}
+                      style={{ width: '100%', padding: '10px 12px', borderRadius: 8, border: '1.5px solid #CBD5E1', fontSize: 13.5, fontWeight: 600 }}
+                    >
+                      <option value="Lan Ha">Vịnh Lan Hạ & Cát Bà</option>
+                      <option value="Ha Long">Vịnh Hạ Long</option>
+                      <option value="Ninh Binh">Ninh Bình (Tràng An · Tam Cốc · Hang Múa)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: 11.5, fontWeight: 700, color: '#334155', marginBottom: 5 }}>NHÃN ĐỊA DANH HIỂN THỊ</label>
+                    <input
+                      type="text"
+                      value={editingPost.regionLabel || ''}
+                      onChange={(e) => setEditingPost((prev) => ({ ...prev, regionLabel: e.target.value }))}
+                      style={{ width: '100%', padding: '10px 12px', borderRadius: 8, border: '1.5px solid #CBD5E1', fontSize: 13.5 }}
+                    />
+                  </div>
+                </div>
+
+                <div style={{ marginBottom: 14 }}>
+                  <label style={{ display: 'block', fontSize: 11.5, fontWeight: 700, color: '#334155', marginBottom: 5 }}>TIÊU ĐỀ BÀI VIẾT (TIẾNG VIỆT) *</label>
+                  <input
+                    type="text"
+                    required
+                    value={editingPost.titleVi || ''}
+                    onChange={(e) => setEditingPost((prev) => ({ ...prev, titleVi: e.target.value }))}
+                    style={{ width: '100%', padding: '10px 12px', borderRadius: 8, border: '1.5px solid #CBD5E1', fontSize: 14, fontWeight: 700 }}
+                  />
+                </div>
+
+                <div style={{ marginBottom: 16 }}>
+                  <label style={{ display: 'block', fontSize: 11.5, fontWeight: 700, color: '#334155', marginBottom: 5 }}>HÌNH ẢNH ĐẠI DIỆN (CHỌN ẢNH ĐỊA DANH THẬT HOẶC TẢI ẢNH LÊN)</label>
+                  <div style={{ display: 'flex', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
+                    <input
+                      type="text"
+                      value={editingPost.image || ''}
+                      onChange={(e) => setEditingPost((prev) => ({ ...prev, image: e.target.value }))}
+                      placeholder="Đường dẫn ảnh (URL hoặc assets/blog/...)"
+                      style={{ flex: 1, minWidth: 220, padding: '9px 12px', borderRadius: 8, border: '1.5px solid #CBD5E1', fontSize: 13 }}
+                    />
+                    <label style={{ background: '#0F172A', color: '#FDE68A', padding: '9px 14px', borderRadius: 8, fontSize: 12.5, fontWeight: 700, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                      📁 Tải ảnh từ máy
+                      <input type="file" accept="image/*" onChange={handleUploadBlogPhoto} style={{ display: 'none' }} />
+                    </label>
+                  </div>
+
+                  {/* Bộ chọn nhanh ảnh thật các địa danh */}
+                  <div style={{ display: 'flex', gap: 8, overflowX: 'auto', paddingBottom: 6 }}>
+                    {REAL_DESTINATION_PHOTOS.map((ph, i) => (
+                      <div
+                        key={i}
+                        onClick={() => setEditingPost((prev) => ({ ...prev, image: ph.url }))}
+                        style={{
+                          flex: '0 0 125px',
+                          borderRadius: 8,
+                          overflow: 'hidden',
+                          border: editingPost.image === ph.url ? '2.5px solid #D4A648' : '1px solid #CBD5E1',
+                          cursor: 'pointer',
+                          background: '#fff'
+                        }}
+                      >
+                        <img src={ph.url} alt={ph.label} style={{ width: '100%', height: 64, objectFit: 'cover', display: 'block' }} />
+                        <div style={{ fontSize: 10.5, fontWeight: 700, padding: '4px 6px', color: '#1E293B', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {ph.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div style={{ marginBottom: 16 }}>
+                  <label style={{ display: 'block', fontSize: 11.5, fontWeight: 700, color: '#334155', marginBottom: 5 }}>ĐOẠN TÓM TẮT MỞ ĐẦU *</label>
+                  <textarea
+                    rows={2}
+                    required
+                    value={editingPost.excerptVi || ''}
+                    onChange={(e) => setEditingPost((prev) => ({ ...prev, excerptVi: e.target.value }))}
+                    style={{ width: '100%', padding: '10px 12px', borderRadius: 8, border: '1.5px solid #CBD5E1', fontSize: 13.5, fontFamily: 'inherit' }}
+                  />
+                </div>
+
+                {/* Các mục nội dung chi tiết */}
+                <div style={{ marginBottom: 16 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                    <label style={{ fontSize: 12, fontWeight: 800, color: 'var(--navy)' }}>NỘI DUNG CHI TIẾT CÁC MỤC</label>
+                    <button
+                      type="button"
+                      onClick={() => setEditingPost((prev) => ({ ...prev, sections: [...(prev.sections || []), { h2: `${(prev.sections || []).length + 1}. Tiêu đề mục mới`, p: '' }] }))}
+                      style={{ background: '#EFF6FF', color: '#1D4ED8', border: '1px solid #BFDBFE', padding: '5px 12px', borderRadius: 6, fontSize: 12, fontWeight: 700, cursor: 'pointer' }}
+                    >
+                      + Thêm mục nội dung
+                    </button>
+                  </div>
+                  {(editingPost.sections || []).map((sec, idx) => (
+                    <div key={idx} style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: 10, padding: 12, marginBottom: 10 }}>
+                      <div style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+                        <input
+                          type="text"
+                          value={sec.h2}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setEditingPost((prev) => {
+                              const next = [...prev.sections];
+                              next[idx] = { ...next[idx], h2: val };
+                              return { ...prev, sections: next };
+                            });
+                          }}
+                          placeholder="Tiêu đề mục (H2)"
+                          style={{ flex: 1, padding: '8px 10px', borderRadius: 6, border: '1px solid #CBD5E1', fontSize: 13.5, fontWeight: 700 }}
+                        />
+                        {editingPost.sections.length > 1 && (
+                          <button
+                            type="button"
+                            onClick={() => setEditingPost((prev) => ({ ...prev, sections: prev.sections.filter((_, i) => i !== idx) }))}
+                            style={{ background: '#FEE2E2', color: '#DC2626', border: 'none', borderRadius: 6, padding: '0 10px', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}
+                          >
+                            Xóa mục
+                          </button>
+                        )}
+                      </div>
+                      <textarea
+                        rows={3}
+                        value={sec.p}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setEditingPost((prev) => {
+                            const next = [...prev.sections];
+                            next[idx] = { ...next[idx], p: val };
+                            return { ...prev, sections: next };
+                          });
+                        }}
+                        placeholder="Nội dung đoạn văn..."
+                        style={{ width: '100%', padding: '8px 10px', borderRadius: 6, border: '1px solid #CBD5E1', fontSize: 13, fontFamily: 'inherit' }}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Câu hỏi thường gặp */}
+                <div style={{ marginBottom: 18 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                    <label style={{ fontSize: 12, fontWeight: 800, color: 'var(--navy)' }}>CÂU HỎI THƯỜNG GẶP TRONG BÀI</label>
+                    <button
+                      type="button"
+                      onClick={() => setEditingPost((prev) => ({ ...prev, faqs: [...(prev.faqs || []), { q: '', a: '' }] }))}
+                      style={{ background: '#EFF6FF', color: '#1D4ED8', border: '1px solid #BFDBFE', padding: '5px 12px', borderRadius: 6, fontSize: 12, fontWeight: 700, cursor: 'pointer' }}
+                    >
+                      + Thêm câu hỏi
+                    </button>
+                  </div>
+                  {(editingPost.faqs || []).map((fq, idx) => (
+                    <div key={idx} style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: 10, padding: 12, marginBottom: 8 }}>
+                      <div style={{ display: 'flex', gap: 8, marginBottom: 6 }}>
+                        <input
+                          type="text"
+                          value={fq.q}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            setEditingPost((prev) => {
+                              const next = [...prev.faqs];
+                              next[idx] = { ...next[idx], q: val };
+                              return { ...prev, faqs: next };
+                            });
+                          }}
+                          placeholder="Câu hỏi..."
+                          style={{ flex: 1, padding: '7px 10px', borderRadius: 6, border: '1px solid #CBD5E1', fontSize: 13, fontWeight: 700 }}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setEditingPost((prev) => ({ ...prev, faqs: prev.faqs.filter((_, i) => i !== idx) }))}
+                          style={{ background: '#FEE2E2', color: '#DC2626', border: 'none', borderRadius: 6, padding: '0 10px', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}
+                        >
+                          Xóa
+                        </button>
+                      </div>
+                      <textarea
+                        rows={2}
+                        value={fq.a}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setEditingPost((prev) => {
+                            const next = [...prev.faqs];
+                            next[idx] = { ...next[idx], a: val };
+                            return { ...prev, faqs: next };
+                          });
+                        }}
+                        placeholder="Câu trả lời..."
+                        style={{ width: '100%', padding: '7px 10px', borderRadius: 6, border: '1px solid #CBD5E1', fontSize: 13, fontFamily: 'inherit' }}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10, borderTop: '1px solid #E2E8F0', paddingTop: 16 }}>
+                  {!editingPost.isNewDraft ? (
+                    <button
+                      type="button"
+                      onClick={() => handleDeletePost(editingPost.slug)}
+                      style={{ background: '#FEE2E2', color: '#B91C1C', border: '1px solid #FCA5A5', padding: '10px 16px', borderRadius: 8, fontWeight: 700, fontSize: 13, cursor: 'pointer' }}
+                    >
+                      🗑️ Ẩn / Xóa bài viết này
+                    </button>
+                  ) : <span />}
+                  <div style={{ display: 'flex', gap: 10 }}>
+                    <button type="button" className="lux-btn-outline" onClick={() => setEditingPost(null)}>Hủy</button>
+                    <button type="submit" className="lux-submit-btn" style={{ padding: '10px 24px' }}>💾 Lưu Thay Đổi Bài Viết</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       )}
     </section>
-  );
-}
-
-function AutoSeoStudioModal({ onClose, onPublish }) {
-  const [region, setRegion] = useState('Lan Ha');
-  const [place, setPlace] = useState('Vịnh Lan Hạ & Đảo Cát Bà');
-  const [image, setImage] = useState('assets/photos/luxury-1.jpg');
-  const [highlight, setHighlight] = useState('');
-
-  const PRESET_IMAGES = [
-    { label: 'Du thuyền 5★ Vịnh Lan Hạ', src: 'assets/photos/luxury-1.jpg' },
-    { label: 'Hoàng hôn Vịnh Hạ Long – Lan Hạ', src: 'assets/photos/luxury-2.jpg' },
-    { label: 'Bể sục Jacuzzi & Cầu Kính', src: 'assets/photos/luxury-jacuzzi.jpg' },
-    { label: 'Chèo Kayak Hang Sáng Tối', src: 'assets/photos/daycruise-2.jpg' },
-    { label: 'Ninh Bình – Tràng An – Hang Múa', src: 'assets/photos/daycruise-act-1.jpg' },
-    { label: 'Làng cổ Việt Hải – Cát Bà', src: 'assets/photos/daycruise-act-2.jpg' }
-  ];
-
-  const handleFileUpload = (e) => {
-    const file = e.target.files && e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      if (ev.target && ev.target.result) setImage(ev.target.result);
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const handleCreate = (e) => {
-    e.preventDefault();
-    const today = new Date().toISOString().split('T')[0];
-    const post = buildAutoSeoPost({ region, place, image, highlight, dateStr: today });
-    onPublish(post);
-  };
-
-  return (
-    <div className="lux-modal-backdrop" onClick={onClose}>
-      <div className="lux-modal-box" style={{ maxWidth: 640, padding: '28px 28px' }} onClick={(e) => e.stopPropagation()}>
-        <button className="lux-modal-close" onClick={onClose}>✕</button>
-        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 25, color: 'var(--navy)', margin: '0 0 16px' }}>
-          ✨ {LV('Tạo Bài Viết SEO Tự Động Từ Hình Ảnh', 'Auto-Generate SEO Article from Photo')}
-        </h3>
-
-        <form onSubmit={handleCreate} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <div>
-            <label style={{ display: 'block', fontSize: 12, fontWeight: 700, color: '#334155', marginBottom: 6 }}>
-              1. {LV('Chọn vùng địa danh', 'Select Destination Region')}
-            </label>
-            <select
-              value={region}
-              onChange={(e) => {
-                const r = e.target.value;
-                setRegion(r);
-                if (r === 'Lan Ha') setPlace('Vịnh Lan Hạ & Đảo Cát Bà');
-                else if (r === 'Ha Long') setPlace('Vịnh Hạ Long & Vịnh Lan Hạ');
-                else if (r === 'Ninh Binh') setPlace('Tràng An – Tam Cốc – Hang Múa (Ninh Bình)');
-              }}
-              style={{ width: '100%', height: 42, borderRadius: 8, border: '1px solid #CBD5E1', padding: '0 12px', fontWeight: 600 }}
-            >
-              <option value="Lan Ha">⚓ Vịnh Lan Hạ & Cát Bà</option>
-              <option value="Ha Long">🚢 Vịnh Hạ Long</option>
-              <option value="Ninh Binh">🌾 Ninh Bình (Tràng An · Tam Cốc · Hang Múa)</option>
-            </select>
-          </div>
-
-          <div>
-            <label style={{ display: 'block', fontSize: 12, fontWeight: 700, color: '#334155', marginBottom: 6 }}>
-              2. {LV('Tên địa điểm / Chủ đề bức ảnh *', 'Place Name / Photo Subject *')}
-            </label>
-            <input
-              type="text"
-              value={place}
-              onChange={(e) => setPlace(e.target.value)}
-              required
-              style={{ width: '100%', height: 42, borderRadius: 8, border: '1px solid #CBD5E1', padding: '0 12px', fontSize: 14 }}
-            />
-          </div>
-
-          <div>
-            <label style={{ display: 'block', fontSize: 12, fontWeight: 700, color: '#334155', marginBottom: 6 }}>
-              3. {LV('Chọn ảnh có sẵn hoặc tải ảnh lên từ máy', 'Choose preset photo or upload from your device')}
-            </label>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginBottom: 10 }}>
-              {PRESET_IMAGES.map((item, i) => (
-                <div
-                  key={i}
-                  onClick={() => setImage(item.src)}
-                  style={{
-                    border: image === item.src ? '2.5px solid #D4A648' : '1px solid #E2E8F0',
-                    borderRadius: 8,
-                    overflow: 'hidden',
-                    cursor: 'pointer',
-                    position: 'relative',
-                    height: 68
-                  }}
-                >
-                  <img src={item.src} alt={item.label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  <span style={{ position: 'absolute', inset: 'auto 0 0 0', background: 'rgba(0,0,0,0.65)', color: '#fff', fontSize: 10, padding: '2px 5px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    {item.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <label style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#F1F5F9', padding: '8px 14px', borderRadius: 8, fontSize: 12.5, fontWeight: 700, color: '#334155', cursor: 'pointer' }}>
-              📷 {LV('Tải ảnh từ máy tính / điện thoại', 'Upload photo from device')}
-              <input type="file" accept="image/*" onChange={handleFileUpload} style={{ display: 'none' }} />
-            </label>
-          </div>
-
-          <div>
-            <label style={{ display: 'block', fontSize: 12, fontWeight: 700, color: '#334155', marginBottom: 6 }}>
-              4. {LV('Điểm nhấn muốn viết trong bài (Tùy chọn)', 'Key highlights to include (Optional)')}
-            </label>
-            <textarea
-              rows={2}
-              value={highlight}
-              onChange={(e) => setHighlight(e.target.value)}
-              placeholder="Để trống nếu muốn hệ thống tự động viết toàn bộ nội dung chuẩn SEO Google..."
-              style={{ width: '100%', borderRadius: 8, border: '1px solid #CBD5E1', padding: '10px 12px', fontSize: 13.5 }}
-            />
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10, marginTop: 8 }}>
-            <button type="button" className="lux-btn-outline" onClick={onClose}>
-              {LV('Hủy', 'Cancel')}
-            </button>
-            <button type="submit" className="lux-submit-btn" style={{ padding: '11px 22px' }}>
-              {LV('⚡ Tự Động Viết Bài & Đăng Ngay →', '⚡ Auto-Write & Publish Now →')}
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
   );
 }
 
@@ -3436,28 +4063,8 @@ function OneHome() {
       {/* SECTION 6: LIMOUSINE CONCIERGE */}
       <LimousineConciergeSection />
 
-      {/* SECTION 7: AUTO DAILY SEO BLOG & HERITAGE JOURNAL */}
+      {/* SECTION 7: TRAVEL GUIDE & HERITAGE JOURNAL */}
       <SeoBlogSection />
-
-      {/* LIVE DEALS & CAMPAIGNS */}
-      <div style={{ maxWidth: 1240, margin: '60px auto 0', padding: '0 24px' }}>
-        <div style={{ background: 'linear-gradient(135deg, #102A43 0%, #06182C 100%)', borderRadius: 20, padding: '30px 36px', color: '#fff', border: '1px solid rgba(212,166,72,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}>
-          <div>
-            <div style={{ color: 'var(--lux-gold-pure)', fontSize: 12, fontWeight: 800, letterSpacing: '.16em', textTransform: 'uppercase', marginBottom: 4 }}>
-              {LV('ƯU ĐÃI ĐỘC QUYỀN TRỰC TUYẾN 2026', 'EXCLUSIVE ONLINE OFFER 2026')}
-            </div>
-            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 24, margin: '0 0 6px' }}>
-              {LV('Đặt Trước 30 Ngày — Giảm Ngay 12% Cho Tất Cả Hạng Suite', 'Book 30 Days in Advance — Save 12% on All Suites')}
-            </h3>
-            <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 14, margin: 0 }}>
-              {LV('Áp dụng mã EARLYBIRD12 khi thanh toán trực tuyến. Tặng kèm voucher đồ uống và set chèo thuyền kayak miễn phí.', 'Use code EARLYBIRD12 when booking online. Includes complimentary drink voucher and free kayaking.')}
-            </p>
-          </div>
-          <a className="lux-submit-btn" style={{ textDecoration: 'none' }} href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
-            {LV('Săn Ưu Đãi Ngay →', 'Claim Offer Now →')}
-          </a>
-        </div>
-      </div>
 
       {/* TRUST ROW */}
       <div style={{ maxWidth: 1240, margin: '48px auto 0', padding: '0 24px' }}>
@@ -3524,7 +4131,7 @@ function OneHome() {
               <ul>
                 <li><a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a></li>
                 <li><a href="https://daiichitravel.com" target="_blank" rel="noopener" className="notranslate" translate="no">Daiichi Travel Portal</a></li>
-                <li><a href="admin/cruise-manager.html" target="_blank" rel="noopener" style={{ color: 'var(--gold-bright)', fontWeight: 700 }}>{LV('⚙️ Quản lý Tàu & Giá (Admin Sync)', '⚙️ Fleet & Rate Manager (Admin)')}</a></li>
+                <li><a href="admin/cruise-manager.html" target="_blank" rel="noopener" style={{ color: 'var(--gold-bright)', fontWeight: 700 }}>{LV('🔒 Quản trị viên (Admin)', '🔒 Admin Login')}</a></li>
               </ul>
             </div>
           </div>

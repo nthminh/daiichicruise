@@ -33,8 +33,8 @@ const TOPIC_BANK = [
     slug: 'kinh-nghiem-du-thuyen-vinh-lan-ha-cat-ba-tu-a-z',
     region: 'Lan Ha',
     regionLabel: 'Vịnh Lan Hạ · Cát Bà',
-    image: 'assets/photos/luxury-1.jpg',
-    fallbackUrl: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=85',
+    image: 'assets/blog/vinh-lan-ha-cat-ba.jpg',
+    fallbackUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Lan_Ha_Bay-Cat_Ba_Vietnam-Andres_Larin.jpg/1280px-Lan_Ha_Bay-Cat_Ba_Vietnam-Andres_Larin.jpg',
     title: {
       vi: 'Kinh Nghiệm Đi Du Thuyền Vịnh Lan Hạ & Cát Bà Tự Túc Từ A–Z (Cập Nhật 2026)',
       en: 'Ultimate Lan Ha Bay & Cat Ba Cruise Guide from A–Z (2026 Edition)',
@@ -86,8 +86,8 @@ const TOPIC_BANK = [
     slug: 'so-sanh-vinh-ha-long-va-vinh-lan-ha-nen-di-dau',
     region: 'Ha Long',
     regionLabel: 'Vịnh Hạ Long · Vịnh Lan Hạ',
-    image: 'assets/photos/luxury-2.jpg',
-    fallbackUrl: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=85',
+    image: 'assets/blog/vinh-ha-long-real.jpg',
+    fallbackUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Ha_Long_Bay_in_2019.jpg/1280px-Ha_Long_Bay_in_2019.jpg',
     title: {
       vi: 'So Sánh Vịnh Hạ Long Và Vịnh Lan Hạ: Nên Chọn Hải Trình Nào Cho Kỳ Nghỉ 5 Sao?',
       en: 'Ha Long Bay vs. Lan Ha Bay: Which Luxury Cruise Route Should You Choose?',
@@ -139,8 +139,8 @@ const TOPIC_BANK = [
     slug: 'kham-pha-ninh-binh-trang-an-tam-coc-hang-mua-1-ngay',
     region: 'Ninh Binh',
     regionLabel: 'Ninh Bình · Tràng An · Tam Cốc',
-    image: 'assets/photos/daycruise-act-1.jpg',
-    fallbackUrl: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=85',
+    image: 'assets/blog/ninh-binh-tam-coc-hang-mua.jpg',
+    fallbackUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Tam_Coc_from_Summit_-_August_2023.jpg/1280px-Tam_Coc_from_Summit_-_August_2023.jpg',
     title: {
       vi: 'Cẩm Nang Du Lịch Ninh Bình: Tràng An, Tam Cốc, Hang Múa & Chùa Bái Đính Đẹp Nhất Mùa Nào?',
       en: 'Ninh Binh Travel Guide: Trang An, Tam Coc, Hang Mua & Bai Dinh Pagoda',
@@ -188,8 +188,8 @@ const TOPIC_BANK = [
     slug: 'lang-co-viet-hai-vien-ngoc-xanh-giua-vuon-quoc-gia-cat-ba',
     region: 'Lan Ha',
     regionLabel: 'Làng Cổ Việt Hải · Vịnh Lan Hạ',
-    image: 'assets/photos/daycruise-act-2.jpg',
-    fallbackUrl: 'https://images.unsplash.com/photo-1509030450996-dd1a26dda07a?auto=format&fit=crop&w=1200&q=85',
+    image: 'assets/blog/vuon-quoc-gia-cat-ba-viet-hai.jpg',
+    fallbackUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/View_from_Ngu_Lam_Peak%2C_Cat_Ba_Island%2C_Vietnam.jpg/1280px-View_from_Ngu_Lam_Peak%2C_Cat_Ba_Island%2C_Vietnam.jpg',
     title: {
       vi: 'Làng Cổ Việt Hải: Trải Nghiệm Đạp Xe Xuyên Thung Lũng Rừng Nguyên Sinh Cát Bà',
       en: 'Ancient Viet Hai Village: Cycling Through Cat Ba National Park Valley',
@@ -270,8 +270,8 @@ const TOPIC_BANK = [
     slug: 'lich-trinh-3-ngay-2-dem-ha-noi-ninh-binh-ha-long-lan-ha',
     region: 'Ha Long',
     regionLabel: 'Liên Tuyến · Ninh Bình · Hạ Long · Lan Hạ',
-    image: 'assets/photos/luxury-3.jpg',
-    fallbackUrl: 'https://images.unsplash.com/photo-1504457047772-27faf1c00561?auto=format&fit=crop&w=1200&q=85',
+    image: 'assets/blog/ninh-binh-trang-an.jpg',
+    fallbackUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Trang_An_Scenic_Landscape_Complex%2C_northern_Vietnam_%28265%29_%2837634801525%29.jpg/1280px-Trang_An_Scenic_Landscape_Complex%2C_northern_Vietnam_%28265%29_%2837634801525%29.jpg',
     title: {
       vi: 'Gợi Ý Lịch Trình 3 Ngày 2 Đêm Kết Hợp Ninh Bình – Vịnh Hạ Long – Vịnh Lan Hạ Đáng Giá Nhất',
       en: 'Best 3D2N Northern Vietnam Itinerary: Ninh Binh – Ha Long Bay – Lan Ha Bay',
@@ -320,7 +320,7 @@ const DAILY_DESTINATIONS = [
     regionLabel: 'Hang Sáng Tối · Vịnh Lan Hạ',
     place: 'Hang Sáng Tối (Vịnh Lan Hạ)',
     img: 'assets/photos/daycruise-2.jpg',
-    remoteImg: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=85',
+    remoteImg: '',
     focusVi: 'Trải nghiệm chèo thuyền kayak xuyên hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa Vịnh Lan Hạ và Vịnh Hạ Long',
     focusEn: 'Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay'
   },
@@ -328,8 +328,8 @@ const DAILY_DESTINATIONS = [
     region: 'Lan Ha',
     regionLabel: 'Bãi Tắm Ba Trái Đào · Vịnh Lan Hạ',
     place: 'Bãi Tắm Ba Trái Đào (Vịnh Lan Hạ)',
-    img: 'assets/photos/daycruise-3.jpg',
-    remoteImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85',
+    img: 'assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg',
+    remoteImg: '',
     focusVi: 'Bãi cát trắng hình cánh cung ôm trọn làn nước trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long',
     focusEn: 'Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay'
   },
@@ -338,7 +338,7 @@ const DAILY_DESTINATIONS = [
     regionLabel: 'Làng Chài Cổ Cái Bèo · Cát Bà',
     place: 'Làng Chài Cổ Cái Bèo (Cát Bà)',
     img: 'assets/photos/daycruise-1.jpg',
-    remoteImg: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=85',
+    remoteImg: '',
     focusVi: 'Khám phá cái nôi văn hóa biển cổ xưa nhất Việt Nam với hàng trăm ngôi nhà nổi yên bình ngay cửa ngõ tiến vào Vịnh Lan Hạ',
     focusEn: 'Exploring Vietnam’s oldest floating fishing village with centuries of maritime heritage at the gateway to Lan Ha Bay'
   },
@@ -346,8 +346,8 @@ const DAILY_DESTINATIONS = [
     region: 'Ninh Binh',
     regionLabel: 'Cố Đô Hoa Lư & Tràng An · Ninh Bình',
     place: 'Quần Thể Danh Thắng Tràng An (Ninh Bình)',
-    img: 'assets/photos/daycruise-act-3.jpg',
-    remoteImg: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=85',
+    img: 'assets/blog/ninh-binh-trang-an.jpg',
+    remoteImg: '',
     focusVi: 'Hành trình ngồi đò chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới Tràng An – Ninh Bình',
     focusEn: 'Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh'
   },
@@ -355,8 +355,8 @@ const DAILY_DESTINATIONS = [
     region: 'Ha Long',
     regionLabel: 'Hoàng Hôn Vịnh Hạ Long – Lan Hạ',
     place: 'Hoàng Hôn Trên Vịnh Hạ Long & Vịnh Lan Hạ',
-    img: 'assets/photos/daycruise-4.jpg',
-    remoteImg: 'https://images.unsplash.com/photo-1504457047772-27faf1c00561?auto=format&fit=crop&w=1200&q=85',
+    img: 'assets/blog/vinh-ha-long-dao-da.jpg',
+    remoteImg: '',
     focusVi: 'Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi trên hải trình Sunset Cruise và du thuyền ngủ đêm 5★',
     focusEn: 'Golden hour spectacle as the sun dips behind hundreds of limestone peaks aboard our Sunset Cruise and 5★ overnight ship'
   }
@@ -537,9 +537,9 @@ function buildHtmlPage(post) {
 
   <div class="cta-box">
     <div style="max-width:520px">
-      <div style="color:var(--gold);font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px">ĐẶT TRỰC TIẾP · GIÁ TỐT NHẤT 2026</div>
+      <div style="color:var(--gold);font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px">ĐẶT TRỰC TIẾP · GIÁ GỐC TỪ NHÀ TÀU</div>
       <div style="font-size:20px;font-weight:800;margin-bottom:4px">Trải Nghiệm Du Thuyền 5★ <span class="notranslate" translate="no">Daiichi Luxury</span> &amp; Xe Limousine Trọn Gói</div>
-      <div style="font-size:13.5px;color:rgba(255,255,255,.78)">Nhập mã <b class="notranslate" translate="no">EARLYBIRD12</b> giảm ngay 12% khi đặt trước 30 ngày. Hỗ trợ 24/7 qua Hotline 1900 9070 &amp; Zalo 0961 004 709.</div>
+      <div style="font-size:13.5px;color:rgba(255,255,255,.78)">Đặt trực tiếp không qua trung gian — Đã bao gồm các bữa ăn hải sản cao cấp, vé thắng cảnh, thuyền kayak &amp; bể sục Jacuzzi 4 mùa. Hỗ trợ 24/7 qua Hotline 1900 9070 &amp; Zalo 0961 004 709.</div>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
       <a class="btn-gold" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">Đặt Du Thuyền Ngay →</a>
@@ -550,7 +550,7 @@ function buildHtmlPage(post) {
   ${
     post.faqs && post.faqs.length
       ? `<div class="faq-sec">
-    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;color:var(--navy);font-size:24px;margin:0 0 14px">Câu Hỏi Thường Gặp (FAQ)</h2>
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;color:var(--navy);font-size:24px;margin:0 0 14px">Câu Hỏi Thường Gặp</h2>
     ${post.faqs.map((f) => `<details open><summary>${f.q}</summary><p>${f.a}</p></details>`).join('\n    ')}
   </div>`
       : ''

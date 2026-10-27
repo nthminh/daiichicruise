@@ -96,12 +96,12 @@
       `最受欢迎的兰哈湾一日游:\n${dayList()}\n市中心免费接送·12小时前免费取消。`,
       `Croisières du jour les plus appréciées :\n${dayList()}\nTransfert offert · annulation gratuite jusqu\u2019à 12 h.`]),
     lux: (i) => P([
-      `Du thuyền ngủ đêm 5★ Daiichi Luxury: 32 suite ban công riêng, từ ${i.p}/phòng (2N1Đ, 2 khách).${i.early ? ' Đang có ' + i.early + ' khi đặt trước 30 ngày!' : ''} Check-in 12:00 bến Got, Hải Phòng.`,
-      `Our 5★ overnight ship has 32 balcony suites from ${i.p}/cabin (2D1N, 2 guests).${i.early ? ' ' + i.early + ' is live for bookings 30 days ahead!' : ''} Check-in 12:00, Got Pier, Hai Phong.`,
-      `5つ星宿泊クルーズ：バルコニー付き32スイート、1室${i.p}〜（1泊2日・2名）。${i.early ? i.early + '実施中（30日前予約）！' : ''}`,
-      `5성급 1박 크루즈: 발코니 스위트 32실, 객실당 ${i.p}부터 (1박2일·2인).${i.early ? ' 30일 전 예약 시 ' + i.early + '!' : ''}`,
-      `五星过夜游轮：32间阳台套房，每间${i.p}起（两天一夜·2人）。${i.early ? '提前30天预订享' + i.early + '！' : ''}`,
-      `Croisière 5★ : 32 suites avec balcon dès ${i.p}/cabine (2J1N).${i.early ? ' ' + i.early + ' à J-30 !' : ''}`]),
+      `Du thuyền ngủ đêm 5★ Daiichi Luxury: 32 suite ban công riêng, từ ${i.p}/phòng (2N1Đ, 2 khách). Check-in 12:00 bến Got, Hải Phòng.`,
+      `Our 5★ overnight ship has 32 balcony suites from ${i.p}/cabin (2D1N, 2 guests). Check-in 12:00, Got Pier, Hai Phong.`,
+      `5つ星宿泊クルーズ：バルコニー付き32スイート、1室${i.p}〜（1泊2日・2名）。`,
+      `5성급 1박 크루즈: 발코니 스위트 32실, 객실당 ${i.p}부터 (1박2일·2인).`,
+      `五星过夜游轮：32间阳台套房，每间${i.p}起（两天一夜·2人）。`,
+      `Croisière 5★ : 32 suites avec balcon dès ${i.p}/cabine (2J1N).`]),
     promo: () => {
       const list = DT_CAMPAIGNS.active().filter((c) => c.off || c.offAmt);
       if (!list.length) return P(['Hiện chưa có khuyến mãi nào — quay lại sau nhé!', 'No active deals right now — check back soon!', '現在セールはありません。', '현재 진행 중인 할인이 없습니다.', '当前暂无优惠。', 'Pas de promo en ce moment.']);

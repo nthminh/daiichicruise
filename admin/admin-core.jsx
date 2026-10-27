@@ -94,29 +94,88 @@ const CHANNEL_LB = { web: 'Website', agent: 'Đại lý', pos: 'Quầy vé', ota
 
 function Badge({ kind, children }) { return <span className={'bo-badge ' + kind}>{children}</span>; }
 
-/* ---------- role login ---------- */
+/* ---------- role login (SHA-256 Password Protected) ---------- */
+const BO_ACCOUNT_HASHES = [
+  { user: 'chutich', role: 'manager', userPassHash: '841ea5779dced2697b69a37afc969f7cf5f0d563722e4b8dac7a5caa6ba6b7b3' },
+  { user: 'giamdoc', role: 'manager', userPassHash: '73ad6fa28aaaf9ad0eb216545ba9ddeba6964c9e141a1a352520acec3d7e5e25' },
+  { user: 'quanly', role: 'manager', userPassHash: '130af408060101230ea3f282eee93dcee71a2f3aa46f9834199696d0d782ccc0' },
+  { user: 'ketoan', role: 'manager', userPassHash: 'cfb757b1bb57193ee36c4f04ab1e49e6afa1edf28624cceae6b6524cead89d76' },
+  { user: 'marketing', role: 'manager', userPassHash: '4b22e9ac4d42ddacf2bbe41b81394004c3c73168b6cff2727bdefe18de64ad9d' },
+  { user: 'quay1', role: 'staff', userPassHash: 'f3c73f78273f121e8e242faf9ca607c2a1d3725efbe5ddf6614e27d3665ccbce' },
+  { user: 'hdv1', role: 'staff', userPassHash: '9307ff09ab04be854d516fd7d147197afdfd160d37290ad73d205b52a6cabe21' },
+  { user: 'taixe1', role: 'staff', userPassHash: '816e58ccbf2228affea38ab82134a002a0a72e04080b42cd31378731735bafba' },
+  { user: 'anphu', role: 'agent', userPassHash: 'df620721167e37c6b495ca7a30f9c57872e7f11e80671d9dd5c9ae73072343d3' },
+  { user: 'hungcuong', role: 'partner', userPassHash: 'bb3ad4c00c15f5098bfa5b0b557b8a7955054ed8cdbd95ce3d7d4d6a44d74c32' }
+];
+
+async function boSha256(str) {
+  const buf = new TextEncoder().encode(str);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hashBuffer)).map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
 function RoleLogin({ onPick }) {
-  const roles = [
-    { id: 'manager', lb: 'Quản lý', d: 'Dashboard · giá & khuyến mãi · báo cáo · đối tác', c: 'var(--navy)', Icon: BI.dash },
-    { id: 'staff', lb: 'Nhân viên quầy (POS)', d: 'Bán vé tại quầy · check-in · soát vé', c: 'var(--red)', Icon: BI.pos },
-    { id: 'agent', lb: 'Đại lý', d: 'Giá net · đặt hộ khách · công nợ & hoa hồng', c: 'var(--gold)', Icon: BI.users },
-    { id: 'partner', lb: 'Đối tác vận hành', d: 'Xe / tàu / tour của đơn vị ngoài bán trên nền tảng', c: '#2563A8', Icon: BI.ship || BI.wallet },
-  ];
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [err, setErr] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const u = String(username || '').trim().toLowerCase();
+    const p = String(password || '').trim();
+    if (!u || !p) {
+      setErr('Vui lòng nhập đầy đủ Tài khoản và Mật khẩu.');
+      return;
+    }
+    const h = await boSha256(u + ':' + p);
+    const matched = BO_ACCOUNT_HASHES.find((a) => a.userPassHash === h);
+    if (!matched) {
+      setErr('Sai tài khoản hoặc mật khẩu! Vui lòng kiểm tra lại.');
+      return;
+    }
+    sessionStorage.setItem('dt_admin_auth_v1', JSON.stringify({ user: matched.user, roleLabel: matched.role, ts: Date.now() }));
+    localStorage.setItem('dt_admin_auth_v1', JSON.stringify({ user: matched.user, roleLabel: matched.role, ts: Date.now() }));
+    onPick(matched.role);
+  };
+
   return (
     <div className="bo-login" data-screen-label="Đăng nhập Back Office">
-      <div className="bo-login-card">
+      <div className="bo-login-card" style={{ maxWidth: 420 }}>
         <div className="lg"><img src="../assets/brand/logo-DaiichiTravel.webp" alt="Daiichi" /></div>
         <h1>Daiichi Back Office</h1>
-        <div className="sub">Một hệ thống cho cả 4 thương hiệu — chọn vai trò để vào không gian làm việc (demo, không cần mật khẩu)</div>
-        <div className="bo-roles">
-          {roles.map((r) => (
-            <button key={r.id} className="bo-role" onClick={() => onPick(r.id)}>
-              <span className="ic" style={{ background: r.c }}><r.Icon size={20} /></span>
-              <span><b>{r.lb}</b><span className="d">{r.d}</span></span>
-              <span className="go">→</span>
-            </button>
-          ))}
-        </div>
+        <div className="sub">Hệ thống điều hành nội bộ — Vui lòng đăng nhập tài khoản được cấp phát</div>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 12, textAlign: 'left', marginTop: 16 }}>
+          <div>
+            <label style={{ display: 'block', fontSize: 12, fontWeight: 700, marginBottom: 5, color: 'var(--navy)' }}>Tài khoản đăng nhập</label>
+            <input
+              type="text"
+              required
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Ví dụ: giamdoc, quanly, quay1..."
+              style={{ width: '100%', padding: '10px 12px', borderRadius: 8, border: '1.5px solid #CBD5E1', fontSize: 14, boxSizing: 'border-box' }}
+            />
+          </div>
+          <div>
+            <label style={{ display: 'block', fontSize: 12, fontWeight: 700, marginBottom: 5, color: 'var(--navy)' }}>Mật khẩu bảo mật</label>
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Nhập mật khẩu..."
+              style={{ width: '100%', padding: '10px 12px', borderRadius: 8, border: '1.5px solid #CBD5E1', fontSize: 14, boxSizing: 'border-box' }}
+            />
+          </div>
+          {err && (
+            <div style={{ background: '#FEF2F2', color: '#DC2626', padding: '9px 12px', borderRadius: 8, fontSize: 12.5, fontWeight: 700 }}>
+              ⚠️ {err}
+            </div>
+          )}
+          <button type="submit" style={{ background: 'var(--navy)', color: '#fff', border: 'none', padding: '12px 18px', borderRadius: 8, fontSize: 14, fontWeight: 700, cursor: 'pointer', marginTop: 4 }}>
+            🔒 Đăng Nhập Hệ Thống →
+          </button>
+        </form>
       </div>
     </div>
   );

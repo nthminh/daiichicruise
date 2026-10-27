@@ -1441,8 +1441,19 @@ ${chosenList.map((s) => '  • ' + s).join('\n')}
    ============================================================ */
 function FlagshipShipsSection() {
   const sbProperties = window.DT_DATA?.SUPABASE?.properties || [];
+  const sbTours = window.DT_DATA?.SUPABASE?.tours || [];
+  const sbRoomTypes = window.DT_DATA?.SUPABASE?.roomTypes || [];
   const luxProp = sbProperties.find(p => (p.name || '').toLowerCase().includes('luxury'));
   const bqProp = sbProperties.find(p => (p.name || '').toLowerCase().includes('boutique'));
+
+  // Lấy giá thực tế thời điểm hiện tại từ Supabase (tours & property_room_types)
+  const luxTour = sbTours.find(t => (t.title || t.name || '').toLowerCase().includes('luxury'));
+  const bqTour = sbTours.find(t => (t.title || t.name || '').toLowerCase().includes('boutique'));
+  const seniorRt = sbRoomTypes.find(r => (r.name || '').toLowerCase().includes('senior') || (r.name || '').toLowerCase().includes('trip'));
+  const bqBalconyRt = sbRoomTypes.find(r => (r.name || '').toLowerCase().includes('balcony'));
+
+  const luxLivePrice = Number(luxTour?.price || seniorRt?.activePrice || seniorRt?.base_price || 5000000);
+  const bqLivePrice = Number(bqTour?.price || bqBalconyRt?.activePrice || bqBalconyRt?.base_price || 6065000);
 
   // Custom local overrides if any
   let customLux = [];
@@ -1477,7 +1488,7 @@ function FlagshipShipsSection() {
             <div className="lux-ship-badge">★★★★★ 5-STAR LUXURY</div>
             <div className="lux-ship-price-tag">
               <span>{LV('Giá từ', 'From')}</span>
-              <b>5.000.000đ</b>
+              <b>{luxLivePrice.toLocaleString('vi-VN')}đ</b>
               <span>{LV('/cabin 2 khách', '/2-guest suite')}</span>
             </div>
           </div>
@@ -1528,7 +1539,7 @@ function FlagshipShipsSection() {
             <div className="lux-ship-badge" style={{ background: '#78350F', color: '#FDE68A' }}>★★★★ BOUTIQUE HERITAGE</div>
             <div className="lux-ship-price-tag">
               <span>{LV('Giá từ', 'From')}</span>
-              <b>4.200.000đ</b>
+              <b>{bqLivePrice.toLocaleString('vi-VN')}đ</b>
               <span>{LV('/cabin 2 khách', '/2-guest cabin')}</span>
             </div>
           </div>
@@ -1938,8 +1949,24 @@ function RoomDetailModal({ room, onClose }) {
     else if (childAge === '5to10') childFee = Math.round(roomTotal * 0.38 * children);
   }
 
-  // Transfer fee: Limousine round-trip Hanoi ⇄ Boat (550.000đ/pax)
-  const transferRate = 550000;
+  // Transfer fee: Limousine round-trip Hanoi ⇄ Cat Ba based on live Supabase rate for travelDate
+  const oneWayLimoRate = getLiveSupabasePriceByRoute({
+    id: 'de1e3c84-7a38-4851-a7d5-b13a5dede06e',
+    from: 'Hà Nội',
+    to: 'Cát Bà',
+    keyword: 'limousine',
+    fallbackPrice: 330000,
+    dateStr: travelDate
+  });
+  const returnLimoRate = getLiveSupabasePriceByRoute({
+    id: '266ff4ad-94f8-4a26-b73a-1e8001bb62b3',
+    from: 'Cát Bà',
+    to: 'Hà Nội',
+    keyword: 'limousine',
+    fallbackPrice: 330000,
+    dateStr: travelDate
+  });
+  const transferRate = oneWayLimoRate + returnLimoRate;
   const transferTotal = transfer === 'limo' ? ((adults + (children > 0 && childAge !== 'under2' ? children : 0)) * transferRate) : 0;
 
   const grandTotal = roomTotal + childFee + transferTotal;
@@ -2079,8 +2106,8 @@ function RoomDetailModal({ room, onClose }) {
                 >
                   <input type="radio" checked={transfer === 'limo'} onChange={() => setTransfer('limo')} />
                   <div>
-                    <b>{LV('Phương án B: Kèm xe Limousine đưa đón 2 chiều (+550.000đ/khách)', 'Option B: Round-trip Limousine transfer (+550,000đ/guest)')}</b>
-                    <span>{LV('Đón trả tận nơi tại Phố Cổ Hà Nội thẳng đến cảng du thuyền và chiều ngược lại.', 'Door-to-door pickup in Ha Noi Old Quarter straight to the cruise harbor and back.')}</span>
+                    <b>{LV(`Phương án B: Kèm xe Limousine đưa đón 2 chiều (+${transferRate.toLocaleString('vi-VN')}đ/khách)`, `Option B: Round-trip Limousine transfer (+${transferRate.toLocaleString('vi-VN')}đ/guest)`)}</b>
+                    <span>{LV('Đón trả tận nơi tại Phố Cổ Hà Nội thẳng đến cảng du thuyền và chiều ngược lại (Giá cập nhật trực tiếp từ Supabase).', 'Door-to-door pickup in Ha Noi Old Quarter straight to the cruise harbor and back (Live Supabase rate).')}</span>
                   </div>
                 </div>
 
@@ -2327,17 +2354,84 @@ function CruiseItinerarySection() {
 }
 
 /* ============================================================
+   HELPER: LẤY GIÁ TRỰC TIẾP TỪ SUPABASE TẠI THỜI ĐIỂM HIỆN TẠI
+   ============================================================ */
+function getLiveSupabasePriceByRoute({ id, from, to, keyword, fallbackPrice = 0, dateStr }) {
+  const targetDate = dateStr || new Date().toISOString().split('T')[0];
+  if (window.DT_SUPABASE_SYNC && typeof window.DT_SUPABASE_SYNC.getLiveRoutePrice === 'function') {
+    const p = window.DT_SUPABASE_SYNC.getLiveRoutePrice({ id, from, to, keyword, fallbackPrice: 0, dateStr: targetDate });
+    if (p > 0) return p;
+  }
+  const routes = window.DT_DATA?.SUPABASE?.routes || [];
+  if (!routes.length) return fallbackPrice;
+
+  const computeRecordPrice = (rec) => {
+    if (!rec) return 0;
+    if (Array.isArray(rec.price_periods) && rec.price_periods.length > 0) {
+      const active = rec.price_periods.find((pp) => pp && pp.startDate <= targetDate && targetDate <= pp.endDate && Number(pp.price) > 0);
+      if (active) return Number(active.price);
+    }
+    return Number(rec.activePrice || rec.price || 0);
+  };
+
+  if (id) {
+    const foundById = routes.find((r) => r.id === id);
+    const pById = computeRecordPrice(foundById);
+    if (pById > 0) return pById;
+  }
+
+  const fromLower = String(from || '').trim().toLowerCase();
+  const toLower = String(to || '').trim().toLowerCase();
+  const kwLower = String(keyword || '').trim().toLowerCase();
+
+  const matches = routes.filter((r) => {
+    const nameLower = String(r.name || '').toLowerCase();
+    const depLower = String(r.departure_point || '').trim().toLowerCase();
+    const arrLower = String(r.arrival_point || '').trim().toLowerCase();
+    if (nameLower.includes('nguyên chuyến')) return false;
+    if (fromLower && !depLower.includes(fromLower)) return false;
+    if (toLower && !arrLower.includes(toLower)) return false;
+    if (kwLower && !nameLower.includes(kwLower)) return false;
+    return computeRecordPrice(r) > 0;
+  });
+
+  if (!matches.length) return fallbackPrice;
+  return Math.min(...matches.map(computeRecordPrice));
+}
+
+/* ============================================================
    SECTION 5: DAY CRUISES & COMBO TOURS
    ============================================================ */
 function DayCruisesHighlightSection() {
+  const vip1Price = getLiveSupabasePriceByRoute({
+    id: 'f936b00d-3757-4332-9616-249a48afb59d',
+    keyword: 'fullday vip 1',
+    fallbackPrice: 600000
+  });
+  const sunsetPrice = getLiveSupabasePriceByRoute({
+    id: '90fc0060-71ca-4070-9c82-d3774f26169f',
+    keyword: 'sunset cruise',
+    fallbackPrice: 400000
+  });
+  const vip5DinnerPrice = getLiveSupabasePriceByRoute({
+    id: 'c03a4c99-e98c-42f1-b604-e8993a77bdec',
+    keyword: 'vip 5',
+    fallbackPrice: 850000
+  });
+  const vip4Price = getLiveSupabasePriceByRoute({
+    id: '2622c6b5-522f-4421-b2b0-5ba3a49ec326',
+    keyword: 'vip 4',
+    fallbackPrice: 850000
+  });
+
   const DAY_TOURS = [
     {
       id: 'vip1',
       code: 'VIP 1',
       name: LV('Tour 1 Ngày Lan Hạ – Làng Việt Hải', 'Lan Ha – Viet Hai Full-Day (VIP 1)'),
       time: '08:00 – 16:30',
-      boat: LV('Tàu sắt 48 chỗ hiện đại', '48-pax Steel Boat'),
-      price: 720000,
+      boat: LV('Du thuyền Daiichi Cruise 4★', '4★ Daiichi Day Cruise'),
+      price: vip1Price,
       img: 'assets/photos/daycruise-1.jpg',
       perks: LV('Ăn trưa hải sản · Đạp xe Việt Hải · Kayak', 'Seafood Lunch · Cycling · Kayak')
     },
@@ -2346,41 +2440,41 @@ function DayCruisesHighlightSection() {
       code: 'SUNSET TEA',
       name: LV('Tour Hoàng Hôn Lan Hạ & Tiệc Trà Chiều', 'Lan Ha Sunset Cruise & Tea Party'),
       time: '15:30 – 18:45',
-      boat: LV('Tàu 2 tầng ngắm vịnh', '2-Deck Panoramic Boat'),
-      price: 430000,
+      boat: LV('Du thuyền 2 tầng ngắm vịnh', '2-Deck Panoramic Boat'),
+      price: sunsetPrice,
       img: 'assets/photos/daycruise-2.jpg',
       perks: LV('Tiệc trà bánh · Ngắm hoàng hôn vàng', 'Sunset Tea & Fruits · Golden Hour')
     },
     {
-      id: 'dinner',
-      code: 'DINNER DJ',
-      name: LV('Dinner Cruise DJ & Pháo Hoa Lan Hạ', 'Dinner Cruise DJ & Fireworks Show'),
-      time: '17:30 – 21:30',
+      id: 'vip4',
+      code: 'VIP 4 · 5 SAO',
+      name: LV('Du Thuyền Ngày 5★ Vịnh Lan Hạ – Việt Hải', '5★ Lan Ha Full-Day Luxury Cruise (VIP 4)'),
+      time: '08:00 – 16:30',
       boat: LV('Du thuyền 5★ 99 chỗ', '5★ 99-pax Ship'),
-      price: 850000,
-      img: 'assets/photos/daycruise-4.jpg',
-      perks: LV('Ăn tối lãng mạn · Nhạc DJ · Pháo hoa', 'Seafood Dinner · Live DJ · Fireworks')
+      price: vip4Price,
+      img: 'assets/photos/daycruise-act-1.jpg',
+      perks: LV('Buffet hải sản · Cầu trượt nước · Làng Việt Hải', 'Seafood Buffet · Water Slide · Viet Hai')
     },
     {
-      id: 'combo1',
-      code: 'COMBO ALL-IN',
-      name: LV('Combo Xe Đón Hà Nội + Du Thuyền Ngày', 'All-in Hanoi Limousine + Day Cruise'),
-      time: '06:00 – 20:30',
-      boat: LV('Xe Limousine + Du thuyền', 'Limousine + Cruise'),
-      price: 1250000,
-      img: 'assets/photos/daycruise-act-1.jpg',
-      perks: LV('Đón trả phố cổ Hà Nội · Trọn gói 1 ngày', 'Hanoi Pickup & Return · Full Day')
+      id: 'dinner',
+      code: 'VIP 5 · DINNER DJ',
+      name: LV('Tiệc BBQ DJ & Pháo Hoa Vịnh Lan Hạ 5★', '5★ BBQ Dinner Cruise, DJ & Fireworks (VIP 5)'),
+      time: '17:30 – 21:30',
+      boat: LV('Du thuyền 5★ 99 chỗ', '5★ 99-pax Ship'),
+      price: vip5DinnerPrice,
+      img: 'assets/photos/daycruise-4.jpg',
+      perks: LV('Tiệc BBQ hải sản · Nhạc DJ · Pháo hoa', 'Seafood BBQ · Live DJ · Fireworks')
     }
   ];
 
   return (
     <section className="lux-duo-sec" id="day-cruises" data-screen-label="Du Thuyền Ngày">
       <div className="lux-sec-header">
-        <div className="lux-sec-kicker">{LV('TRẢI NGHIỆM TRONG NGÀY', 'DAYTIME VOYAGES')}</div>
+        <div className="lux-sec-kicker">{LV('TRẢI NGHIỆM TRONG NGÀY · GIÁ TRỰC TIẾP SUPABASE', 'DAYTIME VOYAGES · LIVE RATES')}</div>
         <h2 className="lux-sec-title">{LV('Du Thuyền Ngày Lan Hạ & Tour Trọn Gói', 'Lan Ha Day Cruises & Day Packages')}</h2>
         <p className="lux-sec-sub">
           {LV(
-            'Dành cho du khách muốn khám phá trọn vẹn vẻ đẹp vịnh Lan Hạ với thời gian linh hoạt trong ngày. Khởi hành đều đặn mỗi sáng và chiều.',
+            'Dành cho du khách muốn khám phá trọn vẹn vẻ đẹp vịnh Lan Hạ với thời gian linh hoạt trong ngày. Giá vé tự động cập nhật theo giai đoạn hiện tại từ hệ thống Daiichi.',
             'Perfect for travelers with limited time seeking the finest day cruise experiences, sunset tea parties and dinner spectacles.'
           )}
         </p>
@@ -2401,7 +2495,7 @@ function DayCruisesHighlightSection() {
               <div style={{ fontSize: 12, color: '#047857', fontWeight: 600, marginBottom: 14 }}>{t.perks}</div>
               <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', borderTop: '1px solid #F1F5F9', paddingTop: 12 }}>
                 <div>
-                  <span style={{ fontSize: 11, color: '#64748B' }}>{LV('Giá từ', 'From')}</span>
+                  <span style={{ fontSize: 11, color: '#64748B' }}>{LV('Giá hiện tại', 'Current Rate')}</span>
                   <b style={{ color: 'var(--lux-red)', fontSize: 18, display: 'block' }}>{t.price.toLocaleString('vi-VN')}đ</b>
                 </div>
                 <span style={{ background: 'var(--lux-gold-grad)', color: '#111E2E', padding: '7px 14px', borderRadius: 8, fontSize: 12.5, fontWeight: 800 }}>
@@ -2417,14 +2511,108 @@ function DayCruisesHighlightSection() {
 }
 
 /* ============================================================
-   SECTION 6: LIMOUSINE TRANSFERS (CONCIERGE ADD-ON)
+   SECTION 6: LIMOUSINE TRANSFERS (CONCIERGE ADD-ON — LIVE SUPABASE)
    ============================================================ */
 function LimousineConciergeSection() {
+  // Lấy giá thực tế tại thời điểm hiện tại (theo price_periods trên Supabase)
+  const hnCbLimo11Price = getLiveSupabasePriceByRoute({
+    id: '694f0281-e864-4d1a-acd6-aebf5e8e2b8d',
+    from: 'Hà Nội',
+    to: 'Cát Bà',
+    keyword: 'limousine 11',
+    fallbackPrice: 330000
+  });
+  const hnCbLimo34Price = getLiveSupabasePriceByRoute({
+    id: '7bae1ba0-2861-4b9c-817f-86d5351f86e9',
+    from: 'Hà Nội',
+    to: 'Cát Bà',
+    keyword: 'limousine 34',
+    fallbackPrice: 310000
+  });
+  const hnCbBusPrice = getLiveSupabasePriceByRoute({
+    id: '3c61508b-52d6-4c22-b396-2dc74f7660dc',
+    from: 'Hà Nội',
+    to: 'Cát Bà',
+    keyword: 'bus',
+    fallbackPrice: 270000
+  });
+  const hnHpLimoPrice = getLiveSupabasePriceByRoute({
+    id: '9a168b39-dc4c-4f6c-834c-a392f8a8775d',
+    from: 'Hà Nội',
+    to: 'Hải Phòng',
+    keyword: 'limousine',
+    fallbackPrice: 190000
+  });
+  const nbCbLimoPrice = getLiveSupabasePriceByRoute({
+    id: 'e071b640-27e7-4b30-be97-e1a43e03898c',
+    from: 'Ninh Bình',
+    to: 'Cát Bà',
+    keyword: 'limousine',
+    fallbackPrice: 270000
+  });
+  const nbCbBusPrice = getLiveSupabasePriceByRoute({
+    id: '6e1509af-d36f-4564-a062-c41be7ad645f',
+    from: 'Ninh Bình',
+    to: 'Cát Bà',
+    keyword: 'bus',
+    fallbackPrice: 220000
+  });
+  const hnHlLimoPrice = getLiveSupabasePriceByRoute({
+    id: '5d170b73-b90f-4547-9384-d38da100578f',
+    from: 'Hà Nội',
+    to: 'Hạ Long',
+    keyword: 'limousine',
+    fallbackPrice: 330000
+  });
+  const hnNbLimoPrice = getLiveSupabasePriceByRoute({
+    id: '7ca1c9ed-cea1-476d-830d-65406985735e',
+    from: 'Hà Nội',
+    to: 'Ninh Bình',
+    keyword: 'limousine',
+    fallbackPrice: 190000
+  });
+
   const ROUTES = [
-    { from: 'Hà Nội (Phố Cổ / Nội Bài)', to: 'Cát Bà (Bến tàu Du thuyền)', time: '3h00', price: 250000, desc: 'Xe Limousine + Tàu cao tốc qua đảo' },
-    { from: 'Hà Nội', to: 'Hải Phòng', time: '1h45', price: 140000, desc: 'Đón trả tận nơi nội thành' },
-    { from: 'Ninh Bình (Tràng An / Tam Cốc)', to: 'Cát Bà', time: '3h30', price: 250000, desc: 'Xe Limousine đón tại khách sạn' },
-    { from: 'Hạ Long (Tuần Châu / Bãi Cháy)', to: 'Cát Bà', time: '1h30', price: 280000, desc: 'Kết nối 2 vịnh di sản' },
+    {
+      from: 'Hà Nội',
+      to: 'Cát Bà',
+      labelFrom: 'Hà Nội (Phố Cổ)',
+      labelTo: 'Cát Bà (Bến Du thuyền)',
+      time: '3h00',
+      price: hnCbLimo11Price,
+      subNote: `Limo 34 ghế: ${hnCbLimo34Price.toLocaleString('vi-VN')}đ · Bus 45 chỗ: ${hnCbBusPrice.toLocaleString('vi-VN')}đ`,
+      desc: 'Limousine 11 ghế / Limogreen 7 chỗ + Tàu cao tốc'
+    },
+    {
+      from: 'Hà Nội',
+      to: 'Hải Phòng',
+      labelFrom: 'Hà Nội',
+      labelTo: 'Hải Phòng',
+      time: '1h45',
+      price: hnHpLimoPrice,
+      subNote: 'Limogreen 7 chỗ: 210.000đ',
+      desc: 'Xe Limousine 11 ghế đón trả tận nơi'
+    },
+    {
+      from: 'Ninh Bình',
+      to: 'Cát Bà',
+      labelFrom: 'Ninh Bình (Tràng An / Tam Cốc)',
+      labelTo: 'Cát Bà',
+      time: '3h30',
+      price: nbCbLimoPrice,
+      subNote: `Xe Bus 45 chỗ: ${nbCbBusPrice.toLocaleString('vi-VN')}đ/khách`,
+      desc: 'Xe Limousine đón tại khách sạn'
+    },
+    {
+      from: 'Hà Nội',
+      to: 'Hạ Long',
+      labelFrom: 'Hà Nội / Hải Phòng',
+      labelTo: 'Hạ Long / Ninh Bình',
+      time: '2h00',
+      price: hnHlLimoPrice,
+      subNote: `Hà Nội ⇄ Ninh Bình Limo: ${hnNbLimoPrice.toLocaleString('vi-VN')}đ`,
+      desc: 'Xe Limousine cao cấp kết nối di sản'
+    }
   ];
 
   return (
@@ -2438,20 +2626,25 @@ function LimousineConciergeSection() {
             </h3>
           </div>
           <span style={{ fontSize: 13, color: '#16A34A', fontWeight: 700, background: '#DCFCE7', padding: '6px 14px', borderRadius: 20 }}>
-            ✓ {LV('Đón trả tận nơi Phố Cổ Hà Nội · Giá đã gồm VAT', 'Old Quarter Hotel Pickup · Official Rates')}
+            ✓ {LV('Giá thời gian thực từ Supabase · Đón trả Phố Cổ Hà Nội', 'Live Supabase Rates · Old Quarter Hotel Pickup')}
           </span>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
           {ROUTES.map((r, i) => (
-            <a key={i} href={`https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(r.from)}&to=${encodeURIComponent(r.to)}`} target="_blank" rel="noopener" style={{ background: '#F8FAFC', border: '1.5px solid #E2E8F0', borderRadius: 14, padding: '16px 18px', textDecoration: 'none', transition: 'all .2s' }}>
+            <a key={i} href={`https://daiichitravel.com/?tab=book-ticket&from=${encodeURIComponent(r.from)}&to=${encodeURIComponent(r.to)}`} target="_blank" rel="noopener" style={{ background: '#F8FAFC', border: '1.5px solid #E2E8F0', borderRadius: 14, padding: '16px 18px', textDecoration: 'none', transition: 'all .2s', display: 'flex', flexDirection: 'column' }}>
               <div style={{ fontSize: 14.5, fontWeight: 700, color: 'var(--navy)', marginBottom: 4 }}>
-                {LV(r.from)} → {LV(r.to)}
+                {LV(r.labelFrom)} → {LV(r.labelTo)}
               </div>
-              <div style={{ fontSize: 12, color: '#64748B', marginBottom: 10 }}>⏱ {r.time} · {LV(r.desc)}</div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                <span style={{ fontSize: 11, color: '#64748B' }}>{LV('Giá chỉ từ', 'From')}</span>
-                <b style={{ color: 'var(--lux-red)', fontSize: 16 }}>{r.price.toLocaleString('vi-VN')}đ<em style={{ fontSize: 11, fontStyle: 'normal', color: '#64748B', marginLeft: 3 }}>{LV('/khách', '/pax')}</em></b>
+              <div style={{ fontSize: 12, color: '#64748B', marginBottom: 6 }}>⏱ {r.time} · {LV(r.desc)}</div>
+              {r.subNote && (
+                <div style={{ fontSize: 11, color: '#0F766E', fontWeight: 600, background: '#F0FDFA', padding: '4px 8px', borderRadius: 6, marginBottom: 10 }}>
+                  {r.subNote}
+                </div>
+              )}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginTop: 'auto', paddingTop: 6, borderTop: '1px dashed #E2E8F0' }}>
+                <span style={{ fontSize: 11, color: '#64748B' }}>{LV('Giá hiện tại', 'Current Rate')}</span>
+                <b style={{ color: 'var(--lux-red)', fontSize: 16.5 }}>{r.price.toLocaleString('vi-VN')}đ<em style={{ fontSize: 11, fontStyle: 'normal', color: '#64748B', marginLeft: 3 }}>{LV('/khách', '/pax')}</em></b>
               </div>
             </a>
           ))}
@@ -3857,12 +4050,39 @@ function NauticalCompassBadge() {
    FLOATING FAST-TRANSIT BUS PORTAL
    ============================================================ */
 function FloatingFastBusPortal({ isOpen, setIsOpen }) {
+  const hnHpLive = getLiveSupabasePriceByRoute({
+    id: '9a168b39-dc4c-4f6c-834c-a392f8a8775d',
+    from: 'Hà Nội',
+    to: 'Hải Phòng',
+    fallbackPrice: 190000
+  });
+  const hnCbBusLive = getLiveSupabasePriceByRoute({
+    id: '3c61508b-52d6-4c22-b396-2dc74f7660dc',
+    from: 'Hà Nội',
+    to: 'Cát Bà',
+    keyword: 'bus',
+    fallbackPrice: 270000
+  });
+  const hnCbLimoLive = getLiveSupabasePriceByRoute({
+    id: '694f0281-e864-4d1a-acd6-aebf5e8e2b8d',
+    from: 'Hà Nội',
+    to: 'Cát Bà',
+    keyword: 'limousine',
+    fallbackPrice: 330000
+  });
+  const hpCbLive = getLiveSupabasePriceByRoute({
+    id: '9ef6a528-986e-4568-b230-b60c9bd3a14e',
+    from: 'Hải Phòng',
+    to: 'Cát Bà',
+    fallbackPrice: 200000
+  });
+
   return (
     <div className="lux-floating-bus-widget">
       {!isOpen && (
         <div className="lux-bus-badge-label" onClick={() => setIsOpen(true)} style={{ cursor: 'pointer', pointerEvents: 'auto' }}>
           <span>🚌</span>
-          <span>{LV('ĐẶT XE BUS', 'BOOK BUS')} <strong>{LV('CHỈ TỪ 90K', 'FROM 90K')}</strong></span>
+          <span>{LV('ĐẶT XE BUS & LIMO', 'BOOK BUS & LIMO')} <strong>{LV(`TỪ ${(hnHpLive / 1000).toFixed(0)}K`, `FROM ${(hnHpLive / 1000).toFixed(0)}K`)}</strong></span>
           <span className="bus-pulse-dot"></span>
         </div>
       )}
@@ -3889,13 +4109,13 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
         <div className="lux-bus-popup-card">
           <div className="lux-bus-popup-head">
             <h4>
-              <span>⚡</span> <span>{LV('VÉ XE BUS DAIICHI TRAVEL', 'DAIICHI TRAVEL BUS TICKETS')}</span>
+              <span>⚡</span> <span>{LV('VÉ XE BUS & LIMOUSINE DAIICHI', 'DAIICHI BUS & LIMOUSINE TICKETS')}</span>
             </h4>
             <button type="button" className="lux-bus-close-btn" onClick={() => setIsOpen(false)}>✕</button>
           </div>
 
           <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', marginBottom: 12 }}>
-            {LV('Hệ thống xe khách & Limousine cao tốc 5B chất lượng cao của Daiichi:', 'Daiichi high-quality 5B highway Bus & Limousine network:')}
+            {LV('Giá vé thực tế cập nhật trực tiếp từ hệ thống Supabase hôm nay:', 'Live ticket prices synced directly from Supabase today:')}
           </div>
 
           {/* Route 1: Hà Nội - Hải Phòng */}
@@ -3908,11 +4128,11 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
           >
             <div>
               <div className="lux-bus-route-title notranslate" translate="no">{LV('Hà Nội', 'Ha Noi')} ⇄ {LV('Hải Phòng', 'Hai Phong')}</div>
-              <div className="lux-bus-route-desc">{LV('Xe Bus 45 chỗ đời mới · Cao tốc 5B', 'New 45-seat Bus · 5B Highway')}</div>
+              <div className="lux-bus-route-desc">{LV('Xe Limousine 11 ghế / Limogreen 7 chỗ · Cao tốc 5B', 'Limousine 11-seat / Limogreen 7-seat · 5B Highway')}</div>
             </div>
             <div className="lux-bus-route-price promo">
-              {LV('Từ 90.000đ', 'From 90,000đ')}
-              <span>{LV('Ưu đãi Like Page HP', 'HP Page Promo')}</span>
+              {hnHpLive.toLocaleString('vi-VN')}đ
+              <span>{LV('Đón trả tận nơi', 'Door-to-door pickup')}</span>
             </div>
           </a>
 
@@ -3926,11 +4146,11 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
           >
             <div>
               <div className="lux-bus-route-title notranslate" translate="no">{LV('Hà Nội', 'Ha Noi')} ⇄ {LV('Cát Bà', 'Cat Ba')}</div>
-              <div className="lux-bus-route-desc">{LV('Trọn gói Bus + Tàu cao tốc riêng', 'All-in Bus + Private Speedboat')}</div>
+              <div className="lux-bus-route-desc">{LV('Trọn gói Xe + Tàu cao tốc riêng qua đảo', 'All-in Bus/Limo + Private Speedboat')}</div>
             </div>
             <div className="lux-bus-route-price">
-              {LV('Từ 150k - 250k', 'From 150k - 250k')}
-              <span>{LV('Đón trả tận khách sạn', 'Hotel pickup & drop-off')}</span>
+              {`${(hnCbBusLive / 1000).toFixed(0)}k - ${(hnCbLimoLive / 1000).toFixed(0)}k`}
+              <span>{LV('Bus 45 chỗ & Limousine', '45-seat Bus & Limousine')}</span>
             </div>
           </a>
 
@@ -3944,11 +4164,11 @@ function FloatingFastBusPortal({ isOpen, setIsOpen }) {
           >
             <div>
               <div className="lux-bus-route-title notranslate" translate="no">{LV('Hải Phòng', 'Hai Phong')} ⇄ {LV('Cát Bà', 'Cat Ba')}</div>
-              <div className="lux-bus-route-desc">{LV('Xe đón tại VP 713 Phạm Văn Đồng', 'Pickup at 713 Pham Van Dong Office')}</div>
+              <div className="lux-bus-route-desc">{LV('Xe điện Limogreen 7 chỗ · Chạy liên tục', 'Limogreen 7-seat EV · Frequent departures')}</div>
             </div>
             <div className="lux-bus-route-price">
-              {LV('Từ 170.000đ', 'From 170,000đ')}
-              <span>{LV('Chuyến chạy liên tục', 'Frequent daily departures')}</span>
+              {hpCbLive.toLocaleString('vi-VN')}đ
+              <span>{LV('Giá trực tiếp Supabase', 'Live Supabase Rate')}</span>
             </div>
           </a>
 

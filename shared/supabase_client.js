@@ -48,17 +48,79 @@
     return bookedSeatIds.size;
   }
 
+  // Calculate active price for a record at a given date (YYYY-MM-DD), prioritizing price_periods
+  function getActivePriceForDate(record, dateStr) {
+    if (!record) return 0;
+    const targetDate = dateStr || new Date().toISOString().split('T')[0];
+    if (Array.isArray(record.price_periods) && record.price_periods.length > 0) {
+      const matchedPeriod = record.price_periods.find((p) => {
+        if (!p || !p.startDate || !p.endDate) return false;
+        return p.startDate <= targetDate && targetDate <= p.endDate && Number(p.price) > 0;
+      });
+      if (matchedPeriod) {
+        return Number(matchedPeriod.price);
+      }
+    }
+    return Number(record.price || record.base_price || 0);
+  }
+
+  // Helper to lookup live price from Supabase routes at current date
+  function getLiveRoutePrice({ id, from, to, keyword, excludeKeyword, mode = 'min', fallbackPrice = 0, dateStr }) {
+    const routes = SupabaseSyncState.routes || (window.DT_DATA && window.DT_DATA.SUPABASE && window.DT_DATA.SUPABASE.routes) || [];
+    if (!routes.length) return fallbackPrice;
+
+    if (id) {
+      const byId = routes.find((r) => r.id === id);
+      if (byId) {
+        const p = getActivePriceForDate(byId, dateStr);
+        if (p > 0) return p;
+      }
+    }
+
+    const fromLower = (from || '').trim().toLowerCase();
+    const toLower = (to || '').trim().toLowerCase();
+    const kwLower = (keyword || '').trim().toLowerCase();
+    const exLower = (excludeKeyword || '').trim().toLowerCase();
+
+    const candidates = routes.filter((r) => {
+      const nameLower = String(r.name || '').toLowerCase();
+      const depLower = String(r.departure_point || '').trim().toLowerCase();
+      const arrLower = String(r.arrival_point || '').trim().toLowerCase();
+
+      if (fromLower && !depLower.includes(fromLower)) return false;
+      if (toLower && !arrLower.includes(toLower)) return false;
+      if (kwLower && !nameLower.includes(kwLower)) return false;
+      if (exLower && nameLower.includes(exLower)) return false;
+      // Ignore whole-vehicle charter prices (>= 1,500,000) when looking for per-pax ticket price
+      const p = getActivePriceForDate(r, dateStr);
+      if (p <= 0 || nameLower.includes('nguyên chuyến')) return false;
+      return true;
+    });
+
+    if (!candidates.length) return fallbackPrice;
+    const prices = candidates.map((c) => getActivePriceForDate(c, dateStr)).filter((p) => p > 0);
+    if (!prices.length) return fallbackPrice;
+    return mode === 'max' ? Math.max(...prices) : Math.min(...prices);
+  }
+
   // Map and enrich DT_DATA with Supabase records
   function applySupabaseDataToDT(data) {
     if (!window.DT_DATA) return;
+    const todayStr = new Date().toISOString().split('T')[0];
 
-    SupabaseSyncState.routes = data.routes || [];
+    SupabaseSyncState.routes = (data.routes || []).map((r) => ({
+      ...r,
+      activePrice: getActivePriceForDate(r, todayStr)
+    }));
     SupabaseSyncState.trips = data.trips || [];
     SupabaseSyncState.tours = data.tours || [];
     SupabaseSyncState.vehicles = data.vehicles || [];
     SupabaseSyncState.stops = data.stops || [];
     SupabaseSyncState.properties = data.properties || [];
-    SupabaseSyncState.roomTypes = data.property_room_types || data.roomTypes || [];
+    SupabaseSyncState.roomTypes = (data.property_room_types || data.roomTypes || []).map((rt) => ({
+      ...rt,
+      activePrice: getActivePriceForDate(rt, todayStr)
+    }));
     SupabaseSyncState.bookings = data.bookings || [];
     SupabaseSyncState.lastSynced = new Date();
 
@@ -76,15 +138,15 @@
       syncedAt: SupabaseSyncState.lastSynced
     };
 
-    // 2. Synchronize Bus Routes & real pricing into DT_DATA.BUS
+    // 2. Synchronize Bus Routes & real pricing at current date into DT_DATA.BUS
     const sbBusRoutes = SupabaseSyncState.routes.filter(r => {
       const name = (r.name || '').toLowerCase();
-      return !name.includes('tour') && !name.includes('du thuyền') && !name.includes('cruise') && !name.includes('tiệc bbq');
+      return !name.includes('tour') && !name.includes('du thuyền') && !name.includes('cruise') && !name.includes('tiệc bbq') && !name.includes('nguyên chuyến');
     });
 
-    if (sbBusRoutes.length > 0) {
+    if (sbBusRoutes.length > 0 && Array.isArray(window.DT_DATA.BUS)) {
       sbBusRoutes.forEach(sbr => {
-        const price = sbr.price || 250000;
+        const price = getActivePriceForDate(sbr, todayStr) || sbr.price || 250000;
         const dep = sbr.departure_point || '';
         const arr = sbr.arrival_point || '';
 
@@ -105,19 +167,19 @@
         if (matched) {
           matched.supabaseId = sbr.id;
           matched.low = price;
-          matched.high = sbr.price_periods?.high || Math.round(price * 1.15);
+          matched.high = sbr.price || Math.round(price * 1.15);
           matched.supabaseName = sbr.name;
         }
       });
     }
 
-    // 3. Synchronize Day Cruises from Supabase routes into DT_DATA.DAY_TOURS
+    // 3. Synchronize Day Cruises from Supabase routes at current date into DT_DATA.DAY_TOURS
     const sbCruiseRoutes = SupabaseSyncState.routes.filter(r => {
       const name = (r.name || '').toLowerCase();
       return name.includes('tour') || name.includes('du thuyền') || name.includes('cruise') || name.includes('tiệc bbq');
     });
 
-    if (sbCruiseRoutes.length > 0) {
+    if (sbCruiseRoutes.length > 0 && Array.isArray(window.DT_DATA.DAY_TOURS)) {
       sbCruiseRoutes.forEach(scr => {
         const nameLower = (scr.name || '').toLowerCase();
         let targetId = null;
@@ -131,9 +193,11 @@
         if (targetId) {
           const dtTour = window.DT_DATA.DAY_TOURS.find(t => t.id === targetId);
           if (dtTour) {
+            const activePrice = getActivePriceForDate(scr, todayStr) || scr.price || dtTour.peak;
             dtTour.supabaseId = scr.id;
-            dtTour.peak = scr.price || dtTour.peak;
-            dtTour.low = Math.round((scr.price || dtTour.peak) * 0.9);
+            dtTour.activePrice = activePrice;
+            dtTour.peak = activePrice;
+            dtTour.low = activePrice;
             dtTour.supabaseTitle = scr.name;
           }
         }
@@ -153,10 +217,11 @@
         else if (rtName.includes('trip') || rtName.includes('junior')) matched = window.DT_DATA.SUITES.find(s => s.id === 'junior');
 
         if (matched) {
+          const activePrice = getActivePriceForDate(rt, todayStr) || rt.base_price;
           matched.supabaseId = rt.id;
-          matched.basePrice = rt.base_price;
-          matched.n1 = rt.base_price;
-          matched.n2 = Math.round(rt.base_price * 1.85);
+          matched.basePrice = activePrice;
+          matched.n1 = activePrice;
+          matched.n2 = Math.round(activePrice * 1.85);
           matched.totalUnits = rt.total_units || matched.count;
           matched.areaSqm = rt.area_sqm;
           matched.capacityAdults = rt.capacity_adults;
@@ -169,7 +234,7 @@
 
     // 5. Notify React components about the live synced data
     window.dispatchEvent(new CustomEvent('dt:supabase_synced', { detail: SupabaseSyncState }));
-    console.log('✅ [Supabase Sync] Đã nạp thành công dữ liệu Supabase vào hệ thống Daiichi!');
+    console.log('✅ [Supabase Sync] Đã nạp thành công dữ liệu giá thời gian thực từ Supabase vào hệ thống Daiichi!');
   }
 
   // Load data: try live Supabase API first, fallback to cached JSON
@@ -355,7 +420,9 @@
     fetchTable: fetchSupabaseTable,
     getTripsWithAvailability,
     buildBookingDeepLink,
-    getBookedSeatCount
+    getBookedSeatCount,
+    getActivePriceForDate,
+    getLiveRoutePrice
   };
 
 })(window);

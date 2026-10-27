@@ -1,0 +1,38 @@
+name: Auto Daily SEO Blog & Image Publisher (Lan Ha · Ha Long · Ninh Binh)
+
+on:
+  schedule:
+    # Chạy tự động mỗi ngày lúc 07:00 sáng giờ Việt Nam (00:00 UTC)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Cho phép bấm chạy thủ công bất kỳ lúc nào trên GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  publish-daily-seo-post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate Daily SEO Blog Post, Photo & Update Sitemap
+        run: node scripts/auto_daily_seo_blog.mjs --daily
+
+      - name: Commit & Push new SEO Blog Post
+        run: |
+          git config user.name "Daiichi SEO AutoBot"
+          git config user.email "marketing@daiichigroup.net"
+          git add seo/blog/ shared/blog_posts.js assets/blog/ sitemap.xml
+          if git diff --staged --quiet; then
+            echo "No new blog changes today."
+          else
+            git commit -m "chore(seo): auto-publish daily Lan Ha / Ha Long / Ninh Binh article & photo ($(date +%Y-%m-%d))"
+            git push
+          fi
+

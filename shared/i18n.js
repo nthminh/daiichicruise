@@ -37,7 +37,7 @@
     nav_tour: ['Tour trọn gói', 'Package Tours', 'パッケージツアー', '패키지 투어', '跟团游', 'Circuits tout compris'],
     nav_mybooking: ['Tra cứu vé', 'My Booking', '予約確認', '예약 조회', '查询订单', 'Ma réservation'],
     nav_agent: ['Đại lý & Quản trị', 'Agents & Admin', '代理店・管理', '대리점 & 관리자', '代理与管理', 'Agents & Admin'],
-    hero_title: ['Vịnh Lan Hạ bắt đầu từ một cú chạm', 'Lan Ha Bay, one tap away', 'ランハ湾へ、ワンタップで', '란하베이, 한 번의 터치로', '兰哈湾，一触即达', 'La baie de Lan Ha, à portée de main'],
+    hero_title: ['Vịnh Lan Hạ bắt đầu từ một cú chạm', 'Lan Ha Bay, one tap away', 'Lan Ha 湾へ、ワンタップで', 'Lan Ha 베이, 한 번의 터치로', 'Lan Ha 湾，一触即达', 'La baie de Lan Ha, à portée de main'],
     hero_sub: ['Đặt xe limousine, tàu cao tốc, du thuyền ngày & du thuyền ngủ đêm 5★ — giá niêm yết, xác nhận tức thì.', 'Book limousine buses, speedboats, day cruises & 5★ overnight cruises — official rates, instant confirmation.', 'リムジンバス、高速船、デイクルーズ、5つ星宿泊クルーズを公式料金で即時予約。', '리무진 버스, 쾌속선, 데이 크루즈, 5성급 크루즈 — 공식 요금, 즉시 확정.', '预订豪华巴士、快艇、日间游轮和五星级过夜游轮 — 官方价格，即时确认。', 'Réservez bus limousine, bateaux rapides et croisières 5★ — tarifs officiels, confirmation immédiate.'],
     tab_bus: ['Xe & Limousine', 'Bus & Limo', 'バス', '버스', '巴士', 'Bus'],
     tab_day: ['Du thuyền ngày', 'Day Cruise', 'デイクルーズ', '데이 크루즈', '日间游轮', 'Croisière du jour'],
@@ -118,7 +118,7 @@
     lookup_title: ['Tra cứu đặt chỗ', 'Find my booking', '予約検索', '예약 찾기', '查询预订', 'Retrouver ma réservation'],
     lookup_hint: ['Nhập mã đặt chỗ (VD: DT26-8X4K2)', 'Enter booking code (e.g. DT26-8X4K2)', '予約コードを入力', '예약 코드 입력', '输入预订编号', 'Saisissez le code'],
     lookup_notfound: ['Không tìm thấy. Kiểm tra lại mã đặt chỗ.', 'Not found. Check your code.', '見つかりません。', '찾을 수 없습니다.', '未找到。', 'Introuvable.'],
-    footer_co: ['Công ty TNHH Du lịch Daiichi · Daiichi Travel Co., Ltd', 'Daiichi Travel Co., Ltd', 'Daiichi Travel Co., Ltd', 'Daiichi Travel Co., Ltd', 'Daiichi Travel 有限公司', 'Daiichi Travel Co., Ltd'],
+    footer_co: ['Công ty TNHH Du lịch Daiichi · Daiichi Travel Co., Ltd', 'Daiichi Travel Co., Ltd', 'Daiichi Travel Co., Ltd', 'Daiichi Travel Co., Ltd', 'Daiichi Travel Co., Ltd', 'Daiichi Travel Co., Ltd'],
     footer_merge: ['daiichitravel.vn · daiichitravel.com · lanhacruises.vn · daiichibus.vn — nay là một.', 'daiichitravel.vn · daiichitravel.com · lanhacruises.vn · daiichibus.vn — now one platform.', '4つのサイトが1つに統合されました。', '4개 웹사이트가 하나로 통합되었습니다.', '四个网站现已合并为一。', 'Quatre sites, désormais une seule plateforme.'],
     night1: ['2 ngày 1 đêm', '2 days 1 night', '1泊2日', '1박 2일', '两天一夜', '2 jours 1 nuit'],
     night2: ['3 ngày 2 đêm', '3 days 2 nights', '2泊3日', '2박 3일', '三天两夜', '3 jours 2 nuits'],
@@ -197,7 +197,7 @@
     addon_ins_d: ['Tai nạn & y tế tới 100 triệu đ/khách — đối tác bảo hiểm được cấp phép', 'Accident & medical cover up to 100M₫ per guest — licensed insurer', '傷害・医療補償 最大1億ドン/名', '상해·의료 보장 최대 1억 동/인', '意外及医疗保障最高1亿越南盾/人', 'Couverture accident & médicale jusqu\u2019à 100 M₫/pers.'],
     addon_bike: ['Xe đạp / ván SUP', 'Bicycle / SUP board', '自転車・SUPボード', '자전거/SUP 보드', '自行车/桨板', 'Vélo / planche SUP'],
     addon_pet: ['Thú cưng (lồng kín)', 'Pet in carrier', 'ペット（ケージ）', '반려동물(케이지)', '宠物（笼装）', 'Animal en cage'],
-    addon_airport: ['Đón tại sân bay Nội Bài', 'Noi Bai Airport pickup', 'ノイバイ空港送迎', '노이바이 공항 픽업', '内排机场接机', 'Prise en charge aéroport Noi Bai'],
+    addon_airport: ['Đón tại sân bay Nội Bài', 'Noi Bai Airport pickup', 'Noi Bai 空港送迎', 'Noi Bai 공항 픽업', 'Noi Bai 机场接机', 'Prise en charge aéroport Noi Bai'],
     per_guest: ['/khách', '/guest', '/名', '/인', '/人', '/pers.'],
     qr_dynamic: ['QR động — tự đổi sau', 'Dynamic QR — refreshes in', '動的QR — 更新まで', '동적 QR — 갱신까지', '动态二维码 — 刷新于', 'QR dynamique — actualisation dans'],
     qr_anti: ['chống chụp màn hình / bán lại vé', 'blocks screenshots & resale', 'スクリーンショット・転売防止', '캡처·재판매 방지', '防截图防转卖', 'anti-capture et revente'],
@@ -208,30 +208,333 @@
     apply_done: ['✓ Đã nhận hồ sơ! Bộ phận nhân sự sẽ liên hệ trong 3 ngày làm việc.', '✓ Application received! HR will contact you within 3 working days.', '✓ 応募を受け付けました！3営業日以内にご連絡します。', '✓ 접수되었습니다! 3영업일 내 연락드립니다.', '✓ 已收到申请！3个工作日内联系您。', '✓ Candidature reçue ! Réponse sous 3 jours ouvrés.'],
   };
 
+  /* ============================================================
+     REACT + GOOGLE TRANSLATE / PROPER NOUN DOM SAFETY PATCH
+     Prevents NotFoundError when external translators or notranslate
+     wrappers wrap text nodes managed by React Fiber.
+     ============================================================ */
+  if (typeof Node === 'function' && Node.prototype && !Node.prototype._dtPatched) {
+    Node.prototype._dtPatched = true;
+    const origRemoveChild = Node.prototype.removeChild;
+    Node.prototype.removeChild = function (child) {
+      if (child && child.parentNode !== this) {
+        if (child._dtWrap && child._dtWrap.parentNode === this) {
+          return origRemoveChild.call(this, child._dtWrap);
+        }
+        let p = child.parentNode;
+        while (p && p !== this) {
+          if (p.parentNode === this) {
+            return origRemoveChild.call(this, p);
+          }
+          p = p.parentNode;
+        }
+        return child;
+      }
+      return origRemoveChild.apply(this, arguments);
+    };
+    const origInsertBefore = Node.prototype.insertBefore;
+    Node.prototype.insertBefore = function (newNode, referenceNode) {
+      if (referenceNode && referenceNode.parentNode !== this) {
+        if (referenceNode._dtWrap && referenceNode._dtWrap.parentNode === this) {
+          return origInsertBefore.call(this, newNode, referenceNode._dtWrap);
+        }
+        let p = referenceNode.parentNode;
+        while (p && p !== this) {
+          if (p.parentNode === this) {
+            return origInsertBefore.call(this, newNode, p);
+          }
+          p = p.parentNode;
+        }
+        return this.appendChild(newNode);
+      }
+      return origInsertBefore.apply(this, arguments);
+    };
+  }
+
+  /* ============================================================
+     PROPER NOUNS PROTECTION (KHÔNG DỊCH DANH TỪ RIÊNG)
+     Wraps brand names, ship names, suite names, and Vietnamese
+     geographic proper nouns in <span class="notranslate" translate="no">
+     so neither Google Translate nor browser auto-translate alters them.
+     ============================================================ */
+  const PROPER_NOUNS = [
+    'Daiichi Luxury Cruise 5★',
+    'Daiichi Boutique Cruise 4★',
+    'Daiichi Luxury Cruise',
+    'Daiichi Boutique Cruise',
+    'Daiichi Luxury',
+    'Daiichi Boutique',
+    'Daiichi Cruise',
+    'Daiichi Travel',
+    'Daiichi Group',
+    'Daiichi Bus',
+    'Daiichi',
+    'Royal Suite VIP',
+    'Executive / Family Suite',
+    'Executive Suite',
+    'Family Suite',
+    'Senior Suite Balcony',
+    'Senior Suite',
+    'Junior / Trip Suite',
+    'Junior Suite',
+    'Trip Suite',
+    'Boutique Balcony Cabin',
+    'Boutique Deluxe Oceanview',
+    'Deluxe Suite',
+    'Premium Suite',
+    'Fullday Vip 1',
+    'VIP 1 Cruise 2',
+    'Sunset Cruise 2',
+    'Sunset Cruise',
+    'Morning Cruise',
+    'Cruise 2',
+    'VIP 1',
+    'VIP 3',
+    'VIP 4',
+    'VIP 5',
+    'Flamingo Beach Resort',
+    'Cát Bà Ocean Tour',
+    'Cat Ba Ocean Tour',
+    'Hùng Cường Express',
+    'Hạ Long Pearl Transit',
+    '713 Phạm Văn Đồng',
+    '713 Pham Van Dong',
+    'Phạm Văn Đồng',
+    'Pham Van Dong',
+    '24 Hàng Bè',
+    '24 Hang Be',
+    'Hàng Bè',
+    'Hang Be',
+    'Hoàn Kiếm',
+    'Hoan Kiem',
+    'Phố Cổ',
+    'Lan Hạ',
+    'Lan Ha',
+    'Hạ Long',
+    'Ha Long',
+    'Cát Bà',
+    'Cat Ba',
+    'Việt Hải',
+    'Viet Hai',
+    'Cái Bèo',
+    'Cai Beo',
+    'Bến Bèo',
+    'Ben Beo',
+    'Cái Viềng',
+    'Cai Vieng',
+    'Ba Trái Đào',
+    'Ba Trai Dao',
+    'Hang Sáng Tối',
+    'Hang Sang Toi',
+    'Hòn Rùa',
+    'Hon Rua',
+    'Tuần Châu',
+    'Tuan Chau',
+    'Bãi Cháy',
+    'Bai Chay',
+    'Hà Nội',
+    'Ha Noi',
+    'Hanoi',
+    'Hanoï',
+    'Nội Bài',
+    'Noi Bai',
+    'Hải Phòng',
+    'Hai Phong',
+    'Cát Bi',
+    'Cat Bi',
+    'Ninh Bình',
+    'Ninh Binh',
+    'Bái Đính',
+    'Bai Dinh',
+    'Tràng An',
+    'Trang An',
+    'Hang Múa',
+    'Hang Mua',
+    'Hoa Lư',
+    'Hoa Lu',
+    'Tam Cốc',
+    'Tam Coc',
+    'Bích Động',
+    'Bich Dong',
+    'Thung Sen',
+    'Thái Vi',
+    'Thai Vi',
+    'Thung Nắng',
+    'Thung Nang',
+    'Cúc Phương',
+    'Cuc Phuong',
+    'Thung Nham',
+    'Thắng Lợi',
+    'Thang Loi',
+    'Skywalk',
+    'Sky Bar',
+    'Jacuzzi',
+    'Taichi',
+    'ZaloPay',
+    'Zalo',
+    'WhatsApp',
+    'VNPay',
+    'MoMo',
+    'EARLYBIRD12'
+  ];
+  PROPER_NOUNS.sort((a, b) => b.length - a.length);
+
+  const escapedNouns = PROPER_NOUNS.map(s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const PROPER_NOUN_REGEX = new RegExp('(' + escapedNouns.join('|') + ')', 'g');
+
+  const _wrappedRecords = [];
+  function unwrapProperNouns() {
+    while (_wrappedRecords.length > 0) {
+      const rec = _wrappedRecords.pop();
+      try {
+        if (rec.orig) rec.orig._dtWrap = null;
+        if (rec.wrap && rec.wrap.parentNode) {
+          rec.wrap.parentNode.replaceChild(rec.orig, rec.wrap);
+        }
+      } catch (e) {}
+    }
+  }
+
+  const SKIP_TAGS = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA', 'INPUT', 'OPTION', 'SELECT', 'CODE', 'PRE', 'SVG', 'TITLE']);
+
+  function protectProperNounsInDOM(root) {
+    const target = root || document.getElementById('root') || document.body;
+    if (!target) return;
+    const walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        let p = node.parentElement;
+        while (p) {
+          if (SKIP_TAGS.has(p.tagName)) return NodeFilter.FILTER_REJECT;
+          if (p.classList && (p.classList.contains('notranslate') || p.hasAttribute('data-dt-pn-wrap'))) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          if (p.getAttribute && p.getAttribute('translate') === 'no') {
+            return NodeFilter.FILTER_REJECT;
+          }
+          p = p.parentElement;
+        }
+        PROPER_NOUN_REGEX.lastIndex = 0;
+        return PROPER_NOUN_REGEX.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+
+    const toProcess = [];
+    let cur;
+    while ((cur = walker.nextNode())) {
+      toProcess.push(cur);
+    }
+
+    for (const textNode of toProcess) {
+      const val = textNode.nodeValue;
+      PROPER_NOUN_REGEX.lastIndex = 0;
+      const parts = val.split(PROPER_NOUN_REGEX);
+      if (parts.length <= 1) continue;
+
+      const wrap = document.createElement('span');
+      wrap.setAttribute('data-dt-pn-wrap', '1');
+      for (let i = 0; i < parts.length; i++) {
+        const part = parts[i];
+        if (!part) continue;
+        if (i % 2 === 1) {
+          const pn = document.createElement('span');
+          pn.className = 'notranslate';
+          pn.setAttribute('translate', 'no');
+          pn.textContent = part;
+          wrap.appendChild(pn);
+        } else {
+          wrap.appendChild(document.createTextNode(part));
+        }
+      }
+      if (textNode.parentNode) {
+        textNode._dtWrap = wrap;
+        textNode.parentNode.replaceChild(wrap, textNode);
+        _wrappedRecords.push({ wrap, orig: textNode });
+      }
+    }
+
+    // Also mark <option> tags containing pure proper nouns as translate="no"
+    try {
+      const opts = target.querySelectorAll ? target.querySelectorAll('option') : [];
+      opts.forEach(opt => {
+        if (opt.value === 'luxury' || opt.value === 'boutique') {
+          opt.classList.add('notranslate');
+          opt.setAttribute('translate', 'no');
+        }
+      });
+    } catch (e) {}
+  }
+
+  let _pnTimer = null;
+  function scheduleProtectProperNouns(delay = 80) {
+    if (_pnTimer) clearTimeout(_pnTimer);
+    _pnTimer = setTimeout(() => {
+      protectProperNounsInDOM(document.getElementById('root') || document.body);
+    }, delay);
+  }
+
+  function injectGoogleTranslateStyles() {
+    if (document.getElementById('dt-gt-hide-style')) return;
+    const st = document.createElement('style');
+    st.id = 'dt-gt-hide-style';
+    st.textContent = `
+      .goog-te-banner-frame,
+      iframe.goog-te-banner-frame,
+      .skiptranslate > iframe,
+      #goog-gt-tt,
+      .goog-te-balloon-frame,
+      .goog-tooltip,
+      .goog-tooltip:hover,
+      #google_translate_element {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+      .goog-text-highlight {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+      body {
+        top: 0px !important;
+        position: static !important;
+      }
+    `;
+    (document.head || document.documentElement).appendChild(st);
+  }
+
   function getCookie(name) {
     const v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
     return v ? decodeURIComponent(v[2]) : null;
   }
   function setGoogTrans(targetCode) {
     const host = window.location.hostname;
-    const cookieVal = '/auto/' + targetCode;
+    const cookieVal = '/en/' + targetCode;
     document.cookie = 'googtrans=' + cookieVal + '; path=/;';
-    document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=' + host + ';';
-    const parts = host.split('.');
-    if (parts.length > 2) {
-      const root = '.' + parts.slice(-2).join('.');
-      document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=' + root + ';';
+    if (host && host !== 'localhost' && !/^\d+\.\d+\.\d+\.\d+$/.test(host)) {
+      document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=' + host + ';';
+      const parts = host.split('.');
+      if (parts.length >= 2) {
+        const root = '.' + parts.slice(-2).join('.');
+        document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=' + root + ';';
+      }
     }
   }
   function clearGoogTrans() {
     const host = window.location.hostname;
     const exp = '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     document.cookie = 'googtrans' + exp;
-    document.cookie = 'googtrans' + exp + ' domain=' + host + ';';
-    const parts = host.split('.');
-    if (parts.length > 2) {
-      const root = '.' + parts.slice(-2).join('.');
-      document.cookie = 'googtrans' + exp + ' domain=' + root + ';';
+    if (host && host !== 'localhost' && !/^\d+\.\d+\.\d+\.\d+$/.test(host)) {
+      document.cookie = 'googtrans' + exp + ' domain=' + host + ';';
+      document.cookie = 'googtrans' + exp + ' domain=.' + host + ';';
+      const parts = host.split('.');
+      if (parts.length >= 2) {
+        const root = '.' + parts.slice(-2).join('.');
+        document.cookie = 'googtrans' + exp + ' domain=' + root + ';';
+      }
     }
   }
   function getGoogleTransLang() {
@@ -240,9 +543,22 @@
     const m = c.match(/\/([^/]+)$/);
     return m ? m[1].toLowerCase() : null;
   }
-  function loadGoogleTranslate() {
-    if (window._gt_injected || document.getElementById('google-translate-script')) return;
-    window._gt_injected = true;
+
+  function triggerGoogleTranslateCombo(extCode, attempt = 0) {
+    const combo = document.querySelector('.goog-te-combo');
+    if (combo && combo.options && combo.options.length > 0) {
+      protectProperNounsInDOM(document.getElementById('root') || document.body);
+      combo.value = extCode;
+      combo.dispatchEvent(new Event('change', { bubbles: true }));
+      return;
+    }
+    if (attempt < 30) {
+      setTimeout(() => triggerGoogleTranslateCombo(extCode, attempt + 1), 200);
+    }
+  }
+
+  function loadGoogleTranslate(targetExtCode) {
+    injectGoogleTranslateStyles();
     if (!document.getElementById('google_translate_element')) {
       const el = document.createElement('div');
       el.id = 'google_translate_element';
@@ -255,18 +571,27 @@
     }
     window.googleTranslateElementInit = function () {
       try {
+        protectProperNounsInDOM(document.getElementById('root') || document.body);
         new google.translate.TranslateElement({
-          pageLanguage: 'auto',
-          autoDisplay: false,
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+          pageLanguage: 'en',
+          autoDisplay: false
         }, 'google_translate_element');
+        const desired = targetExtCode || I18N.activeExtLang || getGoogleTransLang();
+        if (desired) {
+          setTimeout(() => triggerGoogleTranslateCombo(desired, 0), 150);
+        }
       } catch (e) {}
     };
-    const s = document.createElement('script');
-    s.id = 'google-translate-script';
-    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    s.async = true;
-    document.head.appendChild(s);
+    if (!window._gt_injected && !document.getElementById('google-translate-script')) {
+      window._gt_injected = true;
+      const s = document.createElement('script');
+      s.id = 'google-translate-script';
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      s.async = true;
+      (document.head || document.documentElement).appendChild(s);
+    } else if (targetExtCode) {
+      setTimeout(() => triggerGoogleTranslateCombo(targetExtCode, 0), 80);
+    }
   }
 
   function detect() {
@@ -284,7 +609,7 @@
         }
         if (EXT_LANGS.some(l => l.code === urlLang) || urlLang.length === 2) {
           setGoogTrans(urlLang);
-          loadGoogleTranslate();
+          loadGoogleTranslate(urlLang);
           localStorage.setItem('dt_lang', 'en');
           localStorage.setItem('dt_ext_lang', urlLang);
           localStorage.setItem('dt_lang_manual', '1');
@@ -300,7 +625,7 @@
     if (isManual) {
       if (savedExt) {
         setGoogTrans(savedExt);
-        loadGoogleTranslate();
+        loadGoogleTranslate(savedExt);
         return 'en';
       }
       if (saved && LANGS.some(l => l.code === saved)) {
@@ -312,8 +637,11 @@
     // Check existing googtrans cookie
     const gt = getGoogleTransLang();
     if (gt && gt !== 'vi' && gt !== 'auto') {
-      loadGoogleTranslate();
-      if (LANGS.some(l => l.code === gt)) return gt;
+      if (LANGS.some(l => l.code === gt)) {
+        clearGoogTrans();
+        return gt;
+      }
+      loadGoogleTranslate(gt);
       return 'en';
     }
 
@@ -328,9 +656,9 @@
         clearGoogTrans();
         return code;
       }
-      if (EXT_LANGS.some(l => l.code === code) || ['de', 'es', 'ru', 'it', 'th', 'id', 'ms', 'pt', 'nl', 'ar', 'pl', 'hi'].includes(code)) {
+      if (EXT_LANGS.some(l => l.code === code)) {
         setGoogTrans(code);
-        setTimeout(loadGoogleTranslate, 50);
+        setTimeout(() => loadGoogleTranslate(code), 50);
         return 'en';
       }
     }
@@ -347,8 +675,10 @@
     langs: LANGS,
     extLangs: EXT_LANGS,
     lang: detect(),
-    activeExtLang: getGoogleTransLang(),
+    activeExtLang: localStorage.getItem('dt_ext_lang') || getGoogleTransLang(),
     setLang(code) {
+      const wasExt = !!this.activeExtLang || document.documentElement.classList.contains('translated-ltr') || document.documentElement.classList.contains('translated-rtl');
+      unwrapProperNouns();
       this.lang = code;
       this.activeExtLang = null;
       clearGoogTrans();
@@ -356,33 +686,38 @@
       localStorage.removeItem('dt_ext_lang');
       localStorage.setItem('dt_lang_manual', '1');
       document.documentElement.lang = code;
-      window.dispatchEvent(new CustomEvent('dt:lang', { detail: code }));
-      const combo = document.querySelector('.goog-te-combo');
-      if (combo && combo.value) {
-        combo.value = '';
-        combo.dispatchEvent(new Event('change'));
+
+      if (wasExt) {
+        // Cleanest way to strip Google Translate's injected <font> DOM mutations
+        try {
+          const url = new URL(window.location.href);
+          if (url.searchParams.has('lang')) {
+            url.searchParams.set('lang', code);
+            window.location.href = url.toString();
+            return;
+          }
+        } catch (e) {}
+        window.location.reload();
+        return;
       }
+
+      window.dispatchEvent(new CustomEvent('dt:lang', { detail: code }));
+      scheduleProtectProperNouns(80);
     },
     setExtLang(extCode) {
+      unwrapProperNouns();
       this.lang = 'en';
       this.activeExtLang = extCode;
       setGoogTrans(extCode);
-      loadGoogleTranslate();
       localStorage.setItem('dt_lang', 'en');
       localStorage.setItem('dt_ext_lang', extCode);
       localStorage.setItem('dt_lang_manual', '1');
       document.documentElement.lang = extCode;
       window.dispatchEvent(new CustomEvent('dt:lang', { detail: extCode }));
-      const combo = document.querySelector('.goog-te-combo');
-      if (combo) {
-        combo.value = extCode;
-        combo.dispatchEvent(new Event('change'));
-      } else {
-        setTimeout(() => {
-          const c2 = document.querySelector('.goog-te-combo');
-          if (c2) { c2.value = extCode; c2.dispatchEvent(new Event('change')); }
-        }, 600);
-      }
+      setTimeout(() => {
+        protectProperNounsInDOM(document.getElementById('root') || document.body);
+        loadGoogleTranslate(extCode);
+      }, 60);
     },
     getCurrentLangInfo() {
       if (this.activeExtLang) {
@@ -393,6 +728,8 @@
       return LANGS.find(l => l.code === this.lang) || LANGS[0];
     },
     loadGoogleTranslate,
+    protectProperNouns: protectProperNounsInDOM,
+    unwrapProperNouns,
     t(key) {
       const row = D[key];
       if (!row) return key;
@@ -405,7 +742,7 @@
       return obj[this.lang] || obj.en || obj.vi || '';
     },
     fmtPrice(n) {
-      if (this.lang === 'vi') return n.toLocaleString('vi-VN') + 'đ';
+      if (this.lang === 'vi' && !this.activeExtLang) return n.toLocaleString('vi-VN') + 'đ';
       return n.toLocaleString('en-US') + ' ₫';
     },
     /* Localized date display for ISO 'YYYY-MM-DD' strings (one format per language) */
@@ -433,12 +770,40 @@
   };
   document.documentElement.lang = I18N.activeExtLang || I18N.lang;
   window.I18N = I18N;
-  if (I18N.activeExtLang) {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadGoogleTranslate);
-    } else {
-      loadGoogleTranslate();
-    }
+  injectGoogleTranslateStyles();
+
+  // Observe DOM additions (e.g. React initial render, modals opening) to protect proper nouns
+  function setupProperNounObserver() {
+    scheduleProtectProperNouns(120);
+    if (window._dt_pn_observer || typeof MutationObserver === 'undefined') return;
+    const rootEl = document.body;
+    if (!rootEl) return;
+    window._dt_pn_observer = new MutationObserver((mutations) => {
+      let hasAdded = false;
+      for (const m of mutations) {
+        if (m.addedNodes && m.addedNodes.length > 0) {
+          for (const n of m.addedNodes) {
+            if (n.nodeType === 1 && !n.hasAttribute('data-dt-pn-wrap') && !n.classList?.contains('notranslate')) {
+              hasAdded = true;
+              break;
+            }
+          }
+        }
+        if (hasAdded) break;
+      }
+      if (hasAdded) scheduleProtectProperNouns(100);
+    });
+    window._dt_pn_observer.observe(rootEl, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      setupProperNounObserver();
+      if (I18N.activeExtLang) loadGoogleTranslate(I18N.activeExtLang);
+    });
+  } else {
+    setupProperNounObserver();
+    if (I18N.activeExtLang) loadGoogleTranslate(I18N.activeExtLang);
   }
 })();
 

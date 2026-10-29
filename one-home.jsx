@@ -4295,8 +4295,8 @@ function OneHome() {
           </nav>
 
           <div className="on-header-actions">
-            <a className="on-quick-bus-btn" href="https://daiichitravel.com/?tab=bus" target="_blank" rel="noopener noreferrer" title="Chuyển nhanh sang đặt xe bus Daiichi Travel Tuyến Hà Nội ⇄ Hải Phòng ⇄ Cát Bà">
-              <span>🚌</span> <b>Bus 90K</b> <span className="bus-pulse-dot"></span>
+            <a className="on-quick-bus-btn" href="#limousine" title="Dịch vụ Xe Limousine & Tàu cao tốc đưa đón tận nơi">
+              <span>🚐</span> <b>Limousine</b> <span className="bus-pulse-dot"></span>
             </a>
             <a className="on-phone-btn" href="tel:19009070" title="Hotline 24/7: 1900 9070">
               <span className="on-phone-icon">📞</span>
@@ -4344,8 +4344,8 @@ function OneHome() {
               <a className="on-drawer-cta-btn" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">
                 {T('cta_book')} →
               </a>
-              <a className="on-drawer-bus-btn" href="https://daiichitravel.com/?tab=bus" target="_blank" rel="noopener">
-                🚌 {LV('Xe Bus Hải Phòng ⇄ Cát Bà (90.000đ)', 'Bus Hai Phong ⇄ Cat Ba (90K)')}
+              <a className="on-drawer-bus-btn" href="#limousine" onClick={() => setMenuOpen(false)}>
+                🚐 {LV('Xe Limousine Đưa Đón Tận Nơi Đến Bến Du Thuyền', 'Limousine Concierge Transfer to Cruise Port')}
               </a>
               <div className="on-drawer-hotline">
                 <span>{LV('Hotline hỗ trợ 24/7:', '24/7 Support Hotline:')}</span>

@@ -2549,7 +2549,7 @@ function CruiseItinerarySection({ onOpenBrochure }) {
                 style={{ background: '#fff', padding: 6, borderRadius: 12, boxShadow: '0 12px 28px rgba(0,0,0,0.35)', transform: 'rotate(-1.2deg)', cursor: 'pointer' }}
                 title={LV('Bấm để xem & tải Brochure Daiichi Luxury 5★', 'Click to preview & download 5★ Luxury Brochure')}
               >
-                <img src="assets/brochures/lux-p1-Im0.jpg" alt="Daiichi Luxury Cruise 5★ Brochure" style={{ width: '100%', height: 155, objectFit: 'cover', borderRadius: 8, display: 'block' }} loading="lazy" />
+                <img src="assets/brochures/daiichi-luxury-brochure-p1.jpg" alt="Daiichi Luxury Cruise 5★ Brochure" style={{ width: '100%', height: 155, objectFit: 'cover', borderRadius: 8, display: 'block' }} loading="lazy" />
                 <div style={{ fontSize: 11.5, fontWeight: 800, color: '#0B1B33', textAlign: 'center', paddingTop: 5 }}>
                   🚢 {LV('Brochure Daiichi Luxury 5★', '5★ Luxury Brochure')}
                 </div>
@@ -4355,16 +4355,14 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
           {isLuxury ? (
             <React.Fragment>
               {/* ====================================================
-                  LUXURY 5★ PAGE 1: 10-PHOTO GRID + ROOMS/INCLUSIONS + COVER
+                  LUXURY 5★ PAGE 1: EXACT ORIGINAL GRAPHIC BACKGROUND (lux-bg-p1.jpg) + TRANSLATED TEXT OVERLAYS
                   ==================================================== */}
               <div
                 className="brochure-page"
                 style={{
                   width: 1024,
-                  height: 722,
+                  height: 721,
                   background: '#FFFFFF',
-                  display: 'grid',
-                  gridTemplateColumns: '342px 320px 362px',
                   overflow: 'hidden',
                   boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
                   borderRadius: 4,
@@ -4372,321 +4370,282 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
                   fontFamily: "'Be Vietnam Pro', sans-serif"
                 }}
               >
-                {/* LEFT COLUMN: 2x5 Grid of 10 Authentic Luxury Suite & Onboard Photos */}
-                <div
+                <img
+                  src="assets/brochures/lux-bg-p1.jpg"
+                  alt="Daiichi Luxury Cruise Brochure Page 1"
                   style={{
+                    position: 'absolute',
+                    inset: 0,
                     width: '100%',
                     height: '100%',
-                    background: '#FFFFFF',
-                    padding: '18px 14px',
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    gridTemplateRows: 'repeat(5, 1fr)',
-                    gap: 8
+                    objectFit: 'fill',
+                    display: 'block',
+                    pointerEvents: 'none'
                   }}
-                >
-                  {[
-                    'assets/brochures/lux-p1-Im1.jpg',
-                    'assets/brochures/lux-p1-Im2.jpg',
-                    'assets/brochures/lux-p1-Im3.jpg',
-                    'assets/brochures/lux-p1-Im4.jpg',
-                    'assets/brochures/lux-p1-Im5.jpg',
-                    'assets/brochures/lux-p1-Im6.jpg',
-                    'assets/brochures/lux-p1-Im7.jpg',
-                    'assets/brochures/lux-p1-Im8.jpg',
-                    'assets/brochures/lux-p1-Im9.jpg',
-                    'assets/brochures/lux-p1-Im10.jpg'
-                  ].map((src, idx) => (
-                    <div
-                      key={idx}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        overflow: 'hidden',
-                        borderRadius: 4,
-                        border: '2px solid #E2E8F0',
-                        boxShadow: '0 2px 6px rgba(0,0,0,0.08)'
-                      }}
-                    >
-                      <img
-                        src={src}
-                        alt={`Daiichi Luxury Suite ${idx + 1}`}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                      />
-                    </div>
-                  ))}
-                </div>
+                />
 
-                {/* MIDDLE COLUMN: Sky-Blue Panel (#D8F1F8) — CABINS SUMMARY + 2 PHOTOS + ONBOARD HIGHLIGHTS */}
+                {/* MIDDLE BLUE COLUMN TEXT OVERLAY (x=368..645, y=368..575) */}
                 <div
                   style={{
-                    background: '#D8F1F8',
-                    color: '#0C2340',
-                    padding: '22px 20px 18px',
+                    position: 'absolute',
+                    left: 368,
+                    top: 368,
+                    width: 276,
+                    height: 206,
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    height: '100%'
+                    justifyContent: 'center',
+                    color: '#182B3A',
+                    zIndex: 2
                   }}
                 >
-                  <div>
-                    <div style={{ fontSize: 15.5, fontWeight: 900, color: '#0B436B', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: 8 }}>
-                      {LV('HỆ THỐNG PHÒNG SUITE 5★', 'SUITE COLLECTION')}
-                    </div>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 11.5, lineHeight: 1.65, fontWeight: 700, color: '#0F172A' }}>
-                      {(luxDict.cabins_summary || []).map((rm, i) => (
-                        <li key={i}>• {rm}</li>
-                      ))}
-                    </ul>
+                  <div style={{ fontSize: 11.4, lineHeight: 1.48, fontWeight: 600, marginBottom: 5 }}>
+                    {(luxDict.cabins_summary || []).map((rm, i) => (
+                      <div key={i}>{rm}</div>
+                    ))}
                   </div>
-
-                  {/* 2 Center Studio Photos (Family Suite + Glass Skywalk Bow) */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 10, margin: '8px 0' }}>
-                    <div style={{ height: 145, borderRadius: 8, overflow: 'hidden', border: '3px solid #FFFFFF', boxShadow: '0 4px 12px rgba(0,0,0,0.12)' }}>
-                      <img src="assets/brochures/lux-p1-Im11.jpg" alt="Family Suite" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                    </div>
-                    <div style={{ height: 145, borderRadius: 8, overflow: 'hidden', border: '3px solid #FFFFFF', boxShadow: '0 4px 12px rgba(0,0,0,0.12)' }}>
-                      <img src="assets/brochures/lux-p1-Im12.jpg" alt="Glass Skywalk Bow" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                    </div>
+                  <div style={{ fontSize: 11.6, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.02em', marginBottom: 2, color: '#0F2537' }}>
+                    {luxDict.hl_title}
                   </div>
-
-                  <div>
-                    <div style={{ fontSize: 15, fontWeight: 900, color: '#0B436B', textTransform: 'uppercase', marginBottom: 6 }}>
-                      {luxDict.hl_title}
-                    </div>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 11.5, lineHeight: 1.65, fontWeight: 700, color: '#1E293B' }}>
-                      {(luxDict.highlights || []).map((inc, i) => (
-                        <li key={i}>• {inc}</li>
-                      ))}
-                    </ul>
+                  <div style={{ fontSize: 11.2, lineHeight: 1.44, fontWeight: 600 }}>
+                    {(luxDict.highlights || []).map((inc, i) => (
+                      <div key={i}>• {inc}</div>
+                    ))}
                   </div>
                 </div>
 
-                {/* RIGHT COLUMN: Front Cover (DAIICHI LUXURY CRUISE + Golden-Sails Ship + Two Bays Banner) */}
+                {/* RIGHT COLUMN RED TITLE OVERLAY (x=676, y=444) */}
                 <div
                   style={{
-                    background: '#FFFFFF',
-                    color: '#0C2340',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    height: '100%',
-                    overflow: 'hidden'
+                    position: 'absolute',
+                    left: 676,
+                    top: 444,
+                    width: 330,
+                    zIndex: 2
                   }}
                 >
-                  {/* Top Header */}
-                  <div style={{ padding: '26px 22px 12px', textAlign: 'left', background: '#FFFFFF' }}>
-                    <div style={{ fontSize: 25, fontWeight: 900, lineHeight: 1.18, letterSpacing: '0.02em', color: '#C93B2B', textTransform: 'uppercase' }}>
-                      {luxDict.cover_title}
-                    </div>
-                    <div style={{ fontSize: 12, fontWeight: 800, color: '#D4A648', letterSpacing: '0.1em', marginTop: 4 }}>
-                      ★★★★★ 5-STAR LUXURY FLEET
-                    </div>
+                  <div
+                    style={{
+                      fontSize: 27,
+                      fontWeight: 900,
+                      lineHeight: 1.15,
+                      letterSpacing: '0.02em',
+                      color: '#CD202C',
+                      textTransform: 'uppercase'
+                    }}
+                  >
+                    {luxDict.cover_title}
                   </div>
+                </div>
 
-                  {/* Center Hero Ship Image with Teal Wave Banner */}
-                  <div style={{ position: 'relative', width: '100%', height: 420, background: '#fff', overflow: 'hidden' }}>
-                    <img
-                      src="assets/brochures/lux-p1-Im0.jpg"
-                      alt="Daiichi Luxury Cruise 5★"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    />
-                    <div
-                      style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        background: 'linear-gradient(180deg, rgba(16,104,115,0.88) 0%, #146A75 100%)',
-                        color: '#FFFFFF',
-                        padding: '12px 14px',
-                        textAlign: 'center',
-                        boxShadow: '0 -4px 14px rgba(0,0,0,0.28)'
-                      }}
-                    >
-                      <div style={{ fontSize: 11.5, fontWeight: 900, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                        {luxDict.banner_line1}
-                      </div>
-                      <div style={{ fontSize: 13.5, fontWeight: 900, color: '#FDE68A', marginTop: 3 }}>
-                        {luxDict.banner_line2}
-                      </div>
-                    </div>
+                {/* RIGHT COLUMN RED BANNER BOX OVERLAY (x=682, y=546, w=328, h=58) */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: 684,
+                    top: 545,
+                    width: 324,
+                    height: 58,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    color: '#FFFFFF',
+                    zIndex: 2
+                  }}
+                >
+                  <div style={{ fontSize: 11.2, fontWeight: 800, letterSpacing: '0.02em', textTransform: 'uppercase', lineHeight: 1.35 }}>
+                    {luxDict.banner_line1}
                   </div>
+                  <div style={{ fontSize: 11.5, fontWeight: 800, letterSpacing: '0.02em', textTransform: 'uppercase', lineHeight: 1.35, marginTop: 2 }}>
+                    {luxDict.banner_line2}
+                  </div>
+                </div>
 
-                  {/* Bottom Cover Footnote */}
-                  <div style={{ padding: '18px 22px 24px', background: '#FFFFFF', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <div style={{ fontSize: 13, fontWeight: 800, color: '#0B436B', marginBottom: 6 }}>
-                      2 DAYS 1 NIGHT | 3 DAYS 2 NIGHTS
-                    </div>
-                    <div style={{ fontSize: 12.2, fontStyle: 'italic', lineHeight: 1.5, color: '#9C7A23', fontWeight: 700 }}>
-                      {luxDict.cover_foot}
-                    </div>
+                {/* RIGHT COLUMN OLIVE-GOLD FOOTER OVERLAY (x=676, y=620) */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: 676,
+                    top: 620,
+                    width: 330,
+                    zIndex: 2
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 12.6,
+                      fontStyle: 'italic',
+                      fontWeight: 700,
+                      lineHeight: 1.42,
+                      color: '#9C8421'
+                    }}
+                  >
+                    {luxDict.cover_foot}
                   </div>
                 </div>
               </div>
 
               {/* ====================================================
-                  LUXURY 5★ PAGE 2: 2D1N & 3D2N DETAILED ITINERARIES + KAYAK PHOTO
+                  LUXURY 5★ PAGE 2: EXACT ORIGINAL GRAPHIC BACKGROUND (lux-bg-p2.jpg) + 3-COLUMN ITINERARY OVERLAYS
                   ==================================================== */}
               <div
                 className="brochure-page"
                 style={{
                   width: 1024,
-                  height: 722,
-                  background: '#146A75',
-                  display: 'grid',
-                  gridTemplateColumns: '342px 340px 342px',
+                  height: 695,
+                  background: '#FFFFFF',
                   overflow: 'hidden',
                   boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
                   borderRadius: 4,
                   position: 'relative',
-                  color: '#FFFFFF',
+                  color: '#262626',
                   fontFamily: "'Be Vietnam Pro', sans-serif"
                 }}
               >
-                {/* COLUMN 1: 2 DAYS 1 NIGHT ITINERARY (DAY 1 + DAY 2 MORNING) */}
+                <img
+                  src="assets/brochures/lux-bg-p2.jpg"
+                  alt="Daiichi Luxury Cruise Brochure Page 2"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'fill',
+                    display: 'block',
+                    pointerEvents: 'none'
+                  }}
+                />
+
+                {/* COLUMN 1: 2 DAYS 1 NIGHT (x=52, y=42, w=292) */}
                 <div
                   style={{
-                    background: '#9C7A23',
-                    padding: '22px 18px',
+                    position: 'absolute',
+                    left: 52,
+                    top: 42,
+                    width: 292,
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: 4.5
+                    gap: 3.5,
+                    zIndex: 2
                   }}
                 >
-                  <div style={{ fontSize: 17, fontWeight: 900, color: '#FFFFFF', letterSpacing: '0.02em', marginBottom: 2 }}>
+                  <div style={{ fontSize: 15.5, fontWeight: 900, color: '#C8202F', letterSpacing: '0.02em' }}>
                     {luxDict.d2_title}
                   </div>
-                  <div style={{ fontSize: 11.2, fontWeight: 800, color: '#FEF08A', textTransform: 'uppercase' }}>
+                  <div style={{ fontSize: 10.8, fontWeight: 800, color: '#174A7E', textTransform: 'uppercase', lineHeight: 1.28 }}>
                     {luxDict.d2_day1}
                   </div>
-                  <div style={{ fontSize: 10.2, fontStyle: 'italic', color: 'rgba(255,255,255,0.92)', marginBottom: 2 }}>
+                  <div style={{ fontSize: 10, fontStyle: 'italic', fontWeight: 600, color: '#222222', marginBottom: 2 }}>
                     {luxDict.d2_day1_meals}
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.6, fontSize: 9.8, lineHeight: 1.34 }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.2, fontSize: 9.6, lineHeight: 1.32, color: '#2B2B2B' }}>
                     {(luxDict.d2_day1_items || []).map(([tm, txt], i) => (
-                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '66px 1fr', gap: 5 }}>
-                        <span style={{ fontWeight: 800, color: '#FEF08A' }}>{tm}</span>
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 700, color: '#1E293B' }}>{tm}</span>
                         <span>{txt}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div style={{ fontSize: 11.2, fontWeight: 800, color: '#FEF08A', textTransform: 'uppercase', marginTop: 6 }}>
+                  <div style={{ fontSize: 10.8, fontWeight: 800, color: '#174A7E', textTransform: 'uppercase', lineHeight: 1.28, marginTop: 5 }}>
                     {luxDict.d2_day2}
                   </div>
-                  <div style={{ fontSize: 10.2, fontStyle: 'italic', color: 'rgba(255,255,255,0.92)', marginBottom: 2 }}>
+                  <div style={{ fontSize: 10, fontStyle: 'italic', fontWeight: 600, color: '#222222', marginBottom: 2 }}>
                     {luxDict.d2_day2_meals}
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.6, fontSize: 9.8, lineHeight: 1.34 }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.2, fontSize: 9.6, lineHeight: 1.32, color: '#2B2B2B' }}>
                     {(luxDict.d2_day2_col1 || []).map(([tm, txt], i) => (
-                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '66px 1fr', gap: 5 }}>
-                        <span style={{ fontWeight: 800, color: '#FEF08A' }}>{tm}</span>
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 700, color: '#1E293B' }}>{tm}</span>
                         <span>{txt}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* COLUMN 2: 2D1N DAY 2 CONT. + 3 DAYS 2 NIGHTS (DAY 1 & DAY 2 MORNING) */}
+                {/* COLUMN 2: 2D1N DAY 2 CONT. + 3 DAYS 2 NIGHTS (x=362, y=64, w=288) */}
                 <div
                   style={{
-                    background: '#146A75',
-                    padding: '22px 18px',
+                    position: 'absolute',
+                    left: 362,
+                    top: 64,
+                    width: 288,
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: 5,
-                    borderRight: '1px solid rgba(255,255,255,0.14)'
+                    gap: 3.8,
+                    zIndex: 2
                   }}
                 >
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.6, fontSize: 9.8, lineHeight: 1.34, paddingBottom: 10, borderBottom: '1px dashed rgba(255,255,255,0.25)' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.2, fontSize: 9.6, lineHeight: 1.32, color: '#2B2B2B', marginBottom: 6 }}>
                     {(luxDict.d2_day2_col2 || []).map(([tm, txt], i) => (
                       <div key={i} style={{ display: 'grid', gridTemplateColumns: '52px 1fr', gap: 5 }}>
-                        <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
+                        <span style={{ fontWeight: 700, color: '#1E293B' }}>{tm}</span>
                         <span>{txt}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div style={{ fontSize: 17, fontWeight: 900, color: '#FDE68A', letterSpacing: '0.02em', marginTop: 4 }}>
+                  <div style={{ fontSize: 15.5, fontWeight: 900, color: '#C8202F', letterSpacing: '0.02em', marginTop: 2 }}>
                     {luxDict.d3_title}
                   </div>
-                  <div style={{ fontSize: 11.2, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase' }}>
+                  <div style={{ fontSize: 10.8, fontWeight: 800, color: '#174A7E', textTransform: 'uppercase', lineHeight: 1.28 }}>
                     {luxDict.d3_day1}
                   </div>
-                  <div style={{ fontSize: 10, lineHeight: 1.42, color: 'rgba(255,255,255,0.92)', marginBottom: 4 }}>
+                  <div style={{ fontSize: 9.6, lineHeight: 1.36, color: '#2B2B2B', marginBottom: 4 }}>
                     {luxDict.d3_day1_desc}
                   </div>
 
-                  <div style={{ fontSize: 11.2, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginTop: 4 }}>
+                  <div style={{ fontSize: 10.8, fontWeight: 800, color: '#174A7E', textTransform: 'uppercase', lineHeight: 1.28 }}>
                     {luxDict.d3_day2}
                   </div>
-                  <div style={{ fontSize: 10.2, fontStyle: 'italic', color: 'rgba(255,255,255,0.92)', marginBottom: 2 }}>
+                  <div style={{ fontSize: 10, fontStyle: 'italic', fontWeight: 600, color: '#222222', marginBottom: 2 }}>
                     {luxDict.d3_day2_meals}
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 9.9, lineHeight: 1.35 }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.2, fontSize: 9.6, lineHeight: 1.32, color: '#2B2B2B' }}>
                     {(luxDict.d3_day2_col2 || []).map(([tm, txt], i) => (
-                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '66px 1fr', gap: 5 }}>
-                        <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 700, color: '#1E293B' }}>{tm}</span>
                         <span>{txt}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* COLUMN 3: 3D2N DAY 2 CONT. + DAY 3 + KAYAKING LAGOON HERO PHOTO */}
+                {/* COLUMN 3: 3D2N DAY 2 CONT. + DAY 3 (x=672, y=64, w=298) */}
                 <div
                   style={{
-                    background: '#146A75',
-                    padding: '22px 18px 18px',
+                    position: 'absolute',
+                    left: 672,
+                    top: 64,
+                    width: 298,
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    height: '100%'
+                    gap: 3.5,
+                    zIndex: 2
                   }}
                 >
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4.5 }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 3.6, fontSize: 9.8, lineHeight: 1.34, paddingBottom: 8, borderBottom: '1px dashed rgba(255,255,255,0.25)' }}>
-                      {(luxDict.d3_day2_col3 || []).map(([tm, txt], i) => (
-                        <div key={i} style={{ display: 'grid', gridTemplateColumns: '52px 1fr', gap: 5 }}>
-                          <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
-                          <span>{txt}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div style={{ fontSize: 11.2, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginTop: 2 }}>
-                      {luxDict.d3_day3}
-                    </div>
-                    <div style={{ fontSize: 10.2, fontStyle: 'italic', color: 'rgba(255,255,255,0.92)', marginBottom: 2 }}>
-                      {luxDict.d3_day3_meals}
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 3.4, fontSize: 9.7, lineHeight: 1.32 }}>
-                      {(luxDict.d3_day3_items || []).map(([tm, txt], i) => (
-                        <div key={i} style={{ display: 'grid', gridTemplateColumns: '66px 1fr', gap: 5 }}>
-                          <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
-                          <span>{txt}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.2, fontSize: 9.6, lineHeight: 1.32, color: '#2B2B2B', marginBottom: 4 }}>
+                    {(luxDict.d3_day2_col3 || []).map(([tm, txt], i) => (
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '52px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 700, color: '#1E293B' }}>{tm}</span>
+                        <span>{txt}</span>
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Bottom Right Kayaking Photo from Luxury PDF */}
-                  <div
-                    style={{
-                      width: '100%',
-                      height: 215,
-                      borderRadius: 8,
-                      overflow: 'hidden',
-                      border: '2.5px solid #FFFFFF',
-                      boxShadow: '0 8px 20px rgba(0,0,0,0.3)'
-                    }}
-                  >
-                    <img
-                      src="assets/brochures/lux-p2-Im0.jpg"
-                      alt="Kayaking in Lan Ha Bay"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    />
+                  <div style={{ fontSize: 10.8, fontWeight: 800, color: '#174A7E', textTransform: 'uppercase', lineHeight: 1.28 }}>
+                    {luxDict.d3_day3}
+                  </div>
+                  <div style={{ fontSize: 10, fontStyle: 'italic', fontWeight: 600, color: '#222222', marginBottom: 2 }}>
+                    {luxDict.d3_day3_meals}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3, fontSize: 9.5, lineHeight: 1.3, color: '#2B2B2B' }}>
+                    {(luxDict.d3_day3_items || []).map(([tm, txt], i) => (
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 700, color: '#1E293B' }}>{tm}</span>
+                        <span>{txt}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -4694,7 +4653,7 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
           ) : (
             <React.Fragment>
           {/* ====================================================
-              BOUTIQUE 4★ PAGE 1: OUTSIDE TRI-FOLD (GALLERY + EXPERIENCE + COVER)
+              BOUTIQUE 4★ PAGE 1: EXACT ORIGINAL GRAPHIC BACKGROUND (bq-bg-p1.jpg) + TRANSLATED TEXT OVERLAYS
               ==================================================== */}
           <div
             className="brochure-page"
@@ -4702,8 +4661,6 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
               width: 1024,
               height: 722,
               background: '#FFFFFF',
-              display: 'grid',
-              gridTemplateColumns: '342px 320px 362px',
               overflow: 'hidden',
               boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
               borderRadius: 4,
@@ -4711,162 +4668,153 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
               fontFamily: "'Be Vietnam Pro', sans-serif"
             }}
           >
-            {/* LEFT COLUMN: Exact Photo Collage */}
-            <div style={{ width: '100%', height: '100%', overflow: 'hidden', background: '#fff' }}>
-              <img
-                src="assets/brochures/bq-p1-left-col.jpg"
-                alt="Gallery"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block'
-                }}
-              />
-            </div>
-
-            {/* MIDDLE COLUMN: Ochre Gold Panel (#C88A2B) */}
-            <div
+            <img
+              src="assets/brochures/bq-bg-p1.jpg"
+              alt="Daiichi Boutique Cruise Brochure Page 1"
               style={{
-                background: '#C88A2B',
-                color: '#FFFFFF',
-                padding: '28px 22px 22px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                height: '100%'
-              }}
-            >
-              <div>
-                <div style={{ fontSize: 16.5, fontWeight: 800, letterSpacing: '0.03em', textTransform: 'uppercase', marginBottom: 8 }}>
-                  {dict.exp_title}
-                </div>
-                <div style={{ fontSize: 12.5, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4 }}>
-                  {dict.exp_sub1}
-                </div>
-                <div style={{ fontSize: 12, lineHeight: 1.4, color: 'rgba(255,255,255,0.92)' }}>
-                  {dict.exp_sub2}
-                </div>
-              </div>
-
-              {/* 3 Angled Polaroids */}
-              <div style={{ margin: '8px -10px', textAlign: 'center' }}>
-                <img
-                  src="assets/brochures/bq-p1-polaroids.jpg"
-                  alt="Onboard Experiences"
-                  style={{ width: '100%', maxHeight: 245, objectFit: 'contain', display: 'block', margin: '0 auto' }}
-                />
-              </div>
-
-              <div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 14px', fontSize: 12, lineHeight: 1.75, color: '#271705', fontWeight: 600 }}>
-                  {dict.bullets.map((b, i) => (
-                    <li key={i}>• {b}</li>
-                  ))}
-                </ul>
-
-                <div style={{ fontSize: 15.5, fontWeight: 800, color: '#0B436B', textTransform: 'uppercase', marginBottom: 6 }}>
-                  {dict.cabin_title}
-                </div>
-                <div style={{ fontSize: 12, lineHeight: 1.65, color: '#271705', fontWeight: 600 }}>
-                  <div>• {dict.cabin_1}</div>
-                  <div>• {dict.cabin_2}</div>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN: Front Cover Panel */}
-            <div
-              style={{
-                background: '#FFFFFF',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
                 height: '100%',
-                position: 'relative',
-                overflow: 'hidden'
+                objectFit: 'fill',
+                display: 'block',
+                pointerEvents: 'none'
+              }}
+            />
+
+            {/* MIDDLE COLUMN TOP TEXT (x=366, y=42, w=282) */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 366,
+                top: 42,
+                width: 282,
+                color: '#FFFFFF',
+                zIndex: 2
               }}
             >
-              <div style={{ padding: '28px 22px 10px', zIndex: 2 }}>
-                <div style={{ fontSize: 25, fontWeight: 900, color: '#C93B2B', lineHeight: 1.18, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
-                  {dict.cover_title}
-                </div>
+              <div style={{ fontSize: 16, fontWeight: 800, letterSpacing: '0.03em', textTransform: 'uppercase', marginBottom: 6 }}>
+                {dict.exp_title}
               </div>
-
-              {/* Hero Ship Photo + Translated Circle Badge */}
-              <div style={{ position: 'relative', width: '100%', height: 390, overflow: 'hidden' }}>
-                <img
-                  src="assets/brochures/bq-p1-right-ship.jpg"
-                  alt={dict.cover_title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-                {/* Translated Gold Circle Overlay */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: 6,
-                    right: 18,
-                    width: 118,
-                    height: 118,
-                    borderRadius: '50%',
-                    background: '#CE8E2B',
-                    color: '#FFFFFF',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    textAlign: 'center',
-                    fontWeight: 800,
-                    fontSize: 13.5,
-                    lineHeight: 1.25,
-                    padding: 10,
-                    whiteSpace: 'pre-line',
-                    boxShadow: '0 6px 16px rgba(0,0,0,0.22)'
-                  }}
-                >
-                  {dict.home_badge}
-                </div>
-
-                {/* Teal Wave Banner at Bottom of Ship Image */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    background: 'linear-gradient(180deg, rgba(16,104,115,0.82) 0%, #146A75 100%)',
-                    color: '#FFFFFF',
-                    padding: '12px 14px',
-                    fontSize: 11,
-                    fontWeight: 800,
-                    textAlign: 'center',
-                    letterSpacing: '0.03em',
-                    textTransform: 'uppercase'
-                  }}
-                >
-                  {dict.cover_banner}
-                </div>
+              <div style={{ fontSize: 12, fontWeight: 800, textTransform: 'uppercase', marginBottom: 4 }}>
+                {dict.exp_sub1}
               </div>
+              <div style={{ fontSize: 11.5, lineHeight: 1.38, color: 'rgba(255,255,255,0.94)' }}>
+                {dict.exp_sub2}
+              </div>
+            </div>
 
-              {/* Cover Bottom Text */}
-              <div style={{ padding: '16px 22px 24px', background: '#FFFFFF' }}>
-                <p style={{ fontSize: 12.2, fontStyle: 'italic', fontWeight: 700, color: '#9C7A23', lineHeight: 1.45, margin: '0 0 12px' }}>
-                  {dict.cover_desc}
-                </p>
-                <div style={{ fontSize: 12.5, fontWeight: 800, color: '#9C7A23', marginBottom: 4 }}>
-                  {dict.cover_dur}
-                </div>
-                <div style={{ fontSize: 11.5, fontWeight: 800, color: '#9C7A23', marginBottom: 4 }}>
-                  {dict.cover_tags}
-                </div>
-                <div style={{ fontSize: 11.5, fontWeight: 700, color: '#9C7A23' }}>
-                  {dict.cover_foot}
-                </div>
+            {/* MIDDLE COLUMN BOTTOM TEXT (x=366, y=432, w=284) */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 366,
+                top: 432,
+                width: 284,
+                zIndex: 2
+              }}
+            >
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 12px', fontSize: 11.8, lineHeight: 1.72, color: '#271705', fontWeight: 600 }}>
+                {dict.bullets.map((b, i) => (
+                  <li key={i}>• {b}</li>
+                ))}
+              </ul>
+
+              <div style={{ fontSize: 15, fontWeight: 800, color: '#0B436B', textTransform: 'uppercase', marginBottom: 5 }}>
+                {dict.cabin_title}
+              </div>
+              <div style={{ fontSize: 11.8, lineHeight: 1.62, color: '#271705', fontWeight: 600 }}>
+                <div>• {dict.cabin_1}</div>
+                <div>• {dict.cabin_2}</div>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN TOP RED TITLE (x=675, y=44, w=320) */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 675,
+                top: 44,
+                width: 320,
+                zIndex: 2
+              }}
+            >
+              <div style={{ fontSize: 24.5, fontWeight: 900, color: '#C93B2B', lineHeight: 1.18, letterSpacing: '0.02em', textTransform: 'uppercase' }}>
+                {dict.cover_title}
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN GOLD CIRCLE BADGE TEXT (center x=906, y=178) */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 850,
+                top: 122,
+                width: 112,
+                height: 112,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                color: '#FFFFFF',
+                fontWeight: 800,
+                fontSize: 13,
+                lineHeight: 1.24,
+                padding: 8,
+                whiteSpace: 'pre-line',
+                zIndex: 2
+              }}
+            >
+              {dict.home_badge}
+            </div>
+
+            {/* RIGHT COLUMN WHITE BANNER LINE OVER WATER (x=666, y=474, w=352) */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 666,
+                top: 475,
+                width: 352,
+                textAlign: 'center',
+                color: '#FFFFFF',
+                fontSize: 10.6,
+                fontWeight: 800,
+                letterSpacing: '0.03em',
+                textTransform: 'uppercase',
+                textShadow: '0 1px 4px rgba(0,0,0,0.45)',
+                zIndex: 2
+              }}
+            >
+              {dict.cover_banner}
+            </div>
+
+            {/* RIGHT COLUMN BOTTOM FOOTER TEXT (x=674, y=592, w=330) */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 674,
+                top: 592,
+                width: 330,
+                zIndex: 2
+              }}
+            >
+              <p style={{ fontSize: 11.8, fontStyle: 'italic', fontWeight: 700, color: '#9C7A23', lineHeight: 1.42, margin: '0 0 8px' }}>
+                {dict.cover_desc}
+              </p>
+              <div style={{ fontSize: 12, fontWeight: 800, color: '#9C7A23', marginBottom: 3 }}>
+                {dict.cover_dur}
+              </div>
+              <div style={{ fontSize: 11.2, fontWeight: 800, color: '#9C7A23', marginBottom: 3 }}>
+                {dict.cover_tags}
+              </div>
+              <div style={{ fontSize: 11.2, fontWeight: 700, color: '#9C7A23' }}>
+                {dict.cover_foot}
               </div>
             </div>
           </div>
 
           {/* ====================================================
-              BOUTIQUE 4★ PAGE 2: INSIDE TRI-FOLD (2D1N & 3D2N DETAILED ITINERARIES)
+              BOUTIQUE 4★ PAGE 2: EXACT ORIGINAL GRAPHIC BACKGROUND (bq-bg-p2.jpg) + 3-COLUMN ITINERARY OVERLAYS
               ==================================================== */}
           <div
             className="brochure-page"
@@ -4874,8 +4822,6 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
               width: 1024,
               height: 722,
               background: '#176B75',
-              display: 'grid',
-              gridTemplateColumns: '348px 338px 338px',
               overflow: 'hidden',
               boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
               borderRadius: 4,
@@ -4884,151 +4830,144 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
               fontFamily: "'Be Vietnam Pro', sans-serif"
             }}
           >
-            {/* COLUMN 1: 2 DAYS 1 NIGHT (#9C7A23 Olive Gold) */}
-            <div
+            <img
+              src="assets/brochures/bq-bg-p2.jpg"
+              alt="Daiichi Boutique Cruise Brochure Page 2"
               style={{
-                background: '#9C7A23',
-                padding: '26px 22px 140px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 6
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'fill',
+                display: 'block',
+                pointerEvents: 'none'
               }}
-            >
-              <div style={{ fontSize: 18, fontWeight: 800, letterSpacing: '0.02em', marginBottom: 2 }}>
-                {dict.d2_title}
-              </div>
-              <div style={{ fontSize: 12.5, fontWeight: 800, textTransform: 'uppercase' }}>
-                {dict.d2_day1}
-              </div>
-              <div style={{ fontSize: 11, fontStyle: 'italic', marginBottom: 4, color: 'rgba(255,255,255,0.92)' }}>
-                {dict.d2_day1_meals}
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4.5, fontSize: 10.6, lineHeight: 1.38 }}>
-                {dict.d2_day1_items.map(([tm, txt], i) => (
-                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 6 }}>
-                    <span style={{ fontWeight: 700, opacity: 0.95 }}>{tm}</span>
-                    <span>{txt}</span>
-                  </div>
-                ))}
-              </div>
-              <div style={{ fontSize: 10.5, marginTop: 2, marginBottom: 6, opacity: 0.95 }}>
-                {dict.d2_day1_note}
-              </div>
+            />
 
-              <div style={{ fontSize: 12.5, fontWeight: 800, textTransform: 'uppercase', marginTop: 2 }}>
-                {dict.d2_day2}
-              </div>
-              <div style={{ fontSize: 11, fontStyle: 'italic', marginBottom: 4, color: 'rgba(255,255,255,0.92)' }}>
-                {dict.d2_day2_meals}
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4.5, fontSize: 10.6, lineHeight: 1.38 }}>
-                {dict.d2_day2_items.map(([tm, txt], i) => (
-                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 6 }}>
-                    <span style={{ fontWeight: 700, opacity: 0.95 }}>{tm}</span>
-                    <span>{txt}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* COLUMN 2: 3 DAYS 2 NIGHTS (DAY 1 & DAY 2) */}
-            <div
-              style={{
-                background: '#176B75',
-                padding: '26px 20px 140px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 6
-              }}
-            >
-              <div style={{ fontSize: 18, fontWeight: 800, letterSpacing: '0.02em', marginBottom: 2 }}>
-                {dict.d3_title}
-              </div>
-              <div style={{ fontSize: 12.5, fontWeight: 800, textTransform: 'uppercase' }}>
-                {dict.d3_day1}
-              </div>
-              <div style={{ fontSize: 11, fontStyle: 'italic', marginBottom: 4, color: 'rgba(255,255,255,0.92)' }}>
-                {dict.d3_day1_meals}
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4.5, fontSize: 10.6, lineHeight: 1.38 }}>
-                {dict.d3_day1_items.map(([tm, txt], i) => (
-                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 6 }}>
-                    <span style={{ fontWeight: 700, opacity: 0.95 }}>{tm}</span>
-                    <span>{txt}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div style={{ fontSize: 12.5, fontWeight: 800, textTransform: 'uppercase', marginTop: 8 }}>
-                {dict.d3_day2}
-              </div>
-              <div style={{ fontSize: 11, fontStyle: 'italic', marginBottom: 4, color: 'rgba(255,255,255,0.92)' }}>
-                {dict.d3_day2_meals}
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4.5, fontSize: 10.6, lineHeight: 1.38 }}>
-                {dict.d3_day2_items.map(([tm, txt], i) => (
-                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 6 }}>
-                    <span style={{ fontWeight: 700, opacity: 0.95 }}>{tm}</span>
-                    <span>{txt}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* COLUMN 3: 3 DAYS 2 NIGHTS (DAY 3) + 6 CABIN PHOTOS */}
-            <div
-              style={{
-                background: '#176B75',
-                padding: '52px 20px 0',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                height: '100%'
-              }}
-            >
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                <div style={{ fontSize: 12.5, fontWeight: 800, textTransform: 'uppercase' }}>
-                  {dict.d3_day3}
-                </div>
-                <div style={{ fontSize: 11, fontStyle: 'italic', marginBottom: 4, color: 'rgba(255,255,255,0.92)' }}>
-                  {dict.d3_day3_meals}
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 4.5, fontSize: 10.6, lineHeight: 1.38 }}>
-                  {dict.d3_day3_items.map(([tm, txt], i) => (
-                    <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 6 }}>
-                      <span style={{ fontWeight: 700, opacity: 0.95 }}>{tm}</span>
-                      <span>{txt}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Bottom Right 6 Cabin Photos Grid */}
-              <div style={{ margin: '0 -20px 0 -10px', height: 398, overflow: 'hidden' }}>
-                <img
-                  src="assets/brochures/bq-p2-cabins.jpg"
-                  alt="Cabin Interiors"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-              </div>
-            </div>
-
-            {/* Bottom Left 3 Activity Photos Spanning Columns 1 & 2 */}
+            {/* COLUMN 1: 2 DAYS 1 NIGHT (x=48, y=46, w=288) */}
             <div
               style={{
                 position: 'absolute',
-                left: 28,
-                bottom: 14,
-                width: 616,
-                height: 112,
-                overflow: 'hidden'
+                left: 48,
+                top: 46,
+                width: 288,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 4.5,
+                zIndex: 2
               }}
             >
-              <img
-                src="assets/brochures/bq-p2-bottom-left.jpg"
-                alt="Kayaking & Swimming"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
+              <div style={{ fontSize: 17, fontWeight: 800, letterSpacing: '0.02em' }}>
+                {dict.d2_title}
+              </div>
+              <div style={{ fontSize: 11.8, fontWeight: 800, textTransform: 'uppercase', lineHeight: 1.28 }}>
+                {dict.d2_day1}
+              </div>
+              <div style={{ fontSize: 10.5, fontStyle: 'italic', marginBottom: 2, color: 'rgba(255,255,255,0.92)' }}>
+                {dict.d2_day1_meals}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10, lineHeight: 1.34 }}>
+                {dict.d2_day1_items.map(([tm, txt], i) => (
+                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr', gap: 5 }}>
+                    <span style={{ fontWeight: 700, opacity: 0.95 }}>{tm}</span>
+                    <span>{txt}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ fontSize: 10, marginTop: 1, marginBottom: 4, opacity: 0.95 }}>
+                {dict.d2_day1_note}
+              </div>
+
+              <div style={{ fontSize: 11.8, fontWeight: 800, textTransform: 'uppercase', lineHeight: 1.28 }}>
+                {dict.d2_day2}
+              </div>
+              <div style={{ fontSize: 10.5, fontStyle: 'italic', marginBottom: 2, color: 'rgba(255,255,255,0.92)' }}>
+                {dict.d2_day2_meals}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10, lineHeight: 1.34 }}>
+                {dict.d2_day2_items.map(([tm, txt], i) => (
+                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr', gap: 5 }}>
+                    <span style={{ fontWeight: 700, opacity: 0.95 }}>{tm}</span>
+                    <span>{txt}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* COLUMN 2: 3 DAYS 2 NIGHTS DAY 1 & DAY 2 (x=362, y=46, w=290) */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 362,
+                top: 46,
+                width: 290,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 4.5,
+                zIndex: 2
+              }}
+            >
+              <div style={{ fontSize: 17, fontWeight: 800, letterSpacing: '0.02em' }}>
+                {dict.d3_title}
+              </div>
+              <div style={{ fontSize: 11.8, fontWeight: 800, textTransform: 'uppercase', lineHeight: 1.28 }}>
+                {dict.d3_day1}
+              </div>
+              <div style={{ fontSize: 10.5, fontStyle: 'italic', marginBottom: 2, color: 'rgba(255,255,255,0.92)' }}>
+                {dict.d3_day1_meals}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10, lineHeight: 1.34 }}>
+                {dict.d3_day1_items.map(([tm, txt], i) => (
+                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr', gap: 5 }}>
+                    <span style={{ fontWeight: 700, opacity: 0.95 }}>{tm}</span>
+                    <span>{txt}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ fontSize: 11.8, fontWeight: 800, textTransform: 'uppercase', lineHeight: 1.28, marginTop: 6 }}>
+                {dict.d3_day2}
+              </div>
+              <div style={{ fontSize: 10.5, fontStyle: 'italic', marginBottom: 2, color: 'rgba(255,255,255,0.92)' }}>
+                {dict.d3_day2_meals}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10, lineHeight: 1.34 }}>
+                {dict.d3_day2_items.map(([tm, txt], i) => (
+                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr', gap: 5 }}>
+                    <span style={{ fontWeight: 700, opacity: 0.95 }}>{tm}</span>
+                    <span>{txt}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* COLUMN 3: 3 DAYS 2 NIGHTS DAY 3 (x=672, y=72, w=320) */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 672,
+                top: 72,
+                width: 320,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 4.5,
+                zIndex: 2
+              }}
+            >
+              <div style={{ fontSize: 11.8, fontWeight: 800, textTransform: 'uppercase', lineHeight: 1.28 }}>
+                {dict.d3_day3}
+              </div>
+              <div style={{ fontSize: 10.5, fontStyle: 'italic', marginBottom: 2, color: 'rgba(255,255,255,0.92)' }}>
+                {dict.d3_day3_meals}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10, lineHeight: 1.34 }}>
+                {dict.d3_day3_items.map(([tm, txt], i) => (
+                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '64px 1fr', gap: 5 }}>
+                    <span style={{ fontWeight: 700, opacity: 0.95 }}>{tm}</span>
+                    <span>{txt}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
             </React.Fragment>

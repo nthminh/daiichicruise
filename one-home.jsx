@@ -2491,17 +2491,17 @@ function CruiseItinerarySection({ onOpenBrochure }) {
                 </button>
               ))}
             </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               <button
                 type="button"
-                onClick={() => onOpenBrochure && onOpenBrochure('boutique')}
+                onClick={() => onOpenBrochure && onOpenBrochure('luxury')}
                 style={{
                   background: 'linear-gradient(135deg, #D4A648 0%, #B8860B 100%)',
                   color: '#fff',
                   border: 'none',
                   borderRadius: 12,
-                  padding: '13px 22px',
-                  fontSize: 14,
+                  padding: '12px 18px',
+                  fontSize: 13.5,
                   fontWeight: 800,
                   cursor: 'pointer',
                   display: 'inline-flex',
@@ -2510,56 +2510,61 @@ function CruiseItinerarySection({ onOpenBrochure }) {
                   boxShadow: '0 8px 20px rgba(212, 166, 72, 0.35)'
                 }}
               >
-                <span>📖</span>
-                <span>{LV('Mở Brochure Đa Ngôn Ngữ & Tải PDF →', 'Open Multi-Language Brochure & Download PDF →')}</span>
+                <span>🚢</span>
+                <span>{LV('Brochure Daiichi Luxury 5★ (Đa ngôn ngữ) →', '5★ Luxury Cruise Brochure (Multi-Lang) →')}</span>
               </button>
-              <a
-                href="assets/brochures/Daiichi-Boutique-Cruise-Brochure-Original.pdf"
-                download="Daiichi-Boutique-Cruise-Brochure.pdf"
+              <button
+                type="button"
+                onClick={() => onOpenBrochure && onOpenBrochure('boutique')}
                 style={{
-                  background: 'rgba(255,255,255,0.14)',
+                  background: 'rgba(255,255,255,0.15)',
                   color: '#FDE68A',
-                  border: '1px solid rgba(253, 230, 138, 0.5)',
+                  border: '1.5px solid #D4A648',
                   borderRadius: 12,
-                  padding: '13px 18px',
+                  padding: '12px 18px',
                   fontSize: 13.5,
-                  fontWeight: 700,
-                  textDecoration: 'none',
+                  fontWeight: 800,
+                  cursor: 'pointer',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 8
                 }}
               >
-                <span>📥</span>
-                <span>{LV('Tải Nhanh Bản Gốc (PDF)', 'Quick Download Original PDF')}</span>
-              </a>
+                <span>⛵</span>
+                <span>{LV('Brochure Daiichi Boutique 4★ (Đa ngôn ngữ) →', '4★ Boutique Cruise Brochure (Multi-Lang) →')}</span>
+              </button>
             </div>
           </div>
 
-          {/* 2-Page Thumbnail Preview */}
-          <div
-            onClick={() => onOpenBrochure && onOpenBrochure('boutique')}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: 12,
-              cursor: 'pointer'
-            }}
-            title={LV('Bấm để xem phóng to & chọn ngôn ngữ tải về', 'Click to preview & download in your language')}
-          >
-            <div style={{ background: '#fff', padding: 6, borderRadius: 12, boxShadow: '0 12px 28px rgba(0,0,0,0.35)', transform: 'rotate(-1.5deg)' }}>
-              <img src="assets/brochures/daiichi-boutique-brochure-p1.jpg" alt="Daiichi Boutique Cruise Brochure Page 1" style={{ width: '100%', height: 'auto', borderRadius: 8, display: 'block' }} loading="lazy" />
-              <div style={{ fontSize: 11, fontWeight: 700, color: '#0B1B33', textAlign: 'center', paddingTop: 4 }}>
-                {LV('Trang 1: Tổng quan & Hạng phòng', 'Page 1: Overview & Cabins')}
+            {/* 2-Ship Brochure Preview Cards */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: 12
+              }}
+            >
+              <div
+                onClick={() => onOpenBrochure && onOpenBrochure('luxury')}
+                style={{ background: '#fff', padding: 6, borderRadius: 12, boxShadow: '0 12px 28px rgba(0,0,0,0.35)', transform: 'rotate(-1.2deg)', cursor: 'pointer' }}
+                title={LV('Bấm để xem & tải Brochure Daiichi Luxury 5★', 'Click to preview & download 5★ Luxury Brochure')}
+              >
+                <img src="assets/brochures/lux-p1-Im0.jpg" alt="Daiichi Luxury Cruise 5★ Brochure" style={{ width: '100%', height: 155, objectFit: 'cover', borderRadius: 8, display: 'block' }} loading="lazy" />
+                <div style={{ fontSize: 11.5, fontWeight: 800, color: '#0B1B33', textAlign: 'center', paddingTop: 5 }}>
+                  🚢 {LV('Brochure Daiichi Luxury 5★', '5★ Luxury Brochure')}
+                </div>
+              </div>
+              <div
+                onClick={() => onOpenBrochure && onOpenBrochure('boutique')}
+                style={{ background: '#fff', padding: 6, borderRadius: 12, boxShadow: '0 12px 28px rgba(0,0,0,0.35)', transform: 'rotate(1.2deg)', cursor: 'pointer' }}
+                title={LV('Bấm để xem & tải Brochure Daiichi Boutique 4★', 'Click to preview & download 4★ Boutique Brochure')}
+              >
+                <img src="assets/brochures/daiichi-boutique-brochure-p1.jpg" alt="Daiichi Boutique Cruise 4★ Brochure" style={{ width: '100%', height: 155, objectFit: 'cover', borderRadius: 8, display: 'block' }} loading="lazy" />
+                <div style={{ fontSize: 11.5, fontWeight: 800, color: '#0B1B33', textAlign: 'center', paddingTop: 5 }}>
+                  ⛵ {LV('Brochure Daiichi Boutique 4★', '4★ Boutique Brochure')}
+                </div>
               </div>
             </div>
-            <div style={{ background: '#fff', padding: 6, borderRadius: 12, boxShadow: '0 12px 28px rgba(0,0,0,0.35)', transform: 'rotate(1.5deg)' }}>
-              <img src="assets/brochures/daiichi-boutique-brochure-p2.jpg" alt="Daiichi Boutique Cruise Brochure Page 2" style={{ width: '100%', height: 'auto', borderRadius: 8, display: 'block' }} loading="lazy" />
-              <div style={{ fontSize: 11, fontWeight: 700, color: '#0B1B33', textAlign: 'center', paddingTop: 4 }}>
-                {LV('Trang 2: Lịch trình 2N1Đ & 3N2Đ', 'Page 2: 2D1N & 3D2N Itineraries')}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -3268,6 +3273,738 @@ const BROCHURE_TEXT = {
   }
 };
 
+const LUXURY_BROCHURE_TEXT = {
+  vi: {
+    cabins_summary: [
+      '30 cabin sang trọng, 100% có ban công riêng ngắm vịnh',
+      'Senior Suite – 18 phòng (Tầng 2)',
+      'Trip Suite – 9 phòng (Gia đình / Nhóm 3 khách)',
+      'Family Suite – 1 phòng lớn (45m²)',
+      'Royal Suite – 2 phòng VIP có sân hiên tắm nắng riêng'
+    ],
+    hl_title: 'TIỆN ÍCH ĐẲNG CẤP TRÊN TÀU',
+    highlights: [
+      'Nhà hàng kính Panorama toàn cảnh vịnh',
+      '2 quầy Sky Bar sang trọng đón hoàng hôn',
+      'Bể sục Jacuzzi nước ấm bốn mùa ngoài trời',
+      'Khu vực Spa & chăm sóc sức khỏe thư giãn',
+      'Chèo thuyền kayak & trải nghiệm văn hóa bản địa'
+    ],
+    cover_title: 'DAIICHI LUXURY CRUISE',
+    banner_line1: 'HAI VỊNH DI SẢN. MỘT HÀNH TRÌNH PHI THƯỜNG.',
+    banner_line2: 'VỊNH HẠ LONG & VỊNH LAN HẠ',
+    cover_foot: 'Sang trọng, tiện nghi và ấm áp giữa trái tim di sản thiên nhiên Việt Nam.',
+    d2_title: '2 NGÀY 1 ĐÊM (2D1N)',
+    d2_day1: 'NGÀY 1 | HÀ NỘI – VỊNH HẠ LONG – VỊNH LAN HẠ – LÀNG VIỆT HẢI',
+    d2_day1_meals: 'Bữa ăn: Bữa Trưa & Bữa Tối',
+    d2_day1_items: [
+      ['07:30–08:00', 'Đón khách tại Hà Nội: Xe Limousine đón tận nơi tại khách sạn khu vực Phố Cổ Hà Nội.'],
+      ['11:30–12:30', 'Chào mừng lên tàu: Di chuyển bằng tàu cao tốc (tender) từ Cảng Tuần Châu, thưởng thức nước uống chào mừng, nghe phổ biến hải trình & nhận phòng.'],
+      ['13:00', 'Ăn trưa ngắm vịnh: Thưởng thức bữa trưa thượng hạng khi du thuyền lướt từ Vịnh Hạ Long sang Vịnh Lan Hạ.'],
+      ['14:30', 'Khám phá Làng cổ Việt Hải: Dạo bước bằng xe đạp hoặc xe điện; khám phá đời sống bản địa, nông trại hữu cơ & trải nghiệm cá massage chân.'],
+      ['16:30', 'Bơi lội & Thư giãn: Đắm mình trong làn nước biển hoặc ngâm bồn sục Jacuzzi bốn mùa trên tàu.'],
+      ['17:30', 'Tiệc Hoàng hôn & Happy Hour: Thưởng thức trái cây tươi, bánh ngọt địa phương và ưu đãi đồ uống Mua 2 Tặng 1.'],
+      ['18:30', 'Lớp học ẩm thực truyền thống Việt Nam cùng Bếp trưởng.'],
+      ['19:00', 'Bữa tối sang trọng chế biến từ hải sản và nguyên liệu tươi ngon bản địa.'],
+      ['20:30', 'Thư giãn tại quầy Bar toàn cảnh, câu mực đêm & thưởng trà tại phòng Trà đạo.']
+    ],
+    d2_day2: 'NGÀY 2 | HANG SÁNG TỐI – VỊNH LAN HẠ – HÀ NỘI',
+    d2_day2_meals: 'Bữa ăn: Điểm Tâm Sáng & Bữa Trưa Sớm (Brunch)',
+    d2_day2_col1: [
+      ['05:30–06:00', 'Tập Thái Cực Quyền (Tai Chi) đón bình minh trên sundeck (tùy điều kiện thời tiết).'],
+      ['07:00', 'Điểm tâm sáng nhẹ nhàng cùng tầm nhìn toàn cảnh mặt vịnh.'],
+      ['08:00', 'Chèo Kayak & Khám phá Hang Sáng Tối bằng thuyền kayak. (Tùy chọn mùa hè: chèo kayak, tắm biển tại bãi Ba Trái Đào).']
+    ],
+    d2_day2_col2: [
+      ['09:30', 'Quay trở lại du thuyền và chuẩn bị hành lý làm thủ tục trả phòng.'],
+      ['10:00', 'Làm thủ tục trả phòng (Check-out) và thanh toán chi phí cá nhân.'],
+      ['10:15', 'Bữa trưa sớm (Brunch) trên tàu trong khi du thuyền lướt qua khung cảnh vịnh kỳ vĩ.'],
+      ['11:15', 'Rời du thuyền và di chuyển bằng tàu tender về lại Cảng Tuần Châu.'],
+      ['12:00', 'Lên xe Limousine (hoặc xe riêng) khởi hành về lại Hà Nội.'],
+      ['15:00', 'Về đến Hà Nội. Kết thúc hải trình 5 sao đáng nhớ.']
+    ],
+    d3_title: '3 NGÀY 2 ĐÊM (3D2N)',
+    d3_day1: 'NGÀY 1 | CHÀO ĐÓN ĐẾN VỚI KỲ QUAN VỊNH BIỂN',
+    d3_day1_desc: 'Theo đúng lịch trình Ngày 1 của gói 2N1Đ: Xe Limousine đón tại Hà Nội, lên du thuyền, ăn trưa ngắm vịnh, khám phá Làng Việt Hải, bơi lội, ngâm Jacuzzi, tiệc hoàng hôn Happy Hour, lớp học nấu ăn và bữa tối sang trọng.',
+    d3_day2: 'NGÀY 2 | HỒ BA HẦM – ĐẢO KHỈ – LÀNG CHÀI NỔI',
+    d3_day2_meals: 'Bữa ăn: Sáng, Trưa & Tối',
+    d3_day2_col2: [
+      ['05:30–06:00', 'Tập Tai Chi đón bình minh trên boong thượng.'],
+      ['07:00', 'Dùng bữa sáng nhẹ nhàng trên tàu.'],
+      ['08:00', 'Chèo thuyền kayak hoặc tắm biển tại vùng nước ngọc bích Hồ Ba Hầm.']
+    ],
+    d3_day2_col3: [
+      ['12:00', 'Thưởng thức bữa trưa trên tàu.'],
+      ['15:00', 'Khám phá Đảo Khỉ và làng chài nổi truyền thống; tìm hiểu nghề nuôi trồng thủy sản trên biển và trải nghiệm cho cá ăn.'],
+      ['17:30', 'Tiệc trà Hoàng hôn & Happy Hour.'],
+      ['18:30', 'Lớp học cuốn nem & ẩm thực Việt Nam.'],
+      ['19:00', 'Bữa tối Fine-Dining trên du thuyền.'],
+      ['20:30', 'Giải trí tại quầy Bar toàn cảnh, câu mực đêm & phòng trà. Nghỉ đêm thứ 2 trên vịnh.']
+    ],
+    d3_day3: 'NGÀY 3 | HANG SÁNG TỐI – HÀ NỘI',
+    d3_day3_meals: 'Bữa ăn: Điểm Tâm Sáng & Brunch',
+    d3_day3_items: [
+      ['05:30–06:00', 'Tập Thái Cực Quyền (Tai Chi) đón bình minh.'],
+      ['07:00', 'Điểm tâm sáng nhẹ trên tàu.'],
+      ['08:00', 'Chèo kayak khám phá Hang Sáng & Hang Tối (Mùa hè: tắm biển Ba Trái Đào).'],
+      ['09:30', 'Quay trở về du thuyền chính.'],
+      ['10:00', 'Làm thủ tục trả phòng (Check-out).'],
+      ['10:15', 'Dùng bữa Brunch trên tàu khi quay về bến.'],
+      ['11:15', 'Cập bến Cảng Tuần Châu.'],
+      ['12:00', 'Lên xe Limousine khởi hành về Hà Nội.'],
+      ['15:00', 'Về đến Hà Nội. Hẹn gặp lại Quý khách.']
+    ]
+  },
+  en: {
+    cabins_summary: [
+      '30 cabins, all with private balconies',
+      'Senior Suite - 18 cabins',
+      'Trip Suite - 9 cabins',
+      'Family Suite - 1 cabin',
+      'Royal Suite - 2 cabins with private terrace'
+    ],
+    hl_title: 'ONBOARD HIGHLIGHTS',
+    highlights: [
+      'Panoramic restaurant',
+      '2 sky bars',
+      'All-season Jacuzzi',
+      'Spa & wellness',
+      'Kayaking & local experiences'
+    ],
+    cover_title: 'DAIICHI LUXURY CRUISE',
+    banner_line1: 'TWO BAYS. ONE EXTRAORDINARY JOURNEY.',
+    banner_line2: 'HA LONG BAY & LAN HA BAY',
+    cover_foot: "Luxury, comfort and warmth in the heart of Vietnam's natural heritage.",
+    d2_title: '2 DAYS 1 NIGHT',
+    d2_day1: 'DAY 1 | HANOI – HA LONG BAY – LAN HA BAY – VIET HAI VILLAGE',
+    d2_day1_meals: 'Meals: Lunch & Dinner',
+    d2_day1_items: [
+      ['07:30–08:00', 'Hanoi Pick-up: Hotel pick-up in Hanoi Old Quarter by shared limousine.'],
+      ['11:30–12:30', 'Welcome Aboard: Tender transfer at Tuan Chau Marina, welcome drink, briefing & check-in.'],
+      ['13:00', 'Lunch with a View: Cruise from Ha Long Bay towards Lan Ha Bay.'],
+      ['14:30', 'Viet Hai Village: Explore by bicycle or electric car; discover local life, organic farming & fish-foot massage.'],
+      ['16:30', 'Swim & Relax: unwind in the all-season Jacuzzi.'],
+      ['17:30', 'Sunset & Happy Hour: Fresh fruits, local snacks and Buy 2, Get 1 Free.'],
+      ['18:30', 'Vietnamese cooking demonstration.'],
+      ['19:00', 'Dinner with fresh local ingredients.'],
+      ['20:30', 'Panoramic bar, squid fishing & tea room.']
+    ],
+    d2_day2: 'DAY 2 | DARK & BRIGHT CAVE – LAN HA BAY – HANOI',
+    d2_day2_meals: 'Meals: Breakfast & Brunch',
+    d2_day2_col1: [
+      ['05:30–06:00', 'Sunrise Tai Chi on the sundeck, weather permitting.'],
+      ['07:00', 'Light breakfast with bay views.'],
+      ['08:00', 'Kayaking & Beach Escape: Explore Dark & Bright Cave by kayak. Summer option: kayak, swim and relax at Three Peach Beach.']
+    ],
+    d2_day2_col2: [
+      ['09:30', 'Return to the cruise and prepare for check-out.'],
+      ['10:00', 'Check-out and settle personal expenses.'],
+      ['10:15', 'Brunch on Board: Cruise through the spectacular bay.'],
+      ['11:15', 'Disembark and tender transfer to Tuan Chau Marina.'],
+      ['12:00', 'Depart for Hanoi by shared limousine or private transfer.'],
+      ['15:00', 'Arrive in Hanoi.']
+    ],
+    d3_title: '3 DAYS 2 NIGHTS',
+    d3_day1: 'DAY 1 | WELCOME TO THE BAY',
+    d3_day1_desc: 'Follow the Day 1 itinerary of our 2-day cruise: Hanoi pick-up, welcome aboard, scenic lunch, Viet Hai Village, swimming, Jacuzzi, sunset Happy Hour, cooking demonstration and dinner.',
+    d3_day2: 'DAY 2 | BA HAM LAKE – MONKEY ISLAND – FLOATING FISHING VILLAGE',
+    d3_day2_meals: 'Meals: Breakfast, Lunch & Dinner',
+    d3_day2_col2: [
+      ['05:30–06:00', 'Sunrise Tai Chi, weather permitting.'],
+      ['07:00', 'Light breakfast.'],
+      ['08:00', 'Kayak or swim at Ba Ham Lake.']
+    ],
+    d3_day2_col3: [
+      ['12:00', 'Lunch onboard.'],
+      ['15:00', 'Explore Monkey Island and a floating fishing village; learn about aquaculture and feed fish.'],
+      ['17:30', 'Sunset Happy Hour.'],
+      ['18:30', 'Vietnamese cooking demonstration.'],
+      ['19:00', 'Dinner onboard.'],
+      ['20:30', 'Panoramic bar, squid fishing & tea room. Overnight onboard.']
+    ],
+    d3_day3: 'DAY 3 | DARK & BRIGHT CAVE – HANOI',
+    d3_day3_meals: 'Meals: Breakfast & Brunch',
+    d3_day3_items: [
+      ['05:30–06:00', 'Sunrise Tai Chi.'],
+      ['07:00', 'Light breakfast.'],
+      ['08:00', 'Kayaking at Dark & Bright Cave. Summer option: Three Peach Beach.'],
+      ['09:30', 'Return to the cruise.'],
+      ['10:00', 'Check-out.'],
+      ['10:15', 'Brunch onboard.'],
+      ['11:15', 'Disembark at Tuan Chau Marina.'],
+      ['12:00', 'Depart for Hanoi.'],
+      ['15:00', 'Arrive in Hanoi.']
+    ]
+  },
+  ja: {
+    cabins_summary: [
+      '全30室、すべて専用バルコニー付きスイート',
+      'シニアスイート（Senior Suite）－ 18室',
+      'トリップスイート（Trip Suite）－ 9室',
+      'ファミリースイート（Family Suite）－ 1室',
+      'ロイヤルスイート（Royal Suite）－ 専用テラス付き 2室'
+    ],
+    hl_title: '船内のハイライト設備',
+    highlights: [
+      'パノラマビュー・レストラン',
+      '2つの絶景スカイバー',
+      'オールシーズン温水ジャグジー',
+      'スパ＆ウェルネス・リラクゼーション',
+      'カヤック＆現地文化体験'
+    ],
+    cover_title: 'DAIICHI LUXURY CRUISE',
+    banner_line1: '2つの世界遺産湾を巡る、唯一無二の船旅。',
+    banner_line2: 'ハロン湾 ＆ ランハ湾 (HA LONG BAY & LAN HA BAY)',
+    cover_foot: 'ベトナムの自然遺産の中心で味わう、贅沢・快適・心温まるおもてなし。',
+    d2_title: '1泊2日 コース (2 DAYS 1 NIGHT)',
+    d2_day1: '1日目 | ハノイ – ハロン湾 – ランハ湾 – ベトハイ村',
+    d2_day1_meals: '食事：昼食・夕食',
+    d2_day1_items: [
+      ['07:30–08:00', 'ハノイお迎え：ハノイ旧市街のホテルへリムジンバスでお迎え。'],
+      ['11:30–12:30', '乗船歓迎：トゥアンチャウ港よりテンダーボートで本船へ。ウェルカムドリンクとチェックイン。'],
+      ['13:00', '絶景ランチ：ハロン湾からランハ湾へ航行しながら船上ランチ。'],
+      ['14:30', 'ベトハイ村探訪：自転車または電動カートで散策、有機農園やドクターフィッシュ足湯体験。'],
+      ['16:30', 'スイミング＆通年温水ジャグジーでリラックス。'],
+      ['17:30', 'サンセット＆ハッピーアワー：新鮮なフルーツ、軽食、ドリンク2杯で1杯無料特典。'],
+      ['18:30', 'ベトナム伝統料理のクッキングデモンストレーション。'],
+      ['19:00', '新鮮な地元食材を使った豪華ディナー。'],
+      ['20:30', 'パノラマバー、夜イカ釣り体験、ティールームでくつろぎの夜。']
+    ],
+    d2_day2: '2日目 | 明暗の洞窟 – ランハ湾 – ハノイ',
+    d2_day2_meals: '食事：朝食・ブランチ',
+    d2_day2_col1: [
+      ['05:30–06:00', 'サンデッキにて朝日の太極拳（タイチ）教室。'],
+      ['07:00', '湾の景色を眺めながら軽朝食。'],
+      ['08:00', 'カヤック＆ビーチ体験：「明暗の洞窟」をカヤックで探検（夏季はバチャイダオ・ビーチでの遊泳も可）。']
+    ],
+    d2_day2_col2: [
+      ['09:30', '本船へ戻り、チェックアウトの準備。'],
+      ['10:00', 'チェックアウト手続きとご精算。'],
+      ['10:15', '船上ブランチ：奇岩群の絶景を眺めながら早めの昼食。'],
+      ['11:15', '下船し、テンダーボートでトゥアンチャウ・マリーナへ。'],
+      ['12:00', 'リムジンまたは専用車でハノイへ出発。'],
+      ['15:00', 'ハノイ到着。']
+    ],
+    d3_title: '2泊3日 コース (3 DAYS 2 NIGHTS)',
+    d3_day1: '1日目 | 絶景の湾へようこそ',
+    d3_day1_desc: '1泊2日コースの1日目と同じ日程：ハノイ送迎、乗船歓迎、絶景ランチ、ベトハイ村散策、水泳・ジャグジー、サンセット・ハッピーアワー、料理教室、ディナー。',
+    d3_day2: '2日目 | バハム湖 – モンキーアイランド – 水上漁村',
+    d3_day2_meals: '食事：朝食・昼食・夕食',
+    d3_day2_col2: [
+      ['05:30–06:00', 'サンデッキで朝の太極拳。'],
+      ['07:00', '軽朝食。'],
+      ['08:00', 'バハム湖（Ba Ham Lake）にてカヤックまたは海水浴。']
+    ],
+    d3_day2_col3: [
+      ['12:00', '船上にてご昼食。'],
+      ['15:00', 'モンキーアイランドと伝統的な水上漁村を訪問し、海洋養殖の見学と魚の餌やり体験。'],
+      ['17:30', 'サンセット・ハッピーアワー。'],
+      ['18:30', 'ベトナム料理クッキングクラス。'],
+      ['19:00', '船上ディナー。'],
+      ['20:30', 'パノラマバー、イカ釣り、ティールーム。船上泊。']
+    ],
+    d3_day3: '3日目 | 明暗の洞窟 – ハノイ',
+    d3_day3_meals: '食事：朝食・ブランチ',
+    d3_day3_items: [
+      ['05:30–06:00', '朝日の太極拳。'],
+      ['07:00', '軽朝食。'],
+      ['08:00', '明暗の洞窟でカヤック体験（夏季：バチャイダオ・ビーチ）。'],
+      ['09:30', '本船へ帰還。'],
+      ['10:00', 'チェックアウト。'],
+      ['10:15', '船上ブランチ。'],
+      ['11:15', 'トゥアンチャウ港にて下船。'],
+      ['12:00', 'ハノイへ向けて出発。'],
+      ['15:00', 'ハノイ到着。']
+    ]
+  },
+  ko: {
+    cabins_summary: [
+      '전 객실 전용 발코니를 갖춘 30개의 럭셔리 객실',
+      '시니어 스위트 (Senior Suite) – 18객실',
+      '트립 스위트 (Trip Suite) – 9객실',
+      '패밀리 스위트 (Family Suite) – 1객실',
+      '로열 스위트 (Royal Suite) – 전용 테라스 완비 2객실'
+    ],
+    hl_title: '선내 주요 부대시설 (HIGHLIGHTS)',
+    highlights: [
+      '파노라마 오션뷰 레스토랑',
+      '2개의 루프탑 스카이 바 (Sky Bars)',
+      '사계절 온수 자쿠지 (All-season Jacuzzi)',
+      '스파 & 웰니스 마사지 라운지',
+      '카약킹 & 현지 생태·문화 체험'
+    ],
+    cover_title: 'DAIICHI LUXURY CRUISE',
+    banner_line1: '두 개의 세계유산 베이, 하나의 특별한 항해.',
+    banner_line2: '하롱베이 & 란하베이 (HA LONG BAY & LAN HA BAY)',
+    cover_foot: '베트남 자연유산의 중심에서 누리는 럭셔리, 편안함 그리고 따스한 품격.',
+    d2_title: '1박 2일 일정 (2 DAYS 1 NIGHT)',
+    d2_day1: '제1일 | 하노이 – 하롱베이 – 란하베이 – 비엣하이 마을',
+    d2_day1_meals: '식사: 중식 & 석식',
+    d2_day1_items: [
+      ['07:30–08:00', '하노이 픽업: 하노이 구시가지 호텔에서 리무진 버스로 픽업.'],
+      ['11:30–12:30', '크루즈 승선: 뚜언쩌우 마리나에서 텐더보트로 이동, 웰컴 드링크 및 체크인.'],
+      ['13:00', '오션뷰 중식: 하롱베이에서 란하베이로 항해하며 선상 중식.'],
+      ['14:30', '비엣하이 마을 투어: 자전거 또는 전동카트로 마을 탐방, 유기농 농장 및 닥터피쉬 족욕 체험.'],
+      ['16:30', '수영 & 힐링: 바다 수영 및 사계절 온수 자쿠지에서 휴식.'],
+      ['17:30', '선셋 & 해피아워: 신선한 과일, 다과 및 음료 2+1 프로모션.'],
+      ['18:30', '베트남 전통 요리 쿠킹 클래스.'],
+      ['19:00', '신선한 현지 식재료로 준비된 선상 디너.'],
+      ['20:30', '파노라마 바, 야간 오징어 낚시 & 다도실(Tea room) 휴식.']
+    ],
+    d2_day2: '제2일 | 밝고 어두운 동굴 – 란하베이 – 하노이',
+    d2_day2_meals: '식사: 조식 & 브런치',
+    d2_day2_col1: [
+      ['05:30–06:00', '선덱에서 일출 태극권(Tai Chi) 수련.'],
+      ['07:00', '바다 전망과 함께하는 가벼운 조식.'],
+      ['08:00', '카약 & 해변 체험: 카약으로 항상또이(밝고 어두운 동굴) 탐험 (여름철: 바짜이다오 해변 수영).']
+    ],
+    d2_day2_col2: [
+      ['09:30', '본선으로 복귀 및 체크아웃 준비.'],
+      ['10:00', '객실 체크아웃 및 개인 비용 정산.'],
+      ['10:15', '선상 브런치: 장엄한 베이 절경을 지나며 브런치 식사.'],
+      ['11:15', '하선 후 뚜언쩌우 마리나로 이동.'],
+      ['12:00', '리무진 차량으로 하노이 출발.'],
+      ['15:00', '하노이 도착.']
+    ],
+    d3_title: '2박 3일 일정 (3 DAYS 2 NIGHTS)',
+    d3_day1: '제1일 | 신비의 바다에 오신 것을 환영합니다',
+    d3_day1_desc: '1박 2일 코스의 제1일 일정과 동일하게 진행: 하노이 픽업, 승선 환영, 선상 중식, 비엣하이 마을 탐방, 수영 & 자쿠지, 선셋 해피아워, 쿠킹 클래스 및 석식.',
+    d3_day2: '제2일 | 바함 호수 – 원숭이 섬 – 수상 어촌 마을',
+    d3_day2_meals: '식사: 조식, 중식 & 석식',
+    d3_day2_col2: [
+      ['05:30–06:00', '일출 태극권 수련.'],
+      ['07:00', '가벼운 아침 식사.'],
+      ['08:00', '바함 호수(Ba Ham Lake)에서 카약 또는 바다 수영.']
+    ],
+    d3_day2_col3: [
+      ['12:00', '선상 중식.'],
+      ['15:00', '원숭이 섬과 전통 수상 어촌 마을 방문; 바다 양식장 견학 및 물고기 먹이주기 체험.'],
+      ['17:30', '선셋 해피아워.'],
+      ['18:30', '베트남 요리 시연 클래스.'],
+      ['19:00', '선상 석식.'],
+      ['20:30', '파노라마 바, 밤 오징어 낚시 & 티룸. 선상 숙박.']
+    ],
+    d3_day3: '제3일 | 밝고 어두운 동굴 – 하노이',
+    d3_day3_meals: '식사: 조식 & 브런치',
+    d3_day3_items: [
+      ['05:30–06:00', '일출 태극권.'],
+      ['07:00', '아침 식사.'],
+      ['08:00', '밝고 어두운 동굴 카약킹 (여름 옵션: 바짜이다오 해변).'],
+      ['09:30', '크루즈 본선 복귀.'],
+      ['10:00', '객실 체크아웃.'],
+      ['10:15', '선상 브런치.'],
+      ['11:15', '뚜언쩌우 마리나 하선.'],
+      ['12:00', '하노이로 출발.'],
+      ['15:00', '하노이 도착.']
+    ]
+  },
+  zh: {
+    cabins_summary: [
+      '30 间豪华套房，100% 配备独立私人海景阳台',
+      '高阶海景套房 (Senior Suite) – 18 间',
+      '三人/家庭套房 (Trip Suite) – 9 间',
+      '豪华家庭大套房 (Family Suite) – 1 间',
+      '皇家总统套房 (Royal Suite) – 2 间（带私人阳光露台）'
+    ],
+    hl_title: '游轮核心设施亮点',
+    highlights: [
+      '全景落地窗海景餐厅 (Panoramic Restaurant)',
+      '2 座高空观景酒吧 (Sky Bars)',
+      '四季恒温露天按摩池 (All-season Jacuzzi)',
+      '海上水疗与养生中心 (Spa & Wellness)',
+      '皮划艇探险与海岛本土文化体验'
+    ],
+    cover_title: 'DAIICHI LUXURY CRUISE',
+    banner_line1: '双湾奇观 · 一段非凡难忘的海上航程',
+    banner_line2: '下龙湾 & 兰夏湾 (HA LONG BAY & LAN HA BAY)',
+    cover_foot: '在越南世界自然遗产的中心，尊享奢华、舒适与温馨款待。',
+    d2_title: '两天一夜航程 (2 DAYS 1 NIGHT)',
+    d2_day1: '第1天 | 河内 – 下龙湾 – 兰夏湾 – 越海古村',
+    d2_day1_meals: '含餐：午餐 & 晚餐',
+    d2_day1_items: [
+      ['07:30–08:00', '河内接车：豪华 Limousine 专车于河内古街区酒店上门接贵宾。'],
+      ['11:30–12:30', '欢迎登船：从巡洲国际码头（Tuan Chau Marina）乘接驳艇登船，享用迎宾饮品并办理入住。'],
+      ['13:00', '海景午餐：游轮由下龙湾驶向兰夏湾，沿途欣赏奇峰怪石并享用午餐。'],
+      ['14:30', '探访越海古村：骑单车或乘电瓶车游览古村，体验原住民生活、有机农场与鱼疗足浴。'],
+      ['16:30', '畅游与放松：在翡翠海水中畅游，或浸泡在四季恒温 Jacuzzi 中放松身心。'],
+      ['17:30', '日落派对与欢乐时光：免费享用时令鲜果、特色茶点及饮品“买二送一”礼遇。'],
+      ['18:30', '越南传统美馔厨艺互动课。'],
+      ['19:00', '甄选当地鲜活食材烹制的星级船上晚餐。'],
+      ['20:30', '全景酒吧小酌、夜钓鱿鱼及茶室品茗。']
+    ],
+    d2_day2: '第2天 | 明暗洞 – 兰夏湾 – 河内',
+    d2_day2_meals: '含餐：早餐 & 早午餐 (Brunch)',
+    d2_day2_col1: [
+      ['05:30–06:00', '在顶层阳光甲板迎着日出练习太极拳（视天气情况）。'],
+      ['07:00', '伴随壮丽海湾景致享用精致早点。'],
+      ['08:00', '皮划艇与海滩逸境：划皮划艇探索明暗洞（夏季可选：三桃滩游泳与皮划艇）。']
+    ],
+    d2_day2_col2: [
+      ['09:30', '返回游轮并整理行李准备退房。'],
+      ['10:00', '办理退房手续并结清个人消费。'],
+      ['10:15', '船上早午餐（Brunch）：游轮巡游穿过秀丽海湾，同时享用丰盛早午餐。'],
+      ['11:15', '乘接驳艇返回巡洲国际游轮码头。'],
+      ['12:00', '搭乘豪华 Limousine 专车返回河内。'],
+      ['15:00', '抵达河内，圆满结束旅程。']
+    ],
+    d3_title: '三天两夜航程 (3 DAYS 2 NIGHTS)',
+    d3_day1: '第1天 | 欢迎来到海上遗产奇观',
+    d3_day1_desc: '第1天行程与两天一夜相同：河内专车接送、登船礼遇、海景午餐、越海古村游览、游泳与恒温 Jacuzzi、日落欢乐时光、厨艺课及丰盛晚餐。',
+    d3_day2: '第2天 | 三涵湖 – 猴岛 – 海上浮村',
+    d3_day2_meals: '含餐：早餐、午餐 & 晚餐',
+    d3_day2_col2: [
+      ['05:30–06:00', '日出太极晨练。'],
+      ['07:00', '享用晨间早点。'],
+      ['08:00', '于秘境三涵湖（Ba Ham Lake）体验皮划艇或畅游。']
+    ],
+    d3_day2_col3: [
+      ['12:00', '在船上享用午餐。'],
+      ['15:00', '探访猴岛与传统海上渔村；了解海上生态养殖并体验喂鱼乐趣。'],
+      ['17:30', '日落派对与欢乐时光。'],
+      ['18:30', '越南美食烹饪示范课。'],
+      ['19:00', '船上星级晚餐。'],
+      ['20:30', '全景酒吧、夜钓鱿鱼与茶室休闲。夜宿游轮。']
+    ],
+    d3_day3: '第3天 | 明暗洞 – 河内',
+    d3_day3_meals: '含餐：早餐 & 早午餐',
+    d3_day3_items: [
+      ['05:30–06:00', '晨曦太极体验。'],
+      ['07:00', '享用早点。'],
+      ['08:00', '明暗洞皮划艇探洞（夏季：三桃滩沙滩畅游）。'],
+      ['09:30', '返回主游轮。'],
+      ['10:00', '办理退房。'],
+      ['10:15', '享用船上早午餐。'],
+      ['11:15', '抵达巡洲码头下船。'],
+      ['12:00', '乘车返回河内。'],
+      ['15:00', '平安抵达河内。']
+    ]
+  },
+  fr: {
+    cabins_summary: [
+      '30 suites de luxe, toutes dotées d’un balcon privé',
+      'Senior Suite – 18 cabines',
+      'Trip Suite – 9 cabines',
+      'Family Suite – 1 cabine familiale',
+      'Royal Suite – 2 suites VIP avec terrasse privée'
+    ],
+    hl_title: 'POINTS FORTS À BORD',
+    highlights: [
+      'Restaurant panoramique',
+      '2 Sky Bars avec vue à 360°',
+      'Jacuzzi chauffé quatre saisons',
+      'Espace Spa & bien-être',
+      'Kayak & expériences culturelles locales'
+    ],
+    cover_title: 'DAIICHI LUXURY CRUISE',
+    banner_line1: 'DEUX BAIES. UN VOYAGE EXTRAORDINAIRE.',
+    banner_line2: 'BAIE D’HA LONG & BAIE DE LAN HA',
+    cover_foot: 'Luxe, confort et chaleur au cœur du patrimoine naturel du Vietnam.',
+    d2_title: '2 JOURS 1 NUIT (2J1N)',
+    d2_day1: 'JOUR 1 | HANOÏ – BAIE D’HA LONG – BAIE DE LAN HA – VILLAGE VIET HAI',
+    d2_day1_meals: 'Repas : Déjeuner & Dîner',
+    d2_day1_items: [
+      ['07:30–08:00', 'Prise en charge à Hanoï : Départ de votre hôtel dans le Vieux Quartier en limousine.'],
+      ['11:30–12:30', 'Bienvenue à bord : Transfert en bateau annexe depuis la marina de Tuan Chau, verre de bienvenue et enregistrement.'],
+      ['13:00', 'Déjeuner avec vue : Navigation de la baie d’Ha Long vers la baie de Lan Ha.'],
+      ['14:30', 'Village de Viet Hai : Découverte à vélo ou voiture électrique, vie locale, ferme bio & massage des pieds aux poissons.'],
+      ['16:30', 'Baignade & Détente dans le Jacuzzi quatre saisons.'],
+      ['17:30', 'Coucher de soleil & Happy Hour : Fruits frais, collations locales et offre 2 achetés = 1 offert.'],
+      ['18:30', 'Démonstration de cuisine traditionnelle vietnamienne.'],
+      ['19:00', 'Dîner gastronomique aux saveurs locales fraîches.'],
+      ['20:30', 'Bar panoramique, pêche aux calamars & salon de thé.']
+    ],
+    d2_day2: 'JOUR 2 | GROTTE SOMBRE & LUMINEUSE – BAIE DE LAN HA – HANOÏ',
+    d2_day2_meals: 'Repas : Petit-déjeuner & Brunch',
+    d2_day2_col1: [
+      ['05:30–06:00', 'Tai Chi au lever du soleil sur le pont supérieur.'],
+      ['07:00', 'Petit-déjeuner léger face à la baie.'],
+      ['08:00', 'Kayak & Plage : Exploration de la grotte Sombre et Lumineuse en kayak (Option été : plage des Trois Pêches).']
+    ],
+    d2_day2_col2: [
+      ['09:30', 'Retour à bord du navire et préparation des bagages.'],
+      ['10:00', 'Libération des cabines (Check-out).'],
+      ['10:15', 'Brunch à bord tout en admirant les pitons karstiques.'],
+      ['11:15', 'Débarquement et transfert vers la marina de Tuan Chau.'],
+      ['12:00', 'Départ pour Hanoï en limousine.'],
+      ['15:00', 'Arrivée à Hanoï.']
+    ],
+    d3_title: '3 JOURS 2 NUITS (3J2N)',
+    d3_day1: 'JOUR 1 | BIENVENUE SUR LA BAIE',
+    d3_day1_desc: 'Suivez l’itinéraire du Jour 1 de la croisière 2 jours : départ de Hanoï, embarquement, déjeuner panoramique, village de Viet Hai, baignade, Jacuzzi, Happy Hour au coucher du soleil, cours de cuisine et dîner.',
+    d3_day2: 'JOUR 2 | LAC BA HAM – ÎLE AUX SINGES – VILLAGE FLOTTANT',
+    d3_day2_meals: 'Repas : Petit-déjeuner, Déjeuner & Dîner',
+    d3_day2_col2: [
+      ['05:30–06:00', 'Séance de Tai Chi au lever du soleil.'],
+      ['07:00', 'Petit-déjeuner léger.'],
+      ['08:00', 'Kayak ou baignade au lac Ba Ham.']
+    ],
+    d3_day2_col3: [
+      ['12:00', 'Déjeuner à bord.'],
+      ['15:00', 'Visite de l’île aux Singes et d’un village de pêcheurs flottant ; découverte de l’aquaculture.'],
+      ['17:30', 'Happy Hour au coucher du soleil.'],
+      ['18:30', 'Démonstration de cuisine vietnamienne.'],
+      ['19:00', 'Dîner à bord.'],
+      ['20:30', 'Bar panoramique, pêche aux calamars & salon de thé. Nuit à bord.']
+    ],
+    d3_day3: 'JOUR 3 | GROTTE SOMBRE & LUMINEUSE – HANOÏ',
+    d3_day3_meals: 'Repas : Petit-déjeuner & Brunch',
+    d3_day3_items: [
+      ['05:30–06:00', 'Tai Chi au lever du soleil.'],
+      ['07:00', 'Petit-déjeuner léger.'],
+      ['08:00', 'Kayak à la grotte Sombre et Lumineuse (Été : plage Ba Trai Dao).'],
+      ['09:30', 'Retour sur le navire.'],
+      ['10:00', 'Check-out.'],
+      ['10:15', 'Brunch à bord.'],
+      ['11:15', 'Débarquement à la marina de Tuan Chau.'],
+      ['12:00', 'Départ pour Hanoï.'],
+      ['15:00', 'Arrivée à Hanoï.']
+    ]
+  },
+  de: {
+    cabins_summary: [
+      '30 Kabinen, alle mit privatem Balkon',
+      'Senior Suite – 18 Kabinen',
+      'Trip Suite – 9 Kabinen',
+      'Family Suite – 1 Familienkabine',
+      'Royal Suite – 2 VIP-Suiten mit privater Terrasse'
+    ],
+    hl_title: 'HIGHLIGHTS AN BORD',
+    highlights: [
+      'Panorama-Restaurant',
+      '2 Sky-Bars',
+      'Ganzjähriger Whirlpool (Jacuzzi)',
+      'Spa & Wellnessbereich',
+      'Kajakfahren & lokale Erlebnisse'
+    ],
+    cover_title: 'DAIICHI LUXURY CRUISE',
+    banner_line1: 'ZWEI BUCHTEN. EINE AUSSERGEWÖHNLICHE REISE.',
+    banner_line2: 'HA-LONG-BUCHT & LAN-HA-BUCHT',
+    cover_foot: 'Luxus, Komfort und Herzlichkeit im Herzen des Weltnaturerbes Vietnams.',
+    d2_title: '2 TAGE 1 NACHT',
+    d2_day1: 'TAG 1 | HANOI – HA-LONG-BUCHT – LAN-HA-BUCHT – DORF VIET HAI',
+    d2_day1_meals: 'Mahlzeiten: Mittag- & Abendessen',
+    d2_day1_items: [
+      ['07:30–08:00', 'Abholung in Hanoi: Hotelabholung in der Altstadt von Hanoi per Limousine.'],
+      ['11:30–12:30', 'Willkommen an Bord: Tender-Transfer ab Tuan Chau Marina, Begrüßungsgetränk & Check-in.'],
+      ['13:00', 'Mittagessen mit Aussicht: Fahrt von der Ha-Long-Bucht in Richtung Lan-Ha-Bucht.'],
+      ['14:30', 'Dorf Viet Hai: Erkundung per Fahrrad oder Elektroauto; Bio-Farm & Fisch-Fußmassage.'],
+      ['16:30', 'Schwimmen & Entspannen im ganzjährigen Jacuzzi.'],
+      ['17:30', 'Sonnenuntergang & Happy Hour: Frisches Obst, Snacks & „2 kaufen, 1 gratis“.'],
+      ['18:30', 'Vietnamesische Kochvorführung.'],
+      ['19:00', 'Abendessen mit frischen regionalen Zutaten.'],
+      ['20:30', 'Panorama-Bar, Tintenfischangeln & Teestube.']
+    ],
+    d2_day2: 'TAG 2 | DUNKLE & HELLE HÖHLE – LAN-HA-BUCHT – HANOI',
+    d2_day2_meals: 'Mahlzeiten: Frühstück & Brunch',
+    d2_day2_col1: [
+      ['05:30–06:00', 'Tai Chi bei Sonnenaufgang auf dem Sonnendeck.'],
+      ['07:00', 'Leichtes Frühstück mit Blick auf die Bucht.'],
+      ['08:00', 'Kajak & Strand: Erkundung der Dunklen & Hellen Höhle per Kajak (Sommer: Drei-Pfirsich-Strand).']
+    ],
+    d2_day2_col2: [
+      ['09:30', 'Rückkehr zum Schiff und Vorbereitung auf den Check-out.'],
+      ['10:00', 'Check-out und Abrechnung.'],
+      ['10:15', 'Brunch an Bord während der Rückfahrt durch die Bucht.'],
+      ['11:15', 'Ausschiffung an der Tuan Chau Marina.'],
+      ['12:00', 'Rückfahrt nach Hanoi per Limousine.'],
+      ['15:00', 'Ankunft in Hanoi.']
+    ],
+    d3_title: '3 TAGE 2 NÄCHTE',
+    d3_day1: 'TAG 1 | WILLKOMMEN IN DER BUCHT',
+    d3_day1_desc: 'Wie Tag 1 der 2-Tages-Kreuzfahrt: Abholung in Hanoi, Einschiffung, Mittagessen, Dorf Viet Hai, Schwimmen, Jacuzzi, Sunset Happy Hour, Kochkurs und Abendessen.',
+    d3_day2: 'TAG 2 | BA-HAM-SEE – AFFENINSEL – SCHWIMMENDES FISCHERDORF',
+    d3_day2_meals: 'Mahlzeiten: Frühstück, Mittag- & Abendessen',
+    d3_day2_col2: [
+      ['05:30–06:00', 'Tai Chi bei Sonnenaufgang.'],
+      ['07:00', 'Leichtes Frühstück.'],
+      ['08:00', 'Kajakfahren oder Schwimmen am Ba-Ham-See.']
+    ],
+    d3_day2_col3: [
+      ['12:00', 'Mittagessen an Bord.'],
+      ['15:00', 'Besuch der Affeninsel und eines schwimmenden Fischerdorfes mit Fischfütterung.'],
+      ['17:30', 'Sunset Happy Hour.'],
+      ['18:30', 'Vietnamesische Kochvorführung.'],
+      ['19:00', 'Abendessen an Bord.'],
+      ['20:30', 'Panorama-Bar, Tintenfischangeln & Teestube. Übernachtung an Bord.']
+    ],
+    d3_day3: 'TAG 3 | DUNKLE & HELLE HÖHLE – HANOI',
+    d3_day3_meals: 'Mahlzeiten: Frühstück & Brunch',
+    d3_day3_items: [
+      ['05:30–06:00', 'Tai Chi bei Sonnenaufgang.'],
+      ['07:00', 'Leichtes Frühstück.'],
+      ['08:00', 'Kajakfahren an der Dunklen & Hellen Höhle (Sommer: Drei-Pfirsich-Strand).'],
+      ['09:30', 'Rückkehr zum Schiff.'],
+      ['10:00', 'Check-out.'],
+      ['10:15', 'Brunch an Bord.'],
+      ['11:15', 'Ausschiffung an der Tuan Chau Marina.'],
+      ['12:00', 'Abfahrt nach Hanoi.'],
+      ['15:00', 'Ankunft in Hanoi.']
+    ]
+  },
+  es: {
+    cabins_summary: [
+      '30 camarotes, todos con balcón privado',
+      'Senior Suite – 18 camarotes',
+      'Trip Suite – 9 camarotes',
+      'Family Suite – 1 camarote familiar',
+      'Royal Suite – 2 suites con terraza privada'
+    ],
+    hl_title: 'DESTACADOS A BORDO',
+    highlights: [
+      'Restaurante panorámico',
+      '2 Sky Bars en cubierta',
+      'Jacuzzi climatizado para todas las estaciones',
+      'Spa y bienestar',
+      'Kayak y experiencias culturales locales'
+    ],
+    cover_title: 'DAIICHI LUXURY CRUISE',
+    banner_line1: 'DOS BAHÍAS. UN VIAJE EXTRAORDINARIO.',
+    banner_line2: 'BAHÍA DE HA LONG Y BAHÍA DE LAN HA',
+    cover_foot: 'Lujo, confort y calidez en el corazón del patrimonio natural de Vietnam.',
+    d2_title: '2 DÍAS 1 NOCHE',
+    d2_day1: 'DÍA 1 | HANÓI – BAHÍA DE HA LONG – BAHÍA DE LAN HA – ALDEA VIET HAI',
+    d2_day1_meals: 'Comidas: Almuerzo y Cena',
+    d2_day1_items: [
+      ['07:30–08:00', 'Recogida en Hanói: Recogida en su hotel del Casco Antiguo en limusina.'],
+      ['11:30–12:30', 'Bienvenida a bordo: Traslado en lancha desde la Marina de Tuan Chau, bebida de bienvenida y check-in.'],
+      ['13:00', 'Almuerzo con vistas: Navegación desde la Bahía de Ha Long hacia la Bahía de Lan Ha.'],
+      ['14:30', 'Aldea Viet Hai: Recorrido en bicicleta o coche eléctrico; vida local, granja orgánica y ictioterapia.'],
+      ['16:30', 'Baño y relax en el Jacuzzi climatizado.'],
+      ['17:30', 'Atardecer y Happy Hour: Frutas frescas, aperitivos y promoción 2x1 en bebidas.'],
+      ['18:30', 'Demostración de cocina tradicional vietnamita.'],
+      ['19:00', 'Cena a bordo con ingredientes locales frescos.'],
+      ['20:30', 'Bar panorámico, pesca nocturna de calamares y salón de té.']
+    ],
+    d2_day2: 'DÍA 2 | CUEVA OSCURA Y BRILLANTE – BAHÍA DE LAN HA – HANÓI',
+    d2_day2_meals: 'Comidas: Desayuno y Brunch',
+    d2_day2_col1: [
+      ['05:30–06:00', 'Tai Chi al amanecer en la cubierta solárium.'],
+      ['07:00', 'Desayuno ligero con vistas a la bahía.'],
+      ['08:00', 'Kayak y playa: Explora la Cueva Oscura y Brillante en kayak (Verano: playa Ba Trai Dao).']
+    ],
+    d2_day2_col2: [
+      ['09:30', 'Regreso al crucero y preparación para el check-out.'],
+      ['10:00', 'Check-out y liquidación de gastos personales.'],
+      ['10:15', 'Brunch a bordo mientras navegamos por la espectacular bahía.'],
+      ['11:15', 'Desembarque y traslado a la Marina de Tuan Chau.'],
+      ['12:00', 'Salida hacia Hanói en limusina.'],
+      ['15:00', 'Llegada a Hanói.']
+    ],
+    d3_title: '3 DÍAS 2 NOCHES',
+    d3_day1: 'DÍA 1 | BIENVENIDOS A LA BAHÍA',
+    d3_day1_desc: 'Sigue el itinerario del Día 1 del crucero de 2 días: recogida en Hanói, bienvenida a bordo, almuerzo panorámico, aldea Viet Hai, natación, Jacuzzi, Happy Hour al atardecer, clase de cocina y cena.',
+    d3_day2: 'DÍA 2 | LAGO BA HAM – ISLA DE LOS MONOS – PUEBLO FLOTANTE',
+    d3_day2_meals: 'Comidas: Desayuno, Almuerzo y Cena',
+    d3_day2_col2: [
+      ['05:30–06:00', 'Tai Chi al amanecer.'],
+      ['07:00', 'Desayuno ligero.'],
+      ['08:00', 'Kayak o baño en el lago Ba Ham.']
+    ],
+    d3_day2_col3: [
+      ['12:00', 'Almuerzo a bordo.'],
+      ['15:00', 'Explora la Isla de los Monos y un pueblo pesquero flotante; conoce la acuicultura local.'],
+      ['17:30', 'Happy Hour al atardecer.'],
+      ['18:30', 'Demostración de cocina vietnamita.'],
+      ['19:00', 'Cena a bordo.'],
+      ['20:30', 'Bar panorámico, pesca de calamares y salón de té. Noche a bordo.']
+    ],
+    d3_day3: 'DÍA 3 | CUEVA OSCURA Y BRILLANTE – HANÓI',
+    d3_day3_meals: 'Comidas: Desayuno y Brunch',
+    d3_day3_items: [
+      ['05:30–06:00', 'Tai Chi al amanecer.'],
+      ['07:00', 'Desayuno ligero.'],
+      ['08:00', 'Kayak en la Cueva Oscura y Brillante (Verano: playa Tres Melocotones).'],
+      ['09:30', 'Regreso al crucero.'],
+      ['10:00', 'Check-out.'],
+      ['10:15', 'Brunch a bordo.'],
+      ['11:15', 'Desembarque en la Marina de Tuan Chau.'],
+      ['12:00', 'Salida hacia Hanói.'],
+      ['15:00', 'Llegada a Hanói.']
+    ]
+  },
+  ru: {
+    cabins_summary: [
+      '30 кают класса люкс, все с собственным балконом',
+      'Senior Suite – 18 кают',
+      'Trip Suite – 9 кают',
+      'Family Suite – 1 семейный люкс',
+      'Royal Suite – 2 VIP-люкса с приватной террасой'
+    ],
+    hl_title: 'ИНФРАСТРУКТУРА ЛАЙНЕРА',
+    highlights: [
+      'Панорамный ресторан',
+      '2 открытых бара Sky Bar',
+      'Всесезонный джакузи с подогревом',
+      'Спа и велнес-центр',
+      'Каякинг и знакомство с местной культурой'
+    ],
+    cover_title: 'DAIICHI LUXURY CRUISE',
+    banner_line1: 'ДВА ЗАЛИВА. ОДНО НЕОБЫКНОВЕННОЕ ПУТЕШЕСТВИЕ.',
+    banner_line2: 'ЗАЛИВ ХАЛОНГ И ЗАЛИВ ЛАНХА',
+    cover_foot: 'Роскошь, комфорт и душевное тепло в самом сердце природного наследия Вьетнама.',
+    d2_title: '2 ДНЯ 1 НОЧЬ',
+    d2_day1: 'ДЕНЬ 1 | ХАНОЙ – ЗАЛИВ ХАЛОНГ – ЗАЛИВ ЛАНХА – ДЕРЕВНЯ ВЬЕТХАЙ',
+    d2_day1_meals: 'Питание: Обед и Ужин',
+    d2_day1_items: [
+      ['07:30–08:00', 'Трансфер из Ханоя: Посадка в лимузин-автобус у вашего отеля в Старом квартале Ханоя.'],
+      ['11:30–12:30', 'Добро пожаловать на борт: Трансфер на тендере из марины Туанчау, приветственный напиток и заселение.'],
+      ['13:00', 'Обед с панорамным видом во время перехода из залива Халонг в залив Ланха.'],
+      ['14:30', 'Деревня Вьетхай: Прогулка на велосипеде или электрокаре, органическая ферма и пилинг рыбками.'],
+      ['16:30', 'Купание и отдых во всесезонном джакузи.'],
+      ['17:30', 'Закат и Happy Hour: Свежие фрукты, закуски и акция на напитки «2+1».'],
+      ['18:30', 'Кулинарный мастер-класс по вьетнамской кухне.'],
+      ['19:00', 'Изысканный ужин из свежих местных морепродуктов.'],
+      ['20:30', 'Панорамный бар, ночная ловля кальмаров и чайная комната.']
+    ],
+    d2_day2: 'ДЕНЬ 2 | ТЕМНАЯ И СВЕТЛАЯ ПЕЩЕРЫ – ЗАЛИВ ЛАНХА – ХАНОЙ',
+    d2_day2_meals: 'Питание: Завтрак и Бранч',
+    d2_day2_col1: [
+      ['05:30–06:00', 'Гимнастика Тай-Чи на рассвете на солнечной палубе.'],
+      ['07:00', 'Легкий завтрак с видом на залив.'],
+      ['08:00', 'Каякинг и пляж: Прогулка на каяках по Темной и Светлой пещерам (летом: пляж Ба-Трай-Дао).']
+    ],
+    d2_day2_col2: [
+      ['09:30', 'Возвращение на борт лайнера и подготовка к выселению.'],
+      ['10:00', 'Сдача кают (Check-out).'],
+      ['10:15', 'Бранч на борту во время круиза по живописному заливу.'],
+      ['11:15', 'Высадка в марине Туанчау (Tuan Chau Marina).'],
+      ['12:00', 'Отправление в Ханой на лимузине.'],
+      ['15:00', 'Прибытие в Ханой.']
+    ],
+    d3_title: '3 ДНЯ 2 НОЧИ',
+    d3_day1: 'ДЕНЬ 1 | ДОБРО ПОЖАЛОВАТЬ В ЗАЛИВ',
+    d3_day1_desc: 'Программа повторяет День 1 круиза на 2 дня: трансфер из Ханоя, посадка на борт, обед, деревня Вьетхай, купание, джакузи, закат Happy Hour, кулинарный урок и ужин.',
+    d3_day2: 'ДЕНЬ 2 | ОЗЕРО БАХАМ – ОСТРОВ ОБЕЗЬЯН – ПЛАВУЧАЯ ДЕРЕВНЯ',
+    d3_day2_meals: 'Питание: Завтрак, Обед и Ужин',
+    d3_day2_col2: [
+      ['05:30–06:00', 'Тай-Чи на рассвете.'],
+      ['07:00', 'Легкий завтрак.'],
+      ['08:00', 'Каякинг или купание в лагуне озера Бахам.']
+    ],
+    d3_day2_col3: [
+      ['12:00', 'Обед на борту.'],
+      ['15:00', 'Экскурсия на Остров Обезьян и в плавучую рыбацкую деревню; кормление рыб на морской ферме.'],
+      ['17:30', 'Вечеринка на закате Happy Hour.'],
+      ['18:30', 'Мастер-класс вьетнамской кухни.'],
+      ['19:00', 'Ужин на борту.'],
+      ['20:30', 'Панорамный бар, ловля кальмаров и чайная комната. Ночь на борту.']
+    ],
+    d3_day3: 'ДЕНЬ 3 | ТЕМНАЯ И СВЕТЛАЯ ПЕЩЕРЫ – ХАНОЙ',
+    d3_day3_meals: 'Питание: Завтрак и Бранч',
+    d3_day3_items: [
+      ['05:30–06:00', 'Тай-Чи на рассвете.'],
+      ['07:00', 'Легкий завтрак.'],
+      ['08:00', 'Каякинг у Темной и Светлой пещер (летом: пляж Трех Персиков).'],
+      ['09:30', 'Возвращение на лайнер.'],
+      ['10:00', 'Выселение из кают.'],
+      ['10:15', 'Бранч на борту.'],
+      ['11:15', 'Высадка в марине Туанчау.'],
+      ['12:00', 'Отправление в Ханой.'],
+      ['15:00', 'Прибытие в Ханой.']
+    ]
+  }
+};
+
 function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initialLang }) {
   const [ship, setShip] = useState(initialShip || 'boutique');
   const [bLang, setBLang] = useState(() => {
@@ -3291,43 +4028,12 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
 
   if (!isOpen) return null;
 
-  const baseDict = BROCHURE_TEXT[bLang] || BROCHURE_TEXT.en;
   const isLuxury = ship === 'luxury';
-
-  // Adapt headings if user switches to 5★ Daiichi Luxury Cruise tab
-  const dict = isLuxury
-    ? {
-        ...baseDict,
-        exp_title: bLang === 'vi' ? 'TRẢI NGHIỆM DU THUYỀN 5 SAO' : bLang === 'en' ? 'THE 5-STAR LUXURY EXPERIENCE' : baseDict.exp_title,
-        exp_sub1: bLang === 'vi' ? '30 SUITE BAN CÔNG · CẦU KÍNH & JACUZZI' : bLang === 'en' ? '30 BALCONY SUITES · GLASS SKYWALK & JACUZZI' : baseDict.exp_sub1,
-        bullets: bLang === 'vi'
-          ? [
-              'Du thuyền 5 sao thế hệ mới giữa kỳ quan Vịnh Lan Hạ',
-              '30 phòng Suite sang trọng 100% có ban công riêng view biển',
-              'Cầu kính Skywalk vươn ra mặt vịnh & Bể sục Jacuzzi bốn mùa',
-              'Nhà hàng kính Fine-Dining & Sky Bar 360° ngắm hoàng hôn',
-              'Chèo kayak Hang Sáng Tối, tắm biển Ba Trái Đào & Làng Việt Hải',
-              'Xe Limousine đưa đón tận nơi Phố Cổ Hà Nội ⇄ Bến Du Thuyền'
-            ]
-          : bLang === 'en'
-          ? [
-              'Newest 5-star flagship cruise in Lan Ha Bay',
-              '30 luxury suites with 100% private ocean-view balconies',
-              'Exclusive over-the-sea Glass Skywalk & 4-season heated Jacuzzi',
-              'Panoramic glass Fine-Dining restaurant & 360° Sky Bar',
-              'Kayaking, swimming at Ba Trai Dao Beach & Viet Hai cycling',
-              'Door-to-door Limousine transfer from Hanoi Old Quarter'
-            ]
-          : baseDict.bullets,
-        cabin_1: bLang === 'vi' ? 'Junior & Senior Suite Ban Công Riêng (28–30m²)' : 'Junior & Senior Balcony Suites (28–30m²)',
-        cabin_2: bLang === 'vi' ? 'Executive Family & Royal VIP Suite (45–55m², View 270°)' : 'Executive Family & Royal VIP Suites (45–55m², 270° View)',
-        cover_title: 'DAIICHI LUXURY CRUISE 5★',
-        cover_banner: bLang === 'vi' ? 'TUYỆT TÁC DU THUYỀN 5 SAO VỊNH LAN HẠ' : '5-STAR LUXURY CRUISE IN LAN HA BAY DISCOVER',
-        cover_desc: bLang === 'vi'
-          ? 'Tuyệt tác nghỉ dưỡng 5 sao với 30 Suite ban công riêng, cầu kính Skywalk và bể sục Jacuzzi bốn mùa.'
-          : 'A 5-star masterpiece featuring 30 private balcony suites, over-the-sea glass Skywalk and all-season Jacuzzi.'
-      }
-    : baseDict;
+  const dict = BROCHURE_TEXT[bLang] || BROCHURE_TEXT.en;
+  const luxDict = LUXURY_BROCHURE_TEXT[bLang] || LUXURY_BROCHURE_TEXT.en;
+  const originalPdfHref = isLuxury
+    ? 'assets/brochures/Daiichi-Luxury-Cruise-Brochure-Original.pdf'
+    : 'assets/brochures/Daiichi-Boutique-Cruise-Brochure-Original.pdf';
 
   const handleSelectNativeLang = (code) => {
     setBLang(code);
@@ -3396,7 +4102,7 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
 <head>
   <meta charset="utf-8" />
   <base href="${baseHref}" />
-  <title>${dict.cover_title} — Brochure (${(extLangCode || bLang).toUpperCase()})</title>
+  <title>${isLuxury ? luxDict.ship_badge : dict.cover_title} — Brochure (${(extLangCode || bLang).toUpperCase()})</title>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <style>
     @page { size: A4 landscape; margin: 0; }
@@ -3544,8 +4250,8 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
             </button>
 
             <a
-              href="assets/brochures/Daiichi-Boutique-Cruise-Brochure-Original.pdf"
-              download="Daiichi-Boutique-Cruise-Brochure-Original.pdf"
+              href={originalPdfHref}
+              download={isLuxury ? 'Daiichi-Luxury-Cruise-Brochure-Original.pdf' : 'Daiichi-Boutique-Cruise-Brochure-Original.pdf'}
               style={{
                 background: 'rgba(255,255,255,0.1)',
                 color: '#E2E8F0',
@@ -3646,8 +4352,339 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
       {/* PRINTABLE / EXPORTABLE 2-PAGE A4 LANDSCAPE BROCHURE CANVAS */}
       <div style={{ width: '100%', maxWidth: 1040, overflowX: 'auto', paddingBottom: 32 }}>
         <div id="dt-brochure-printable-area" style={{ width: 1024, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 20 }}>
+          {isLuxury ? (
+            <React.Fragment>
+              {/* ====================================================
+                  LUXURY 5★ PAGE 1: 10-PHOTO GRID + ROOMS/INCLUSIONS + COVER
+                  ==================================================== */}
+              <div
+                className="brochure-page"
+                style={{
+                  width: 1024,
+                  height: 722,
+                  background: '#FFFFFF',
+                  display: 'grid',
+                  gridTemplateColumns: '342px 320px 362px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
+                  borderRadius: 4,
+                  position: 'relative',
+                  fontFamily: "'Be Vietnam Pro', sans-serif"
+                }}
+              >
+                {/* LEFT COLUMN: 2x5 Grid of 10 Authentic Luxury Suite & Onboard Photos */}
+                <div
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    background: '#FFFFFF',
+                    padding: '18px 14px',
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gridTemplateRows: 'repeat(5, 1fr)',
+                    gap: 8
+                  }}
+                >
+                  {[
+                    'assets/brochures/lux-p1-Im1.jpg',
+                    'assets/brochures/lux-p1-Im2.jpg',
+                    'assets/brochures/lux-p1-Im3.jpg',
+                    'assets/brochures/lux-p1-Im4.jpg',
+                    'assets/brochures/lux-p1-Im5.jpg',
+                    'assets/brochures/lux-p1-Im6.jpg',
+                    'assets/brochures/lux-p1-Im7.jpg',
+                    'assets/brochures/lux-p1-Im8.jpg',
+                    'assets/brochures/lux-p1-Im9.jpg',
+                    'assets/brochures/lux-p1-Im10.jpg'
+                  ].map((src, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        overflow: 'hidden',
+                        borderRadius: 4,
+                        border: '2px solid #E2E8F0',
+                        boxShadow: '0 2px 6px rgba(0,0,0,0.08)'
+                      }}
+                    >
+                      <img
+                        src={src}
+                        alt={`Daiichi Luxury Suite ${idx + 1}`}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* MIDDLE COLUMN: Sky-Blue Panel (#D8F1F8) — OUR ROOMS + 2 PHOTOS + INCLUDED/EXCLUDED */}
+                <div
+                  style={{
+                    background: '#D8F1F8',
+                    color: '#0C2340',
+                    padding: '20px 18px 16px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%'
+                  }}
+                >
+                  <div>
+                    <div style={{ fontSize: 15.5, fontWeight: 900, color: '#0B436B', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: 6 }}>
+                      {luxDict.exp_title}
+                    </div>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 10.6, lineHeight: 1.52, fontWeight: 700, color: '#0F172A' }}>
+                      {luxDict.rooms.map((rm, i) => (
+                        <li key={i}>• {rm}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* 2 Center Studio Photos (Family Suite + Glass Skywalk Bow) */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 7, margin: '6px 0' }}>
+                    <div style={{ height: 112, borderRadius: 6, overflow: 'hidden', border: '2.5px solid #FFFFFF', boxShadow: '0 4px 12px rgba(0,0,0,0.12)' }}>
+                      <img src="assets/brochures/lux-p1-Im11.jpg" alt="Family Suite" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    </div>
+                    <div style={{ height: 112, borderRadius: 6, overflow: 'hidden', border: '2.5px solid #FFFFFF', boxShadow: '0 4px 12px rgba(0,0,0,0.12)' }}>
+                      <img src="assets/brochures/lux-p1-Im12.jpg" alt="Glass Skywalk Bow" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div style={{ fontSize: 13.5, fontWeight: 900, color: '#0B436B', textTransform: 'uppercase', marginBottom: 3 }}>
+                      {luxDict.inc_title}
+                    </div>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 8px', fontSize: 10, lineHeight: 1.42, fontWeight: 600, color: '#1E293B' }}>
+                      {luxDict.included.map((inc, i) => (
+                        <li key={i}>• {inc}</li>
+                      ))}
+                    </ul>
+
+                    <div style={{ fontSize: 13.5, fontWeight: 900, color: '#B91C1C', textTransform: 'uppercase', marginBottom: 3 }}>
+                      {luxDict.exc_title}
+                    </div>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 10, lineHeight: 1.4, fontWeight: 600, color: '#1E293B' }}>
+                      {luxDict.excluded.map((exc, i) => (
+                        <li key={i}>• {exc}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* RIGHT COLUMN: Front Cover (#146A75 Deep Ocean Teal + Golden-Sails Ship + Special Features) */}
+                <div
+                  style={{
+                    background: '#146A75',
+                    color: '#FFFFFF',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%',
+                    overflow: 'hidden'
+                  }}
+                >
+                  {/* Top Header */}
+                  <div style={{ padding: '22px 20px 12px', textAlign: 'center' }}>
+                    <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: '0.12em', color: '#FDE68A', textTransform: 'uppercase', marginBottom: 4 }}>
+                      {luxDict.cover_sub}
+                    </div>
+                    <div style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, letterSpacing: '0.02em', color: '#FFFFFF', textTransform: 'uppercase', marginBottom: 6 }}>
+                      {luxDict.cover_title}
+                    </div>
+                    <div style={{ fontSize: 11, fontStyle: 'italic', color: 'rgba(255,255,255,0.9)', lineHeight: 1.38 }}>
+                      {luxDict.cover_tag}
+                    </div>
+                  </div>
+
+                  {/* Center Hero Ship Image with Red Ribbon Badge */}
+                  <div style={{ position: 'relative', width: '100%', height: 345, background: '#fff' }}>
+                    <img
+                      src="assets/brochures/lux-p1-Im0.jpg"
+                      alt="Daiichi Luxury Cruise 5★"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                    <div
+                      style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        background: 'linear-gradient(90deg, #B91C1C 0%, #DC2626 50%, #B91C1C 100%)',
+                        color: '#FFFFFF',
+                        padding: '8px 12px',
+                        textAlign: 'center',
+                        boxShadow: '0 -4px 14px rgba(0,0,0,0.28)'
+                      }}
+                    >
+                      <div style={{ fontSize: 15, fontWeight: 900, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                        {luxDict.ship_badge}
+                      </div>
+                      <div style={{ fontSize: 11, fontWeight: 700, color: '#FDE68A' }}>
+                        {luxDict.ship_cap}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Special Features */}
+                  <div style={{ padding: '14px 20px 18px', background: '#0E525B', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <div style={{ fontSize: 14, fontWeight: 900, color: '#FDE68A', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 6 }}>
+                      ★ {luxDict.feat_title}
+                    </div>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 10.6, lineHeight: 1.48, color: '#FFFFFF', fontWeight: 600 }}>
+                      {luxDict.features.map((ft, i) => (
+                        <li key={i} style={{ marginBottom: 3 }}>• {ft}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* ====================================================
+                  LUXURY 5★ PAGE 2: 2D1N & 3D2N DETAILED ITINERARIES + KAYAK PHOTO
+                  ==================================================== */}
+              <div
+                className="brochure-page"
+                style={{
+                  width: 1024,
+                  height: 722,
+                  background: '#146A75',
+                  display: 'grid',
+                  gridTemplateColumns: '342px 340px 342px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
+                  borderRadius: 4,
+                  position: 'relative',
+                  color: '#FFFFFF',
+                  fontFamily: "'Be Vietnam Pro', sans-serif"
+                }}
+              >
+                {/* COLUMN 1: 2 DAYS 1 NIGHT ITINERARY */}
+                <div
+                  style={{
+                    background: '#0E525B',
+                    padding: '24px 20px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 5,
+                    borderRight: '1px solid rgba(255,255,255,0.14)'
+                  }}
+                >
+                  <div style={{ fontSize: 16.5, fontWeight: 900, color: '#FDE68A', letterSpacing: '0.02em', marginBottom: 2 }}>
+                    {luxDict.d2_title}
+                  </div>
+                  <div style={{ fontSize: 11.8, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginBottom: 2 }}>
+                    {luxDict.d2_day1}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10.1, lineHeight: 1.35 }}>
+                    {luxDict.d2_day1_items.map(([tm, txt], i) => (
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
+                        <span>{txt}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div style={{ fontSize: 11.8, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginTop: 8, marginBottom: 2 }}>
+                    {luxDict.d2_day2}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10.1, lineHeight: 1.35 }}>
+                    {luxDict.d2_day2_items.map(([tm, txt], i) => (
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
+                        <span>{txt}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* COLUMN 2: 3 DAYS 2 NIGHTS (DAY 1 & DAY 2) */}
+                <div
+                  style={{
+                    background: '#146A75',
+                    padding: '24px 20px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 5,
+                    borderRight: '1px solid rgba(255,255,255,0.14)'
+                  }}
+                >
+                  <div style={{ fontSize: 16.5, fontWeight: 900, color: '#FDE68A', letterSpacing: '0.02em', marginBottom: 2 }}>
+                    {luxDict.d3_title}
+                  </div>
+                  <div style={{ fontSize: 11.8, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginBottom: 2 }}>
+                    {luxDict.d3_day1}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10.1, lineHeight: 1.35 }}>
+                    {luxDict.d3_day1_items.map(([tm, txt], i) => (
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
+                        <span>{txt}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div style={{ fontSize: 11.8, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginTop: 8, marginBottom: 2 }}>
+                    {luxDict.d3_day2}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10.1, lineHeight: 1.35 }}>
+                    {luxDict.d3_day2_items.map(([tm, txt], i) => (
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
+                        <span>{txt}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* COLUMN 3: 3 DAYS 2 NIGHTS (DAY 3) + KAYAKING LAGOON HERO PHOTO */}
+                <div
+                  style={{
+                    background: '#146A75',
+                    padding: '24px 20px 22px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    height: '100%'
+                  }}
+                >
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                    <div style={{ fontSize: 11.8, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginTop: 24, marginBottom: 2 }}>
+                      {luxDict.d3_day3}
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 10.2, lineHeight: 1.38 }}>
+                      {luxDict.d3_day3_items.map(([tm, txt], i) => (
+                        <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 5 }}>
+                          <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
+                          <span>{txt}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Bottom Right Kayaking Photo from Luxury PDF */}
+                  <div
+                    style={{
+                      width: '100%',
+                      height: 290,
+                      borderRadius: 10,
+                      overflow: 'hidden',
+                      border: '3px solid #FFFFFF',
+                      boxShadow: '0 10px 25px rgba(0,0,0,0.3)'
+                    }}
+                  >
+                    <img
+                      src="assets/brochures/lux-p2-Im0.jpg"
+                      alt="Kayaking in Lan Ha Bay"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
           {/* ====================================================
-              PAGE 1: OUTSIDE TRI-FOLD (GALLERY + EXPERIENCE + COVER)
+              BOUTIQUE 4★ PAGE 1: OUTSIDE TRI-FOLD (GALLERY + EXPERIENCE + COVER)
               ==================================================== */}
           <div
             className="brochure-page"
@@ -3667,7 +4704,7 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
             {/* LEFT COLUMN: Exact Photo Collage */}
             <div style={{ width: '100%', height: '100%', overflow: 'hidden', background: '#fff' }}>
               <img
-                src={isLuxury ? 'assets/photos/luxury-1.jpg' : 'assets/brochures/bq-p1-left-col.jpg'}
+                src="assets/brochures/bq-p1-left-col.jpg"
                 alt="Gallery"
                 style={{
                   width: '100%',
@@ -3749,7 +4786,7 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
               {/* Hero Ship Photo + Translated Circle Badge */}
               <div style={{ position: 'relative', width: '100%', height: 390, overflow: 'hidden' }}>
                 <img
-                  src={isLuxury ? 'assets/photos/luxury-2.jpg' : 'assets/brochures/bq-p1-right-ship.jpg'}
+                  src="assets/brochures/bq-p1-right-ship.jpg"
                   alt={dict.cover_title}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
@@ -3819,7 +4856,7 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
           </div>
 
           {/* ====================================================
-              PAGE 2: INSIDE TRI-FOLD (2D1N & 3D2N DETAILED ITINERARIES)
+              BOUTIQUE 4★ PAGE 2: INSIDE TRI-FOLD (2D1N & 3D2N DETAILED ITINERARIES)
               ==================================================== */}
           <div
             className="brochure-page"
@@ -3984,6 +5021,8 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
               />
             </div>
           </div>
+            </React.Fragment>
+          )}
         </div>
       </div>
     </div>
@@ -5927,13 +6966,25 @@ function OneHome() {
           <DaiichiUltraLogo />
           
           <nav className="on-nav" aria-label="Main Navigation">
-            <a href="#fleet">{T('nav_luxury')}</a>
-            <a href="#boutique-cruise">{T('nav_boutique')}</a>
-            <a href="#suites">{T('nav_suites')}</a>
+            <a href="#fleet">{LV('Du thuyền 5★', '5★ Luxury', '5★ ラグジュアリー', '5★ 럭셔리', '5★ 豪华游轮', 'Croisière 5★')}</a>
+            <a href="#boutique-cruise">{LV('Boutique 4★', '4★ Boutique', '4★ ブティック', '4★ 부티크', '4★ 精品游轮', 'Boutique 4★')}</a>
+            <a href="#suites">{LV('Phòng Suite', 'Suites', 'スイート', '스위트룸', '套房', 'Suites')}</a>
             <a href="#itinerary">{T('nav_itinerary')}</a>
-            <a href="#brochure-download" onClick={(e) => { e.preventDefault(); openBrochure('boutique'); }} style={{ color: '#FDE68A', fontWeight: 700 }}>📄 Brochure PDF</a>
-            <a href="#limousine">{T('nav_limo')}</a>
-            <a href="#blog">{LV('Cẩm Nang', 'Travel Blog')}</a>
+            <a
+              href="#brochure-download"
+              onClick={(e) => { e.preventDefault(); openBrochure('luxury'); }}
+              style={{
+                color: '#0F172A',
+                background: 'linear-gradient(135deg, #FDE68A 0%, #D4A648 100%)',
+                fontWeight: 800,
+                padding: '5px 10px',
+                borderRadius: 999,
+                boxShadow: '0 2px 10px rgba(212,166,72,0.35)'
+              }}
+            >
+              📄 {LV('Brochure PDF', 'Brochure PDF')}
+            </a>
+            <a href="#blog">{LV('Cẩm Nang', 'Blog')}</a>
             <a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a>
           </nav>
 
@@ -6042,6 +7093,66 @@ function OneHome() {
             <span className="lux-hl-item"><span className="icon">♨️</span> {LV('Bể Sục Jacuzzi Bốn Mùa', 'Heated Jacuzzi')}</span>
             <span className="lux-hl-item"><span className="icon">🍽️</span> {LV('Ẩm Thực Fine Dining 5★', 'Fine Dining Gastronomy')}</span>
             <span className="lux-hl-item"><span className="icon">🚐</span> {LV('Limousine Đón Trả Tận Cửa', 'Door-to-Door Limousine')}</span>
+          </div>
+
+          {/* HERO MULTI-LANGUAGE BROCHURE QUICK DOWNLOAD BAR */}
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: 10,
+              marginTop: 14,
+              position: 'relative',
+              zIndex: 10
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => openBrochure('luxury')}
+              style={{
+                background: 'linear-gradient(135deg, #FDE68A 0%, #D4A648 55%, #B8860B 100%)',
+                color: '#0B1728',
+                border: '1.5px solid #FFFbeb',
+                borderRadius: 999,
+                padding: '9px 18px',
+                fontSize: 13,
+                fontWeight: 800,
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 7,
+                boxShadow: '0 8px 24px rgba(212, 166, 72, 0.45)',
+                transition: 'transform 0.18s'
+              }}
+            >
+              <span>🚢</span>
+              <span>{LV('Tải Brochure Du Thuyền 5★ Luxury (Đa Ngôn Ngữ)', 'Download 5★ Luxury Brochure PDF (All Languages)', '5★ ラグジュアリー パンフレット (PDF)', '5★ 럭셔리 크루즈 브로셔 (PDF)', '下载 5★ 豪华游轮宣传册 (PDF)', 'Brochure PDF Croisière 5★ Luxury')}</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => openBrochure('boutique')}
+              style={{
+                background: 'rgba(11, 27, 51, 0.85)',
+                color: '#FDE68A',
+                border: '1.5px solid #D4A648',
+                borderRadius: 999,
+                padding: '9px 18px',
+                fontSize: 13,
+                fontWeight: 800,
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 7,
+                backdropFilter: 'blur(8px)',
+                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.45)',
+                transition: 'transform 0.18s'
+              }}
+            >
+              <span>⛵</span>
+              <span>{LV('Tải Brochure Du Thuyền 4★ Boutique (Đa Ngôn Ngữ)', 'Download 4★ Boutique Brochure PDF (All Languages)', '4★ ブティック パンフレット (PDF)', '4★ 부티크 크루즈 브로셔 (PDF)', '下载 4★ 精品游轮宣传册 (PDF)', 'Brochure PDF Croisière 4★ Boutique')}</span>
+            </button>
           </div>
 
 

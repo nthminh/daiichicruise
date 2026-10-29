@@ -4102,7 +4102,7 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
 <head>
   <meta charset="utf-8" />
   <base href="${baseHref}" />
-  <title>${isLuxury ? luxDict.ship_badge : dict.cover_title} — Brochure (${(extLangCode || bLang).toUpperCase()})</title>
+  <title>${isLuxury ? luxDict.cover_title : dict.cover_title} — Brochure (${(extLangCode || bLang).toUpperCase()})</title>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <style>
     @page { size: A4 landscape; margin: 0; }
@@ -4417,12 +4417,12 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
                   ))}
                 </div>
 
-                {/* MIDDLE COLUMN: Sky-Blue Panel (#D8F1F8) — OUR ROOMS + 2 PHOTOS + INCLUDED/EXCLUDED */}
+                {/* MIDDLE COLUMN: Sky-Blue Panel (#D8F1F8) — CABINS SUMMARY + 2 PHOTOS + ONBOARD HIGHLIGHTS */}
                 <div
                   style={{
                     background: '#D8F1F8',
                     color: '#0C2340',
-                    padding: '20px 18px 16px',
+                    padding: '22px 20px 18px',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
@@ -4430,52 +4430,43 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
                   }}
                 >
                   <div>
-                    <div style={{ fontSize: 15.5, fontWeight: 900, color: '#0B436B', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: 6 }}>
-                      {luxDict.exp_title}
+                    <div style={{ fontSize: 15.5, fontWeight: 900, color: '#0B436B', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: 8 }}>
+                      {LV('HỆ THỐNG PHÒNG SUITE 5★', 'SUITE COLLECTION')}
                     </div>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 10.6, lineHeight: 1.52, fontWeight: 700, color: '#0F172A' }}>
-                      {luxDict.rooms.map((rm, i) => (
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 11.5, lineHeight: 1.65, fontWeight: 700, color: '#0F172A' }}>
+                      {(luxDict.cabins_summary || []).map((rm, i) => (
                         <li key={i}>• {rm}</li>
                       ))}
                     </ul>
                   </div>
 
                   {/* 2 Center Studio Photos (Family Suite + Glass Skywalk Bow) */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 7, margin: '6px 0' }}>
-                    <div style={{ height: 112, borderRadius: 6, overflow: 'hidden', border: '2.5px solid #FFFFFF', boxShadow: '0 4px 12px rgba(0,0,0,0.12)' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 10, margin: '8px 0' }}>
+                    <div style={{ height: 145, borderRadius: 8, overflow: 'hidden', border: '3px solid #FFFFFF', boxShadow: '0 4px 12px rgba(0,0,0,0.12)' }}>
                       <img src="assets/brochures/lux-p1-Im11.jpg" alt="Family Suite" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                     </div>
-                    <div style={{ height: 112, borderRadius: 6, overflow: 'hidden', border: '2.5px solid #FFFFFF', boxShadow: '0 4px 12px rgba(0,0,0,0.12)' }}>
+                    <div style={{ height: 145, borderRadius: 8, overflow: 'hidden', border: '3px solid #FFFFFF', boxShadow: '0 4px 12px rgba(0,0,0,0.12)' }}>
                       <img src="assets/brochures/lux-p1-Im12.jpg" alt="Glass Skywalk Bow" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                     </div>
                   </div>
 
                   <div>
-                    <div style={{ fontSize: 13.5, fontWeight: 900, color: '#0B436B', textTransform: 'uppercase', marginBottom: 3 }}>
-                      {luxDict.inc_title}
+                    <div style={{ fontSize: 15, fontWeight: 900, color: '#0B436B', textTransform: 'uppercase', marginBottom: 6 }}>
+                      {luxDict.hl_title}
                     </div>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 8px', fontSize: 10, lineHeight: 1.42, fontWeight: 600, color: '#1E293B' }}>
-                      {luxDict.included.map((inc, i) => (
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 11.5, lineHeight: 1.65, fontWeight: 700, color: '#1E293B' }}>
+                      {(luxDict.highlights || []).map((inc, i) => (
                         <li key={i}>• {inc}</li>
-                      ))}
-                    </ul>
-
-                    <div style={{ fontSize: 13.5, fontWeight: 900, color: '#B91C1C', textTransform: 'uppercase', marginBottom: 3 }}>
-                      {luxDict.exc_title}
-                    </div>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 10, lineHeight: 1.4, fontWeight: 600, color: '#1E293B' }}>
-                      {luxDict.excluded.map((exc, i) => (
-                        <li key={i}>• {exc}</li>
                       ))}
                     </ul>
                   </div>
                 </div>
 
-                {/* RIGHT COLUMN: Front Cover (#146A75 Deep Ocean Teal + Golden-Sails Ship + Special Features) */}
+                {/* RIGHT COLUMN: Front Cover (DAIICHI LUXURY CRUISE + Golden-Sails Ship + Two Bays Banner) */}
                 <div
                   style={{
-                    background: '#146A75',
-                    color: '#FFFFFF',
+                    background: '#FFFFFF',
+                    color: '#0C2340',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
@@ -4484,20 +4475,17 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
                   }}
                 >
                   {/* Top Header */}
-                  <div style={{ padding: '22px 20px 12px', textAlign: 'center' }}>
-                    <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: '0.12em', color: '#FDE68A', textTransform: 'uppercase', marginBottom: 4 }}>
-                      {luxDict.cover_sub}
-                    </div>
-                    <div style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, letterSpacing: '0.02em', color: '#FFFFFF', textTransform: 'uppercase', marginBottom: 6 }}>
+                  <div style={{ padding: '26px 22px 12px', textAlign: 'left', background: '#FFFFFF' }}>
+                    <div style={{ fontSize: 25, fontWeight: 900, lineHeight: 1.18, letterSpacing: '0.02em', color: '#C93B2B', textTransform: 'uppercase' }}>
                       {luxDict.cover_title}
                     </div>
-                    <div style={{ fontSize: 11, fontStyle: 'italic', color: 'rgba(255,255,255,0.9)', lineHeight: 1.38 }}>
-                      {luxDict.cover_tag}
+                    <div style={{ fontSize: 12, fontWeight: 800, color: '#D4A648', letterSpacing: '0.1em', marginTop: 4 }}>
+                      ★★★★★ 5-STAR LUXURY FLEET
                     </div>
                   </div>
 
-                  {/* Center Hero Ship Image with Red Ribbon Badge */}
-                  <div style={{ position: 'relative', width: '100%', height: 345, background: '#fff' }}>
+                  {/* Center Hero Ship Image with Teal Wave Banner */}
+                  <div style={{ position: 'relative', width: '100%', height: 420, background: '#fff', overflow: 'hidden' }}>
                     <img
                       src="assets/brochures/lux-p1-Im0.jpg"
                       alt="Daiichi Luxury Cruise 5★"
@@ -4509,32 +4497,30 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
                         bottom: 0,
                         left: 0,
                         right: 0,
-                        background: 'linear-gradient(90deg, #B91C1C 0%, #DC2626 50%, #B91C1C 100%)',
+                        background: 'linear-gradient(180deg, rgba(16,104,115,0.88) 0%, #146A75 100%)',
                         color: '#FFFFFF',
-                        padding: '8px 12px',
+                        padding: '12px 14px',
                         textAlign: 'center',
                         boxShadow: '0 -4px 14px rgba(0,0,0,0.28)'
                       }}
                     >
-                      <div style={{ fontSize: 15, fontWeight: 900, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-                        {luxDict.ship_badge}
+                      <div style={{ fontSize: 11.5, fontWeight: 900, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                        {luxDict.banner_line1}
                       </div>
-                      <div style={{ fontSize: 11, fontWeight: 700, color: '#FDE68A' }}>
-                        {luxDict.ship_cap}
+                      <div style={{ fontSize: 13.5, fontWeight: 900, color: '#FDE68A', marginTop: 3 }}>
+                        {luxDict.banner_line2}
                       </div>
                     </div>
                   </div>
 
-                  {/* Bottom Special Features */}
-                  <div style={{ padding: '14px 20px 18px', background: '#0E525B', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <div style={{ fontSize: 14, fontWeight: 900, color: '#FDE68A', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 6 }}>
-                      ★ {luxDict.feat_title}
+                  {/* Bottom Cover Footnote */}
+                  <div style={{ padding: '18px 22px 24px', background: '#FFFFFF', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                    <div style={{ fontSize: 13, fontWeight: 800, color: '#0B436B', marginBottom: 6 }}>
+                      2 DAYS 1 NIGHT | 3 DAYS 2 NIGHTS
                     </div>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 10.6, lineHeight: 1.48, color: '#FFFFFF', fontWeight: 600 }}>
-                      {luxDict.features.map((ft, i) => (
-                        <li key={i} style={{ marginBottom: 3 }}>• {ft}</li>
-                      ))}
-                    </ul>
+                    <div style={{ fontSize: 12.2, fontStyle: 'italic', lineHeight: 1.5, color: '#9C7A23', fontWeight: 700 }}>
+                      {luxDict.cover_foot}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4558,77 +4544,89 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
                   fontFamily: "'Be Vietnam Pro', sans-serif"
                 }}
               >
-                {/* COLUMN 1: 2 DAYS 1 NIGHT ITINERARY */}
+                {/* COLUMN 1: 2 DAYS 1 NIGHT ITINERARY (DAY 1 + DAY 2 MORNING) */}
                 <div
                   style={{
-                    background: '#0E525B',
-                    padding: '24px 20px',
+                    background: '#9C7A23',
+                    padding: '22px 18px',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: 5,
-                    borderRight: '1px solid rgba(255,255,255,0.14)'
+                    gap: 4.5
                   }}
                 >
-                  <div style={{ fontSize: 16.5, fontWeight: 900, color: '#FDE68A', letterSpacing: '0.02em', marginBottom: 2 }}>
+                  <div style={{ fontSize: 17, fontWeight: 900, color: '#FFFFFF', letterSpacing: '0.02em', marginBottom: 2 }}>
                     {luxDict.d2_title}
                   </div>
-                  <div style={{ fontSize: 11.8, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginBottom: 2 }}>
+                  <div style={{ fontSize: 11.2, fontWeight: 800, color: '#FEF08A', textTransform: 'uppercase' }}>
                     {luxDict.d2_day1}
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10.1, lineHeight: 1.35 }}>
-                    {luxDict.d2_day1_items.map(([tm, txt], i) => (
-                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 5 }}>
-                        <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
+                  <div style={{ fontSize: 10.2, fontStyle: 'italic', color: 'rgba(255,255,255,0.92)', marginBottom: 2 }}>
+                    {luxDict.d2_day1_meals}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.6, fontSize: 9.8, lineHeight: 1.34 }}>
+                    {(luxDict.d2_day1_items || []).map(([tm, txt], i) => (
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '66px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 800, color: '#FEF08A' }}>{tm}</span>
                         <span>{txt}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div style={{ fontSize: 11.8, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginTop: 8, marginBottom: 2 }}>
+                  <div style={{ fontSize: 11.2, fontWeight: 800, color: '#FEF08A', textTransform: 'uppercase', marginTop: 6 }}>
                     {luxDict.d2_day2}
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10.1, lineHeight: 1.35 }}>
-                    {luxDict.d2_day2_items.map(([tm, txt], i) => (
-                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 5 }}>
-                        <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
+                  <div style={{ fontSize: 10.2, fontStyle: 'italic', color: 'rgba(255,255,255,0.92)', marginBottom: 2 }}>
+                    {luxDict.d2_day2_meals}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.6, fontSize: 9.8, lineHeight: 1.34 }}>
+                    {(luxDict.d2_day2_col1 || []).map(([tm, txt], i) => (
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '66px 1fr', gap: 5 }}>
+                        <span style={{ fontWeight: 800, color: '#FEF08A' }}>{tm}</span>
                         <span>{txt}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* COLUMN 2: 3 DAYS 2 NIGHTS (DAY 1 & DAY 2) */}
+                {/* COLUMN 2: 2D1N DAY 2 CONT. + 3 DAYS 2 NIGHTS (DAY 1 & DAY 2 MORNING) */}
                 <div
                   style={{
                     background: '#146A75',
-                    padding: '24px 20px',
+                    padding: '22px 18px',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 5,
                     borderRight: '1px solid rgba(255,255,255,0.14)'
                   }}
                 >
-                  <div style={{ fontSize: 16.5, fontWeight: 900, color: '#FDE68A', letterSpacing: '0.02em', marginBottom: 2 }}>
-                    {luxDict.d3_title}
-                  </div>
-                  <div style={{ fontSize: 11.8, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginBottom: 2 }}>
-                    {luxDict.d3_day1}
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10.1, lineHeight: 1.35 }}>
-                    {luxDict.d3_day1_items.map(([tm, txt], i) => (
-                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 5 }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.6, fontSize: 9.8, lineHeight: 1.34, paddingBottom: 10, borderBottom: '1px dashed rgba(255,255,255,0.25)' }}>
+                    {(luxDict.d2_day2_col2 || []).map(([tm, txt], i) => (
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '52px 1fr', gap: 5 }}>
                         <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
                         <span>{txt}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div style={{ fontSize: 11.8, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginTop: 8, marginBottom: 2 }}>
+                  <div style={{ fontSize: 17, fontWeight: 900, color: '#FDE68A', letterSpacing: '0.02em', marginTop: 4 }}>
+                    {luxDict.d3_title}
+                  </div>
+                  <div style={{ fontSize: 11.2, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase' }}>
+                    {luxDict.d3_day1}
+                  </div>
+                  <div style={{ fontSize: 10, lineHeight: 1.42, color: 'rgba(255,255,255,0.92)', marginBottom: 4 }}>
+                    {luxDict.d3_day1_desc}
+                  </div>
+
+                  <div style={{ fontSize: 11.2, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginTop: 4 }}>
                     {luxDict.d3_day2}
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 10.1, lineHeight: 1.35 }}>
-                    {luxDict.d3_day2_items.map(([tm, txt], i) => (
-                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 5 }}>
+                  <div style={{ fontSize: 10.2, fontStyle: 'italic', color: 'rgba(255,255,255,0.92)', marginBottom: 2 }}>
+                    {luxDict.d3_day2_meals}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 3.8, fontSize: 9.9, lineHeight: 1.35 }}>
+                    {(luxDict.d3_day2_col2 || []).map(([tm, txt], i) => (
+                      <div key={i} style={{ display: 'grid', gridTemplateColumns: '66px 1fr', gap: 5 }}>
                         <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
                         <span>{txt}</span>
                       </div>
@@ -4636,24 +4634,36 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
                   </div>
                 </div>
 
-                {/* COLUMN 3: 3 DAYS 2 NIGHTS (DAY 3) + KAYAKING LAGOON HERO PHOTO */}
+                {/* COLUMN 3: 3D2N DAY 2 CONT. + DAY 3 + KAYAKING LAGOON HERO PHOTO */}
                 <div
                   style={{
                     background: '#146A75',
-                    padding: '24px 20px 22px',
+                    padding: '22px 18px 18px',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                     height: '100%'
                   }}
                 >
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                    <div style={{ fontSize: 11.8, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginTop: 24, marginBottom: 2 }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4.5 }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 3.6, fontSize: 9.8, lineHeight: 1.34, paddingBottom: 8, borderBottom: '1px dashed rgba(255,255,255,0.25)' }}>
+                      {(luxDict.d3_day2_col3 || []).map(([tm, txt], i) => (
+                        <div key={i} style={{ display: 'grid', gridTemplateColumns: '52px 1fr', gap: 5 }}>
+                          <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
+                          <span>{txt}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div style={{ fontSize: 11.2, fontWeight: 800, color: '#7DD3FC', textTransform: 'uppercase', marginTop: 2 }}>
                       {luxDict.d3_day3}
                     </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 10.2, lineHeight: 1.38 }}>
-                      {luxDict.d3_day3_items.map(([tm, txt], i) => (
-                        <div key={i} style={{ display: 'grid', gridTemplateColumns: '68px 1fr', gap: 5 }}>
+                    <div style={{ fontSize: 10.2, fontStyle: 'italic', color: 'rgba(255,255,255,0.92)', marginBottom: 2 }}>
+                      {luxDict.d3_day3_meals}
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 3.4, fontSize: 9.7, lineHeight: 1.32 }}>
+                      {(luxDict.d3_day3_items || []).map(([tm, txt], i) => (
+                        <div key={i} style={{ display: 'grid', gridTemplateColumns: '66px 1fr', gap: 5 }}>
                           <span style={{ fontWeight: 800, color: '#FDE68A' }}>{tm}</span>
                           <span>{txt}</span>
                         </div>
@@ -4665,11 +4675,11 @@ function CruiseBrochureModal({ isOpen, onClose, initialShip = 'boutique', initia
                   <div
                     style={{
                       width: '100%',
-                      height: 290,
-                      borderRadius: 10,
+                      height: 215,
+                      borderRadius: 8,
                       overflow: 'hidden',
-                      border: '3px solid #FFFFFF',
-                      boxShadow: '0 10px 25px rgba(0,0,0,0.3)'
+                      border: '2.5px solid #FFFFFF',
+                      boxShadow: '0 8px 20px rgba(0,0,0,0.3)'
                     }}
                   >
                     <img

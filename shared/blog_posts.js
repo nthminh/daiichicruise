@@ -4,6 +4,63 @@
    ============================================================ */
 window.DT_BLOG_POSTS = [
   {
+    "id": "blog-927365",
+    "slug": "bai-tam-ba-trai-dao-thung-lung-da-voi-vinh-lan-ha-2026-10-29",
+    "date": "2026-10-29",
+    "isAutoDaily": true,
+    "region": "Lan Ha",
+    "regionLabel": "Bãi Tắm Ba Trái Đào · Vịnh Lan Hạ",
+    "sourceBadge": "Tin Nóng · VnExpress International",
+    "image": "assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg",
+    "initialLikes": 284,
+    "initialViews": 1560,
+    "readingTime": "5 phút đọc",
+    "title": {
+      "vi": "[Tâm Điểm Du Lịch] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-10-29)",
+      "en": "[Trending Travel] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-10-29)",
+      "ja": "【最新トレンド】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-10-29)",
+      "ko": "[최신 여행 트렌드] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-10-29)",
+      "zh": "【旅游热点】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-10-29)",
+      "fr": "[Tendance Voyage] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-10-29)"
+    },
+    "excerpt": {
+      "vi": "Báo chí & truyền thông du lịch (VnExpress International) vừa điểm tin nổi bật: \"Lan Ha Bay presents nature's full palette\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
+      "en": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
+      "ja": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
+      "ko": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
+      "zh": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
+      "fr": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+    },
+    "keywords": [
+      "Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+      "Vịnh Lan Hạ",
+      "Vịnh Hạ Long",
+      "Ninh Bình",
+      "Cát Bà",
+      "kinh nghiệm du lịch tự túc"
+    ],
+    "sections": [
+      {
+        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+        "p": "Báo chí & truyền thông du lịch (VnExpress International) vừa điểm tin nổi bật: \"Lan Ha Bay presents nature's full palette\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+      },
+      {
+        "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
+        "p": "• Khung giờ đẹp nhất trong ngày: Buổi sáng từ 07:30 – 09:30 (ánh nắng trong trẻo, mặt vịnh êm và mát mẻ) hoặc buổi chiều từ 15:45 – 18:00 (thời điểm săn hoàng hôn trên mặt vịnh).\n• Chuẩn bị trang phục: Nên mang theo đồ bơi, túi chống nước cho điện thoại khi chèo kayak, mũ rộng vành và giày/dép mềm dễ di chuyển khi lên xuống bến tàu hoặc đạp xe."
+      },
+      {
+        "h2": "3. Cách kết hợp di chuyển và nghỉ dưỡng hợp lý nhất",
+        "p": "Để không phải lo lắng việc tự tìm bến phà hay đổi nhiều chặng xe, bạn có thể tra cứu trực tiếp giờ xe Limousine cao tốc 5B (Hà Nội / Ninh Bình ⇄ Cát Bà) và các gói Du thuyền ngày VIP 4 hoặc Du thuyền ngủ đêm 5★ Daiichi Luxury ngay trên hệ thống để chủ động hoàn toàn về lịch trình và ngân sách."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Đi Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ tự túc cần lưu ý điều gì nhất?",
+        "a": "Bạn nên kiểm tra dự báo thời tiết trước 2–3 ngày và đặt giữ chỗ trước xe Limousine cũng như tàu tham quan vịnh (đặc biệt vào dịp cuối tuần) để có vị trí ghế đầu và hạng phòng có ban công đẹp nhất."
+      }
+    ]
+  },
+  {
     "id": "blog-512091",
     "slug": "hang-sang-toi-dam-pha-bi-an-tren-vinh-lan-ha-2026-10-28",
     "date": "2026-10-28",

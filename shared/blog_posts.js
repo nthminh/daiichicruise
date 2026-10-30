@@ -4,6 +4,63 @@
    ============================================================ */
 window.DT_BLOG_POSTS = [
   {
+    "id": "blog-341740",
+    "slug": "quan-the-di-san-the-gioi-trang-an-co-do-hoa-lu-ninh-binh-2026-10-30",
+    "date": "2026-10-30",
+    "isAutoDaily": true,
+    "region": "Ninh Binh",
+    "regionLabel": "Danh Thắng Tràng An · Ninh Bình",
+    "sourceBadge": "Tin Nóng · Pixidia",
+    "image": "assets/blog/ninh-binh-trang-an.jpg",
+    "initialLikes": 284,
+    "initialViews": 1560,
+    "readingTime": "5 phút đọc",
+    "title": {
+      "vi": "[Tâm Điểm Du Lịch] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-10-30)",
+      "en": "[Trending Travel] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Insider Tips & Best Cruise Itinerary (2026-10-30)",
+      "ja": "【最新トレンド】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：実用アドバイス＆おすすめクルーズ日程 (2026-10-30)",
+      "ko": "[최신 여행 트렌드] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): 실전 여행 팁 & 추천 크루즈 코스 (2026-10-30)",
+      "zh": "【旅游热点】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：实用出行干货与最佳游轮路线 (2026-10-30)",
+      "fr": "[Tendance Voyage] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Conseils Pratiques & Itinéraire Croisière (2026-10-30)"
+    },
+    "excerpt": {
+      "vi": "Báo chí & truyền thông du lịch (Pixidia) vừa điểm tin nổi bật: \"Ninh Binh Day Trip from Hanoi: 10 Tours Compared (2027)\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
+      "en": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
+      "ja": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
+      "ko": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
+      "zh": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
+      "fr": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+    },
+    "keywords": [
+      "Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
+      "Vịnh Lan Hạ",
+      "Vịnh Hạ Long",
+      "Ninh Bình",
+      "Cát Bà",
+      "kinh nghiệm du lịch tự túc"
+    ],
+    "sections": [
+      {
+        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
+        "p": "Báo chí & truyền thông du lịch (Pixidia) vừa điểm tin nổi bật: \"Ninh Binh Day Trip from Hanoi: 10 Tours Compared (2027)\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+      },
+      {
+        "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
+        "p": "• Khung giờ đẹp nhất trong ngày: Buổi sáng từ 07:30 – 09:30 (ánh nắng trong trẻo, mặt vịnh êm và mát mẻ) hoặc buổi chiều từ 15:45 – 18:00 (thời điểm săn hoàng hôn trên mặt vịnh).\n• Chuẩn bị trang phục: Nên mang theo đồ bơi, túi chống nước cho điện thoại khi chèo kayak, mũ rộng vành và giày/dép mềm dễ di chuyển khi lên xuống bến tàu hoặc đạp xe."
+      },
+      {
+        "h2": "3. Cách kết hợp di chuyển và nghỉ dưỡng hợp lý nhất",
+        "p": "Để không phải lo lắng việc tự tìm bến phà hay đổi nhiều chặng xe, bạn có thể tra cứu trực tiếp giờ xe Limousine cao tốc 5B (Hà Nội / Ninh Bình ⇄ Cát Bà) và các gói Du thuyền ngày VIP 4 hoặc Du thuyền ngủ đêm 5★ Daiichi Luxury ngay trên hệ thống để chủ động hoàn toàn về lịch trình và ngân sách."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Đi Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) tự túc cần lưu ý điều gì nhất?",
+        "a": "Bạn nên kiểm tra dự báo thời tiết trước 2–3 ngày và đặt giữ chỗ trước xe Limousine cũng như tàu tham quan vịnh (đặc biệt vào dịp cuối tuần) để có vị trí ghế đầu và hạng phòng có ban công đẹp nhất."
+      }
+    ]
+  },
+  {
     "id": "blog-927365",
     "slug": "bai-tam-ba-trai-dao-thung-lung-da-voi-vinh-lan-ha-2026-10-29",
     "date": "2026-10-29",

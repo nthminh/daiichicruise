@@ -4,6 +4,63 @@
    ============================================================ */
 window.DT_BLOG_POSTS = [
   {
+    "id": "blog-589850",
+    "slug": "ky-quan-dao-da-voi-vinh-ha-long-vinh-lan-ha-2026-10-31",
+    "date": "2026-10-31",
+    "isAutoDaily": true,
+    "region": "Ha Long",
+    "regionLabel": "Di Sản Vịnh Hạ Long – Vịnh Lan Hạ",
+    "sourceBadge": "Tin Nóng · Vietnam+ (VietnamPlus)",
+    "image": "assets/blog/vinh-ha-long-dao-da.jpg",
+    "initialLikes": 284,
+    "initialViews": 1560,
+    "readingTime": "5 phút đọc",
+    "title": {
+      "vi": "[Tâm Điểm Du Lịch] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-10-31)",
+      "en": "[Trending Travel] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-10-31)",
+      "ja": "【最新トレンド】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-10-31)",
+      "ko": "[최신 여행 트렌드] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-10-31)",
+      "zh": "【旅游热点】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-10-31)",
+      "fr": "[Tendance Voyage] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-10-31)"
+    },
+    "excerpt": {
+      "vi": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
+      "en": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
+      "ja": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
+      "ko": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
+      "zh": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
+      "fr": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+    },
+    "keywords": [
+      "Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+      "Vịnh Lan Hạ",
+      "Vịnh Hạ Long",
+      "Ninh Bình",
+      "Cát Bà",
+      "kinh nghiệm du lịch tự túc"
+    ],
+    "sections": [
+      {
+        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+        "p": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+      },
+      {
+        "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
+        "p": "• Khung giờ đẹp nhất trong ngày: Buổi sáng từ 07:30 – 09:30 (ánh nắng trong trẻo, mặt vịnh êm và mát mẻ) hoặc buổi chiều từ 15:45 – 18:00 (thời điểm săn hoàng hôn trên mặt vịnh).\n• Chuẩn bị trang phục: Nên mang theo đồ bơi, túi chống nước cho điện thoại khi chèo kayak, mũ rộng vành và giày/dép mềm dễ di chuyển khi lên xuống bến tàu hoặc đạp xe."
+      },
+      {
+        "h2": "3. Cách kết hợp di chuyển và nghỉ dưỡng hợp lý nhất",
+        "p": "Để không phải lo lắng việc tự tìm bến phà hay đổi nhiều chặng xe, bạn có thể tra cứu trực tiếp giờ xe Limousine cao tốc 5B (Hà Nội / Ninh Bình ⇄ Cát Bà) và các gói Du thuyền ngày VIP 4 hoặc Du thuyền ngủ đêm 5★ Daiichi Luxury ngay trên hệ thống để chủ động hoàn toàn về lịch trình và ngân sách."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Đi Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ tự túc cần lưu ý điều gì nhất?",
+        "a": "Bạn nên kiểm tra dự báo thời tiết trước 2–3 ngày và đặt giữ chỗ trước xe Limousine cũng như tàu tham quan vịnh (đặc biệt vào dịp cuối tuần) để có vị trí ghế đầu và hạng phòng có ban công đẹp nhất."
+      }
+    ]
+  },
+  {
     "id": "blog-341740",
     "slug": "quan-the-di-san-the-gioi-trang-an-co-do-hoa-lu-ninh-binh-2026-10-30",
     "date": "2026-10-30",

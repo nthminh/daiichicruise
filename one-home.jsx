@@ -5742,7 +5742,7 @@ function SeoBlogSection() {
         description: (p.excerpt && p.excerpt.vi) || '',
         datePublished: p.date,
         image: p.image && p.image.startsWith('http') ? p.image : `https://daiichicruise.vn/${String(p.image || '').replace(/^\/+/, '')}`,
-        url: `https://daiichicruise.vn/seo/blog/${p.slug}.html`
+        url: `https://daiichicruise.vn/seo/blog/${p.slug}`
       }))
     };
     el.textContent = JSON.stringify(schemaData);
@@ -6238,7 +6238,7 @@ function SeoBlogSection() {
                   {!activePost.isCustomOrDaily && (
                     <a
                       className="lux-btn-outline"
-                      href={`seo/blog/${activePost.slug}.html`}
+                      href={`/seo/blog/${activePost.slug}`}
                       target="_blank"
                       rel="noopener"
                       style={{ textDecoration: 'none' }}

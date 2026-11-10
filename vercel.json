@@ -1,6 +1,11 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/seo/en/lan-ha-bay-overnight-cruise", "destination": "/en/lan-ha-overnight-cruise", "permanent": true },
+    { "source": "/en/cat-ba-to-hanoi-bus", "destination": "/en/hanoi-to-cat-ba-bus", "permanent": true },
+    { "source": "/seo/:lang(vi|en|ja|ko|zh|fr)/:slug", "destination": "/:lang/:slug", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/home", "destination": "/index.html" },
     { "source": "/booking", "destination": "/customer/Daiichi Travel.html" }

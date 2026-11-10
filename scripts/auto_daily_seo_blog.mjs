@@ -421,13 +421,13 @@ async function fetchLiveTrendingHeadline(queryStr) {
 }
 
 function buildHtmlPage(post) {
-  const canonicalUrl = `https://daiichicruise.vn/seo/blog/${post.slug}.html`;
+  const canonicalUrl = `https://daiichicruise.vn/seo/blog/${post.slug}`;
   const imgUrl = post.image.startsWith('http')
     ? post.image
     : `https://daiichicruise.vn/${post.image.replace(/^\/+/, '')}`;
   const relImg = post.image.startsWith('http')
     ? post.image
-    : `../../${post.image.replace(/^\/+/, '')}`;
+    : `/${post.image.replace(/^\/+/, '')}`;
   const defaultLikes = post.initialLikes || 218;
   const defaultViews = post.initialViews || 1240;
 
@@ -501,7 +501,8 @@ function buildHtmlPage(post) {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'AW-18502887757');
+  gtag('set', 'linker', { 'domains': ['daiichicruise.vn', 'daiichitravel.com', 'daiichitravel.vn', 'lanhacruises.vn'], 'accept_incoming': true });
+  gtag('config', 'AW-18502887757', { 'allow_enhanced_conversions': true });
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -552,9 +553,9 @@ function buildHtmlPage(post) {
 </head>
 <body>
 <header>
-  <a class="brand notranslate" translate="no" href="../../index.html">⚓ DAIICHI CRUISE · LAN HA BAY</a>
+  <a class="brand notranslate" translate="no" href="/">⚓ DAIICHI CRUISE · LAN HA BAY</a>
   <div style="display:flex;gap:14px;align-items:center;font-size:13px">
-    <a href="../../index.html#blog" style="color:#fff;text-decoration:none;font-weight:600">← Cẩm Nang Du Lịch</a>
+    <a href="/#blog" style="color:#fff;text-decoration:none;font-weight:600">← Cẩm Nang Du Lịch</a>
     <a href="tel:19009070" style="color:var(--gold);text-decoration:none;font-weight:800">📞 1900 9070</a>
   </div>
 </header>
@@ -604,7 +605,7 @@ function buildHtmlPage(post) {
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
       <a class="btn-gold" href="https://daiichitravel.com/?tab=cruise-tours" target="_blank" rel="noopener">Đặt Du Thuyền Ngay →</a>
-      <a class="btn-outline" href="../../index.html">Về Trang Chủ</a>
+      <a class="btn-outline" href="/">Về Trang Chủ</a>
     </div>
   </div>
 
@@ -800,21 +801,19 @@ window.DT_BLOG_POSTS = ${JSON.stringify(existingPosts, null, 2)};
 `;
   fs.writeFileSync(BLOG_JS_FILE, jsContent, 'utf8');
 
-  // Update sitemap.xml with blog URLs
+  // Update sitemap.xml with clean blog URLs (no .html extension since Vercel cleanUrls=true)
   if (fs.existsSync(SITEMAP_FILE)) {
     let sitemap = fs.readFileSync(SITEMAP_FILE, 'utf8');
-    let added = 0;
+    // Normalize any legacy .html blog URLs in sitemap.xml
+    sitemap = sitemap.replace(/(<loc>https:\/\/daiichicruise\.vn\/seo\/blog\/[^<]+?)\.html(<\/loc>)/g, '$1$2');
     for (const post of existingPosts) {
-      const loc = `https://daiichicruise.vn/seo/blog/${post.slug}.html`;
-      if (!sitemap.includes(loc)) {
+      const loc = `https://daiichicruise.vn/seo/blog/${post.slug}`;
+      if (!sitemap.includes(`<loc>${loc}</loc>`)) {
         const entry = `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${post.date}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n</urlset>`;
         sitemap = sitemap.replace('</urlset>', entry);
-        added++;
       }
     }
-    if (added > 0) {
-      fs.writeFileSync(SITEMAP_FILE, sitemap, 'utf8');
-    }
+    fs.writeFileSync(SITEMAP_FILE, sitemap, 'utf8');
   }
 
   console.log(`Generated ${existingPosts.length} live-trending SEO blog posts in seo/blog/*.html and shared/blog_posts.js.`);

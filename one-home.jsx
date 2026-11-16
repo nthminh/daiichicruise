@@ -7180,7 +7180,7 @@ function OneHome() {
             <div>
               <h4>{LV('ĐIỂM ĐẾN & CẨM NANG', 'DESTINATIONS & GUIDES')}</h4>
               <ul>
-                <li><a href="seo/vi/du-thuyen-ngu-dem-lan-ha.html">{LV('Du thuyền ngủ đêm Lan Hạ', 'Lan Ha Overnight Cruises')}</a></li>
+                <li><a href="/vi/du-thuyen-ngu-dem-lan-ha">{LV('Du thuyền ngủ đêm Lan Hạ', 'Lan Ha Overnight Cruises')}</a></li>
                 <li><a href="/vi/du-thuyen-ngay-vinh-lan-ha">{LV('Du thuyền ngày Lan Hạ', 'Lan Ha Day Cruises')}</a></li>
                 <li><a href="/vi/xe-ha-noi-di-cat-ba">{LV('Xe Hà Nội đi Cát Bà', 'Bus Ha Noi to Cat Ba')}</a></li>
                 <li><a href="/vi/xe-cat-ba-ve-ha-noi">{LV('Xe Cát Bà về Hà Nội', 'Bus Cat Ba to Ha Noi')}</a></li>
@@ -7199,7 +7199,7 @@ function OneHome() {
               <ul>
                 <li><a href="https://daiichitravel.com/?tab=my-tickets" target="_blank" rel="noopener">{I18N.t('nav_mybooking')}</a></li>
                 <li><a href="https://daiichitravel.com" target="_blank" rel="noopener" className="notranslate" translate="no">Daiichi Travel Portal</a></li>
-                <li><a href="admin/cruise-manager.html" target="_blank" rel="noopener" style={{ color: 'var(--gold-bright)', fontWeight: 700 }}>{LV('🔒 Quản trị viên (Admin)', '🔒 Admin Login')}</a></li>
+                <li><a href="/admin/cruise-manager" target="_blank" rel="nofollow noopener" style={{ color: 'var(--gold-bright)', fontWeight: 700 }}>{LV('🔒 Quản trị viên (Admin)', '🔒 Admin Login')}</a></li>
               </ul>
             </div>
           </div>

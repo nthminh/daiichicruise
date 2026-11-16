@@ -52,8 +52,8 @@
       }
     ],
     "redirects": [
-      { "source": "/home", "destination": "/index.html", "type": 301 },
-      { "source": "/booking", "destination": "/customer/Daiichi Travel.html", "type": 301 }
+      { "source": "/home", "destination": "/", "type": 301 },
+      { "source": "/booking", "destination": "/customer/Daiichi%20Travel", "type": 301 }
     ]
   }
 }

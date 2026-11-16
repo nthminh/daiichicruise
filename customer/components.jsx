@@ -186,7 +186,7 @@ function Footer() {
               <li>{t('weather_policy')}</li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('dt:nav', { detail: 'charter' })); }} style={{ textDecoration: 'none' }}>{t('charter_title')}</a></li>
               <li><a href="#" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('dt:nav', { detail: 'careers' })); }} style={{ textDecoration: 'none' }}>{t('careers')}</a></li>
-              <li><a href="Chính sách & Điều khoản.html" style={{ textDecoration: 'none' }}>{t('legal_link')}</a></li>
+              <li><a href="/customer/Ch%C3%ADnh%20s%C3%A1ch%20%26%20%C4%90i%E1%BB%81u%20kho%E1%BA%A3n" style={{ textDecoration: 'none' }}>{t('legal_link')}</a></li>
             </ul>
           </div>
         </div>

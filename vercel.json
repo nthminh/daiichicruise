@@ -2,12 +2,20 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/booking", "destination": "/customer/Daiichi%20Travel", "permanent": true },
+    { "source": "/admin", "destination": "/admin/cruise-manager", "permanent": true },
+    { "source": "/apps", "destination": "/apps/Mobile%20Apps", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/customer/Ch%C3%ADnh%20s%C3%A1ch%20%26%20%C4%90i%E1%BB%81u%20kho%E1%BA%A3n", "permanent": true },
+    { "source": "/:lang(vi|en|ja|ko|zh|fr)/customer/:slug*", "destination": "/customer/Ch%C3%ADnh%20s%C3%A1ch%20%26%20%C4%90i%E1%BB%81u%20kho%E1%BA%A3n", "permanent": true },
+    { "source": "/seo/blog/customer/:slug*", "destination": "/customer/Ch%C3%ADnh%20s%C3%A1ch%20%26%20%C4%90i%E1%BB%81u%20kho%E1%BA%A3n", "permanent": true },
+    { "source": "/en/lan-ha-bay-overnight-cruise.html", "destination": "/en/lan-ha-overnight-cruise", "permanent": true },
+    { "source": "/en/lan-ha-bay-overnight-cruise", "destination": "/en/lan-ha-overnight-cruise", "permanent": true },
+    { "source": "/seo/en/lan-ha-bay-overnight-cruise.html", "destination": "/en/lan-ha-overnight-cruise", "permanent": true },
     { "source": "/seo/en/lan-ha-bay-overnight-cruise", "destination": "/en/lan-ha-overnight-cruise", "permanent": true },
+    { "source": "/en/cat-ba-to-hanoi-bus.html", "destination": "/en/hanoi-to-cat-ba-bus", "permanent": true },
     { "source": "/en/cat-ba-to-hanoi-bus", "destination": "/en/hanoi-to-cat-ba-bus", "permanent": true },
+    { "source": "/seo/:lang(vi|en|ja|ko|zh|fr)/:slug.html", "destination": "/:lang/:slug", "permanent": true },
     { "source": "/seo/:lang(vi|en|ja|ko|zh|fr)/:slug", "destination": "/:lang/:slug", "permanent": true }
-  ],
-  "rewrites": [
-    { "source": "/home", "destination": "/index.html" },
-    { "source": "/booking", "destination": "/customer/Daiichi Travel.html" }
   ]
 }

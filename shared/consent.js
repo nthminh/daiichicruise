@@ -46,9 +46,7 @@
   }
 
   function legalHref() {
-    var p = (location.pathname || '').toLowerCase();
-    var prefix = p.indexOf('/customer/') >= 0 ? '' : 'customer/';
-    return prefix + 'Chính sách & Điều khoản.html#privacy';
+    return '/customer/' + encodeURIComponent('Chính sách & Điều khoản') + '#privacy';
   }
 
   function render() {

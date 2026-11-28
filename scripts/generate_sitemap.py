@@ -21,7 +21,7 @@ urls = [
 
 langs = ["vi", "en", "ja", "ko", "zh", "fr"]
 for lang in langs:
-    dirpath = os.path.join(SEO_DIR, lang)
+    dirpath = os.path.join(BASE_DIR, lang)
     if not os.path.isdir(dirpath):
         continue
     for fname in sorted(os.listdir(dirpath)):

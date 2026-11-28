@@ -11,6 +11,8 @@
     { "source": "/:lang(vi|en|ja|ko|zh|fr)/index", "destination": "/?lang=:lang", "permanent": true },
     { "source": "/:lang(vi|en|ja|ko|zh|fr)/index.html", "destination": "/?lang=:lang", "permanent": true },
     { "source": "/vi/cruise/:slug*", "destination": "/vi/du-thuyen-ngu-dem-lan-ha", "permanent": true },
+    { "source": "/du-thuyen-cat-ba", "destination": "/vi/du-thuyen-cat-ba", "permanent": true },
+    { "source": "/du-thuyen-vinh-lan-ha", "destination": "/vi/du-thuyen-ngu-dem-lan-ha", "permanent": true },
     { "source": "/fr/cruise/:slug*", "destination": "/fr/croisiere-nuit-lan-ha", "permanent": true },
     { "source": "/:lang(en|ja|ko|zh)/cruise/:slug*", "destination": "/:lang/lan-ha-overnight-cruise", "permanent": true },
     { "source": "/cruise/:slug*", "destination": "/vi/du-thuyen-ngu-dem-lan-ha", "permanent": true },

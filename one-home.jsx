@@ -1456,8 +1456,8 @@ function FlagshipShipsSection({ onOpenBrochure }) {
   const bqLivePrice = Number(bqTour?.price || bqBalconyRt?.activePrice || bqBalconyRt?.base_price || 6065000);
 
   // Luôn ưu tiên 100% ảnh thật trực tiếp từ Supabase DaiichiTravel (properties & tours)
-  const luxImg = luxProp?.images?.[0] || luxTour?.images?.[0] || 'assets/photos/luxury-1.jpg?v=20261128';
-  const bqImg = bqProp?.images?.[0] || bqTour?.images?.[0] || 'assets/photos/boutique-1.jpg?v=20261128';
+  const luxImg = luxProp?.images?.[0] || luxTour?.images?.[0] || 'assets/photos/luxury-1.webp?v=20261128';
+  const bqImg = bqProp?.images?.[0] || bqTour?.images?.[0] || 'assets/photos/boutique-1.webp?v=20261128';
 
   return (
     <section className="lux-duo-sec" id="fleet" data-screen-label="Hạm đội Du thuyền Daiichi">
@@ -1717,13 +1717,13 @@ function SuiteCollectionSection({ onSelectRoom }) {
       shipName: 'Daiichi Luxury Cruise 5★',
       name: 'Royal Suite VIP',
       badge: 'VIP TỔNG THỐNG · TẦNG 4',
-      img: 'assets/photos/suite-royal.jpg',
+      img: 'assets/photos/suite-royal.webp',
       gallery: [
-        'assets/photos/suite-royal.jpg',
-        'assets/photos/luxury-restaurant.jpg',
-        'assets/photos/luxury-jacuzzi.jpg',
-        'assets/photos/luxury-2.jpg',
-        'assets/photos/luxury-3.jpg'
+        'assets/photos/suite-royal.webp',
+        'assets/photos/luxury-restaurant.webp',
+        'assets/photos/luxury-jacuzzi.webp',
+        'assets/photos/luxury-2.webp',
+        'assets/photos/luxury-3.webp'
       ],
       area: 55,
       capacity: '2 người lớn',
@@ -1742,12 +1742,12 @@ function SuiteCollectionSection({ onSelectRoom }) {
       shipName: 'Daiichi Luxury Cruise 5★',
       name: 'Executive / Family Suite',
       badge: 'GIA ĐÌNH CAO CẤP · TẦNG 2',
-      img: 'assets/photos/suite-executive.jpg',
+      img: 'assets/photos/suite-executive.webp',
       gallery: [
-        'assets/photos/suite-executive.jpg',
-        'assets/photos/luxury-1.jpg',
-        'assets/photos/luxury-jacuzzi.jpg',
-        'assets/photos/daycruise-act-2.jpg'
+        'assets/photos/suite-executive.webp',
+        'assets/photos/luxury-1.webp',
+        'assets/photos/luxury-jacuzzi.webp',
+        'assets/photos/daycruise-act-2.webp'
       ],
       area: 45,
       capacity: '2 - 4 khách',
@@ -1766,12 +1766,12 @@ function SuiteCollectionSection({ onSelectRoom }) {
       shipName: 'Daiichi Luxury Cruise 5★',
       name: 'Senior Suite Balcony',
       badge: 'BỒN TẮM VIEW VỊNH · TẦNG 2',
-      img: 'assets/photos/suite-senior.jpg',
+      img: 'assets/photos/suite-senior.webp',
       gallery: [
-        'assets/photos/suite-senior.jpg',
-        'assets/photos/luxury-3.jpg',
-        'assets/photos/luxury-restaurant.jpg',
-        'assets/photos/daycruise-act-2.jpg'
+        'assets/photos/suite-senior.webp',
+        'assets/photos/luxury-3.webp',
+        'assets/photos/luxury-restaurant.webp',
+        'assets/photos/daycruise-act-2.webp'
       ],
       area: 30,
       capacity: '2 người lớn',
@@ -1790,12 +1790,12 @@ function SuiteCollectionSection({ onSelectRoom }) {
       shipName: 'Daiichi Luxury Cruise 5★',
       name: 'Junior / Trip Suite',
       badge: 'BAN CÔNG RIÊNG · TẦNG 2',
-      img: 'assets/photos/suite-junior.jpg',
+      img: 'assets/photos/suite-junior.webp',
       gallery: [
         'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/77295ed4814a45158709a68c3d23fffa.webp',
         'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/c0f0655e5c2847fe8bce876b98f70838.webp',
         'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/3e609aa9377a485b948ec0dfd91ae732.webp',
-        'assets/photos/suite-junior.jpg'
+        'assets/photos/suite-junior.webp'
       ],
       area: 28,
       capacity: '2 người lớn + 1 trẻ em',
@@ -1814,12 +1814,12 @@ function SuiteCollectionSection({ onSelectRoom }) {
       shipName: 'Daiichi Boutique Cruise 4★',
       name: 'Boutique Balcony Cabin',
       badge: '100% GỖ TỰ NHIÊN · TẦNG 2',
-      img: 'assets/photos/boutique-2.jpg',
+      img: 'assets/photos/boutique-2.webp',
       gallery: [
         'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/25ba463c97174700877aeea6b18d4f6d.webp',
         'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/b2d82f8996af45c6b5e78d5b277a80f9.webp',
         'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/3a178122035247a795ae65ad0ac6f5c6.webp',
-        'assets/photos/boutique-2.jpg'
+        'assets/photos/boutique-2.webp'
       ],
       area: 25,
       capacity: '2 người lớn',
@@ -1838,12 +1838,12 @@ function SuiteCollectionSection({ onSelectRoom }) {
       shipName: 'Daiichi Boutique Cruise 4★',
       name: 'Boutique Deluxe Oceanview',
       badge: 'CỔ ĐIỂN ẤM CÚNG · TẦNG 1',
-      img: 'assets/photos/suite-deluxe.jpg',
+      img: 'assets/photos/suite-deluxe.webp',
       gallery: [
         'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/150ae2005f284efa9cb715e4520cd59e.webp',
         'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/5a1bb231216c44369c2288de36d7dd3d.webp',
         'https://vfeodqmvilchsipdsxsh.supabase.co/storage/v1/object/public/room-types/room-types/74cadd781683458da9527bea55580b8f.webp',
-        'assets/photos/suite-deluxe.jpg'
+        'assets/photos/suite-deluxe.webp'
       ],
       area: 25,
       capacity: '2 - 3 người lớn',
@@ -2016,7 +2016,7 @@ function RoomDetailModal({ room, onClose }) {
 
         {/* Gallery with Thumbs */}
         <div className="lux-modal-gallery">
-          <img src={activeImg} alt={room.name} />
+          <img loading="lazy" decoding="async" src={activeImg} alt={room.name} />
           {room.gallery && room.gallery.length > 1 && (
             <div className="lux-modal-thumbs">
               {room.gallery.map((im, idx) => (
@@ -2025,7 +2025,7 @@ function RoomDetailModal({ room, onClose }) {
                   className={'lux-modal-thumb-btn' + (activeImg === im ? ' active' : '')}
                   onClick={() => setActiveImg(im)}
                 >
-                  <img src={im} alt="thumb" />
+                  <img loading="lazy" decoding="async" src={im} alt="thumb" />
                 </button>
               ))}
             </div>
@@ -5044,7 +5044,7 @@ function DayCruisesHighlightSection() {
       time: '08:00 – 16:30',
       boat: LV('Du thuyền Daiichi Cruise 4★', '4★ Daiichi Day Cruise'),
       price: vip1Price,
-      img: 'assets/photos/daycruise-1.jpg',
+      img: 'assets/photos/daycruise-1.webp',
       perks: LV('Ăn trưa hải sản · Đạp xe Việt Hải · Kayak', 'Seafood Lunch · Cycling · Kayak')
     },
     {
@@ -5054,7 +5054,7 @@ function DayCruisesHighlightSection() {
       time: '15:30 – 18:45',
       boat: LV('Du thuyền 2 tầng ngắm vịnh', '2-Deck Panoramic Boat'),
       price: sunsetPrice,
-      img: 'assets/photos/daycruise-2.jpg',
+      img: 'assets/photos/daycruise-2.webp',
       perks: LV('Tiệc trà bánh · Ngắm hoàng hôn vàng', 'Sunset Tea & Fruits · Golden Hour')
     },
     {
@@ -5064,7 +5064,7 @@ function DayCruisesHighlightSection() {
       time: '08:00 – 16:30',
       boat: LV('Du thuyền 5★ 99 chỗ', '5★ 99-pax Ship'),
       price: vip4Price,
-      img: 'assets/photos/daycruise-act-1.jpg',
+      img: 'assets/photos/daycruise-act-1.webp',
       perks: LV('Buffet hải sản · Cầu trượt nước · Làng Việt Hải', 'Seafood Buffet · Water Slide · Viet Hai')
     },
     {
@@ -5074,7 +5074,7 @@ function DayCruisesHighlightSection() {
       time: '17:30 – 21:30',
       boat: LV('Du thuyền 5★ 99 chỗ', '5★ 99-pax Ship'),
       price: vip5DinnerPrice,
-      img: 'assets/photos/daycruise-4.jpg',
+      img: 'assets/photos/daycruise-4.webp',
       perks: LV('Tiệc BBQ hải sản · Nhạc DJ · Pháo hoa', 'Seafood BBQ · Live DJ · Fireworks')
     }
   ];
@@ -5330,9 +5330,9 @@ const REAL_DESTINATION_PHOTOS = [
   { label: 'Vịnh Lan Hạ & Cát Bà', url: 'assets/blog/vinh-lan-ha-cat-ba.jpg', region: 'Lan Ha' },
   { label: 'Vườn Quốc gia Cát Bà — Việt Hải', url: 'assets/blog/vuon-quoc-gia-cat-ba-viet-hai.jpg', region: 'Lan Ha' },
   { label: 'Bãi tắm Vịnh Lan Hạ — Cát Bà', url: 'assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg', region: 'Lan Ha' },
-  { label: 'Chèo Kayak Hang Sáng Tối (Lan Hạ)', url: 'assets/photos/daycruise-2.jpg', region: 'Lan Ha' },
-  { label: 'Du thuyền 5★ Daiichi Luxury', url: 'assets/photos/luxury-1.jpg', region: 'Lan Ha' },
-  { label: 'Bể sục Jacuzzi & Cầu kính Skywalk', url: 'assets/photos/luxury-jacuzzi.jpg', region: 'Lan Ha' }
+  { label: 'Chèo Kayak Hang Sáng Tối (Lan Hạ)', url: 'assets/photos/daycruise-2.webp', region: 'Lan Ha' },
+  { label: 'Du thuyền 5★ Daiichi Luxury', url: 'assets/photos/luxury-1.webp', region: 'Lan Ha' },
+  { label: 'Bể sục Jacuzzi & Cầu kính Skywalk', url: 'assets/photos/luxury-jacuzzi.webp', region: 'Lan Ha' }
 ];
 
 function buildAutoSeoPost({ region, place, image, highlight, dateStr, sourceBadge, customTitleVi, customTitleEn, customSections, customFaqs }) {
@@ -6132,7 +6132,7 @@ function SeoBlogSection() {
           <div className="lux-modal-box" style={{ maxWidth: 820 }} onClick={(e) => e.stopPropagation()}>
             <button className="lux-modal-close" onClick={() => setActivePost(null)}>✕</button>
             <div style={{ height: 320, overflow: 'hidden', position: 'relative' }}>
-              <img src={activePost.image} alt={LV(activePost.title)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img loading="lazy" decoding="async" src={activePost.image} alt={LV(activePost.title)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', bottom: 16, left: 20, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                 <span className="notranslate" translate="no" style={{ background: 'var(--navy)', color: '#FDE68A', padding: '5px 12px', borderRadius: 20, fontSize: 11.5, fontWeight: 800 }}>
                   📍 {activePost.regionLabel}
@@ -6411,7 +6411,7 @@ function SeoBlogSection() {
                           background: '#fff'
                         }}
                       >
-                        <img src={ph.url} alt={ph.label} style={{ width: '100%', height: 64, objectFit: 'cover', display: 'block' }} />
+                        <img loading="lazy" decoding="async" src={ph.url} alt={ph.label} style={{ width: '100%', height: 64, objectFit: 'cover', display: 'block' }} />
                         <div style={{ fontSize: 10.5, fontWeight: 700, padding: '4px 6px', color: '#1E293B', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           {ph.label}
                         </div>
@@ -6620,8 +6620,8 @@ function GiantAtmosphericCruiseStage({ ambiance, mousePos }) {
 
   // Dedicated 3D model render of Daiichi Luxury Cruise with golden sails
   const shipImage = ambiance === 'night' 
-    ? 'assets/photos/luxury-3.jpg' 
-    : (ambiance === 'day' ? 'assets/photos/luxury-1.jpg' : 'assets/photos/luxury-2.jpg');
+    ? 'assets/photos/luxury-3.webp' 
+    : (ambiance === 'day' ? 'assets/photos/luxury-1.webp' : 'assets/photos/luxury-2.webp');
 
   return (
     <div
@@ -6960,7 +6960,7 @@ function OneHome() {
           <div className="on-mobile-drawer" onClick={(e) => e.stopPropagation()}>
             <div className="on-drawer-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <img src="assets/brand/emblem-Daiichi.png" alt="Emblem" style={{ width: 30, height: 30, objectFit: 'contain' }} />
+                <img loading="lazy" decoding="async" src="assets/brand/emblem-Daiichi.png" alt="Emblem" style={{ width: 30, height: 30, objectFit: 'contain' }} />
                 <div>
                   <div className="on-drawer-brand">DAIICHI CRUISE</div>
                   <div className="on-drawer-stars">★★★★★ 5★ LUXURY FLEET</div>
@@ -7007,7 +7007,7 @@ function OneHome() {
             muted
             playsInline
             preload="auto"
-            poster="assets/photos/luxury-1.jpg"
+            poster="assets/photos/luxury-1.webp"
           >
             <source src="assets/videos/halong-flycam.mp4" type="video/mp4" />
             <source src="assets/videos/halong-flycam.webm" type="video/webm" />

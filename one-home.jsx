@@ -5188,42 +5188,51 @@ function LimousineConciergeSection() {
     {
       from: 'Hà Nội',
       to: 'Cát Bà',
-      labelFrom: 'Hà Nội (Phố Cổ)',
-      labelTo: 'Cát Bà (Bến Du thuyền)',
+      labelFrom: LV('Hà Nội (Phố Cổ)', 'Hanoi (Old Quarter)'),
+      labelTo: LV('Cát Bà (Bến Du thuyền)', 'Cat Ba (Cruise Pier)'),
       time: '3h00',
       price: hnCbLimo11Price,
-      subNote: `Limo 34 ghế: ${hnCbLimo34Price.toLocaleString('vi-VN')}đ · Bus 45 chỗ: ${hnCbBusPrice.toLocaleString('vi-VN')}đ`,
-      desc: 'Limousine 11 ghế / Limogreen 7 chỗ + Tàu cao tốc'
+      subNote: LV(
+        `Limo 34 ghế: ${hnCbLimo34Price.toLocaleString('vi-VN')}đ · Bus 45 chỗ: ${hnCbBusPrice.toLocaleString('vi-VN')}đ`,
+        `34-Seat Limo: ${hnCbLimo34Price.toLocaleString('en-US')} VND · 45-Seat Coach: ${hnCbBusPrice.toLocaleString('en-US')} VND`
+      ),
+      desc: LV('Limousine 11 ghế / Limogreen 7 chỗ + Tàu cao tốc', '11-Seat Limousine / 7-Seat MPV + Speedboat')
     },
     {
       from: 'Hà Nội',
       to: 'Hải Phòng',
-      labelFrom: 'Hà Nội',
-      labelTo: 'Hải Phòng',
+      labelFrom: LV('Hà Nội', 'Hanoi'),
+      labelTo: LV('Hải Phòng', 'Hai Phong'),
       time: '1h45',
       price: hnHpLimoPrice,
-      subNote: 'Limogreen 7 chỗ: 210.000đ',
-      desc: 'Xe Limousine 11 ghế đón trả tận nơi'
+      subNote: LV('Limogreen 7 chỗ: 210.000đ', '7-Seat Limogreen MPV: 210,000 VND'),
+      desc: LV('Xe Limousine 11 ghế đón trả tận nơi', '11-Seat Limousine door-to-door transfer')
     },
     {
       from: 'Ninh Bình',
       to: 'Cát Bà',
-      labelFrom: 'Ninh Bình (Tràng An / Tam Cốc)',
-      labelTo: 'Cát Bà',
+      labelFrom: LV('Ninh Bình (Tràng An / Tam Cốc)', 'Ninh Binh (Trang An / Tam Coc)'),
+      labelTo: LV('Cát Bà', 'Cat Ba'),
       time: '3h30',
       price: nbCbLimoPrice,
-      subNote: `Xe Bus 45 chỗ: ${nbCbBusPrice.toLocaleString('vi-VN')}đ/khách`,
-      desc: 'Xe Limousine đón tại khách sạn'
+      subNote: LV(
+        `Xe Bus 45 chỗ: ${nbCbBusPrice.toLocaleString('vi-VN')}đ/khách`,
+        `45-Seat Coach: ${nbCbBusPrice.toLocaleString('en-US')} VND/pax`
+      ),
+      desc: LV('Xe Limousine đón tại khách sạn', 'Hotel pickup Limousine transfer')
     },
     {
       from: 'Hà Nội',
       to: 'Hạ Long',
-      labelFrom: 'Hà Nội / Hải Phòng',
-      labelTo: 'Hạ Long / Ninh Bình',
+      labelFrom: LV('Hà Nội / Hải Phòng', 'Hanoi / Hai Phong'),
+      labelTo: LV('Hạ Long / Ninh Bình', 'Ha Long / Ninh Binh'),
       time: '2h00',
       price: hnHlLimoPrice,
-      subNote: `Hà Nội ⇄ Ninh Bình Limo: ${hnNbLimoPrice.toLocaleString('vi-VN')}đ`,
-      desc: 'Xe Limousine cao cấp kết nối di sản'
+      subNote: LV(
+        `Hà Nội ⇄ Ninh Bình Limo: ${hnNbLimoPrice.toLocaleString('vi-VN')}đ`,
+        `Hanoi ⇄ Ninh Binh Limo: ${hnNbLimoPrice.toLocaleString('en-US')} VND`
+      ),
+      desc: LV('Xe Limousine cao cấp kết nối di sản', 'Luxury Limousine heritage route transfers')
     }
   ];
 

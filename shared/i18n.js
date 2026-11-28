@@ -650,7 +650,16 @@
       return 'en';
     }
 
-    // 3. Auto-detect from visitor device/browser locale
+    // 3. For search crawlers on the canonical root URL (no explicit ?lang=), match <html lang="vi"> to prevent mixed-language SEO signals
+    try {
+      const ua = String(navigator.userAgent || '');
+      if (/Googlebot|AdsBot-Google|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Applebot|PetalBot/i.test(ua)) {
+        clearGoogTrans();
+        return 'vi';
+      }
+    } catch (e) {}
+
+    // 4. Auto-detect from visitor device/browser locale
     const navLangs = (navigator.languages && navigator.languages.length) 
       ? navigator.languages 
       : [navigator.language || navigator.userLanguage || ''];

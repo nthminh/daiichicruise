@@ -10,26 +10,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ha Long",
     "regionLabel": "Di Sản Vịnh Hạ Long – Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Vietnam+ (VietnamPlus)",
+    "sourceBadge": "🌅 Góc Nhìn Quốc Tế · Vietnam+ (VietnamPlus)",
     "image": "assets/blog/vinh-ha-long-dao-da.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 342,
+    "initialViews": 1890,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-28)",
-      "en": "[Trending Travel] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-28)",
-      "ja": "【最新トレンド】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-28)",
-      "ko": "[최신 여행 트렌드] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-28)",
-      "zh": "【旅游热点】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-28)",
-      "fr": "[Tendance Voyage] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-28)"
+      "vi": "🌅 Vì Sao Du Khách Quốc Tế Mê Mẩn Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ? Bí Quyết Săn Khoảnh Khắc Đẹp Nhất Từ Người Bản Địa",
+      "en": "🌅 Why Global Travelers Are Falling in Love with Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Local Secrets & Best Golden Hours",
+      "ja": "🌅 海外旅行者が魅了される「Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ」：地元ならではの絶景時間帯＆旅のコツ",
+      "ko": "🌅 전 세계 여행자들이 반한 'Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ': 현지인이 알려주는 골든아워 & 꿀팁",
+      "zh": "🌅 为什么全球游客都爱上Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ？当地人私藏的黄金时刻与出游秘诀",
+      "fr": "🌅 Pourquoi les voyageurs du monde entier adorent Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Secrets locaux & heures dorées"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "✨ Tờ Vietnam+ (VietnamPlus) vừa dành lời khen ngợi đặc biệt: \"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ.",
+      "en": "✨ Spotlighted by Vietnam+ (VietnamPlus) (\"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\"): Skip the tourist crowds with our local golden-hour route across Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ.",
+      "ja": "✨ Vietnam+ (VietnamPlus) で紹介された注目スポット。混雑を避けて絶景を満喫する実用ルート。",
+      "ko": "✨ Vietnam+ (VietnamPlus) 추천 명소! 인파를 피해 여유롭게 즐기는 실전 여행 코스를 소개합니다.",
+      "zh": "✨ 获 Vietnam+ (VietnamPlus) 专题推荐！避开人潮、独享静谧山水与海湾美景的实用路线。",
+      "fr": "✨ Mis à l'honneur par Vietnam+ (VietnamPlus) : l'itinéraire idéal pour éviter la foule et vivre une expérience authentique."
     },
     "keywords": [
       "Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
@@ -41,8 +41,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌅 Góc nhìn thực tế & Sức hút của Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+        "p": "✨ Tờ Vietnam+ (VietnamPlus) vừa dành lời khen ngợi đặc biệt: \"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -67,26 +67,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ninh Binh",
     "regionLabel": "Danh Thắng Tràng An · Ninh Bình",
-    "sourceBadge": "Tin Nóng · Destinationless Travel",
+    "sourceBadge": "🛶 Bí Kíp Xê Dịch · Destinationless Travel",
     "image": "assets/blog/ninh-binh-trang-an.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 315,
+    "initialViews": 1734,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-27)",
-      "en": "[Trending Travel] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Insider Tips & Best Cruise Itinerary (2026-11-27)",
-      "ja": "【最新トレンド】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：実用アドバイス＆おすすめクルーズ日程 (2026-11-27)",
-      "ko": "[최신 여행 트렌드] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): 실전 여행 팁 & 추천 크루즈 코스 (2026-11-27)",
-      "zh": "【旅游热点】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：实用出行干货与最佳游轮路线 (2026-11-27)",
-      "fr": "[Tendance Voyage] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Conseils Pratiques & Itinéraire Croisière (2026-11-27)"
+      "vi": "🛶 Lịch Trình \"Đi Trốn\" Cuối Tuần Tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Chọn Giờ Nào Vắng Khách, Ăn Gì Ngon & Chi Phí Bao Nhiêu?",
+      "en": "🛶 The Ultimate Weekend Escape to Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Quiet Hours, Must-Try Food & Real Budget Breakdown",
+      "ja": "🛶 週末に行く「Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)」癒やし旅：空いている時間帯・グルメ・予算まとめ",
+      "ko": "🛶 주말 힐링 여행 'Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)' 완벽 코스: 한적한 시간대, 맛집 & 실제 경비 총정리",
+      "zh": "🛶 周末逃离喧嚣去Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：错峰时段、必吃美食与真实花费全解析",
+      "fr": "🛶 Échappée week-end à Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Horaires calmes, gastronomie locale & budget réel"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi!",
+      "en": "🧭 Planning a 1-2 day escape? Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Here is our transparent cost breakdown and queue-free booking tips.",
+      "ja": "🧭 1〜2日の週末旅行に最適！Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。リアルな費用とスムーズな移動方法を解説。",
+      "ko": "🧭 1~2일 주말 코스로 딱! Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 투명한 경비 계산과 대기 없는 이동 팁을 확인하세요.",
+      "zh": "🧭 只有1-2天假期？Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。为您奉上透明费用清单与免排队出行妙招。",
+      "fr": "🧭 Idéal pour 1 ou 2 jours d'évasion : Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Budget détaillé et astuces coupe-file."
     },
     "keywords": [
       "Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
@@ -98,8 +98,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
-        "p": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🛶 Góc nhìn thực tế & Sức hút của Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
+        "p": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -124,26 +124,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Bãi Tắm Ba Trái Đào · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Yahoo News Canada",
+    "sourceBadge": "📸 Tọa Độ Sống Ảo · Yahoo News Canada",
     "image": "assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 450,
+    "initialViews": 2488,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-26)",
-      "en": "[Trending Travel] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-26)",
-      "ja": "【最新トレンド】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-26)",
-      "ko": "[최신 여행 트렌드] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-26)",
-      "zh": "【旅游热点】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-26)",
-      "fr": "[Tendance Voyage] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-26)"
+      "vi": "📸 5 Góc Lên Hình \"Đắt Giá\" Nhất Tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ Đang Gây Sốt Trên Tạp Chí Du Lịch Thế Giới",
+      "en": "📸 5 Breathtaking Photo Angles at Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ Making Waves in International Travel Magazines",
+      "ja": "📸 世界の旅行誌で話題！「Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ」で絶対撮りたい絶景フォトスポット5選",
+      "ko": "📸 해외 여행 매거진이 주목한 'Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ' 인생샷 포토스팟 5선",
+      "zh": "📸 刷屏国际旅游杂志！Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ最出片的5个绝美机位与穿搭指南",
+      "fr": "📸 Les 5 plus beaux spots photo de Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ qui(font sensation dans la presse voyage"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "📷 Điểm tin từ Yahoo News Canada (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"): Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ!",
+      "en": "📷 Featured in Yahoo News Canada (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"): Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Discover the best camera angles, outfit colors, and sundeck viewpoints.",
+      "ja": "📷 Yahoo News Canada 掲載トレンド。船上バルコニーやカヤックからのベストアングルと服装のヒント。",
+      "ko": "📷 Yahoo News Canada 화제의 스팟! 5성급 크루즈 발코니와 카약에서 찍는 베스트 앵글과 코디 팁.",
+      "zh": "📷 源自 Yahoo News Canada 热门报道：揭秘五星游轮阳台与皮划艇最佳拍摄角度及穿搭色系。",
+      "fr": "📷 Repéré dans Yahoo News Canada : nos conseils photo depuis le pont du navire 5★ et en kayak."
     },
     "keywords": [
       "Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
@@ -155,8 +155,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 📸 Góc nhìn thực tế & Sức hút của Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+        "p": "📷 Điểm tin từ Yahoo News Canada (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"): Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -181,26 +181,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Hang Sáng Tối · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Business Insider",
+    "sourceBadge": "💎 Trải Nghiệm 5 Sao · Business Insider",
     "image": "assets/photos/daycruise-2.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 416,
+    "initialViews": 2247,
+    "readingTime": "6 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-25)",
-      "en": "[Trending Travel] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-25)",
-      "ja": "【最新トレンド】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-25)",
-      "ko": "[최신 여행 트렌드] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-25)",
-      "zh": "【旅游热点】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-25)",
-      "fr": "[Tendance Voyage] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-25)"
+      "vi": "💎 Review Thực Tế Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Nên Đi Tour Trong Ngày Hay Ngủ Đêm Trên Du Thuyền 5★ Có Bể Sục Jacuzzi?",
+      "en": "💎 Honest Review of Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Day Trip vs. 5-Star Overnight Cruise with Heated Jacuzzi",
+      "ja": "💎 「Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ」徹底比較：日帰りツアーとジャグジー付5つ星宿泊クルーズ、どっちが正解？",
+      "ko": "💎 'Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ' 솔직 비교 리뷰: 당일 투어 vs 자쿠지 갖춘 5성급 숙박 크루즈, 무엇이 좋을까?",
+      "zh": "💎 Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ真实测评：选一日游还是带恒温按摩池的5星级过夜游轮？",
+      "fr": "💎 Comparatif Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Excursion à la journée ou Croisière 5★ de nuit avec Jacuzzi ?"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ. Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút!",
+      "en": "🥂 Torn between a quick day tour and a 2D1N private-balcony suite voyage around Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ? Compare pros, cons, and value for families & couples.",
+      "ja": "🥂 日帰りと1泊2日スイートクルーズのメリット・デメリットを家族・カップル向けにわかりやすく比較。",
+      "ko": "🥂 당일치기와 1박 2일 스위트 크루즈의 장단점을 커플·가족 여행객 시선에서 명쾌하게 비교해 드립니다.",
+      "zh": "🥂 纠结一日游还是两天一夜海景阳台套房？两分钟帮情侣与家庭游客选出高性价比方案。",
+      "fr": "🥂 Excursion d'un jour ou croisière 2J1N en suite avec balcon privé ? Le comparatif clair pour bien choisir."
     },
     "keywords": [
       "Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
@@ -212,8 +212,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 💎 Góc nhìn thực tế & Sức hút của Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
+        "p": "🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ. Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -238,26 +238,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ha Long",
     "regionLabel": "Di Sản Vịnh Hạ Long – Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Vietnam+ (VietnamPlus)",
+    "sourceBadge": "🌿 Du Lịch Chữa Lành · Vietnam+ (VietnamPlus)",
     "image": "assets/blog/vinh-ha-long-dao-da.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 334,
+    "initialViews": 2106,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-24)",
-      "en": "[Trending Travel] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-24)",
-      "ja": "【最新トレンド】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-24)",
-      "ko": "[최신 여행 트렌드] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-24)",
-      "zh": "【旅游热点】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-24)",
-      "fr": "[Tendance Voyage] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-24)"
+      "vi": "🌿 Tạm Rời Phố Thị 48 Giờ: Hành Trình Chèo Kayak, Nghe Sóng Vỗ & Thưởng Thức Hải Sản Tươi Sống Tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+      "en": "🌿 48-Hour Mindful Retreat at Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kayaking Emerald Lagoons & Fresh Seafood Gastronomy",
+      "ja": "🌿 都会を離れる48時間：「Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ」でカヤックと獲れたて海鮮を味わうスロートラベル",
+      "ko": "🌿 도심을 떠나는 48시간: 'Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ'에서 카약과 제철 해산물을 즐기는 슬로 트래블",
+      "zh": "🌿 逃离都市48小时：在Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ划皮划艇、听海浪与品尝现捕海鲜的治愈之旅",
+      "fr": "🌿 Parenthèse de 48h à Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Kayak dans les lagons émeraude & fruits de mer frais"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🍃 Theo xu hướng \"Slow Travel\" được Vietnam+ (VietnamPlus) nhắc tới (\"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\"), Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội.",
+      "en": "🍃 Embracing the Slow Travel movement highlighted by Vietnam+ (VietnamPlus) (\"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\"), Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay offers an effortless 2-3 hour Limousine escape from Hanoi.",
+      "ja": "🍃 Vietnam+ (VietnamPlus) が注目するスロートラベル。ハノイからリムジンでわずか2〜3時間の極上リトリート。",
+      "ko": "🍃 Vietnam+ (VietnamPlus)가 주목한 슬로 트래블 트렌드! 하노이에서 리무진으로 2~3시간이면 닿는 힐링 코스를 만나보세요.",
+      "zh": "🍃 契合 Vietnam+ (VietnamPlus) 倡导的慢旅行风潮：从河内乘豪华专车仅需2-3小时即可抵达的山水疗愈胜地。",
+      "fr": "🍃 Dans l'esprit Slow Travel salué par Vietnam+ (VietnamPlus) : une retraite nature à seulement 2-3h de Limousine de Hanoï."
     },
     "keywords": [
       "Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
@@ -269,8 +269,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌿 Góc nhìn thực tế & Sức hút của Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+        "p": "🍃 Theo xu hướng \"Slow Travel\" được Vietnam+ (VietnamPlus) nhắc tới (\"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\"), Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -295,26 +295,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ninh Binh",
     "regionLabel": "Danh Thắng Tràng An · Ninh Bình",
-    "sourceBadge": "Tin Nóng · Destinationless Travel",
+    "sourceBadge": "🧭 Cẩm Nang Tự Túc A-Z · Destinationless Travel",
     "image": "assets/blog/ninh-binh-trang-an.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 409,
+    "initialViews": 2585,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-23)",
-      "en": "[Trending Travel] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Insider Tips & Best Cruise Itinerary (2026-11-23)",
-      "ja": "【最新トレンド】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：実用アドバイス＆おすすめクルーズ日程 (2026-11-23)",
-      "ko": "[최신 여행 트렌드] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): 실전 여행 팁 & 추천 크루즈 코스 (2026-11-23)",
-      "zh": "【旅游热点】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：实用出行干货与最佳游轮路线 (2026-11-23)",
-      "fr": "[Tendance Voyage] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Conseils Pratiques & Itinéraire Croisière (2026-11-23)"
+      "vi": "🧭 Kinh Nghiệm Đi Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) Tự Túc Cho Người Mới: Cách Đi Xe Limousine Cao Tốc & Chọn Tuyến Tàu Không Bị Say Sóng",
+      "en": "🧭 First-Timer’s Guide to Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Fast Highway Limousine Transfers & Calm-Water Cruise Routes",
+      "ja": "🧭 初めての「Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)」個人旅行ガイド：高速リムジン移動＆揺れない安心クルーズ選び",
+      "ko": "🧭 첫 방문자를 위한 'Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)' 자유여행 가이드: 고속도로 리무진 이동법 & 멀미 없는 크루즈 코스",
+      "zh": "🧭 第一次去Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)自由行必看：高速豪华专车接驳与风平浪静游轮航线选择指南",
+      "fr": "🧭 Guide pratique Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) pour une première visite : Transfert Limousine rapide & croisière en eaux calmes"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) cần lưu ý gì? Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng!",
+      "en": "🚐 Traveling with kids or seniors to Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)? Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Learn how to connect door-to-door Old Quarter Limousines with calm-bay cruises in 3 hours.",
+      "ja": "🚐 お子様やシニア連れの旅行でも安心！ハノイ旧市街から直行リムジンで3時間、波の静かな湾内クルーズ案内。",
+      "ko": "🚐 아이나 부모님과 함께하는 여행도 안심! 하노이 구시가지에서 직통 리무진으로 3시간 만에 닿는 잔잔한만 크루즈 가이드.",
+      "zh": "🚐 带老人孩子去Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)怎么走最轻松？河内老城区专车3小时直达码头，内湾水面如镜不晕船。",
+      "fr": "🚐 Idéal en famille ou avec des seniors : liaison Limousine directe en 3h depuis Hanoï et navigation sur une mer d'huile."
     },
     "keywords": [
       "Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
@@ -326,8 +326,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
-        "p": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🧭 Góc nhìn thực tế & Sức hút của Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
+        "p": "🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) cần lưu ý gì? Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -352,26 +352,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Bãi Tắm Ba Trái Đào · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Yahoo News Canada",
+    "sourceBadge": "🌅 Góc Nhìn Quốc Tế · Yahoo News Canada",
     "image": "assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 381,
+    "initialViews": 2424,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-22)",
-      "en": "[Trending Travel] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-22)",
-      "ja": "【最新トレンド】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-22)",
-      "ko": "[최신 여행 트렌드] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-22)",
-      "zh": "【旅游热点】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-22)",
-      "fr": "[Tendance Voyage] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-22)"
+      "vi": "🌅 Vì Sao Du Khách Quốc Tế Mê Mẩn Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ? Bí Quyết Săn Khoảnh Khắc Đẹp Nhất Từ Người Bản Địa",
+      "en": "🌅 Why Global Travelers Are Falling in Love with Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Local Secrets & Best Golden Hours",
+      "ja": "🌅 海外旅行者が魅了される「Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ」：地元ならではの絶景時間帯＆旅のコツ",
+      "ko": "🌅 전 세계 여행자들이 반한 'Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ': 현지인이 알려주는 골든아워 & 꿀팁",
+      "zh": "🌅 为什么全球游客都爱上Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ？当地人私藏的黄金时刻与出游秘诀",
+      "fr": "🌅 Pourquoi les voyageurs du monde entier adorent Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Secrets locaux & heures dorées"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "✨ Tờ Yahoo News Canada vừa dành lời khen ngợi đặc biệt: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ.",
+      "en": "✨ Spotlighted by Yahoo News Canada (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"): Skip the tourist crowds with our local golden-hour route across Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ.",
+      "ja": "✨ Yahoo News Canada で紹介された注目スポット。混雑を避けて絶景を満喫する実用ルート。",
+      "ko": "✨ Yahoo News Canada 추천 명소! 인파를 피해 여유롭게 즐기는 실전 여행 코스를 소개합니다.",
+      "zh": "✨ 获 Yahoo News Canada 专题推荐！避开人潮、独享静谧山水与海湾美景的实用路线。",
+      "fr": "✨ Mis à l'honneur par Yahoo News Canada : l'itinéraire idéal pour éviter la foule et vivre une expérience authentique."
     },
     "keywords": [
       "Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
@@ -383,8 +383,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌅 Góc nhìn thực tế & Sức hút của Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+        "p": "✨ Tờ Yahoo News Canada vừa dành lời khen ngợi đặc biệt: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -409,26 +409,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Hang Sáng Tối · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Business Insider",
+    "sourceBadge": "🛶 Bí Kíp Xê Dịch · Business Insider",
     "image": "assets/photos/daycruise-2.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 354,
+    "initialViews": 1728,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-21)",
-      "en": "[Trending Travel] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-21)",
-      "ja": "【最新トレンド】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-21)",
-      "ko": "[최신 여행 트렌드] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-21)",
-      "zh": "【旅游热点】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-21)",
-      "fr": "[Tendance Voyage] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-21)"
+      "vi": "🛶 Lịch Trình \"Đi Trốn\" Cuối Tuần Tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Chọn Giờ Nào Vắng Khách, Ăn Gì Ngon & Chi Phí Bao Nhiêu?",
+      "en": "🛶 The Ultimate Weekend Escape to Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Quiet Hours, Must-Try Food & Real Budget Breakdown",
+      "ja": "🛶 週末に行く「Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ」癒やし旅：空いている時間帯・グルメ・予算まとめ",
+      "ko": "🛶 주말 힐링 여행 'Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ' 완벽 코스: 한적한 시간대, 맛집 & 실제 경비 총정리",
+      "zh": "🛶 周末逃离喧嚣去Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：错峰时段、必吃美食与真实花费全解析",
+      "fr": "🛶 Échappée week-end à Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Horaires calmes, gastronomie locale & budget réel"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi!",
+      "en": "🧭 Planning a 1-2 day escape? Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Here is our transparent cost breakdown and queue-free booking tips.",
+      "ja": "🧭 1〜2日の週末旅行に最適！Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。リアルな費用とスムーズな移動方法を解説。",
+      "ko": "🧭 1~2일 주말 코스로 딱! Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 투명한 경비 계산과 대기 없는 이동 팁을 확인하세요.",
+      "zh": "🧭 只有1-2天假期？Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。为您奉上透明费用清单与免排队出行妙招。",
+      "fr": "🧭 Idéal pour 1 ou 2 jours d'évasion : Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Budget détaillé et astuces coupe-file."
     },
     "keywords": [
       "Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
@@ -440,8 +440,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🛶 Góc nhìn thực tế & Sức hút của Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
+        "p": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -466,26 +466,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ha Long",
     "regionLabel": "Di Sản Vịnh Hạ Long – Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Vietnam+ (VietnamPlus)",
+    "sourceBadge": "📸 Tọa Độ Sống Ảo · Vietnam+ (VietnamPlus)",
     "image": "assets/blog/vinh-ha-long-dao-da.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 426,
+    "initialViews": 2482,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-20)",
-      "en": "[Trending Travel] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-20)",
-      "ja": "【最新トレンド】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-20)",
-      "ko": "[최신 여행 트렌드] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-20)",
-      "zh": "【旅游热点】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-20)",
-      "fr": "[Tendance Voyage] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-20)"
+      "vi": "📸 5 Góc Lên Hình \"Đắt Giá\" Nhất Tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ Đang Gây Sốt Trên Tạp Chí Du Lịch Thế Giới",
+      "en": "📸 5 Breathtaking Photo Angles at Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ Making Waves in International Travel Magazines",
+      "ja": "📸 世界の旅行誌で話題！「Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ」で絶対撮りたい絶景フォトスポット5選",
+      "ko": "📸 해외 여행 매거진이 주목한 'Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ' 인생샷 포토스팟 5선",
+      "zh": "📸 刷屏国际旅游杂志！Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ最出片的5个绝美机位与穿搭指南",
+      "fr": "📸 Les 5 plus beaux spots photo de Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ qui(font sensation dans la presse voyage"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "📷 Điểm tin từ Vietnam+ (VietnamPlus) (\"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\"): Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ!",
+      "en": "📷 Featured in Vietnam+ (VietnamPlus) (\"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\"): Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Discover the best camera angles, outfit colors, and sundeck viewpoints.",
+      "ja": "📷 Vietnam+ (VietnamPlus) 掲載トレンド。船上バルコニーやカヤックからのベストアングルと服装のヒント。",
+      "ko": "📷 Vietnam+ (VietnamPlus) 화제의 스팟! 5성급 크루즈 발코니와 카약에서 찍는 베스트 앵글과 코디 팁.",
+      "zh": "📷 源自 Vietnam+ (VietnamPlus) 热门报道：揭秘五星游轮阳台与皮划艇最佳拍摄角度及穿搭色系。",
+      "fr": "📷 Repéré dans Vietnam+ (VietnamPlus) : nos conseils photo depuis le pont du navire 5★ et en kayak."
     },
     "keywords": [
       "Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
@@ -497,8 +497,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 📸 Góc nhìn thực tế & Sức hút của Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+        "p": "📷 Điểm tin từ Vietnam+ (VietnamPlus) (\"The Telegraph showcases Ha Long Bay in Southeast Asia winter-sun travel feature\"): Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -523,26 +523,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ninh Binh",
     "regionLabel": "Danh Thắng Tràng An · Ninh Bình",
-    "sourceBadge": "Tin Nóng · Destinationless Travel",
+    "sourceBadge": "💎 Trải Nghiệm 5 Sao · Destinationless Travel",
     "image": "assets/blog/ninh-binh-trang-an.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 392,
+    "initialViews": 2241,
+    "readingTime": "6 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-19)",
-      "en": "[Trending Travel] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Insider Tips & Best Cruise Itinerary (2026-11-19)",
-      "ja": "【最新トレンド】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：実用アドバイス＆おすすめクルーズ日程 (2026-11-19)",
-      "ko": "[최신 여행 트렌드] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): 실전 여행 팁 & 추천 크루즈 코스 (2026-11-19)",
-      "zh": "【旅游热点】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：实用出行干货与最佳游轮路线 (2026-11-19)",
-      "fr": "[Tendance Voyage] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Conseils Pratiques & Itinéraire Croisière (2026-11-19)"
+      "vi": "💎 Review Thực Tế Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Nên Đi Tour Trong Ngày Hay Ngủ Đêm Trên Du Thuyền 5★ Có Bể Sục Jacuzzi?",
+      "en": "💎 Honest Review of Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Day Trip vs. 5-Star Overnight Cruise with Heated Jacuzzi",
+      "ja": "💎 「Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)」徹底比較：日帰りツアーとジャグジー付5つ星宿泊クルーズ、どっちが正解？",
+      "ko": "💎 'Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)' 솔직 비교 리뷰: 당일 투어 vs 자쿠지 갖춘 5성급 숙박 크루즈, 무엇이 좋을까?",
+      "zh": "💎 Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)真实测评：选一日游还是带恒温按摩池的5星级过夜游轮？",
+      "fr": "💎 Comparatif Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Excursion à la journée ou Croisière 5★ de nuit avec Jacuzzi ?"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình). Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút!",
+      "en": "🥂 Torn between a quick day tour and a 2D1N private-balcony suite voyage around Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)? Compare pros, cons, and value for families & couples.",
+      "ja": "🥂 日帰りと1泊2日スイートクルーズのメリット・デメリットを家族・カップル向けにわかりやすく比較。",
+      "ko": "🥂 당일치기와 1박 2일 스위트 크루즈의 장단점을 커플·가족 여행객 시선에서 명쾌하게 비교해 드립니다.",
+      "zh": "🥂 纠结一日游还是两天一夜海景阳台套房？两分钟帮情侣与家庭游客选出高性价比方案。",
+      "fr": "🥂 Excursion d'un jour ou croisière 2J1N en suite avec balcon privé ? Le comparatif clair pour bien choisir."
     },
     "keywords": [
       "Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
@@ -554,8 +554,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
-        "p": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 💎 Góc nhìn thực tế & Sức hút của Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
+        "p": "🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình). Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -580,26 +580,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Bãi Tắm Ba Trái Đào · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Yahoo News Canada",
+    "sourceBadge": "🌿 Du Lịch Chữa Lành · Yahoo News Canada",
     "image": "assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 373,
+    "initialViews": 2100,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-18)",
-      "en": "[Trending Travel] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-18)",
-      "ja": "【最新トレンド】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-18)",
-      "ko": "[최신 여행 트렌드] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-18)",
-      "zh": "【旅游热点】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-18)",
-      "fr": "[Tendance Voyage] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-18)"
+      "vi": "🌿 Tạm Rời Phố Thị 48 Giờ: Hành Trình Chèo Kayak, Nghe Sóng Vỗ & Thưởng Thức Hải Sản Tươi Sống Tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+      "en": "🌿 48-Hour Mindful Retreat at Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kayaking Emerald Lagoons & Fresh Seafood Gastronomy",
+      "ja": "🌿 都会を離れる48時間：「Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ」でカヤックと獲れたて海鮮を味わうスロートラベル",
+      "ko": "🌿 도심을 떠나는 48시간: 'Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ'에서 카약과 제철 해산물을 즐기는 슬로 트래블",
+      "zh": "🌿 逃离都市48小时：在Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ划皮划艇、听海浪与品尝现捕海鲜的治愈之旅",
+      "fr": "🌿 Parenthèse de 48h à Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Kayak dans les lagons émeraude & fruits de mer frais"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🍃 Theo xu hướng \"Slow Travel\" được Yahoo News Canada nhắc tới (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"), Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội.",
+      "en": "🍃 Embracing the Slow Travel movement highlighted by Yahoo News Canada (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"), Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay offers an effortless 2-3 hour Limousine escape from Hanoi.",
+      "ja": "🍃 Yahoo News Canada が注目するスロートラベル。ハノイからリムジンでわずか2〜3時間の極上リトリート。",
+      "ko": "🍃 Yahoo News Canada가 주목한 슬로 트래블 트렌드! 하노이에서 리무진으로 2~3시간이면 닿는 힐링 코스를 만나보세요.",
+      "zh": "🍃 契合 Yahoo News Canada 倡导的慢旅行风潮：从河内乘豪华专车仅需2-3小时即可抵达的山水疗愈胜地。",
+      "fr": "🍃 Dans l'esprit Slow Travel salué par Yahoo News Canada : une retraite nature à seulement 2-3h de Limousine de Hanoï."
     },
     "keywords": [
       "Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
@@ -611,8 +611,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌿 Góc nhìn thực tế & Sức hút của Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+        "p": "🍃 Theo xu hướng \"Slow Travel\" được Yahoo News Canada nhắc tới (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"), Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -637,26 +637,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Hang Sáng Tối · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Sydney Morning Herald & Wanderlust",
+    "sourceBadge": "🧭 Cẩm Nang Tự Túc A-Z · Sydney Morning Herald & Wanderlust",
     "image": "assets/photos/daycruise-2.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 448,
+    "initialViews": 2579,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-17)",
-      "en": "[Trending Travel] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-17)",
-      "ja": "【最新トレンド】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-17)",
-      "ko": "[최신 여행 트렌드] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-17)",
-      "zh": "【旅游热点】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-17)",
-      "fr": "[Tendance Voyage] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-17)"
+      "vi": "🧭 Kinh Nghiệm Đi Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ Tự Túc Cho Người Mới: Cách Đi Xe Limousine Cao Tốc & Chọn Tuyến Tàu Không Bị Say Sóng",
+      "en": "🧭 First-Timer’s Guide to Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Fast Highway Limousine Transfers & Calm-Water Cruise Routes",
+      "ja": "🧭 初めての「Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ」個人旅行ガイド：高速リムジン移動＆揺れない安心クルーズ選び",
+      "ko": "🧭 첫 방문자를 위한 'Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ' 자유여행 가이드: 고속도로 리무진 이동법 & 멀미 없는 크루즈 코스",
+      "zh": "🧭 第一次去Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ自由行必看：高速豪华专车接驳与风平浪静游轮航线选择指南",
+      "fr": "🧭 Guide pratique Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ pour une première visite : Transfert Limousine rapide & croisière en eaux calmes"
     },
     "excerpt": {
-      "vi": "Theo bình chọn của truyền thông du lịch quốc tế (Sydney Morning Herald & Wanderlust), Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ cần lưu ý gì? Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng!",
+      "en": "🚐 Traveling with kids or seniors to Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ? Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Learn how to connect door-to-door Old Quarter Limousines with calm-bay cruises in 3 hours.",
+      "ja": "🚐 お子様やシニア連れの旅行でも安心！ハノイ旧市街から直行リムジンで3時間、波の静かな湾内クルーズ案内。",
+      "ko": "🚐 아이나 부모님과 함께하는 여행도 안심! 하노이 구시가지에서 직통 리무진으로 3시간 만에 닿는 잔잔한만 크루즈 가이드.",
+      "zh": "🚐 带老人孩子去Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ怎么走最轻松？河内老城区专车3小时直达码头，内湾水面如镜不晕船。",
+      "fr": "🚐 Idéal en famille ou avec des seniors : liaison Limousine directe en 3h depuis Hanoï et navigation sur une mer d'huile."
     },
     "keywords": [
       "Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
@@ -668,8 +668,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
-        "p": "Theo bình chọn của truyền thông du lịch quốc tế (Sydney Morning Herald & Wanderlust), Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🧭 Góc nhìn thực tế & Sức hút của Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
+        "p": "🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ cần lưu ý gì? Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -694,26 +694,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ha Long",
     "regionLabel": "Di Sản Vịnh Hạ Long – Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Vietnam+ (VietnamPlus)",
+    "sourceBadge": "🌅 Góc Nhìn Quốc Tế · Vietnam+ (VietnamPlus)",
     "image": "assets/blog/vinh-ha-long-dao-da.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 357,
+    "initialViews": 2418,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-16)",
-      "en": "[Trending Travel] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-16)",
-      "ja": "【最新トレンド】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-16)",
-      "ko": "[최신 여행 트렌드] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-16)",
-      "zh": "【旅游热点】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-16)",
-      "fr": "[Tendance Voyage] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-16)"
+      "vi": "🌅 Vì Sao Du Khách Quốc Tế Mê Mẩn Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ? Bí Quyết Săn Khoảnh Khắc Đẹp Nhất Từ Người Bản Địa",
+      "en": "🌅 Why Global Travelers Are Falling in Love with Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Local Secrets & Best Golden Hours",
+      "ja": "🌅 海外旅行者が魅了される「Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ」：地元ならではの絶景時間帯＆旅のコツ",
+      "ko": "🌅 전 세계 여행자들이 반한 'Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ': 현지인이 알려주는 골든아워 & 꿀팁",
+      "zh": "🌅 为什么全球游客都爱上Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ？当地人私藏的黄金时刻与出游秘诀",
+      "fr": "🌅 Pourquoi les voyageurs du monde entier adorent Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Secrets locaux & heures dorées"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "✨ Tờ Vietnam+ (VietnamPlus) vừa dành lời khen ngợi đặc biệt: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ.",
+      "en": "✨ Spotlighted by Vietnam+ (VietnamPlus) (\"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\"): Skip the tourist crowds with our local golden-hour route across Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ.",
+      "ja": "✨ Vietnam+ (VietnamPlus) で紹介された注目スポット。混雑を避けて絶景を満喫する実用ルート。",
+      "ko": "✨ Vietnam+ (VietnamPlus) 추천 명소! 인파를 피해 여유롭게 즐기는 실전 여행 코스를 소개합니다.",
+      "zh": "✨ 获 Vietnam+ (VietnamPlus) 专题推荐！避开人潮、独享静谧山水与海湾美景的实用路线。",
+      "fr": "✨ Mis à l'honneur par Vietnam+ (VietnamPlus) : l'itinéraire idéal pour éviter la foule et vivre une expérience authentique."
     },
     "keywords": [
       "Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
@@ -725,8 +725,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌅 Góc nhìn thực tế & Sức hút của Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+        "p": "✨ Tờ Vietnam+ (VietnamPlus) vừa dành lời khen ngợi đặc biệt: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -751,26 +751,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ninh Binh",
     "regionLabel": "Danh Thắng Tràng An · Ninh Bình",
-    "sourceBadge": "Tin Nóng · Destinationless Travel",
+    "sourceBadge": "🛶 Bí Kíp Xê Dịch · Destinationless Travel",
     "image": "assets/blog/ninh-binh-trang-an.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 330,
+    "initialViews": 1722,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-15)",
-      "en": "[Trending Travel] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Insider Tips & Best Cruise Itinerary (2026-11-15)",
-      "ja": "【最新トレンド】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：実用アドバイス＆おすすめクルーズ日程 (2026-11-15)",
-      "ko": "[최신 여행 트렌드] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): 실전 여행 팁 & 추천 크루즈 코스 (2026-11-15)",
-      "zh": "【旅游热点】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：实用出行干货与最佳游轮路线 (2026-11-15)",
-      "fr": "[Tendance Voyage] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Conseils Pratiques & Itinéraire Croisière (2026-11-15)"
+      "vi": "🛶 Lịch Trình \"Đi Trốn\" Cuối Tuần Tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Chọn Giờ Nào Vắng Khách, Ăn Gì Ngon & Chi Phí Bao Nhiêu?",
+      "en": "🛶 The Ultimate Weekend Escape to Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Quiet Hours, Must-Try Food & Real Budget Breakdown",
+      "ja": "🛶 週末に行く「Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)」癒やし旅：空いている時間帯・グルメ・予算まとめ",
+      "ko": "🛶 주말 힐링 여행 'Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)' 완벽 코스: 한적한 시간대, 맛집 & 실제 경비 총정리",
+      "zh": "🛶 周末逃离喧嚣去Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：错峰时段、必吃美食与真实花费全解析",
+      "fr": "🛶 Échappée week-end à Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Horaires calmes, gastronomie locale & budget réel"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi!",
+      "en": "🧭 Planning a 1-2 day escape? Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Here is our transparent cost breakdown and queue-free booking tips.",
+      "ja": "🧭 1〜2日の週末旅行に最適！Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。リアルな費用とスムーズな移動方法を解説。",
+      "ko": "🧭 1~2일 주말 코스로 딱! Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 투명한 경비 계산과 대기 없는 이동 팁을 확인하세요.",
+      "zh": "🧭 只有1-2天假期？Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。为您奉上透明费用清单与免排队出行妙招。",
+      "fr": "🧭 Idéal pour 1 ou 2 jours d'évasion : Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Budget détaillé et astuces coupe-file."
     },
     "keywords": [
       "Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
@@ -782,8 +782,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
-        "p": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🛶 Góc nhìn thực tế & Sức hút của Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
+        "p": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -808,26 +808,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Bãi Tắm Ba Trái Đào · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Yahoo News Canada",
+    "sourceBadge": "📸 Tọa Độ Sống Ảo · Yahoo News Canada",
     "image": "assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 465,
+    "initialViews": 2476,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-14)",
-      "en": "[Trending Travel] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-14)",
-      "ja": "【最新トレンド】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-14)",
-      "ko": "[최신 여행 트렌드] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-14)",
-      "zh": "【旅游热点】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-14)",
-      "fr": "[Tendance Voyage] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-14)"
+      "vi": "📸 5 Góc Lên Hình \"Đắt Giá\" Nhất Tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ Đang Gây Sốt Trên Tạp Chí Du Lịch Thế Giới",
+      "en": "📸 5 Breathtaking Photo Angles at Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ Making Waves in International Travel Magazines",
+      "ja": "📸 世界の旅行誌で話題！「Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ」で絶対撮りたい絶景フォトスポット5選",
+      "ko": "📸 해외 여행 매거진이 주목한 'Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ' 인생샷 포토스팟 5선",
+      "zh": "📸 刷屏国际旅游杂志！Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ最出片的5个绝美机位与穿搭指南",
+      "fr": "📸 Les 5 plus beaux spots photo de Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ qui(font sensation dans la presse voyage"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "📷 Điểm tin từ Yahoo News Canada (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"): Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ!",
+      "en": "📷 Featured in Yahoo News Canada (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"): Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Discover the best camera angles, outfit colors, and sundeck viewpoints.",
+      "ja": "📷 Yahoo News Canada 掲載トレンド。船上バルコニーやカヤックからのベストアングルと服装のヒント。",
+      "ko": "📷 Yahoo News Canada 화제의 스팟! 5성급 크루즈 발코니와 카약에서 찍는 베스트 앵글과 코디 팁.",
+      "zh": "📷 源自 Yahoo News Canada 热门报道：揭秘五星游轮阳台与皮划艇最佳拍摄角度及穿搭色系。",
+      "fr": "📷 Repéré dans Yahoo News Canada : nos conseils photo depuis le pont du navire 5★ et en kayak."
     },
     "keywords": [
       "Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
@@ -839,8 +839,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 📸 Góc nhìn thực tế & Sức hút của Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+        "p": "📷 Điểm tin từ Yahoo News Canada (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"): Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -865,26 +865,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Hang Sáng Tối · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Outside Magazine",
+    "sourceBadge": "💎 Trải Nghiệm 5 Sao · Outside Magazine",
     "image": "assets/photos/daycruise-2.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 368,
+    "initialViews": 2235,
+    "readingTime": "6 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-13)",
-      "en": "[Trending Travel] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-13)",
-      "ja": "【最新トレンド】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-13)",
-      "ko": "[최신 여행 트렌드] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-13)",
-      "zh": "【旅游热点】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-13)",
-      "fr": "[Tendance Voyage] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-13)"
+      "vi": "💎 Review Thực Tế Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Nên Đi Tour Trong Ngày Hay Ngủ Đêm Trên Du Thuyền 5★ Có Bể Sục Jacuzzi?",
+      "en": "💎 Honest Review of Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Day Trip vs. 5-Star Overnight Cruise with Heated Jacuzzi",
+      "ja": "💎 「Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ」徹底比較：日帰りツアーとジャグジー付5つ星宿泊クルーズ、どっちが正解？",
+      "ko": "💎 'Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ' 솔직 비교 리뷰: 당일 투어 vs 자쿠지 갖춘 5성급 숙박 크루즈, 무엇이 좋을까?",
+      "zh": "💎 Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ真实测评：选一日游还是带恒温按摩池的5星级过夜游轮？",
+      "fr": "💎 Comparatif Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Excursion à la journée ou Croisière 5★ de nuit avec Jacuzzi ?"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Outside Magazine) vừa điểm tin nổi bật: \"The 9 Best Bioluminescence Tours in the World\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ. Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút!",
+      "en": "🥂 Torn between a quick day tour and a 2D1N private-balcony suite voyage around Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ? Compare pros, cons, and value for families & couples.",
+      "ja": "🥂 日帰りと1泊2日スイートクルーズのメリット・デメリットを家族・カップル向けにわかりやすく比較。",
+      "ko": "🥂 당일치기와 1박 2일 스위트 크루즈의 장단점을 커플·가족 여행객 시선에서 명쾌하게 비교해 드립니다.",
+      "zh": "🥂 纠结一日游还是两天一夜海景阳台套房？两分钟帮情侣与家庭游客选出高性价比方案。",
+      "fr": "🥂 Excursion d'un jour ou croisière 2J1N en suite avec balcon privé ? Le comparatif clair pour bien choisir."
     },
     "keywords": [
       "Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
@@ -896,8 +896,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Outside Magazine) vừa điểm tin nổi bật: \"The 9 Best Bioluminescence Tours in the World\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 💎 Góc nhìn thực tế & Sức hút của Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
+        "p": "🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ. Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -922,26 +922,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ha Long",
     "regionLabel": "Di Sản Vịnh Hạ Long – Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Vietnam+ (VietnamPlus)",
+    "sourceBadge": "🌿 Du Lịch Chữa Lành · Vietnam+ (VietnamPlus)",
     "image": "assets/blog/vinh-ha-long-dao-da.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 349,
+    "initialViews": 2094,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-12)",
-      "en": "[Trending Travel] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-12)",
-      "ja": "【最新トレンド】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-12)",
-      "ko": "[최신 여행 트렌드] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-12)",
-      "zh": "【旅游热点】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-12)",
-      "fr": "[Tendance Voyage] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-12)"
+      "vi": "🌿 Tạm Rời Phố Thị 48 Giờ: Hành Trình Chèo Kayak, Nghe Sóng Vỗ & Thưởng Thức Hải Sản Tươi Sống Tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+      "en": "🌿 48-Hour Mindful Retreat at Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kayaking Emerald Lagoons & Fresh Seafood Gastronomy",
+      "ja": "🌿 都会を離れる48時間：「Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ」でカヤックと獲れたて海鮮を味わうスロートラベル",
+      "ko": "🌿 도심을 떠나는 48시간: 'Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ'에서 카약과 제철 해산물을 즐기는 슬로 트래블",
+      "zh": "🌿 逃离都市48小时：在Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ划皮划艇、听海浪与品尝现捕海鲜的治愈之旅",
+      "fr": "🌿 Parenthèse de 48h à Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Kayak dans les lagons émeraude & fruits de mer frais"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🍃 Theo xu hướng \"Slow Travel\" được Vietnam+ (VietnamPlus) nhắc tới (\"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\"), Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội.",
+      "en": "🍃 Embracing the Slow Travel movement highlighted by Vietnam+ (VietnamPlus) (\"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\"), Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay offers an effortless 2-3 hour Limousine escape from Hanoi.",
+      "ja": "🍃 Vietnam+ (VietnamPlus) が注目するスロートラベル。ハノイからリムジンでわずか2〜3時間の極上リトリート。",
+      "ko": "🍃 Vietnam+ (VietnamPlus)가 주목한 슬로 트래블 트렌드! 하노이에서 리무진으로 2~3시간이면 닿는 힐링 코스를 만나보세요.",
+      "zh": "🍃 契合 Vietnam+ (VietnamPlus) 倡导的慢旅行风潮：从河内乘豪华专车仅需2-3小时即可抵达的山水疗愈胜地。",
+      "fr": "🍃 Dans l'esprit Slow Travel salué par Vietnam+ (VietnamPlus) : une retraite nature à seulement 2-3h de Limousine de Hanoï."
     },
     "keywords": [
       "Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
@@ -953,8 +953,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌿 Góc nhìn thực tế & Sức hút của Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+        "p": "🍃 Theo xu hướng \"Slow Travel\" được Vietnam+ (VietnamPlus) nhắc tới (\"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\"), Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -979,26 +979,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ninh Binh",
     "regionLabel": "Danh Thắng Tràng An · Ninh Bình",
-    "sourceBadge": "Tin Nóng · Destinationless Travel",
+    "sourceBadge": "🧭 Cẩm Nang Tự Túc A-Z · Destinationless Travel",
     "image": "assets/blog/ninh-binh-trang-an.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 424,
+    "initialViews": 2573,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-11)",
-      "en": "[Trending Travel] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Insider Tips & Best Cruise Itinerary (2026-11-11)",
-      "ja": "【最新トレンド】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：実用アドバイス＆おすすめクルーズ日程 (2026-11-11)",
-      "ko": "[최신 여행 트렌드] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): 실전 여행 팁 & 추천 크루즈 코스 (2026-11-11)",
-      "zh": "【旅游热点】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：实用出行干货与最佳游轮路线 (2026-11-11)",
-      "fr": "[Tendance Voyage] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Conseils Pratiques & Itinéraire Croisière (2026-11-11)"
+      "vi": "🧭 Kinh Nghiệm Đi Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) Tự Túc Cho Người Mới: Cách Đi Xe Limousine Cao Tốc & Chọn Tuyến Tàu Không Bị Say Sóng",
+      "en": "🧭 First-Timer’s Guide to Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Fast Highway Limousine Transfers & Calm-Water Cruise Routes",
+      "ja": "🧭 初めての「Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)」個人旅行ガイド：高速リムジン移動＆揺れない安心クルーズ選び",
+      "ko": "🧭 첫 방문자를 위한 'Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)' 자유여행 가이드: 고속도로 리무진 이동법 & 멀미 없는 크루즈 코스",
+      "zh": "🧭 第一次去Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)自由行必看：高速豪华专车接驳与风平浪静游轮航线选择指南",
+      "fr": "🧭 Guide pratique Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) pour une première visite : Transfert Limousine rapide & croisière en eaux calmes"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) cần lưu ý gì? Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng!",
+      "en": "🚐 Traveling with kids or seniors to Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)? Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Learn how to connect door-to-door Old Quarter Limousines with calm-bay cruises in 3 hours.",
+      "ja": "🚐 お子様やシニア連れの旅行でも安心！ハノイ旧市街から直行リムジンで3時間、波の静かな湾内クルーズ案内。",
+      "ko": "🚐 아이나 부모님과 함께하는 여행도 안심! 하노이 구시가지에서 직통 리무진으로 3시간 만에 닿는 잔잔한만 크루즈 가이드.",
+      "zh": "🚐 带老人孩子去Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)怎么走最轻松？河内老城区专车3小时直达码头，内湾水面如镜不晕船。",
+      "fr": "🚐 Idéal en famille ou avec des seniors : liaison Limousine directe en 3h depuis Hanoï et navigation sur une mer d'huile."
     },
     "keywords": [
       "Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
@@ -1010,8 +1010,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
-        "p": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🧭 Góc nhìn thực tế & Sức hút của Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
+        "p": "🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) cần lưu ý gì? Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1036,26 +1036,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Bãi Tắm Ba Trái Đào · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Yahoo News Canada",
+    "sourceBadge": "🌅 Góc Nhìn Quốc Tế · Yahoo News Canada",
     "image": "assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 396,
+    "initialViews": 2412,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-10)",
-      "en": "[Trending Travel] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-10)",
-      "ja": "【最新トレンド】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-10)",
-      "ko": "[최신 여행 트렌드] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-10)",
-      "zh": "【旅游热点】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-10)",
-      "fr": "[Tendance Voyage] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-10)"
+      "vi": "🌅 Vì Sao Du Khách Quốc Tế Mê Mẩn Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ? Bí Quyết Săn Khoảnh Khắc Đẹp Nhất Từ Người Bản Địa",
+      "en": "🌅 Why Global Travelers Are Falling in Love with Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Local Secrets & Best Golden Hours",
+      "ja": "🌅 海外旅行者が魅了される「Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ」：地元ならではの絶景時間帯＆旅のコツ",
+      "ko": "🌅 전 세계 여행자들이 반한 'Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ': 현지인이 알려주는 골든아워 & 꿀팁",
+      "zh": "🌅 为什么全球游客都爱上Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ？当地人私藏的黄金时刻与出游秘诀",
+      "fr": "🌅 Pourquoi les voyageurs du monde entier adorent Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Secrets locaux & heures dorées"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "✨ Tờ Yahoo News Canada vừa dành lời khen ngợi đặc biệt: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ.",
+      "en": "✨ Spotlighted by Yahoo News Canada (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"): Skip the tourist crowds with our local golden-hour route across Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ.",
+      "ja": "✨ Yahoo News Canada で紹介された注目スポット。混雑を避けて絶景を満喫する実用ルート。",
+      "ko": "✨ Yahoo News Canada 추천 명소! 인파를 피해 여유롭게 즐기는 실전 여행 코스를 소개합니다.",
+      "zh": "✨ 获 Yahoo News Canada 专题推荐！避开人潮、独享静谧山水与海湾美景的实用路线。",
+      "fr": "✨ Mis à l'honneur par Yahoo News Canada : l'itinéraire idéal pour éviter la foule et vivre une expérience authentique."
     },
     "keywords": [
       "Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
@@ -1067,8 +1067,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌅 Góc nhìn thực tế & Sức hút của Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+        "p": "✨ Tờ Yahoo News Canada vừa dành lời khen ngợi đặc biệt: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1093,26 +1093,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Hang Sáng Tối · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Business Insider",
+    "sourceBadge": "🛶 Bí Kíp Xê Dịch · Business Insider",
     "image": "assets/photos/daycruise-2.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 306,
+    "initialViews": 1716,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-09)",
-      "en": "[Trending Travel] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-09)",
-      "ja": "【最新トレンド】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-09)",
-      "ko": "[최신 여행 트렌드] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-09)",
-      "zh": "【旅游热点】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-09)",
-      "fr": "[Tendance Voyage] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-09)"
+      "vi": "🛶 Lịch Trình \"Đi Trốn\" Cuối Tuần Tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Chọn Giờ Nào Vắng Khách, Ăn Gì Ngon & Chi Phí Bao Nhiêu?",
+      "en": "🛶 The Ultimate Weekend Escape to Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Quiet Hours, Must-Try Food & Real Budget Breakdown",
+      "ja": "🛶 週末に行く「Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ」癒やし旅：空いている時間帯・グルメ・予算まとめ",
+      "ko": "🛶 주말 힐링 여행 'Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ' 완벽 코스: 한적한 시간대, 맛집 & 실제 경비 총정리",
+      "zh": "🛶 周末逃离喧嚣去Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：错峰时段、必吃美食与真实花费全解析",
+      "fr": "🛶 Échappée week-end à Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Horaires calmes, gastronomie locale & budget réel"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi!",
+      "en": "🧭 Planning a 1-2 day escape? Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Here is our transparent cost breakdown and queue-free booking tips.",
+      "ja": "🧭 1〜2日の週末旅行に最適！Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。リアルな費用とスムーズな移動方法を解説。",
+      "ko": "🧭 1~2일 주말 코스로 딱! Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 투명한 경비 계산과 대기 없는 이동 팁을 확인하세요.",
+      "zh": "🧭 只有1-2天假期？Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。为您奉上透明费用清单与免排队出行妙招。",
+      "fr": "🧭 Idéal pour 1 ou 2 jours d'évasion : Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Budget détaillé et astuces coupe-file."
     },
     "keywords": [
       "Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
@@ -1124,8 +1124,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🛶 Góc nhìn thực tế & Sức hút của Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
+        "p": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1150,26 +1150,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ha Long",
     "regionLabel": "Di Sản Vịnh Hạ Long – Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Vietnam+ (VietnamPlus)",
+    "sourceBadge": "📸 Tọa Độ Sống Ảo · Vietnam+ (VietnamPlus)",
     "image": "assets/blog/vinh-ha-long-dao-da.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 441,
+    "initialViews": 2470,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-08)",
-      "en": "[Trending Travel] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-08)",
-      "ja": "【最新トレンド】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-08)",
-      "ko": "[최신 여행 트렌드] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-08)",
-      "zh": "【旅游热点】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-08)",
-      "fr": "[Tendance Voyage] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-08)"
+      "vi": "📸 5 Góc Lên Hình \"Đắt Giá\" Nhất Tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ Đang Gây Sốt Trên Tạp Chí Du Lịch Thế Giới",
+      "en": "📸 5 Breathtaking Photo Angles at Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ Making Waves in International Travel Magazines",
+      "ja": "📸 世界の旅行誌で話題！「Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ」で絶対撮りたい絶景フォトスポット5選",
+      "ko": "📸 해외 여행 매거진이 주목한 'Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ' 인생샷 포토스팟 5선",
+      "zh": "📸 刷屏国际旅游杂志！Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ最出片的5个绝美机位与穿搭指南",
+      "fr": "📸 Les 5 plus beaux spots photo de Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ qui(font sensation dans la presse voyage"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "📷 Điểm tin từ Vietnam+ (VietnamPlus) (\"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\"): Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ!",
+      "en": "📷 Featured in Vietnam+ (VietnamPlus) (\"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\"): Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Discover the best camera angles, outfit colors, and sundeck viewpoints.",
+      "ja": "📷 Vietnam+ (VietnamPlus) 掲載トレンド。船上バルコニーやカヤックからのベストアングルと服装のヒント。",
+      "ko": "📷 Vietnam+ (VietnamPlus) 화제의 스팟! 5성급 크루즈 발코니와 카약에서 찍는 베스트 앵글과 코디 팁.",
+      "zh": "📷 源自 Vietnam+ (VietnamPlus) 热门报道：揭秘五星游轮阳台与皮划艇最佳拍摄角度及穿搭色系。",
+      "fr": "📷 Repéré dans Vietnam+ (VietnamPlus) : nos conseils photo depuis le pont du navire 5★ et en kayak."
     },
     "keywords": [
       "Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
@@ -1181,8 +1181,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 📸 Góc nhìn thực tế & Sức hút của Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+        "p": "📷 Điểm tin từ Vietnam+ (VietnamPlus) (\"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\"): Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1207,26 +1207,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ninh Binh",
     "regionLabel": "Danh Thắng Tràng An · Ninh Bình",
-    "sourceBadge": "Tin Nóng · Destinationless Travel",
+    "sourceBadge": "💎 Trải Nghiệm 5 Sao · Destinationless Travel",
     "image": "assets/blog/ninh-binh-trang-an.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 407,
+    "initialViews": 2229,
+    "readingTime": "6 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-07)",
-      "en": "[Trending Travel] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Insider Tips & Best Cruise Itinerary (2026-11-07)",
-      "ja": "【最新トレンド】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：実用アドバイス＆おすすめクルーズ日程 (2026-11-07)",
-      "ko": "[최신 여행 트렌드] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): 실전 여행 팁 & 추천 크루즈 코스 (2026-11-07)",
-      "zh": "【旅游热点】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：实用出行干货与最佳游轮路线 (2026-11-07)",
-      "fr": "[Tendance Voyage] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Conseils Pratiques & Itinéraire Croisière (2026-11-07)"
+      "vi": "💎 Review Thực Tế Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Nên Đi Tour Trong Ngày Hay Ngủ Đêm Trên Du Thuyền 5★ Có Bể Sục Jacuzzi?",
+      "en": "💎 Honest Review of Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Day Trip vs. 5-Star Overnight Cruise with Heated Jacuzzi",
+      "ja": "💎 「Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)」徹底比較：日帰りツアーとジャグジー付5つ星宿泊クルーズ、どっちが正解？",
+      "ko": "💎 'Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)' 솔직 비교 리뷰: 당일 투어 vs 자쿠지 갖춘 5성급 숙박 크루즈, 무엇이 좋을까?",
+      "zh": "💎 Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)真实测评：选一日游还是带恒温按摩池的5星级过夜游轮？",
+      "fr": "💎 Comparatif Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Excursion à la journée ou Croisière 5★ de nuit avec Jacuzzi ?"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình). Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút!",
+      "en": "🥂 Torn between a quick day tour and a 2D1N private-balcony suite voyage around Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)? Compare pros, cons, and value for families & couples.",
+      "ja": "🥂 日帰りと1泊2日スイートクルーズのメリット・デメリットを家族・カップル向けにわかりやすく比較。",
+      "ko": "🥂 당일치기와 1박 2일 스위트 크루즈의 장단점을 커플·가족 여행객 시선에서 명쾌하게 비교해 드립니다.",
+      "zh": "🥂 纠结一日游还是两天一夜海景阳台套房？两分钟帮情侣与家庭游客选出高性价比方案。",
+      "fr": "🥂 Excursion d'un jour ou croisière 2J1N en suite avec balcon privé ? Le comparatif clair pour bien choisir."
     },
     "keywords": [
       "Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
@@ -1238,8 +1238,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
-        "p": "Báo chí & truyền thông du lịch (Destinationless Travel) vừa điểm tin nổi bật: \"Where to Stay in Ninh Binh, Vietnam: 3 Best Areas & Hotels\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 💎 Góc nhìn thực tế & Sức hút của Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
+        "p": "🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình). Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1264,26 +1264,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Bãi Tắm Ba Trái Đào · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Yahoo News Canada",
+    "sourceBadge": "🌿 Du Lịch Chữa Lành · Yahoo News Canada",
     "image": "assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 388,
+    "initialViews": 2088,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-06)",
-      "en": "[Trending Travel] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-06)",
-      "ja": "【最新トレンド】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-06)",
-      "ko": "[최신 여행 트렌드] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-06)",
-      "zh": "【旅游热点】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-06)",
-      "fr": "[Tendance Voyage] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-06)"
+      "vi": "🌿 Tạm Rời Phố Thị 48 Giờ: Hành Trình Chèo Kayak, Nghe Sóng Vỗ & Thưởng Thức Hải Sản Tươi Sống Tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+      "en": "🌿 48-Hour Mindful Retreat at Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kayaking Emerald Lagoons & Fresh Seafood Gastronomy",
+      "ja": "🌿 都会を離れる48時間：「Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ」でカヤックと獲れたて海鮮を味わうスロートラベル",
+      "ko": "🌿 도심을 떠나는 48시간: 'Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ'에서 카약과 제철 해산물을 즐기는 슬로 트래블",
+      "zh": "🌿 逃离都市48小时：在Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ划皮划艇、听海浪与品尝现捕海鲜的治愈之旅",
+      "fr": "🌿 Parenthèse de 48h à Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Kayak dans les lagons émeraude & fruits de mer frais"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🍃 Theo xu hướng \"Slow Travel\" được Yahoo News Canada nhắc tới (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"), Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội.",
+      "en": "🍃 Embracing the Slow Travel movement highlighted by Yahoo News Canada (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"), Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay offers an effortless 2-3 hour Limousine escape from Hanoi.",
+      "ja": "🍃 Yahoo News Canada が注目するスロートラベル。ハノイからリムジンでわずか2〜3時間の極上リトリート。",
+      "ko": "🍃 Yahoo News Canada가 주목한 슬로 트래블 트렌드! 하노이에서 리무진으로 2~3시간이면 닿는 힐링 코스를 만나보세요.",
+      "zh": "🍃 契合 Yahoo News Canada 倡导的慢旅行风潮：从河内乘豪华专车仅需2-3小时即可抵达的山水疗愈胜地。",
+      "fr": "🍃 Dans l'esprit Slow Travel salué par Yahoo News Canada : une retraite nature à seulement 2-3h de Limousine de Hanoï."
     },
     "keywords": [
       "Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
@@ -1295,8 +1295,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Yahoo News Canada) vừa điểm tin nổi bật: \"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌿 Góc nhìn thực tế & Sức hút của Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+        "p": "🍃 Theo xu hướng \"Slow Travel\" được Yahoo News Canada nhắc tới (\"Why Cat Ba is my favourite place in Vietnam: Beaches, scooters and the stunning Lan Ha Bay\"), Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1321,26 +1321,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Hang Sáng Tối · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Business Insider",
+    "sourceBadge": "🧭 Cẩm Nang Tự Túc A-Z · Business Insider",
     "image": "assets/photos/daycruise-2.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 400,
+    "initialViews": 2567,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-05)",
-      "en": "[Trending Travel] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-05)",
-      "ja": "【最新トレンド】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-05)",
-      "ko": "[최신 여행 트렌드] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-05)",
-      "zh": "【旅游热点】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-05)",
-      "fr": "[Tendance Voyage] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-05)"
+      "vi": "🧭 Kinh Nghiệm Đi Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ Tự Túc Cho Người Mới: Cách Đi Xe Limousine Cao Tốc & Chọn Tuyến Tàu Không Bị Say Sóng",
+      "en": "🧭 First-Timer’s Guide to Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Fast Highway Limousine Transfers & Calm-Water Cruise Routes",
+      "ja": "🧭 初めての「Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ」個人旅行ガイド：高速リムジン移動＆揺れない安心クルーズ選び",
+      "ko": "🧭 첫 방문자를 위한 'Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ' 자유여행 가이드: 고속도로 리무진 이동법 & 멀미 없는 크루즈 코스",
+      "zh": "🧭 第一次去Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ自由行必看：高速豪华专车接驳与风平浪静游轮航线选择指南",
+      "fr": "🧭 Guide pratique Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ pour une première visite : Transfert Limousine rapide & croisière en eaux calmes"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ cần lưu ý gì? Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng!",
+      "en": "🚐 Traveling with kids or seniors to Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ? Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Learn how to connect door-to-door Old Quarter Limousines with calm-bay cruises in 3 hours.",
+      "ja": "🚐 お子様やシニア連れの旅行でも安心！ハノイ旧市街から直行リムジンで3時間、波の静かな湾内クルーズ案内。",
+      "ko": "🚐 아이나 부모님과 함께하는 여행도 안심! 하노이 구시가지에서 직통 리무진으로 3시간 만에 닿는 잔잔한만 크루즈 가이드.",
+      "zh": "🚐 带老人孩子去Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ怎么走最轻松？河内老城区专车3小时直达码头，内湾水面如镜不晕船。",
+      "fr": "🚐 Idéal en famille ou avec des seniors : liaison Limousine directe en 3h depuis Hanoï et navigation sur une mer d'huile."
     },
     "keywords": [
       "Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
@@ -1352,8 +1352,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🧭 Góc nhìn thực tế & Sức hút của Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
+        "p": "🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ cần lưu ý gì? Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1378,26 +1378,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ha Long",
     "regionLabel": "Di Sản Vịnh Hạ Long – Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · VnExpress International",
+    "sourceBadge": "🌅 Góc Nhìn Quốc Tế · VnExpress International",
     "image": "assets/blog/vinh-ha-long-dao-da.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 372,
+    "initialViews": 2406,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-04)",
-      "en": "[Trending Travel] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-04)",
-      "ja": "【最新トレンド】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-04)",
-      "ko": "[최신 여행 트렌드] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-04)",
-      "zh": "【旅游热点】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-04)",
-      "fr": "[Tendance Voyage] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-04)"
+      "vi": "🌅 Vì Sao Du Khách Quốc Tế Mê Mẩn Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ? Bí Quyết Săn Khoảnh Khắc Đẹp Nhất Từ Người Bản Địa",
+      "en": "🌅 Why Global Travelers Are Falling in Love with Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Local Secrets & Best Golden Hours",
+      "ja": "🌅 海外旅行者が魅了される「Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ」：地元ならではの絶景時間帯＆旅のコツ",
+      "ko": "🌅 전 세계 여행자들이 반한 'Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ': 현지인이 알려주는 골든아워 & 꿀팁",
+      "zh": "🌅 为什么全球游客都爱上Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ？当地人私藏的黄金时刻与出游秘诀",
+      "fr": "🌅 Pourquoi les voyageurs du monde entier adorent Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Secrets locaux & heures dorées"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (VnExpress International) vừa điểm tin nổi bật: \"'World's most beautiful woman' Opal Suchata tours Ha Long Bay\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "✨ Tờ VnExpress International vừa dành lời khen ngợi đặc biệt: \"'World's most beautiful woman' Opal Suchata tours Ha Long Bay\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ.",
+      "en": "✨ Spotlighted by VnExpress International (\"'World's most beautiful woman' Opal Suchata tours Ha Long Bay\"): Skip the tourist crowds with our local golden-hour route across Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ.",
+      "ja": "✨ VnExpress International で紹介された注目スポット。混雑を避けて絶景を満喫する実用ルート。",
+      "ko": "✨ VnExpress International 추천 명소! 인파를 피해 여유롭게 즐기는 실전 여행 코스를 소개합니다.",
+      "zh": "✨ 获 VnExpress International 专题推荐！避开人潮、独享静谧山水与海湾美景的实用路线。",
+      "fr": "✨ Mis à l'honneur par VnExpress International : l'itinéraire idéal pour éviter la foule et vivre une expérience authentique."
     },
     "keywords": [
       "Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
@@ -1409,8 +1409,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (VnExpress International) vừa điểm tin nổi bật: \"'World's most beautiful woman' Opal Suchata tours Ha Long Bay\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌅 Góc nhìn thực tế & Sức hút của Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+        "p": "✨ Tờ VnExpress International vừa dành lời khen ngợi đặc biệt: \"'World's most beautiful woman' Opal Suchata tours Ha Long Bay\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1435,26 +1435,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ninh Binh",
     "regionLabel": "Danh Thắng Tràng An · Ninh Bình",
-    "sourceBadge": "Tin Nóng · Pixidia",
+    "sourceBadge": "🛶 Bí Kíp Xê Dịch · Pixidia",
     "image": "assets/blog/ninh-binh-trang-an.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 345,
+    "initialViews": 1710,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-03)",
-      "en": "[Trending Travel] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Insider Tips & Best Cruise Itinerary (2026-11-03)",
-      "ja": "【最新トレンド】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：実用アドバイス＆おすすめクルーズ日程 (2026-11-03)",
-      "ko": "[최신 여행 트렌드] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): 실전 여행 팁 & 추천 크루즈 코스 (2026-11-03)",
-      "zh": "【旅游热点】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：实用出行干货与最佳游轮路线 (2026-11-03)",
-      "fr": "[Tendance Voyage] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Conseils Pratiques & Itinéraire Croisière (2026-11-03)"
+      "vi": "🛶 Lịch Trình \"Đi Trốn\" Cuối Tuần Tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Chọn Giờ Nào Vắng Khách, Ăn Gì Ngon & Chi Phí Bao Nhiêu?",
+      "en": "🛶 The Ultimate Weekend Escape to Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Quiet Hours, Must-Try Food & Real Budget Breakdown",
+      "ja": "🛶 週末に行く「Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)」癒やし旅：空いている時間帯・グルメ・予算まとめ",
+      "ko": "🛶 주말 힐링 여행 'Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)' 완벽 코스: 한적한 시간대, 맛집 & 실제 경비 총정리",
+      "zh": "🛶 周末逃离喧嚣去Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：错峰时段、必吃美食与真实花费全解析",
+      "fr": "🛶 Échappée week-end à Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Horaires calmes, gastronomie locale & budget réel"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Pixidia) vừa điểm tin nổi bật: \"Ninh Binh Day Trip from Hanoi: 10 Tours Compared (2027)\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi!",
+      "en": "🧭 Planning a 1-2 day escape? Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Here is our transparent cost breakdown and queue-free booking tips.",
+      "ja": "🧭 1〜2日の週末旅行に最適！Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。リアルな費用とスムーズな移動方法を解説。",
+      "ko": "🧭 1~2일 주말 코스로 딱! Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 투명한 경비 계산과 대기 없는 이동 팁을 확인하세요.",
+      "zh": "🧭 只有1-2天假期？Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。为您奉上透明费用清单与免排队出行妙招。",
+      "fr": "🧭 Idéal pour 1 ou 2 jours d'évasion : Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Budget détaillé et astuces coupe-file."
     },
     "keywords": [
       "Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
@@ -1466,8 +1466,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
-        "p": "Báo chí & truyền thông du lịch (Pixidia) vừa điểm tin nổi bật: \"Ninh Binh Day Trip from Hanoi: 10 Tours Compared (2027)\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🛶 Góc nhìn thực tế & Sức hút của Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
+        "p": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1492,26 +1492,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Bãi Tắm Ba Trái Đào · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · VnExpress International",
+    "sourceBadge": "📸 Tọa Độ Sống Ảo · VnExpress International",
     "image": "assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 417,
+    "initialViews": 2464,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-02)",
-      "en": "[Trending Travel] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-02)",
-      "ja": "【最新トレンド】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-02)",
-      "ko": "[최신 여행 트렌드] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-02)",
-      "zh": "【旅游热点】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-02)",
-      "fr": "[Tendance Voyage] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-02)"
+      "vi": "📸 5 Góc Lên Hình \"Đắt Giá\" Nhất Tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ Đang Gây Sốt Trên Tạp Chí Du Lịch Thế Giới",
+      "en": "📸 5 Breathtaking Photo Angles at Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ Making Waves in International Travel Magazines",
+      "ja": "📸 世界の旅行誌で話題！「Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ」で絶対撮りたい絶景フォトスポット5選",
+      "ko": "📸 해외 여행 매거진이 주목한 'Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ' 인생샷 포토스팟 5선",
+      "zh": "📸 刷屏国际旅游杂志！Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ最出片的5个绝美机位与穿搭指南",
+      "fr": "📸 Les 5 plus beaux spots photo de Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ qui(font sensation dans la presse voyage"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (VnExpress International) vừa điểm tin nổi bật: \"Lan Ha Bay presents nature's full palette\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "📷 Điểm tin từ VnExpress International (\"Lan Ha Bay presents nature's full palette\"): Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ!",
+      "en": "📷 Featured in VnExpress International (\"Lan Ha Bay presents nature's full palette\"): Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Discover the best camera angles, outfit colors, and sundeck viewpoints.",
+      "ja": "📷 VnExpress International 掲載トレンド。船上バルコニーやカヤックからのベストアングルと服装のヒント。",
+      "ko": "📷 VnExpress International 화제의 스팟! 5성급 크루즈 발코니와 카약에서 찍는 베스트 앵글과 코디 팁.",
+      "zh": "📷 源自 VnExpress International 热门报道：揭秘五星游轮阳台与皮划艇最佳拍摄角度及穿搭色系。",
+      "fr": "📷 Repéré dans VnExpress International : nos conseils photo depuis le pont du navire 5★ et en kayak."
     },
     "keywords": [
       "Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
@@ -1523,8 +1523,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (VnExpress International) vừa điểm tin nổi bật: \"Lan Ha Bay presents nature's full palette\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 📸 Góc nhìn thực tế & Sức hút của Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+        "p": "📷 Điểm tin từ VnExpress International (\"Lan Ha Bay presents nature's full palette\"): Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1549,26 +1549,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Hang Sáng Tối · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Business Insider",
+    "sourceBadge": "💎 Trải Nghiệm 5 Sao · Business Insider",
     "image": "assets/photos/daycruise-2.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 383,
+    "initialViews": 2223,
+    "readingTime": "6 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-11-01)",
-      "en": "[Trending Travel] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-11-01)",
-      "ja": "【最新トレンド】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-11-01)",
-      "ko": "[최신 여행 트렌드] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-11-01)",
-      "zh": "【旅游热点】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-11-01)",
-      "fr": "[Tendance Voyage] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-11-01)"
+      "vi": "💎 Review Thực Tế Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Nên Đi Tour Trong Ngày Hay Ngủ Đêm Trên Du Thuyền 5★ Có Bể Sục Jacuzzi?",
+      "en": "💎 Honest Review of Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Day Trip vs. 5-Star Overnight Cruise with Heated Jacuzzi",
+      "ja": "💎 「Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ」徹底比較：日帰りツアーとジャグジー付5つ星宿泊クルーズ、どっちが正解？",
+      "ko": "💎 'Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ' 솔직 비교 리뷰: 당일 투어 vs 자쿠지 갖춘 5성급 숙박 크루즈, 무엇이 좋을까?",
+      "zh": "💎 Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ真实测评：选一日游还是带恒温按摩池的5星级过夜游轮？",
+      "fr": "💎 Comparatif Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Excursion à la journée ou Croisière 5★ de nuit avec Jacuzzi ?"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ. Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút!",
+      "en": "🥂 Torn between a quick day tour and a 2D1N private-balcony suite voyage around Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ? Compare pros, cons, and value for families & couples.",
+      "ja": "🥂 日帰りと1泊2日スイートクルーズのメリット・デメリットを家族・カップル向けにわかりやすく比較。",
+      "ko": "🥂 당일치기와 1박 2일 스위트 크루즈의 장단점을 커플·가족 여행객 시선에서 명쾌하게 비교해 드립니다.",
+      "zh": "🥂 纠结一日游还是两天一夜海景阳台套房？两分钟帮情侣与家庭游客选出高性价比方案。",
+      "fr": "🥂 Excursion d'un jour ou croisière 2J1N en suite avec balcon privé ? Le comparatif clair pour bien choisir."
     },
     "keywords": [
       "Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
@@ -1580,8 +1580,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 💎 Góc nhìn thực tế & Sức hút của Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
+        "p": "🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ. Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1606,26 +1606,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ha Long",
     "regionLabel": "Di Sản Vịnh Hạ Long – Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Vietnam+ (VietnamPlus)",
+    "sourceBadge": "🌿 Du Lịch Chữa Lành · Vietnam+ (VietnamPlus)",
     "image": "assets/blog/vinh-ha-long-dao-da.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 364,
+    "initialViews": 2082,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-10-31)",
-      "en": "[Trending Travel] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-10-31)",
-      "ja": "【最新トレンド】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-10-31)",
-      "ko": "[최신 여행 트렌드] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-10-31)",
-      "zh": "【旅游热点】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-10-31)",
-      "fr": "[Tendance Voyage] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-10-31)"
+      "vi": "🌿 Tạm Rời Phố Thị 48 Giờ: Hành Trình Chèo Kayak, Nghe Sóng Vỗ & Thưởng Thức Hải Sản Tươi Sống Tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+      "en": "🌿 48-Hour Mindful Retreat at Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kayaking Emerald Lagoons & Fresh Seafood Gastronomy",
+      "ja": "🌿 都会を離れる48時間：「Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ」でカヤックと獲れたて海鮮を味わうスロートラベル",
+      "ko": "🌿 도심을 떠나는 48시간: 'Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ'에서 카약과 제철 해산물을 즐기는 슬로 트래블",
+      "zh": "🌿 逃离都市48小时：在Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ划皮划艇、听海浪与品尝现捕海鲜的治愈之旅",
+      "fr": "🌿 Parenthèse de 48h à Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Kayak dans les lagons émeraude & fruits de mer frais"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🍃 Theo xu hướng \"Slow Travel\" được Vietnam+ (VietnamPlus) nhắc tới (\"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\"), Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội.",
+      "en": "🍃 Embracing the Slow Travel movement highlighted by Vietnam+ (VietnamPlus) (\"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\"), Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay offers an effortless 2-3 hour Limousine escape from Hanoi.",
+      "ja": "🍃 Vietnam+ (VietnamPlus) が注目するスロートラベル。ハノイからリムジンでわずか2〜3時間の極上リトリート。",
+      "ko": "🍃 Vietnam+ (VietnamPlus)가 주목한 슬로 트래블 트렌드! 하노이에서 리무진으로 2~3시간이면 닿는 힐링 코스를 만나보세요.",
+      "zh": "🍃 契合 Vietnam+ (VietnamPlus) 倡导的慢旅行风潮：从河内乘豪华专车仅需2-3小时即可抵达的山水疗愈胜地。",
+      "fr": "🍃 Dans l'esprit Slow Travel salué par Vietnam+ (VietnamPlus) : une retraite nature à seulement 2-3h de Limousine de Hanoï."
     },
     "keywords": [
       "Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
@@ -1637,8 +1637,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Vietnam+ (VietnamPlus)) vừa điểm tin nổi bật: \"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌿 Góc nhìn thực tế & Sức hút của Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+        "p": "🍃 Theo xu hướng \"Slow Travel\" được Vietnam+ (VietnamPlus) nhắc tới (\"Ha Long Bay - world wonder worth seeing at least once in lifetime: French journal\"), Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1663,26 +1663,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ninh Binh",
     "regionLabel": "Danh Thắng Tràng An · Ninh Bình",
-    "sourceBadge": "Tin Nóng · Pixidia",
+    "sourceBadge": "🧭 Cẩm Nang Tự Túc A-Z · Pixidia",
     "image": "assets/blog/ninh-binh-trang-an.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 439,
+    "initialViews": 2561,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-10-30)",
-      "en": "[Trending Travel] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Insider Tips & Best Cruise Itinerary (2026-10-30)",
-      "ja": "【最新トレンド】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：実用アドバイス＆おすすめクルーズ日程 (2026-10-30)",
-      "ko": "[최신 여행 트렌드] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): 실전 여행 팁 & 추천 크루즈 코스 (2026-10-30)",
-      "zh": "【旅游热点】Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)：实用出行干货与最佳游轮路线 (2026-10-30)",
-      "fr": "[Tendance Voyage] Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) : Conseils Pratiques & Itinéraire Croisière (2026-10-30)"
+      "vi": "🧭 Kinh Nghiệm Đi Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) Tự Túc Cho Người Mới: Cách Đi Xe Limousine Cao Tốc & Chọn Tuyến Tàu Không Bị Say Sóng",
+      "en": "🧭 First-Timer’s Guide to Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình): Fast Highway Limousine Transfers & Calm-Water Cruise Routes",
+      "ja": "🧭 初めての「Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)」個人旅行ガイド：高速リムジン移動＆揺れない安心クルーズ選び",
+      "ko": "🧭 첫 방문자를 위한 'Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)' 자유여행 가이드: 고속도로 리무진 이동법 & 멀미 없는 크루즈 코스",
+      "zh": "🧭 第一次去Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)自由行必看：高速豪华专车接驳与风平浪静游轮航线选择指南",
+      "fr": "🧭 Guide pratique Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) pour une première visite : Transfert Limousine rapide & croisière en eaux calmes"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Pixidia) vừa điểm tin nổi bật: \"Ninh Binh Day Trip from Hanoi: 10 Tours Compared (2027)\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) cần lưu ý gì? Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng!",
+      "en": "🚐 Traveling with kids or seniors to Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)? Hand-rowed sampan boat journey through flooded limestone caves and ancient temples at UNESCO-listed Trang An in Ninh Binh. Learn how to connect door-to-door Old Quarter Limousines with calm-bay cruises in 3 hours.",
+      "ja": "🚐 お子様やシニア連れの旅行でも安心！ハノイ旧市街から直行リムジンで3時間、波の静かな湾内クルーズ案内。",
+      "ko": "🚐 아이나 부모님과 함께하는 여행도 안심! 하노이 구시가지에서 직통 리무진으로 3시간 만에 닿는 잔잔한만 크루즈 가이드.",
+      "zh": "🚐 带老人孩子去Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)怎么走最轻松？河内老城区专车3小时直达码头，内湾水面如镜不晕船。",
+      "fr": "🚐 Idéal en famille ou avec des seniors : liaison Limousine directe en 3h depuis Hanoï et navigation sur une mer d'huile."
     },
     "keywords": [
       "Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
@@ -1694,8 +1694,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
-        "p": "Báo chí & truyền thông du lịch (Pixidia) vừa điểm tin nổi bật: \"Ninh Binh Day Trip from Hanoi: 10 Tours Compared (2027)\". Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🧭 Góc nhìn thực tế & Sức hút của Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình)",
+        "p": "🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến Quần Thể Di Sản Thế Giới Tràng An & Cố Đô Hoa Lư (Ninh Bình) cần lưu ý gì? Hành trình ngồi thuyền nan chèo tay xuyên qua các hang động đá vôi ngập nước và đền đài cổ kính tại Di sản Thế giới kép Tràng An – Ninh Bình. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1720,26 +1720,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Bãi Tắm Ba Trái Đào · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · VnExpress International",
+    "sourceBadge": "🌅 Góc Nhìn Quốc Tế · VnExpress International",
     "image": "assets/blog/bai-tam-vinh-lan-ha-cat-ba.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 348,
+    "initialViews": 2400,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-10-29)",
-      "en": "[Trending Travel] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-10-29)",
-      "ja": "【最新トレンド】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-10-29)",
-      "ko": "[최신 여행 트렌드] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-10-29)",
-      "zh": "【旅游热点】Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-10-29)",
-      "fr": "[Tendance Voyage] Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-10-29)"
+      "vi": "🌅 Vì Sao Du Khách Quốc Tế Mê Mẩn Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ? Bí Quyết Săn Khoảnh Khắc Đẹp Nhất Từ Người Bản Địa",
+      "en": "🌅 Why Global Travelers Are Falling in Love with Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ: Local Secrets & Best Golden Hours",
+      "ja": "🌅 海外旅行者が魅了される「Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ」：地元ならではの絶景時間帯＆旅のコツ",
+      "ko": "🌅 전 세계 여행자들이 반한 'Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ': 현지인이 알려주는 골든아워 & 꿀팁",
+      "zh": "🌅 为什么全球游客都爱上Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ？当地人私藏的黄金时刻与出游秘诀",
+      "fr": "🌅 Pourquoi les voyageurs du monde entier adorent Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ : Secrets locaux & heures dorées"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (VnExpress International) vừa điểm tin nổi bật: \"Lan Ha Bay presents nature's full palette\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Crescent white-sand beaches and crystal-clear turquoise waters at the scenic border of Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "✨ Tờ VnExpress International vừa dành lời khen ngợi đặc biệt: \"Lan Ha Bay presents nature's full palette\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ.",
+      "en": "✨ Spotlighted by VnExpress International (\"Lan Ha Bay presents nature's full palette\"): Skip the tourist crowds with our local golden-hour route across Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ.",
+      "ja": "✨ VnExpress International で紹介された注目スポット。混雑を避けて絶景を満喫する実用ルート。",
+      "ko": "✨ VnExpress International 추천 명소! 인파를 피해 여유롭게 즐기는 실전 여행 코스를 소개합니다.",
+      "zh": "✨ 获 VnExpress International 专题推荐！避开人潮、独享静谧山水与海湾美景的实用路线。",
+      "fr": "✨ Mis à l'honneur par VnExpress International : l'itinéraire idéal pour éviter la foule et vivre une expérience authentique."
     },
     "keywords": [
       "Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
@@ -1751,8 +1751,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (VnExpress International) vừa điểm tin nổi bật: \"Lan Ha Bay presents nature's full palette\". Bãi cát trắng hình cánh cung ôm trọn làn nước ngọc bích trong vắt nhìn thấu đáy tại ranh giới tự nhiên giữa Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🌅 Góc nhìn thực tế & Sức hút của Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ",
+        "p": "✨ Tờ VnExpress International vừa dành lời khen ngợi đặc biệt: \"Lan Ha Bay presents nature's full palette\". Không cần đi theo đám đông ồn ào — đây là lộ trình \"đi sớm đón nắng, chiều ngắm hoàng hôn\" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại Bãi Tắm Ba Trái Đào & Thung Lũng Đá Vôi Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1777,26 +1777,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Lan Ha",
     "regionLabel": "Hang Sáng Tối · Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · Business Insider",
+    "sourceBadge": "🛶 Bí Kíp Xê Dịch · Business Insider",
     "image": "assets/photos/daycruise-2.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
+    "initialLikes": 321,
+    "initialViews": 1704,
     "readingTime": "5 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-10-28)",
-      "en": "[Trending Travel] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-10-28)",
-      "ja": "【最新トレンド】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-10-28)",
-      "ko": "[최신 여행 트렌드] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-10-28)",
-      "zh": "【旅游热点】Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-10-28)",
-      "fr": "[Tendance Voyage] Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-10-28)"
+      "vi": "🛶 Lịch Trình \"Đi Trốn\" Cuối Tuần Tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Chọn Giờ Nào Vắng Khách, Ăn Gì Ngon & Chi Phí Bao Nhiêu?",
+      "en": "🛶 The Ultimate Weekend Escape to Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ: Quiet Hours, Must-Try Food & Real Budget Breakdown",
+      "ja": "🛶 週末に行く「Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ」癒やし旅：空いている時間帯・グルメ・予算まとめ",
+      "ko": "🛶 주말 힐링 여행 'Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ' 완벽 코스: 한적한 시간대, 맛집 & 실제 경비 총정리",
+      "zh": "🛶 周末逃离喧嚣去Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ：错峰时段、必吃美食与真实花费全解析",
+      "fr": "🛶 Échappée week-end à Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ : Horaires calmes, gastronomie locale & budget réel"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi!",
+      "en": "🧭 Planning a 1-2 day escape? Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Here is our transparent cost breakdown and queue-free booking tips.",
+      "ja": "🧭 1〜2日の週末旅行に最適！Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。リアルな費用とスムーズな移動方法を解説。",
+      "ko": "🧭 1~2일 주말 코스로 딱! Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. 투명한 경비 계산과 대기 없는 이동 팁을 확인하세요.",
+      "zh": "🧭 只有1-2天假期？Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay。为您奉上透明费用清单与免排队出行妙招。",
+      "fr": "🧭 Idéal pour 1 ou 2 jours d'évasion : Kayaking through the mystical water cave connecting hidden emerald lagoons between Lan Ha Bay and Ha Long Bay. Budget détaillé et astuces coupe-file."
     },
     "keywords": [
       "Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
@@ -1808,8 +1808,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (Business Insider) vừa điểm tin nổi bật: \"Travel Spots to Avoid in Vietnam, and Where to Visit Instead\". Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 🛶 Góc nhìn thực tế & Sức hút của Hang Sáng Tối & Đầm Phá Bí Ẩn Trên Vịnh Lan Hạ",
+        "p": "🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: Trải nghiệm tự tay chèo thuyền kayak xuyên qua hang nước ngầm kỳ ảo nối liền thung lũng biển khép kín giữa lòng Vịnh Lan Hạ và Vịnh Hạ Long. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",
@@ -1834,26 +1834,26 @@ window.DT_BLOG_POSTS = [
     "isAutoDaily": true,
     "region": "Ha Long",
     "regionLabel": "Di Sản Vịnh Hạ Long – Vịnh Lan Hạ",
-    "sourceBadge": "Tin Nóng · VnExpress International",
+    "sourceBadge": "📸 Tọa Độ Sống Ảo · VnExpress International",
     "image": "assets/blog/vinh-ha-long-dao-da.jpg",
-    "initialLikes": 284,
-    "initialViews": 1560,
-    "readingTime": "5 phút đọc",
+    "initialLikes": 456,
+    "initialViews": 2458,
+    "readingTime": "4 phút đọc",
     "title": {
-      "vi": "[Tâm Điểm Du Lịch] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (2026-10-27)",
-      "en": "[Trending Travel] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: Insider Tips & Best Cruise Itinerary (2026-10-27)",
-      "ja": "【最新トレンド】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：実用アドバイス＆おすすめクルーズ日程 (2026-10-27)",
-      "ko": "[최신 여행 트렌드] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ: 실전 여행 팁 & 추천 크루즈 코스 (2026-10-27)",
-      "zh": "【旅游热点】Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ：实用出行干货与最佳游轮路线 (2026-10-27)",
-      "fr": "[Tendance Voyage] Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ : Conseils Pratiques & Itinéraire Croisière (2026-10-27)"
+      "vi": "📸 5 Góc Lên Hình \"Đắt Giá\" Nhất Tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ Đang Gây Sốt Trên Tạp Chí Du Lịch Thế Giới",
+      "en": "📸 5 Breathtaking Photo Angles at Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ Making Waves in International Travel Magazines",
+      "ja": "📸 世界の旅行誌で話題！「Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ」で絶対撮りたい絶景フォトスポット5選",
+      "ko": "📸 해외 여행 매거진이 주목한 'Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ' 인생샷 포토스팟 5선",
+      "zh": "📸 刷屏国际旅游杂志！Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ最出片的5个绝美机位与穿搭指南",
+      "fr": "📸 Les 5 plus beaux spots photo de Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ qui(font sensation dans la presse voyage"
     },
     "excerpt": {
-      "vi": "Báo chí & truyền thông du lịch (VnExpress International) vừa điểm tin nổi bật: \"'World's most beautiful woman' Opal Suchata tours Ha Long Bay\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.",
-      "en": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.",
-      "ja": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。",
-      "ko": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.",
-      "zh": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。",
-      "fr": "Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Horaires idéaux pour éviter la foule, budget réel et conseils de transport."
+      "vi": "📷 Điểm tin từ VnExpress International (\"'World's most beautiful woman' Opal Suchata tours Ha Long Bay\"): Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ!",
+      "en": "📷 Featured in VnExpress International (\"'World's most beautiful woman' Opal Suchata tours Ha Long Bay\"): Golden hour spectacle as the sun dips behind hundreds of ancient limestone peaks across Ha Long Bay and Lan Ha Bay. Discover the best camera angles, outfit colors, and sundeck viewpoints.",
+      "ja": "📷 VnExpress International 掲載トレンド。船上バルコニーやカヤックからのベストアングルと服装のヒント。",
+      "ko": "📷 VnExpress International 화제의 스팟! 5성급 크루즈 발코니와 카약에서 찍는 베스트 앵글과 코디 팁.",
+      "zh": "📷 源自 VnExpress International 热门报道：揭秘五星游轮阳台与皮划艇最佳拍摄角度及穿搭色系。",
+      "fr": "📷 Repéré dans VnExpress International : nos conseils photo depuis le pont du navire 5★ et en kayak."
     },
     "keywords": [
       "Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
@@ -1865,8 +1865,8 @@ window.DT_BLOG_POSTS = [
     ],
     "sections": [
       {
-        "h2": "1. Điểm nóng truyền thông & Giá trị thực tế tại Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
-        "p": "Báo chí & truyền thông du lịch (VnExpress International) vừa điểm tin nổi bật: \"'World's most beautiful woman' Opal Suchata tours Ha Long Bay\". Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
+        "h2": "1. 📸 Góc nhìn thực tế & Sức hút của Kỳ Quan Đảo Đá Vôi Vịnh Hạ Long & Vịnh Lan Hạ",
+        "p": "📷 Điểm tin từ VnExpress International (\"'World's most beautiful woman' Opal Suchata tours Ha Long Bay\"): Khoảnh khắc mặt trời đỏ rực buông xuống sau hàng trăm đỉnh núi đá vôi hàng triệu năm tuổi trên hải trình du thuyền 5★ kết nối Vịnh Hạ Long và Vịnh Lan Hạ. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ! Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước."
       },
       {
         "h2": "2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc",

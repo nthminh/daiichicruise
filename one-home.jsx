@@ -1455,17 +1455,9 @@ function FlagshipShipsSection({ onOpenBrochure }) {
   const luxLivePrice = Number(luxTour?.price || seniorRt?.activePrice || seniorRt?.base_price || 5000000);
   const bqLivePrice = Number(bqTour?.price || bqBalconyRt?.activePrice || bqBalconyRt?.base_price || 6065000);
 
-  // Custom local overrides if any
-  let customLux = [];
-  let customBq = [];
-  try {
-    const saved = JSON.parse(localStorage.getItem('dt_custom_cruise_imgs') || '{}');
-    customLux = saved['luxury-ship'] || [];
-    customBq = saved['boutique-ship'] || [];
-  } catch (e) {}
-
-  const luxImg = customLux[0] || luxProp?.images?.[0] || 'assets/photos/luxury-1.jpg';
-  const bqImg = customBq[0] || bqProp?.images?.[0] || 'assets/photos/boutique-1.jpg';
+  // Luôn ưu tiên 100% ảnh thật trực tiếp từ Supabase DaiichiTravel (properties & tours)
+  const luxImg = luxProp?.images?.[0] || luxTour?.images?.[0] || 'assets/photos/luxury-1.jpg?v=20261128';
+  const bqImg = bqProp?.images?.[0] || bqTour?.images?.[0] || 'assets/photos/boutique-1.jpg?v=20261128';
 
   return (
     <section className="lux-duo-sec" id="fleet" data-screen-label="Hạm đội Du thuyền Daiichi">
@@ -1866,12 +1858,8 @@ function SuiteCollectionSection({ onSelectRoom }) {
     }
   ];
 
-  // Tự động kết nối và đồng bộ theo thời gian thực từ Supabase Cloud (Dùng chung daiichitravel)
+  // Tự động kết nối và đồng bộ theo thời gian thực từ Supabase Cloud (Dùng chung daiichitravel - Ưu tiên 100% ảnh thật trên Supabase)
   const rawSbRooms = window.DT_DATA?.SUPABASE?.roomTypes || [];
-  let customImgsMap = {};
-  try {
-    customImgsMap = JSON.parse(localStorage.getItem('dt_custom_cruise_imgs') || '{}');
-  } catch (e) {}
 
   const enrichedSuites = ALL_SUITES.map(suite => {
     let matchedRt = null;
@@ -1883,14 +1871,13 @@ function SuiteCollectionSection({ onSelectRoom }) {
     else if (sid === 'btq-balcony') matchedRt = rawSbRooms.find(r => (r.name || '').toLowerCase().includes('balcony'));
     else if (sid === 'btq-deluxe') matchedRt = rawSbRooms.find(r => (r.name || '').toLowerCase().includes('deluxe'));
 
-    const customImgs = customImgsMap[sid] || [];
     let livePrice = suite.price;
-    let liveGallery = [...customImgs];
+    let liveGallery = [];
 
     if (matchedRt) {
       if (matchedRt.base_price) livePrice = matchedRt.base_price;
       if (matchedRt.images && matchedRt.images.length > 0) {
-        liveGallery = [...liveGallery, ...matchedRt.images];
+        liveGallery = [...matchedRt.images];
       }
     }
 

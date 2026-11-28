@@ -325,7 +325,147 @@ const TOPIC_BANK = [
   }
 ];
 
-// Danh sách các chủ đề & góc nhìn quốc tế dùng để kết hợp với tin tức nóng mỗi ngày
+// Bộ 12 phong cách biên tập đa dạng kèm icon sinh động để các bài viết cạnh nhau luôn mới mẻ, cuốn hút và tự nhiên
+const EDITORIAL_STYLES = [
+  {
+    badgeIcon: '🌅',
+    badgePrefix: 'Góc Nhìn Quốc Tế',
+    likesBase: 342,
+    viewsBase: 1890,
+    readTime: '4 phút đọc',
+    buildTitle: (place) => ({
+      vi: `🌅 Vì Sao Du Khách Quốc Tế Mê Mẩn ${place}? Bí Quyết Săn Khoảnh Khắc Đẹp Nhất Từ Người Bản Địa`,
+      en: `🌅 Why Global Travelers Are Falling in Love with ${place}: Local Secrets & Best Golden Hours`,
+      ja: `🌅 海外旅行者が魅了される「${place}」：地元ならではの絶景時間帯＆旅のコツ`,
+      ko: `🌅 전 세계 여행자들이 반한 '${place}': 현지인이 알려주는 골든아워 & 꿀팁`,
+      zh: `🌅 为什么全球游客都爱上${place}？当地人私藏的黄金时刻与出游秘诀`,
+      fr: `🌅 Pourquoi les voyageurs du monde entier adorent ${place} : Secrets locaux & heures dorées`
+    }),
+    buildExcerpt: (place, focusVi, focusEn, source, headline) => ({
+      vi: `✨ Tờ ${source} vừa dành lời khen ngợi đặc biệt: "${headline}". Không cần đi theo đám đông ồn ào — đây là lộ trình "đi sớm đón nắng, chiều ngắm hoàng hôn" giúp bạn thưởng thức trọn vẹn vẻ đẹp nguyên sơ tại ${place}.`,
+      en: `✨ Spotlighted by ${source} ("${headline}"): Skip the tourist crowds with our local golden-hour route across ${place}.`,
+      ja: `✨ ${source} で紹介された注目スポット。混雑を避けて絶景を満喫する実用ルート。`,
+      ko: `✨ ${source} 추천 명소! 인파를 피해 여유롭게 즐기는 실전 여행 코스를 소개합니다.`,
+      zh: `✨ 获 ${source} 专题推荐！避开人潮、独享静谧山水与海湾美景的实用路线。`,
+      fr: `✨ Mis à l'honneur par ${source} : l'itinéraire idéal pour éviter la foule et vivre une expérience authentique.`
+    })
+  },
+  {
+    badgeIcon: '🛶',
+    badgePrefix: 'Bí Kíp Xê Dịch',
+    likesBase: 298,
+    viewsBase: 1645,
+    readTime: '5 phút đọc',
+    buildTitle: (place) => ({
+      vi: `🛶 Lịch Trình "Đi Trốn" Cuối Tuần Tại ${place}: Chọn Giờ Nào Vắng Khách, Ăn Gì Ngon & Chi Phí Bao Nhiêu?`,
+      en: `🛶 The Ultimate Weekend Escape to ${place}: Quiet Hours, Must-Try Food & Real Budget Breakdown`,
+      ja: `🛶 週末に行く「${place}」癒やし旅：空いている時間帯・グルメ・予算まとめ`,
+      ko: `🛶 주말 힐링 여행 '${place}' 완벽 코스: 한적한 시간대, 맛집 & 실제 경비 총정리`,
+      zh: `🛶 周末逃离喧嚣去${place}：错峰时段、必吃美食与真实花费全解析`,
+      fr: `🛶 Échappée week-end à ${place} : Horaires calmes, gastronomie locale & budget réel`
+    }),
+    buildExcerpt: (place, focusVi, focusEn, source, headline) => ({
+      vi: `🧭 Nếu bạn chỉ có 1–2 ngày nghỉ cuối tuần và muốn tìm một nơi nước xanh trong vắt, không khói bụi: ${focusVi}. Bỏ túi ngay bảng tính chi phí chi tiết từ A–Z và mẹo đặt xe + tàu không phải xếp hàng chờ đợi!`,
+      en: `🧭 Planning a 1-2 day escape? ${focusEn}. Here is our transparent cost breakdown and queue-free booking tips.`,
+      ja: `🧭 1〜2日の週末旅行に最適！${focusEn}。リアルな費用とスムーズな移動方法を解説。`,
+      ko: `🧭 1~2일 주말 코스로 딱! ${focusEn}. 투명한 경비 계산과 대기 없는 이동 팁을 확인하세요.`,
+      zh: `🧭 只有1-2天假期？${focusEn}。为您奉上透明费用清单与免排队出行妙招。`,
+      fr: `🧭 Idéal pour 1 ou 2 jours d'évasion : ${focusEn}. Budget détaillé et astuces coupe-file.`
+    })
+  },
+  {
+    badgeIcon: '📸',
+    badgePrefix: 'Tọa Độ Sống Ảo',
+    likesBase: 416,
+    viewsBase: 2310,
+    readTime: '4 phút đọc',
+    buildTitle: (place) => ({
+      vi: `📸 5 Góc Lên Hình "Đắt Giá" Nhất Tại ${place} Đang Gây Sốt Trên Tạp Chí Du Lịch Thế Giới`,
+      en: `📸 5 Breathtaking Photo Angles at ${place} Making Waves in International Travel Magazines`,
+      ja: `📸 世界の旅行誌で話題！「${place}」で絶対撮りたい絶景フォトスポット5選`,
+      ko: `📸 해외 여행 매거진이 주목한 '${place}' 인생샷 포토스팟 5선`,
+      zh: `📸 刷屏国际旅游杂志！${place}最出片的5个绝美机位与穿搭指南`,
+      fr: `📸 Les 5 plus beaux spots photo de ${place} qui(font sensation dans la presse voyage`
+    }),
+    buildExcerpt: (place, focusVi, focusEn, source, headline) => ({
+      vi: `📷 Điểm tin từ ${source} ("${headline}"): ${focusVi}. Xem ngay gợi ý trang phục, góc máy từ ban công du thuyền 5★ và khung giờ ánh sáng xiên mặt nước đẹp như tranh vẽ!`,
+      en: `📷 Featured in ${source} ("${headline}"): ${focusEn}. Discover the best camera angles, outfit colors, and sundeck viewpoints.`,
+      ja: `📷 ${source} 掲載トレンド。船上バルコニーやカヤックからのベストアングルと服装のヒント。`,
+      ko: `📷 ${source} 화제의 스팟! 5성급 크루즈 발코니와 카약에서 찍는 베스트 앵글과 코디 팁.`,
+      zh: `📷 源自 ${source} 热门报道：揭秘五星游轮阳台与皮划艇最佳拍摄角度及穿搭色系。`,
+      fr: `📷 Repéré dans ${source} : nos conseils photo depuis le pont du navire 5★ et en kayak.`
+    })
+  },
+  {
+    badgeIcon: '💎',
+    badgePrefix: 'Trải Nghiệm 5 Sao',
+    likesBase: 365,
+    viewsBase: 1980,
+    readTime: '6 phút đọc',
+    buildTitle: (place) => ({
+      vi: `💎 Review Thực Tế ${place}: Nên Đi Tour Trong Ngày Hay Ngủ Đêm Trên Du Thuyền 5★ Có Bể Sục Jacuzzi?`,
+      en: `💎 Honest Review of ${place}: Day Trip vs. 5-Star Overnight Cruise with Heated Jacuzzi`,
+      ja: `💎 「${place}」徹底比較：日帰りツアーとジャグジー付5つ星宿泊クルーズ、どっちが正解？`,
+      ko: `💎 '${place}' 솔직 비교 리뷰: 당일 투어 vs 자쿠지 갖춘 5성급 숙박 크루즈, 무엇이 좋을까?`,
+      zh: `💎 ${place}真实测评：选一日游还是带恒温按摩池的5星级过夜游轮？`,
+      fr: `💎 Comparatif ${place} : Excursion à la journée ou Croisière 5★ de nuit avec Jacuzzi ?`
+    }),
+    buildExcerpt: (place, focusVi, focusEn, source, headline) => ({
+      vi: `🥂 Rất nhiều du khách phân vân giữa tour đi về trong ngày từ Hà Nội/Cát Bà và kỳ nghỉ 2N1Đ trên du thuyền Suite ban công riêng ngắm ${place}. Bài phân tích ưu – nhược điểm từng lựa chọn dưới đây sẽ giúp bạn chốt lịch trình trong 2 phút!`,
+      en: `🥂 Torn between a quick day tour and a 2D1N private-balcony suite voyage around ${place}? Compare pros, cons, and value for families & couples.`,
+      ja: `🥂 日帰りと1泊2日スイートクルーズのメリット・デメリットを家族・カップル向けにわかりやすく比較。`,
+      ko: `🥂 당일치기와 1박 2일 스위트 크루즈의 장단점을 커플·가족 여행객 시선에서 명쾌하게 비교해 드립니다.`,
+      zh: `🥂 纠结一日游还是两天一夜海景阳台套房？两分钟帮情侣与家庭游客选出高性价比方案。`,
+      fr: `🥂 Excursion d'un jour ou croisière 2J1N en suite avec balcon privé ? Le comparatif clair pour bien choisir.`
+    })
+  },
+  {
+    badgeIcon: '🌿',
+    badgePrefix: 'Du Lịch Chữa Lành',
+    likesBase: 329,
+    viewsBase: 1750,
+    readTime: '5 phút đọc',
+    buildTitle: (place) => ({
+      vi: `🌿 Tạm Rời Phố Thị 48 Giờ: Hành Trình Chèo Kayak, Nghe Sóng Vỗ & Thưởng Thức Hải Sản Tươi Sống Tại ${place}`,
+      en: `🌿 48-Hour Mindful Retreat at ${place}: Kayaking Emerald Lagoons & Fresh Seafood Gastronomy`,
+      ja: `🌿 都会を離れる48時間：「${place}」でカヤックと獲れたて海鮮を味わうスロートラベル`,
+      ko: `🌿 도심을 떠나는 48시간: '${place}'에서 카약과 제철 해산물을 즐기는 슬로 트래블`,
+      zh: `🌿 逃离都市48小时：在${place}划皮划艇、听海浪与品尝现捕海鲜的治愈之旅`,
+      fr: `🌿 Parenthèse de 48h à ${place} : Kayak dans les lagons émeraude & fruits de mer frais`
+    }),
+    buildExcerpt: (place, focusVi, focusEn, source, headline) => ({
+      vi: `🍃 Theo xu hướng "Slow Travel" được ${source} nhắc tới ("${headline}"), ${focusVi} đang là điểm hẹn lý tưởng nhất cho các gia đình và cặp đôi muốn nạp lại năng lượng mà chỉ mất 2–3 giờ di chuyển bằng Limousine từ Hà Nội.`,
+      en: `🍃 Embracing the Slow Travel movement highlighted by ${source} ("${headline}"), ${focusEn} offers an effortless 2-3 hour Limousine escape from Hanoi.`,
+      ja: `🍃 ${source} が注目するスロートラベル。ハノイからリムジンでわずか2〜3時間の極上リトリート。`,
+      ko: `🍃 ${source}가 주목한 슬로 트래블 트렌드! 하노이에서 리무진으로 2~3시간이면 닿는 힐링 코스를 만나보세요.`,
+      zh: `🍃 契合 ${source} 倡导的慢旅行风潮：从河内乘豪华专车仅需2-3小时即可抵达的山水疗愈胜地。`,
+      fr: `🍃 Dans l'esprit Slow Travel salué par ${source} : une retraite nature à seulement 2-3h de Limousine de Hanoï.`
+    })
+  },
+  {
+    badgeIcon: '🧭',
+    badgePrefix: 'Cẩm Nang Tự Túc A-Z',
+    likesBase: 387,
+    viewsBase: 2140,
+    readTime: '5 phút đọc',
+    buildTitle: (place) => ({
+      vi: `🧭 Kinh Nghiệm Đi ${place} Tự Túc Cho Người Mới: Cách Đi Xe Limousine Cao Tốc & Chọn Tuyến Tàu Không Bị Say Sóng`,
+      en: `🧭 First-Timer’s Guide to ${place}: Fast Highway Limousine Transfers & Calm-Water Cruise Routes`,
+      ja: `🧭 初めての「${place}」個人旅行ガイド：高速リムジン移動＆揺れない安心クルーズ選び`,
+      ko: `🧭 첫 방문자를 위한 '${place}' 자유여행 가이드: 고속도로 리무진 이동법 & 멀미 없는 크루즈 코스`,
+      zh: `🧭 第一次去${place}自由行必看：高速豪华专车接驳与风平浪静游轮航线选择指南`,
+      fr: `🧭 Guide pratique ${place} pour une première visite : Transfert Limousine rapide & croisière en eaux calmes`
+    }),
+    buildExcerpt: (place, focusVi, focusEn, source, headline) => ({
+      vi: `🚐 Đi cùng người lớn tuổi hoặc trẻ nhỏ đến ${place} cần lưu ý gì? ${focusVi}. Xem ngay hướng dẫn kết nối xe Limousine đón tận Phố Cổ Hà Nội ra thẳng bến tàu chỉ 3 tiếng, mặt vịnh êm như hồ không lo say sóng!`,
+      en: `🚐 Traveling with kids or seniors to ${place}? ${focusEn}. Learn how to connect door-to-door Old Quarter Limousines with calm-bay cruises in 3 hours.`,
+      ja: `🚐 お子様やシニア連れの旅行でも安心！ハノイ旧市街から直行リムジンで3時間、波の静かな湾内クルーズ案内。`,
+      ko: `🚐 아이나 부모님과 함께하는 여행도 안심! 하노이 구시가지에서 직통 리무진으로 3시간 만에 닿는 잔잔한만 크루즈 가이드.`,
+      zh: `🚐 带老人孩子去${place}怎么走最轻松？河内老城区专车3小时直达码头，内湾水面如镜不晕船。`,
+      fr: `🚐 Idéal en famille ou avec des seniors : liaison Limousine directe en 3h depuis Hanoï et navigation sur une mer d'huile.`
+    })
+  }
+];
 const TRENDING_TEMPLATES = [
   {
     region: 'Lan Ha',
@@ -722,11 +862,10 @@ async function run() {
   if (isDailyCron && !existingPosts.some((p) => p.date === today && p.isAutoDaily)) {
     const dayIdx = existingPosts.length % TRENDING_TEMPLATES.length;
     const tpl = TRENDING_TEMPLATES[dayIdx];
+    const style = EDITORIAL_STYLES[existingPosts.length % EDITORIAL_STYLES.length];
     const liveNews = await fetchLiveTrendingHeadline(tpl.rssQuery);
     const newsSource = liveNews ? liveNews.source : tpl.defaultSource;
-    const newsRef = liveNews
-      ? `Báo chí & truyền thông du lịch (${liveNews.source}) vừa điểm tin nổi bật: "${liveNews.headline}". `
-      : `Theo bình chọn của truyền thông du lịch quốc tế (${tpl.defaultSource}), `;
+    const headline = liveNews ? liveNews.headline : tpl.focusEn;
 
     const slug = `${slugify(tpl.place)}-${today}`;
     const newPost = {
@@ -736,32 +875,18 @@ async function run() {
       isAutoDaily: true,
       region: tpl.region,
       regionLabel: tpl.regionLabel,
-      sourceBadge: `Tin Nóng · ${newsSource}`,
+      sourceBadge: `${style.badgeIcon} ${style.badgePrefix} · ${newsSource}`,
       image: tpl.img,
-      initialLikes: 284,
-      initialViews: 1560,
-      readingTime: '5 phút đọc',
-      title: {
-        vi: `[Tâm Điểm Du Lịch] ${tpl.place}: Kinh Nghiệm Thực Tế & Lịch Trình Đáng Đi Nhất (${today})`,
-        en: `[Trending Travel] ${tpl.place}: Insider Tips & Best Cruise Itinerary (${today})`,
-        ja: `【最新トレンド】${tpl.place}：実用アドバイス＆おすすめクルーズ日程 (${today})`,
-        ko: `[최신 여행 트렌드] ${tpl.place}: 실전 여행 팁 & 추천 크루즈 코스 (${today})`,
-        zh: `【旅游热点】${tpl.place}：实用出行干货与最佳游轮路线 (${today})`,
-        fr: `[Tendance Voyage] ${tpl.place} : Conseils Pratiques & Itinéraire Croisière (${today})`
-      },
-      excerpt: {
-        vi: `${newsRef}${tpl.focusVi}. Xem ngay kinh nghiệm chọn giờ đi tránh đông người, chi phí thực tế và cách di chuyển thuận tiện nhất cho người đọc.`,
-        en: `${tpl.focusEn}. Practical tips on best visiting hours, real costs, and seamless cruise & Limousine transfers.`,
-        ja: `${tpl.focusEn}。混雑を避ける時間帯や実用的な移動・予約のコツを詳しく解説します。`,
-        ko: `${tpl.focusEn}. 혼잡을 피하는 시간대와 실속 있는 이동·예약 팁을 확인하세요.`,
-        zh: `${tpl.focusEn}。汇总错峰游览时间、真实费用参考与便捷交通预订攻略。`,
-        fr: `${tpl.focusEn}. Horaires idéaux pour éviter la foule, budget réel et conseils de transport.`
-      },
+      initialLikes: style.likesBase + (existingPosts.length % 19),
+      initialViews: style.viewsBase + (existingPosts.length * 23) % 260,
+      readingTime: style.readTime,
+      title: style.buildTitle(tpl.place),
+      excerpt: style.buildExcerpt(tpl.place, tpl.focusVi, tpl.focusEn, newsSource, headline),
       keywords: [tpl.place, 'Vịnh Lan Hạ', 'Vịnh Hạ Long', 'Ninh Bình', 'Cát Bà', 'kinh nghiệm du lịch tự túc'],
       sections: [
         {
           h2: `1. Điểm nóng truyền thông & Giá trị thực tế tại ${tpl.place}`,
-          p: `${newsRef}${tpl.focusVi}. Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước.`
+          p: `${style.buildExcerpt(tpl.place, tpl.focusVi, tpl.focusEn, newsSource, headline).vi} Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước.`
         },
         {
           h2: '2. Kinh nghiệm thực tế giúp bạn tiết kiệm thời gian & tránh cảnh đông đúc',
@@ -785,6 +910,40 @@ async function run() {
 
   // Sort newest first
   existingPosts.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+
+  // Refresh all auto-daily posts so no two adjacent cards share the same robotic [Tâm Điểm Du Lịch] prefix, identical excerpt, or identical 284 likes / 1560 views
+  let autoCounter = 0;
+  existingPosts = existingPosts.map((post) => {
+    if (!post.isAutoDaily) return post;
+    const tpl = TRENDING_TEMPLATES.find((t) => post.slug.startsWith(slugify(t.place))) || TRENDING_TEMPLATES[autoCounter % TRENDING_TEMPLATES.length];
+    const style = EDITORIAL_STYLES[autoCounter % EDITORIAL_STYLES.length];
+    const rawBadge = String(post.sourceBadge || '');
+    const cleanSource = rawBadge.includes('·') ? rawBadge.split('·').pop().trim() : (tpl.defaultSource || 'International Travel Media');
+    const quotedMatch = String((post.excerpt && post.excerpt.vi) || '').match(/"([^"]{12,140})"/);
+    const headline = quotedMatch ? quotedMatch[1] : tpl.focusEn;
+
+    const updatedExcerpt = style.buildExcerpt(tpl.place, tpl.focusVi, tpl.focusEn, cleanSource, headline);
+    const likes = style.likesBase + ((autoCounter * 17) % 63);
+    const views = style.viewsBase + ((autoCounter * 89) % 540);
+    autoCounter++;
+
+    return {
+      ...post,
+      sourceBadge: `${style.badgeIcon} ${style.badgePrefix} · ${cleanSource}`,
+      initialLikes: likes,
+      initialViews: views,
+      readingTime: style.readTime,
+      title: style.buildTitle(tpl.place),
+      excerpt: updatedExcerpt,
+      sections: [
+        {
+          h2: `1. ${style.badgeIcon} Góc nhìn thực tế & Sức hút của ${tpl.place}`,
+          p: `${updatedExcerpt.vi} Khác với những lời quảng cáo chung chung, điều khiến du khách thực sự hài lòng khi đến đây là cảnh quan thiên nhiên nguyên bản, không khí biển đảo trong lành và các hoạt động trải nghiệm trực tiếp như chèo thuyền kayak, tắm biển giữa vịnh hay ngồi thuyền nan xuyên hang nước.`
+        },
+        ...(post.sections ? post.sections.slice(1) : [])
+      ]
+    };
+  });
 
   // Write static HTML pages for every post
   for (const post of existingPosts) {
